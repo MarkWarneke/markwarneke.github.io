@@ -1,0 +1,72 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'grund-contrib-uglify',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'grund-contrib-uglify', null ]
+6 verbose cache add name=undefined spec="grund-contrib-uglify" args=["grund-contrib-uglify",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'grund-contrib-uglify',
+7 verbose parsed url   path: 'grund-contrib-uglify',
+7 verbose parsed url   href: 'grund-contrib-uglify' }
+8 silly lockFile 8c7008f5-grund-contrib-uglify grund-contrib-uglify
+9 verbose lock grund-contrib-uglify /Users/mark/.npm/8c7008f5-grund-contrib-uglify.lock
+10 silly lockFile 8c7008f5-grund-contrib-uglify grund-contrib-uglify
+11 silly lockFile 8c7008f5-grund-contrib-uglify grund-contrib-uglify
+12 verbose addNamed [ 'grund-contrib-uglify', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile c2119cb9-grund-contrib-uglify grund-contrib-uglify@
+15 verbose lock grund-contrib-uglify@ /Users/mark/.npm/c2119cb9-grund-contrib-uglify.lock
+16 silly addNameRange { name: 'grund-contrib-uglify', range: '*', hasData: false }
+17 verbose request where is /grund-contrib-uglify
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 7d68c7c256189d84
+20 verbose url raw /grund-contrib-uglify
+21 verbose url resolving [ 'https://registry.npmjs.org/', './grund-contrib-uglify' ]
+22 verbose url resolved https://registry.npmjs.org/grund-contrib-uglify
+23 verbose request where is https://registry.npmjs.org/grund-contrib-uglify
+24 info trying registry request attempt 1 at 12:50:48
+25 http GET https://registry.npmjs.org/grund-contrib-uglify
+26 http 404 https://registry.npmjs.org/grund-contrib-uglify
+27 silly registry.get cb [ 404,
+27 silly registry.get   { 'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '2',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     date: 'Sun, 29 Nov 2015 11:50:49 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     connection: 'keep-alive',
+27 silly registry.get     'x-served-by': 'cache-fra1235-FRA',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1448797849.089164,VS0,VE727' } ]
+28 silly lockFile c2119cb9-grund-contrib-uglify grund-contrib-uglify@
+29 silly lockFile c2119cb9-grund-contrib-uglify grund-contrib-uglify@
+30 error 404 Not Found
+30 error 404
+30 error 404 'grund-contrib-uglify' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404 It was specified as a dependency of 'mark-mit-k.github.io'
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Darwin 15.0.0
+32 error command "node" "/usr/local/bin/npm" "install" "grund-contrib-uglify" "--save-dev"
+33 error cwd /Users/mark/Code/mark-mit-k.github.io
+34 error node -v v0.10.33
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]
