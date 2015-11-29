@@ -1,5 +1,7 @@
 $font-stack: 'Quicksand', proxima-nova, sans-serif
 $primary-color: #333
+$gunmetal-color: #2C3539
+$gunmetal-color-i: #382F2B
 
 html
   background: url(../img/Bild_SW_lowres.jpg) no-repeat center center fixed
@@ -14,15 +16,17 @@ html
 html
   position: relative
   min-height: 100%
-  font: $font-stack
+  font-family: $font-stack
 
 body
-  margin-bottom: 50px
+  margin-bottom: 30px
 
 
 .footer
   position: absolute
   bottom: 0
   width: 100%
-  height: 50px
-  background-color: #f5f5f5
+  height: 30px
+  background-color: $gunmetal-color
+  border-top-width: thin
+  border-top-color: $gunmetal-color-i
