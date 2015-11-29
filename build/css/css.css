@@ -17,13 +17,14 @@ body {
 }
 
 .footer {
+  font: #e1e1e1;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 30px;
-  background-color: #2C3539;
+  background-color: rgba(25, 25, 25, 0.95);
   border-top-width: thin;
-  border-top-color: #382F2B;
+  border-top-color: #2C3539;
 }
 
 /*# sourceMappingURL=css.css.map */

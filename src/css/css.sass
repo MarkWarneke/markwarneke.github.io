@@ -1,7 +1,8 @@
 $font-stack: 'Quicksand', proxima-nova, sans-serif
 $primary-color: #333
-$gunmetal-color: #2C3539
-$gunmetal-color-i: #382F2B
+$gunmetal: #2C3539
+$black-t: rgba(25,25,25,0.95)
+$white-d: rgb(225,225,225)
 
 html
   background: url(../img/Bild_SW_lowres.jpg) no-repeat center center fixed
@@ -23,10 +24,11 @@ body
 
 
 .footer
+  font: $white-d
   position: absolute
   bottom: 0
   width: 100%
   height: 30px
-  background-color: $gunmetal-color
+  background-color: $black-t
   border-top-width: thin
-  border-top-color: $gunmetal-color-i
+  border-top-color: $gunmetal
