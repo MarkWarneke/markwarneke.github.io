@@ -30,7 +30,7 @@ module.exports = function(grunt) {
             cwd: 'src/img/',
             src: ['**/*.png'],
             // Could also match cwd line above. i.e. project-directory/img/
-            dest: 'build/img/compressed/',
+            dest: 'build/img/',
             ext: '.png'
           }
         ]
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             cwd: 'src/img/',
             src: ['**/*.jpg'],
             // Could also match cwd. i.e. project-directory/img/
-            dest: 'build/img/compressed/',
+            dest: 'build/img/',
             ext: '.jpg'
           }
         ]
