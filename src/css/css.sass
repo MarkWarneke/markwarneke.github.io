@@ -24,11 +24,58 @@ body
 
 
 .footer
-  font: $white-d
+  color: $white-d
+  font-size: 85%
   position: absolute
   bottom: 0
   width: 100%
   height: 30px
   background-color: $black-t
-  border-top-width: thin
+  border-top-width: 0.01px
   border-top-color: $gunmetal
+  border-top-style: solid
+
+a:hover,:active,:focus
+  color: $gunmetal
+
+footer
+  a
+    color: $white-d
+    margin-top: auto
+    padding-top: 5px !important
+    padding-bottom: 0px !important
+    padding-left: 20px
+    border-right-style: solid
+    border-right-width: 0.01px
+    border-right-color: $gunmetal
+  a:first-child
+    border-left-style: solid
+    border-left-width: 0.01px
+    border-left-color: $gunmetal
+
+aside
+  position: fixed
+  bottom: 40%
+  right: 0
+  z-index: 1000
+  display: block
+  overflow-x: hidden
+  overflow-y: auto
+  background-color: $black-t
+  border-right-style: solid
+  border-right-width: 0.01px
+  border-right-color: $gunmetal
+  a
+    font-size: 150%
+    color: $white-d
+    padding: 20px !important
+    border-bottom-style: solid
+    border-bottom-width: 0.01px
+    border-bottom-color: $gunmetal
+  a:first-child
+    border-top-style: solid
+    border-top-width: 0.01px
+    border-top-color: $gunmetal
+  i
+    + span
+      padding-left: 20px
