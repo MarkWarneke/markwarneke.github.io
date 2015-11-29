@@ -62,6 +62,17 @@ module.exports = function(grunt) {
       stoponwarning: false
     },
     files: ['/index.html', '*.html']
+  },
+
+
+  copy: {
+    css: {
+      expand: true,
+      cwd: 'src/css/',
+      src: '*.css',
+      dest: 'build/css/',
+      filter: 'isFile'
+    }
   }
 
 
@@ -75,8 +86,11 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-bootlint');
 
+  grunt.loadNpmTasks('grunt-contrib-copy');
+
+
   // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerTask('default', ['uglify', 'copy:css']);
   // imagemin task(s)
   grunt.registerTask('image', ['imagemin']);
   grunt.registerTask('imagepng', ['imagemin:png']); // only .png files

@@ -1,0 +1,7 @@
+html {
+  background: url(build/img/compressed/Bild_SW_lowres.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
