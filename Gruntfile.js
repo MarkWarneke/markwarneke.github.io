@@ -64,16 +64,20 @@ module.exports = function(grunt) {
     files: ['/index.html', '*.html']
   },
 
-
-  copy: {
-    css: {
-      expand: true,
-      cwd: 'src/css/',
-      src: '*.css',
-      dest: 'build/css/',
-      filter: 'isFile'
-    }
-  }
+  sass: {                              // Task
+   dist: {                            // Target
+     options: {                       // Target options
+       style: 'expanded'
+     },
+     files: [{
+       expand: true,
+       cwd: 'src/css',
+       src: ['*.scss'],
+       dest: 'build/css/',
+       ext: '.css'
+     }]
+   }
+ }
 
 
   });
@@ -88,9 +92,11 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-copy');
 
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'copy:css']);
+  grunt.registerTask('default', ['uglify', 'sass']);
   // imagemin task(s)
   grunt.registerTask('image', ['imagemin']);
   grunt.registerTask('imagepng', ['imagemin:png']); // only .png files
@@ -98,4 +104,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('validateBootstrap', ['bootlint']);
+
+  grunt.registerTask('css', ['sass']);
 };
