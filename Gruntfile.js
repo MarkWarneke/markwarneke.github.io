@@ -76,7 +76,13 @@ module.exports = function(grunt) {
        dest: 'build/css/',
        ext: '.css'
      }]
-   }
+   },
+   
+   serve: {
+    options: {
+        port: 9000
+    }
+}
  }
 
 
@@ -102,8 +108,9 @@ module.exports = function(grunt) {
   grunt.registerTask('imagepng', ['imagemin:png']); // only .png files
   grunt.registerTask('imagejpg', ['imagemin:jpg']);// only .jpg files
 
-  // Default task(s).
   grunt.registerTask('validateBootstrap', ['bootlint']);
 
   grunt.registerTask('css', ['sass']);
+
+  grunt.loadNpmTasks('grunt-serve');
 };
