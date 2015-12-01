@@ -44,7 +44,7 @@
         <ul class="nav nav-sidebar">
           <li><a href="#home"><i class="fa fa-home hidden-xs"></i> <span>Home</span></a></li>
           <li><a href="#home"><i class="fa fa-user hidden-xs"></i> <span>About</span></a></li>
-          <li><a href="#home"><i class="fa fa-code-fork hidden-xs"></i> <span>Projects</span></a></li>
+          <li><a data-toggle="modal" data-target="#projectsModal"><i class="fa fa-code-fork hidden-xs"></i> <span>Projects</span></a></li>
         </ul>
       </nav>
     </aside>
@@ -52,9 +52,9 @@
     <footer class="footer navbar-fixed-bottom">
       <div class="container">
           <ul class="nav navbar-nav">
-            <li> <a href="www.xing.com/markwarneke"> <i class="fa fa-xing"></i> <span class="hidden-xs hidden-sm"> Xing </span></a></li>
+            <li> <a href="https://www.xing.com/markwarneke"> <i class="fa fa-xing"></i> <span class="hidden-xs hidden-sm"> Xing </span></a></li>
             <li> <a href="mailto:warneke.mark@gmail.com"> <i class="fa fa-envelope-o"></i> <span class="hidden-xs hidden-sm"> E-Mail </span></a></li>
-            <li> <a href="www.facebook.com/warneke.mark"> <i class="fa fa-facebook"></i> <span class="hidden-xs hidden-sm"> Facebook </span></a></li>
+            <li> <a href="https://www.facebook.com/warneke.mark"> <i class="fa fa-facebook"></i> <span class="hidden-xs hidden-sm"> Facebook </span></a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li><a data-toggle="modal" data-target="#impressumModal"> Impressum </a></li>
@@ -62,8 +62,25 @@
       </div>
     </footer>
 
+
+
+
+    <!-- Custom Modal -->
+    <div class="modal fade" id="projectsModal" tabindex="-1" role="dialog" aria-labelledby="Projects">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Impressum</h4>
+          </div>
+          <div class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Modal -->
-    <div class="modal fade" id="impressumModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="impressumModal" tabindex="-1" role="dialog" aria-labelledby="Impressum">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">

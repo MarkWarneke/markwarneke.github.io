@@ -80,4 +80,14 @@ aside i + span {
   padding-left: 20px;
 }
 
+.custom-modal {
+  color: #e1e1e1;
+  background-color: rgba(25, 25, 25, 0.95);
+  width: 80%;
+  height: 80%;
+}
+.custom-modal .modal-header {
+  height: 30px;
+}
+
 /*# sourceMappingURL=css.css.map */
