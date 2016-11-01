@@ -93,13 +93,9 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "imagemin" task.
   //http://blog.grayghostvisuals.com/grunt/image-optimization/
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-
   grunt.loadNpmTasks('grunt-bootlint');
-
   grunt.loadNpmTasks('grunt-contrib-copy');
-
   grunt.loadNpmTasks('grunt-contrib-sass');
-
 
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'sass']);
@@ -107,10 +103,7 @@ module.exports = function(grunt) {
   grunt.registerTask('image', ['imagemin']);
   grunt.registerTask('imagepng', ['imagemin:png']); // only .png files
   grunt.registerTask('imagejpg', ['imagemin:jpg']);// only .jpg files
-
   grunt.registerTask('validateBootstrap', ['bootlint']);
-
   grunt.registerTask('css', ['sass']);
-
   grunt.loadNpmTasks('grunt-serve');
 };
