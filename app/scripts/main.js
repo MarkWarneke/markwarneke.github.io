@@ -38,6 +38,7 @@ $(document).ready(function() {
         console.log('Show', def);
         return $(def).show();
     }
+
 });
 
 $(window).on('load', function() {
