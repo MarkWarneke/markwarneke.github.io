@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1" ">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">
     <title>Mark Warneke</title>
 
     <link rel="apple-touch-icon " href="apple-touch-icon.png ">
@@ -14,7 +14,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -113,17 +113,18 @@
     <div class="container wrapper">
       <section id="home" class="row">
         <div class="col-lg-6 bg">
-          <img src="images/bg.png" alt="" data-position="center center" class="img img-responsive">
+          <img src="images/bg.png" alt="" data-position="center center" class="img-responsive">
         </div>
         <div class="col-lg-6 content text-center">
           <div class="inner">
+
             <header>
               <h1 class="text-uppercase">Mark Warneke</h1>
               <hr />
               <h2 class="text-uppercase thin">business informatics</h2>
-              <ul class="list-inline">
-                <li><a href="tel:+491759268542"><i class="fa fa-phone"></i> + 49 175 926 8542</a></li>
-                <li><a href="mailto:warneke.mark@gmail.com"><i class="fa fa-envelope"></i> warneke.mark@gmail.com</a></li>
+              <ul class="list-inline hidden-xs">
+                <li><a href="tel:+491759268542"><i class="fa fa-phone"></i>+ 49 175 926 8542</a></li>
+                <li><a href="mailto:warneke.mark@gmail.com"><i class="fa fa-envelope"></i>warneke.mark@gmail.com</a></li>
               </ul>
             </header>
 
@@ -137,11 +138,20 @@
 
           <footer>
             <div class="col-md-6 text-left">
-              <ul class="fa-ul">
+              <ul class="fa-ul hidden-xs">
                 <li><a href="http://www.markwarneke.me" target="_blank"><i class="fa-li fa fa-globe"></i> markwarneke.me</a></li>
                 <li><a href="http://www.xing.com/profile/Mark_Warneke" target="_blank"><i class="fa-li fa fa-xing"></i> xing.com/profile/Mark_Warneke</a></li>
                 <li><a href="http://www.github.com/mark-mit-k" target="_blank"><i class="fa-li fa fa-github"></i> github.com/mark-mit-k</a></li>
               </ul>
+
+              <ul class="fa-ul list-inline visible-xs text-center">
+                <li><a href="tel:+491759268542" type="button" class="touchy fa fa-phone"></a></li>
+                <li><a href="mailto:warneke.mark@gmail.com" type="button" class="touchy fa fa-envelope"></a></li>
+                <li></li>
+                <li><a href="http://www.xing.com/profile/Mark_Warneke" target="_blank" type="button" class="touchy fa fa-xing"></a></li>
+                <li><a href="http://www.github.com/mark-mit-k" target="_blank" type="button" class="touchy fa fa-github"></a></li>
+              </ul>
+              <hr class="visible-xs" />
             </div>
             <div class="col-md-6 text-left">
                <ul class="fa-ul">

@@ -5,6 +5,8 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+var ghPages = require('gulp-gh-pages');
+const imagemin = require('gulp-imagemin');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -70,6 +72,7 @@ gulp.task('html', ['styles', 'scripts'], () => {
 gulp.task('images', () => {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin()))
+    .pipe(imagemin()) 
     .pipe(gulp.dest('dist/images'));
 });
 
@@ -160,6 +163,11 @@ gulp.task('wiredep', () => {
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {

@@ -1,7 +1,6 @@
 $icon-font-path: '../fonts/';
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-@import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
@@ -13,20 +12,53 @@ body {
     color: #555;
     line-height: 1.75em;
     background-color: #414141;
+    max-width: 100%;
+    overflow-x: hidden;
 
-    &:before {
-        transition: opacity 0.5s ease-in-out;
-        transition-property: opacity;
-        transition-duration: 0.5s;
-        transition-timing-function: ease-in-out;
-        transition-delay: initial;
-    }
 }
 
 @media only screen and (max-width : 1200px) {
     .bg {
         max-height: 300px;
     }   
+}
+
+@media only screen and (max-width : 768px) {
+    .home {
+        max-width: 300px;
+        width: 300px;
+        margin: 0px !important;
+    }   
+
+    header {
+        margin: 1em 0 !important;
+    }
+
+    section {
+        max-width: 375px;
+        width: 375px;
+        height: 100%;
+    }
+
+    .menu {
+        margin: 1em 0 !important;
+    }
+
+    .container {
+        padding:0px !important;
+    }
+
+    .button {
+        min-width: 100px;
+        font-size: 0.8em !important;
+        padding: 0 0.1em !important;
+        min-width: 20em !important;
+    }
+
+    .btn-group-justified{
+        padding-top: 1em;
+
+    }
 }
 
 
@@ -98,11 +130,6 @@ header {
 
 section {
     background-color: white;    
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transition-property: opacity, transform;
-    transition-duration: 0.5s, 0.5s;
-    transition-timing-function: ease, ease;
-    transition-delay: initial, initial;
 }
 
 .panel {
@@ -197,4 +224,23 @@ ul {
 
 footer {
     padding-top: 1.5em;
+}
+
+.touchy{ /* global button class */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 2px #999;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 25px;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
 }
