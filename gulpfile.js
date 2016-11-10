@@ -92,6 +92,11 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
+gulp.task('doc', () => {
+  return gulp.src(['app/doc/*'])
+  .pipe(gulp.dest('dist/doc/'))
+})
+
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
@@ -104,7 +109,8 @@ gulp.task('serve', () => {
         routes: {
           '/bower_components': 'bower_components'
         }
-      }
+      },
+      browser: 'google chrome canary'
     });
 
     gulp.watch([
@@ -170,7 +176,7 @@ gulp.task('deploy', function() {
     .pipe(ghPages());
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'doc'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
