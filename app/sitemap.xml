@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>http://www.markwarneke.me/</loc>
+  <lastmod>2016-11-10T17:26:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>http://www.markwarneke.me/index.amp.html</loc>
+  <lastmod>2016-11-12T17:26:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>http://www.markwarneke.me/studads/</loc>
+  <lastmod>2016-11-12T17:26:32+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.2</priority>
+</url>
+
+<url>
+  <loc>http://www.markwarneke.me/rubyred/</loc>
+  <lastmod>2016-11-12T17:26:32+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.2</priority>
+</url>
+
+<url>
+  <loc>http://www.markwarneke.me/kreaktiv/</loc>
+  <lastmod>2016-11-12T17:26:32+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.2</priority>
+</url>
+
+<url>
+  <loc>http://www.markwarneke.me/ohrensessel/</loc>
+  <lastmod>2016-11-12T17:26:32+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.2</priority>
+</url>
+</urlset>
