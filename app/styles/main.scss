@@ -117,6 +117,12 @@ header {
     }
 }
 
+.light {
+    font-weight: lighter;
+    color: #555;
+    font-size: smaller;
+}
+
 .wrapper {
     perspective: 1000px;
     min-height: 100vh;
