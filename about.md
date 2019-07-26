@@ -2,10 +2,10 @@
 layout: page
 title: About
 bigimg: /img/path.jpg
-subtitle: 
+subtitle: Hi
 ---
 
-My name is Mark Warneke and I focus on
+Hi, I'm Mark Warneke and welcome to my page. My focus is
 
 - IT & Cloud Consulting
 - Web Engineering
@@ -14,8 +14,14 @@ My name is Mark Warneke and I focus on
 
 ## Current
 
-Consultant [@Microsoft](https://microsoft.com)
-Developer [@Eve](https://starteve.ai)
+- Consultant [@Microsoft](https://microsoft.com)
+  - DevOps Engineer
+  - Cloud Consulting and Engineering
+  - Automation
+- Developer [@Eve](https://starteve.ai)
+  - Web Engineer
+  - Front: Angular
+  - Backend: dotnet core, signalR
 
 ## History
 
@@ -34,4 +40,5 @@ Developer [@Eve](https://starteve.ai)
 ## Quote
 
 > "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination."
+
 The Mythical Man-Month: Essays on Software Engineering
