@@ -14,7 +14,7 @@ This is my very first blog post to introduce you to my new site.
 I am going to publish content around a variety of topics from general IT-Consulting, Cloud Consulting (especially around Azure), as well as Web and Software Engineering topics. You can expect posts on automation and DevOps - focusing on PowerShell, Infrastructure as Code and Azure DevOps.
 
 {: .box-note}
-Note: Opinions are my own
+**Note:** Opinions are my own
 
 I currently do work for Microsoft, however, all content published on this domain is based on my experience, opinions and findings. **Content published is NO official Microsoft statement!** (to see official guides go to [docs.microsoft.com](https://docs.microsoft.com))
 
