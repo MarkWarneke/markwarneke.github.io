@@ -68,8 +68,8 @@ social-network-links:
   email: "warneke.mark@outlook.com"
   github: MarkWarneke
   twitter: MarkWarneke
-#  reddit: yourname
   linkedin: MarkWarneke
+#  reddit: yourname
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -114,7 +114,7 @@ google_analytics: "UA-70835200-1"
 # --- Comments --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-# disqus: ""
+disqus: "markwarneke"
 
 # If you want to use JustComments fill with the API Key
 #just-comments: "ABCD-EFGH-IJKL"
