@@ -9,7 +9,9 @@ time: 1
 
 # Hi
 
-Hello world, this is my first blog post to introduce you to my site. I will be publishing content around different topics from general IT-Consulting, Cloud especially Azure consulting, as well as Web and Software Engineering topics. You can also expect automation topics regarding PowerShell and DevOps.
+This is my very first blog post to introduce you to my new site.
+
+I am going to publish content around a variety of topics from general IT-Consulting, Cloud Consulting (especially around Azure), as well as Web and Software Engineering topics. You can expect posts on automation and DevOps - focusing on PowerShell, Infrastructure as Code and Azure DevOps.
 
 > Opinions are my own
 
