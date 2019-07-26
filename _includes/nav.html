@@ -12,6 +12,7 @@
       {%- else -%}
       <a class="navbar-brand" href="{{ '' | absolute_url }}">{{ site.title }}</a>
       {%- endif -%}
+
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -32,6 +33,13 @@
         <li><a href="{{ link[1] | relative_url }}">{{ link[0] }}</a></li>
         {%- endif -%}
         {%- endfor -%}
+        <a href="https://twitter.com/MarkWarneke" title="{{ element.name }}" class="navbar-social">
+          <span class="fa-stack fa-lg" aria-hidden="true">
+            <i class="fa  fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x navbar-social-icon"></i>
+          </span>
+          <span class="sr-only">{{ element.name }}</span>
+        </a>
       </ul>
     </div>
 

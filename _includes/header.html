@@ -26,21 +26,21 @@
             {% endif %}
             {% endif %}
 
-            {% if include.type == "post" %}
-            <span class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</span>
-            {% endif %}
-
-            {% if page.tags.size > 0 %}
             <div class="blog-tags">
+              {% if include.type == "post" %}
+              <span class="post-meta">{{ page.date | date: "%-d %B %Y"  }}</span>
+              {% endif %}
+
+              {% if page.tags.size > 0 %}
               {% if site.link-tags %}
               {% for tag in page.tags %}
-              <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+              <a class="post-meta" href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
               {% endfor %}
               {% else %}
               {{ page.tags | join: ", " }}
               {% endif %}
+              {% endif %}
             </div>
-            {% endif %}
 
           </div>
         </div>
@@ -64,9 +64,21 @@
             {% endif %}
             {% endif %}
 
-            {% if include.type == "post" %}
-            <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
-            {% endif %}
+            <div class="blog-tags">
+              {% if include.type == "post" %}
+              <span class="post-meta">{{ page.date | date: "%-d %B %Y" }}</span>
+              {% endif %}
+
+              {% if page.tags.size > 0 %}
+              {% if site.link-tags %}
+              {% for tag in page.tags %}
+              <a class="post-meta" href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+              {% endfor %}
+              {% else %}
+              {{ page.tags | join: ", " }}
+              {% endif %}
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>

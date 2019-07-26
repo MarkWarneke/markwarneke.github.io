@@ -43,27 +43,6 @@ h6 {
   font-weight: 800;
 }
 
-a {
-  color: {
-      {
-      site.link-col
-    }
-  }
-
-  ;
-}
-
-a:hover,
-a:focus {
-  color: {
-      {
-      site.hover-col
-    }
-  }
-
-  ;
-}
-
 blockquote {
   color: #808080;
   font-style: italic;
@@ -458,22 +437,11 @@ footer .theme-by {
 }
 
 .post-preview a {
-  text-decoration: none;
   color: #404040;
 }
 
 .post-preview a:focus,
-.post-preview a:hover {
-  text-decoration: none;
-
-  color: {
-      {
-      site.hover-col
-    }
-  }
-
-  ;
-}
+.post-preview a:hover {}
 
 .post-preview .post-title {
   font-size: 30px;
@@ -491,6 +459,7 @@ footer .theme-by {
   color: #808080;
   font-size: 12px;
   margin: 0 0 10px;
+  text-transform: uppercase;
 }
 
 .post-preview .post-entry {
@@ -539,33 +508,17 @@ footer .theme-by {
 .blog-tags {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #999;
-  font-size: 15px;
-  margin-bottom: 30px;
+  font-size: 12px;
 }
 
 .blog-tags a {
-  color: {
-      {
-      site.link-col
-    }
-  }
-
-  ;
+  color: #eeeeee;
   text-decoration: none;
   padding: 0px 5px;
 }
 
 .blog-tags a:hover {
-  border-radius: 2px;
-
-  color: {
-      {
-      site.hover-col
-    }
-  }
-
-  ;
-  background-color: #EEE;
+  text-decoration: underline;
 }
 
 .post-preview .blog-tags {
@@ -637,6 +590,7 @@ footer .theme-by {
   padding: 100px 0;
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
+  text-align: center;
 }
 
 .intro-header .page-heading h1 {
@@ -703,6 +657,7 @@ footer .theme-by {
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
     padding: 150px 0;
+    text-align: center;
   }
 
   .intro-header .page-heading h1 {
@@ -716,6 +671,11 @@ footer .theme-by {
   .intro-header.big-img .img-desc {
     font-size: 14px;
   }
+}
+
+.header-section {
+  margin-top: 5px;
+  text-align: center;
 }
 
 .header-section.has-img .no-img {
@@ -744,6 +704,7 @@ footer .theme-by {
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
     display: none;
+    text-align: center;
   }
 
   .header-section.has-img .big-img {
@@ -1019,13 +980,27 @@ pre {
 /* The progress container (grey background) */
 .progress-container {
   width: 100%;
-  height: 8px;
+  height: 2px;
   background: #ccc;
 }
 
 /* The progress bar (scroll indicator) */
 .progress-bar {
-  height: 8px;
-  background: #4caf50;
+  height: 2px;
+  background: #2e9fff;
   width: 0%;
+}
+
+.navbar-social-icon {
+  padding: 5px;
+}
+
+ul {
+  padding-left: 20px;
+  font-size: 1.25em;
+  padding-inline-start: 20px;
+}
+
+ul ul {
+  font-size: 0.9em;
 }

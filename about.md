@@ -36,10 +36,14 @@ subtitle: Hi,I'm Mark Warneke and welcome to my page
 - B.Sc. Business Informatics [@University of Applied Science Münster](https://en.fh-muenster.de)
   - Web Engineering
   - Software Engineering
-  - Business Intelligence 
+  - Business Intelligence
 
 ## Quote
 
 > "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination."
 
-*The Mythical Man-Month: Essays on Software Engineering*
+_The Mythical Man-Month: Essays on Software Engineering_
+
+# Theme by
+
+[beautiful-jekyll](https://deanattali.com/beautiful-jekyll/)
