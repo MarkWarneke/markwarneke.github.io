@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-bigimg: /img/path.jpg
+bigimg: /img/contact.jpg
 subtitle: Hi
 ---
 
