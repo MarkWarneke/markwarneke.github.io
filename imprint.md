@@ -1,4 +1,10 @@
-# Imprint
+---
+layout: page
+title: Imprint
+use-site-title: true
+---
+
+# Contact
 
 <ul class="fa-ul ">
     <li>
@@ -10,6 +16,7 @@
     </li>
 </ul>
 
+# Disclaimer
 
 <p>
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
@@ -35,8 +42,6 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 <p>
 Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
 </p>
-
-
 
 <p>
 <strong>Datenschutz</strong>
