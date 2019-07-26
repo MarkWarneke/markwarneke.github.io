@@ -1,16 +1,22 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+bigimg: /img/path.jpg
+subtitle: 
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+My name is Mark Warneke
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+- IT-Consulting & Cloud Consulting
+- Web Engineering
+- Software development & automation
+- Business Intelligence
 
-What else do you need?
+## Current
 
-### my history
+Consultant @Microsoft
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+## Quote
+
+> "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination." 
+> - The Mythical Man-Month: Essays on Software Engineering 
