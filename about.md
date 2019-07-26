@@ -2,10 +2,10 @@
 layout: page
 title: About
 bigimg: /img/contact.jpg
-subtitle: Hi
+subtitle: Hi,I'm Mark Warneke and welcome to my page
 ---
 
-Hi, I'm Mark Warneke and welcome to my page. My focus is
+# Focus
 
 - IT & Cloud Consulting
 - Web Engineering
