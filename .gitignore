@@ -1,5 +1,9 @@
+# project
 _site
 .sass-cache
-node_modules
-Gemfile.lock
-*.gem
+.vagrant
+
+# general
+.DS_Store
+Thumbs.db
+ehthumbs.db
