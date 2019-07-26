@@ -8,7 +8,7 @@ use-site-title: true
 
 Address  
 Mark Warneke  
-Bismarckstrasse 21  
+Bismarckstr 21  
 80803 Munich  
 Germany  
  
@@ -66,3 +66,7 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Komm
 </p> 
 <p>Sie können die Erfassung durch Google Analytics verhindern, indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt, das das Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website verhindert: <a href="javascript:gaOptout() ">Google Analytics deaktivieren</a>
 </p>
+
+# Theme by
+
+[beautiful-jekyll](https://deanattali.com/beautiful-jekyll/)
