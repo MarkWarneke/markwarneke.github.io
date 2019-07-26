@@ -7,7 +7,7 @@ use-site-title: true
 # Contact
 
 Address  
-Mark Warneke
+Mark Warneke  
 Bismarckstrasse 21  
 80803 Munich  
 Germany  
