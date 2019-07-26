@@ -1,8 +1,9 @@
 ---
 layout: page
 title: About
+use-site-title: true
 bigimg: /img/contact.jpg
-subtitle: Hi,I'm Mark Warneke and welcome to my page
+subtitle: Hi, I'm Mark Warneke and welcome to my page
 ---
 
 # Focus
