@@ -29,8 +29,8 @@ body {
 }
 
 p {
-  line-height: 1.5;
-  margin: 30px 0;
+  line-height: 1.5em;
+  font-size: 1.25em;
 }
 
 h1,
@@ -489,8 +489,7 @@ footer .theme-by {
 .post-preview .post-meta,
 .post-heading .post-meta {
   color: #808080;
-  font-size: 18px;
-  font-style: italic;
+  font-size: 12px;
   margin: 0 0 10px;
 }
 
