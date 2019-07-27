@@ -11,11 +11,15 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
     <a href="{{ post.url | relative_url }}"">
       <div class="card">
         {% if post.image %}
+        <div class="view overlay">
         <img
           class="card-img-top"
           src="{{ post.image | relative_url }}"
           alt="{{ post.image | relative_url }}"
         />
+         
+          <div class="mask rgba-white-slight"></div>
+        </div>
         {% endif %}
         <div class="card-body">
           <p class="card-text">
