@@ -167,15 +167,16 @@ function myFunction() {
   try {
     var headerHeight = document.getElementsByClassName("header-section")[0]
       .clientHeight;
-    winScroll + headerHeight;
+    var top = winScroll + headerHeight;
     var readingHeight = document.getElementsByClassName("blog-post")[0]
       .clientHeight;
   } catch {
+    var top = winScroll;
     var readingHeight = document.documentElement.clientHeight;
   }
 
   var height = readingHeight - document.documentElement.scrollHeight;
 
-  var scrolled = (winScroll / height) * 100;
+  var scrolled = (top / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
 }
