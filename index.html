@@ -64,12 +64,17 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
             <i class="far fa-clock pr-1"></i>{{ post.time }}
           </li>
           <li class="list-inline-item pr-2 white-text">
-            <i class="far fa-tag pr-1"></i>{% if post.tags.size > 0 %} {% if
-            site.link-tags %} {% for tag in post.tags %}
-            <a href=" {{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-            {% endfor %} {% else %}
-            {{ post.tags | join: ", " }}
-            {% endif %} {% endif %}
+            <i class="far fa-tag pr-1"></i>
+            {% if post.tags.size > 0 %} 
+              {% if site.link-tags %} 
+                {% for tag in post.tags %}
+                  <a href=" {{ '/tags' | relative_url }}#{{- tag -}}">
+                    {{- tag -}}</a>
+                {% endfor %} 
+              {% else %}
+                {{ post.tags | join: ", " }}
+              {% endif %} 
+            {% endif %}
           </li>
         </ul>
       </div>
