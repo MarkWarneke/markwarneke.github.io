@@ -8,49 +8,50 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
 <div class="posts-list">
   {% for post in paginator.posts %}
   <article>
-    <div class="card">
-      {% if post.bigimage %}
-      <img
-        class="card-img-top"
-        src="{{ post.bigimage | relative_url }}"
-        alt="{{ post.bigimage | relative_url }}"
-      />
-      {% endif %}
-      <div class="card-body">
-        <p class="card-text">
-          <small class="text-muted">
-            {{ post.date | date: "%-d %B %Y" }}
-            <span> / {{ post.time }} MIN READ / </span>
-            {% if post.tags.size > 0 %} {% if site.link-tags %} {% for tag in
-            post.tags %}
-            <a href=" {{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-            {% endfor %} {% else %}
-            {{ post.tags | join: ", " }}
-            {% endif %} {% endif %}
-          </small>
-        </p>
-        <h1 class="card-title">{{ post.title }}</h1>
-        <p class="card-text">
-          {{
-            post.excerpt
-              | strip_html
-              | xml_escape
-              | truncatewords: site.excerpt_length
-          }}
-          {% assign excerpt_word_count = post.excerpt | number_of_words %} {% if
-          post.content != post.excerpt or excerpt_word_count >
-          site.excerpt_length %}
-          <a href="{{ post.url | relative_url }}" class="post-read-more"
-            >Read&nbsp;More</a
-          >
-        </p>
-        <a
-          href="{{ post.url | relative_url }}"
-          class="post-read-more stretched-link"
-        ></a>
+    <a href="{{ post.url | relative_url }}">
+      <div class="card">
+        {% if post.image %}
+        <img
+          class="card-img-top"
+          src="{{ post.image | relative_url }}"
+          alt="{{ post.image | relative_url }}"
+        />
         {% endif %}
+        <div class="card-body">
+          <p class="card-text">
+            <small class="text-muted">
+              {{ post.date | date: "%-d %B %Y" }}
+              <span> / {{ post.time }} MIN READ / </span>
+              {% if post.tags.size > 0 %} {% if site.link-tags %} {% for tag in
+              post.tags %}
+              <a
+                href=" {{ '/tags' | relative_url }}#{{- tag -}}"
+                >{{- tag -}}</a
+              >
+              {% endfor %} {% else %}
+              {{ post.tags | join: ", " }}
+              {% endif %} {% endif %}
+            </small>
+          </p>
+          <h1 class="card-title">{{ post.title }}</h1>
+          <p class="card-text">
+            {{
+              post.excerpt
+                | strip_html
+                | xml_escape
+                | truncatewords: site.excerpt_length
+            }}
+            {% assign excerpt_word_count = post.excerpt | number_of_words %} {%
+            if post.content != post.excerpt or excerpt_word_count >
+            site.excerpt_length %}
+            <a href="{{ post.url | relative_url }}" class="post-read-more"
+              >Read&nbsp;More</a
+            >
+          </p>
+          {% endif %}
+        </div>
       </div>
-    </div>
+    </a>
   </article>
 
   {% endfor %}
