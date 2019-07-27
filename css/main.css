@@ -8,10 +8,8 @@ body {
   color: #404040;
   position: relative;
 
-  background-color: {
-      {
-      site.page-col
-    }
+  background-color: {  
+     background-color: #f8f8f8;
   }
 
   ;
@@ -1175,4 +1173,20 @@ ul ul {
 .inner-div:hover
 {
   transform: scale(1.2);
+}
+
+.card {
+  background-color: #fff;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.card-text {
+  margin-bottom: 0px;
+}
+
+.card-title {
+  margin-top: 0px;
 }
