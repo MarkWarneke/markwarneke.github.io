@@ -163,16 +163,15 @@ window.onscroll = function() {
 
 function myFunction() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var articleHeight = document.getElementsByClassName("blog-post")[0]
-    .clientHeight;
 
-  if (articleHeight) {
-    var height = articleHeight - document.documentElement.clientHeight;
-  } else {
-    var height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
+  try {
+    var readingHeight = document.getElementsByClassName("blog-post")[0]
+      .clientHeight;
+  } catch {
+    var readingHeight = document.documentElement.clientHeight;
   }
+
+  var height = readingHeight - document.documentElement.scrollHeight;
 
   var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
