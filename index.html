@@ -41,8 +41,10 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
           post.content != post.excerpt or excerpt_word_count >
           site.excerpt_length %}
         </p>
-        <a href="{{ post.url | relative_url }}" class="btn btn-primary">Read More</a
+        <a href="{{ post.url | relative_url }}" class="post-read-more"
+          >Read&nbsp;More</a
         >
+        {% endif %}
       </div>
     </div>
   </article>
