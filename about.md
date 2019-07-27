@@ -48,3 +48,7 @@ _The Mythical Man-Month: Essays on Software Engineering_
 # Theme by
 
 [beautiful-jekyll](https://deanattali.com/beautiful-jekyll/)
+
+# Icons made by
+
+[Dimitry Miroliubov](https://www.flaticon.com/authors/dimitry-miroliubov) [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
