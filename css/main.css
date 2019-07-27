@@ -235,6 +235,7 @@ img {
   left: 50%;
   width: 50px;
   margin-top: -25px;
+  z-index: 1000;
 }
 
 .navbar-custom .avatar-container .avatar-img-border {
@@ -989,6 +990,10 @@ pre {
   height: 2px;
   background: #2e9fff;
   width: 0%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .navbar-social-icon {
