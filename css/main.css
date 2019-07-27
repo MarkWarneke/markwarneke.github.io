@@ -995,7 +995,7 @@ pre {
   height: 2px;
   background: transparent;
   position: absolute;
-  bottom: -1;
+  bottom: 0;
   border: none;
   left: 0;
   color: #2e9fff;
