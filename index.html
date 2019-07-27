@@ -12,10 +12,8 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
       <div class="card">
         
         {% if post.image %}
-        <div class="view overlay">
-          <div class="outer-div" class="card-img-top">
+        <div class="view overlay outer-div card-img-top">
             <div class="inner-div" style="background-image: url({{ post.image | relative_url }})" alt="" ></div>
-          </div>
     
         <a href="{{ post.url | relative_url }}">
           <div class="mask rgba-white-slight"></div>

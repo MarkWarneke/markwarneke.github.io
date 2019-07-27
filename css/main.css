@@ -1438,7 +1438,6 @@ a.waves-effect, a.waves-light {
   background-size: cover;
   background-position: center;
   transition: all 0.5s ease;
-  background-image: url('foo.jpg');
 }
 .inner-div:hover
 {
