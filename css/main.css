@@ -229,6 +229,10 @@ img {
   display: none;
 }
 
+.avatar-img {
+ max-height: 100px;
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-custom .avatar-container {
     width: 100px;
