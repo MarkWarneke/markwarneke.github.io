@@ -2,7 +2,7 @@
 layout: post
 title: Hello World
 bigimg: /img/nasa.jpg
-imglink: https://unsplash.com/photos/Q1p7bh3SHj8
+bigimg.imginfo: https://unsplash.com/photos/Q1p7bh3SHj8
 tags: [general]
 comments: true
 time: 1
