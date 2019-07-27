@@ -1,36 +1,38 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button
-        type="button"
-        class="navbar-toggle"
-        data-toggle="collapse"
-        data-target="#main-navbar"
-      >
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a
-        href="https://twitter.com/intent/tweet?text={{
-          page.title | url_encode
-        }}&url={{ page.url | absolute_url | url_encode }}"
-        title="Share on Twitter"
-        class="navbar-toggle"
-      >
-        <i class="fa fa-twitter"></i>
-        <span class="sr-only">Twitter</span>
-      </a>
-      {%- if site.title-img -%}
-      <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}"
-        ><img src="{{ site.title - img }}"
-      /></a>
-      {%- else -%}
-      <a class="navbar-brand" href="{{ '' | absolute_url }}">{{
-        site.title
-      }}</a>
-      {%- endif -%}
+      <div class="floating-header-share">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#main-navbar"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a
+          href="https://twitter.com/intent/tweet?text={{
+            page.title | url_encode
+          }}&url={{ page.url | absolute_url | url_encode }}"
+          title="Share on Twitter"
+          class="navbar-toggle"
+        >
+          <i class="fa fa-twitter"></i>
+          <span class="sr-only">Twitter</span>
+        </a>
+        {%- if site.title-img -%}
+        <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}"
+          ><img src="{{ site.title - img }}"
+        /></a>
+        {%- else -%}
+        <a class="navbar-brand" href="{{ '' | absolute_url }}">{{
+          site.title
+        }}</a>
+        {%- endif -%}
+      </div>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
