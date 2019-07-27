@@ -9,11 +9,11 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
   {% for post in paginator.posts %}
   <article>
     <div class="card">
-      {% if post.image %}
+      {% if post.bigimage %}
       <img
         class="card-img-top"
-        src="{{ post.image | relative_url }}"
-        alt="{{ post.image | relative_url }}"
+        src="{{ post.bigimage | relative_url }}"
+        alt="{{ post.bigimage | relative_url }}"
       />
       {% endif %}
       <div class="card-body">

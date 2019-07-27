@@ -3,7 +3,6 @@ layout: post
 title: Hello World
 bigimg:
   - "/img/nasa.jpg": "https://unsplash.com/photos/Q1p7bh3SHj8"
-image: "/img/nasa.jpg"
 tags: [general]
 comments: true
 time: 1
