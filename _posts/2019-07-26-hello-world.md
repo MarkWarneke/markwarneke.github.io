@@ -22,7 +22,7 @@ I currently work for Microsoft, however, all content published on this domain is
 The content published is NO official Microsoft statement!</strong> (tFor official guidance visit [docs.microsoft.com](https://docs.microsoft.com)).
 </p>
 
-The content is subject to change - I adhear to highlight updated articles. Otherwise you can follow and track change here: [MarkWarneke/markwarneke.github.io](https://github.com/MarkWarneke/markwarneke.github.io/commits/master).
+The content is subject to change - I adhear to highlight updated articles. Otherwise you can follow and track changes in the public Github repo: [MarkWarneke/markwarneke.github.io](https://github.com/MarkWarneke/markwarneke.github.io/commits/master).
 
 ## WOW
 
