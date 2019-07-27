@@ -527,10 +527,11 @@ footer .footer-links a {
   color: #eeeeee;
   text-decoration: none;
   padding: 0px 5px;
+  box-shadow: none !important;
 }
 
 .blog-tags a:hover {
-  text-decoration: underline;
+  box-shadow: #337ab7 0 -1px 0 inset;
 }
 
 .post-preview .blog-tags {
