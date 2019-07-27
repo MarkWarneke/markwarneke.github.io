@@ -13,9 +13,9 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
         
         {% if post.image %}
         <div class="outer-div card-img-top">
-            <div class="inner-div" style="background-image: url({{ post.image | relative_url }})" >
-                <a href="{{ post.url | relative_url }}"></a>
-            </div>
+          <a href="{{ post.url | relative_url }}">
+            <div class="inner-div" style="background-image: url({{ post.image | relative_url }})" ></div>
+          </a>
         </div>
         {% endif %}
         <div class="card-body">
