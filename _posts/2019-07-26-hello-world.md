@@ -8,7 +8,6 @@ time: 1
 ---
 
 This is my very first blog post to introduce you to my new site.
-
 I am going to publish content around a variety of topics from general IT-Consulting, Cloud Consulting (especially around Azure), as well as Web and Software Engineering topics. You can expect posts on automation and DevOps - focusing on PowerShell, Infrastructure as Code and Azure DevOps.
 
 {: .box-note}
