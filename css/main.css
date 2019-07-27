@@ -382,6 +382,7 @@ footer p.text-muted {
 }
 
 footer a {
+  box-shadow: none;
   color: {
       {
       site.footer-link-col
@@ -419,6 +420,10 @@ footer .theme-by {
   footer .copyright {
     font-size: 16px;
   }
+}
+
+footer .footer-links a {
+  box-shadow: none;
 }
 
 /* --- Post preview --- */
@@ -462,6 +467,7 @@ footer .theme-by {
   font-size: 12px;
   margin: 0 0 10px;
   text-transform: uppercase;
+  box-shadow: none;
 }
 
 .post-preview .post-entry {
@@ -496,7 +502,8 @@ footer .theme-by {
 }
 
 .post-preview .post-read-more {
-  font-weight: 800;
+  font-weight: 500;
+  box-shadow: none;
 }
 
 @media only screen and (min-width: 768px) {
