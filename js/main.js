@@ -177,6 +177,9 @@ function myFunction() {
 
   var height = readingHeight - document.documentElement.scrollHeight;
 
+  console.log(top);
+  console.log(height);
+
   var scrolled = (top / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
 }
