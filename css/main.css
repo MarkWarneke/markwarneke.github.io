@@ -66,26 +66,14 @@ hr.small {
   color: white;
   text-shadow: none;
 
-  background-color: {
-      {
-      site.hover-col
-    }
-  }
-
-  ;
+  background-color: #f8f8f8;
 }
 
 ::selection {
   color: white;
   text-shadow: none;
 
-  background-color: {
-      {
-      site.hover-col
-    }
-  }
-
-  ;
+  background-color: 
 }
 
 img::selection {
