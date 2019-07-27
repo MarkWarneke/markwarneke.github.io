@@ -382,7 +382,7 @@ footer p.text-muted {
 }
 
 footer a {
-  box-shadow: none;
+  box-shadow: none !important;
   color: {
       {
       site.footer-link-col
@@ -467,6 +467,9 @@ footer .footer-links a {
   font-size: 12px;
   margin: 0 0 10px;
   text-transform: uppercase;
+}
+
+.post-meta a {
   box-shadow: none;
 }
 
