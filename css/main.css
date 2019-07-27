@@ -470,7 +470,7 @@ footer .footer-links a {
 }
 
 .post-meta a {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .post-preview .post-entry {
