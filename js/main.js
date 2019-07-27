@@ -165,6 +165,9 @@ function myFunction() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 
   try {
+    var headerHeight = document.getElementsByClassName("header-section")[0]
+      .clientHeight;
+    winScroll + headerHeight;
     var readingHeight = document.getElementsByClassName("blog-post")[0]
       .clientHeight;
   } catch {
