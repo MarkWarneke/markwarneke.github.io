@@ -163,23 +163,9 @@ window.onscroll = function() {
 
 function myFunction() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-
-  try {
-    var headerHeight = document.getElementsByClassName("header-section")[0]
-      .clientHeight;
-    var top = winScroll + headerHeight;
-    var readingHeight = document.getElementsByClassName("blog-post")[0]
-      .clientHeight;
-  } catch {
-    var top = winScroll;
-    var readingHeight = document.documentElement.clientHeight;
-  }
-
-  var height = readingHeight - document.documentElement.scrollHeight;
-
-  console.log(top);
-  console.log(height);
-
-  var scrolled = (top / height) * 100;
+  var height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
 }
