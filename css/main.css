@@ -983,6 +983,10 @@ pre {
   width: 100%;
   height: 2px;
   background: #ccc;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
 }
 
 /* The progress bar (scroll indicator) */
@@ -990,10 +994,6 @@ pre {
   height: 2px;
   background: #2e9fff;
   width: 0%;
-  position: absolute;
-  bottom: 0;
-  z-index: 1;
-  overflow: hidden;
 }
 
 .navbar-social-icon {
