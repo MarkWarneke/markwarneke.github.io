@@ -51,29 +51,6 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
           {% endif %}
         </p>
       </div>
-
-      <!-- Card footer -->
-      <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-        <ul class="list-unstyled list-inline font-small">
-          <li class="list-inline-item pr-2 white-text">
-            <i class="far fa-calendar pr-1"></i
-            >{{ post.date | date: "%-d %B %Y" }}
-          </li>
-          <li class="list-inline-item pr-2 white-text">
-            <i class="far fa-clock pr-1"></i>{{ post.time }}
-          </li>
-          <li class="list-inline-item pr-2 white-text">
-            <i class="far fa-tag pr-1"></i>{% if post.tags.size > 0 %} {% if
-            site.link-tags %} {% for tag in post.tags %}
-            <a href=" {{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-            {% endfor %} {% else %}
-            {{ post.tags | join: ", " }}
-            {% endif %} {% endif %}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- Card -->
   </article>
   {% endfor %}
 </div>
