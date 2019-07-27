@@ -35,7 +35,11 @@ meta-description: "Mark Warneke - Personal Blog, Azure, Automation, Cloud Consul
             </small>
           </p>
           <a href="{{ post.url | relative_url }}">
-          <h1 class="card-title">{{ post.title }}</h1></a>
+            <h1 class="card-title">{{ post.title }}</h1>
+            {% if post.subtitle }
+              <h5>{{ post.subtitle }}</h5>
+            {% endif }
+          </a>
           <p class="card-text">
             {{
               post.excerpt
