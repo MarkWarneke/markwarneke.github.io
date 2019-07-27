@@ -983,17 +983,22 @@ pre {
 .progress-container {
   width: 100%;
   height: 2px;
-  background: #ccc;
+  background: transparent;
   position: absolute;
-  bottom: 0;
-  z-index: 1;
-  overflow: hidden;
+  bottom: -1;
+  border: none;
+  left: 0;
+  color: #2e9fff;
 }
 
 /* The progress bar (scroll indicator) */
 .progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
   height: 2px;
-  background: #2e9fff;
+  background-color:  #2e9fff;
   width: 0%;
 }
 
