@@ -1009,3 +1009,128 @@ ul {
 ul ul {
   font-size: 0.9em;
 }
+
+
+.floating-header {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    border-bottom: rgba(0,0,0,0.06) 1px solid;
+    background: rgba(255,255,255,0.95);
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translate3d(0, -120%, 0);
+}
+
+.floating-active {
+    visibility: visible;
+    transition: all 500ms cubic-bezier(0.22, 1, 0.27, 1);
+    transform: translate3d(0, 0, 0);
+}
+
+.floating-header-logo {
+    overflow: hidden;
+    margin: 0 0 0 20px;
+    font-size: 1.6rem;
+    line-height: 1em;
+    letter-spacing: -1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.floating-header-logo a {
+    display: flex;
+    align-items: center;
+    color: var(--darkgrey);
+    line-height: 1.1em;
+    font-weight: 700;
+}
+
+.floating-header-logo a:hover {
+    text-decoration: none;
+}
+
+.floating-header-logo img {
+    margin: 0 10px 0 0;
+    max-height: 20px;
+}
+
+.floating-header-divider {
+    margin: 0 5px;
+    line-height: 1em;
+}
+
+.floating-header-title {
+    flex: 1;
+    overflow: hidden;
+    margin: 0;
+    color: #2e2e2e;
+    font-size: 1.6rem;
+    line-height: 1.3em;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.floating-header-share {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 2%;
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.floating-header-share a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-header-share svg {
+    width: auto;
+    height: 16px;
+    fill: #fff;
+}
+
+.floating-header-share-label {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: rgba(0,0,0,0.7);
+    font-weight: 500;
+}
+
+.floating-header-share-label svg {
+    margin: 0 5px 0 10px;
+    width: 18px;
+    height: 18px;
+    stroke: rgba(0,0,0,0.7);
+    transform: rotate(90deg);
+}
+
+.floating-header-share-tw,
+.floating-header-share-fb {
+    display: block;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    line-height: 48px;
+    text-align: center;
+    transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.floating-header-share-tw {
+    background: #33b1ff;
+}
+
+.floating-header-share-fb {
+    background: #005e99;
+}
