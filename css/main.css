@@ -1134,3 +1134,10 @@ ul ul {
 .floating-header-share-fb {
     background: #005e99;
 }
+
+.blog-post a {
+    color:#404040;
+    text-decoration: none;
+    word-break: break-word;
+    box-shadow: #337ab7 0 -1px 0 inset;
+}
