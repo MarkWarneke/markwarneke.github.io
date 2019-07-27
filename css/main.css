@@ -43,9 +43,10 @@ h6 {
   font-weight: 800;
 }
 
-blockquote {
-  color: #808080;
-  font-style: italic;
+blockquote {   
+  margin: 0 0 1.5em;
+  padding: 0 1.5em;
+  border-left: 3px solid #3eb0ef;
 }
 
 blockquote p:first-child {
@@ -1135,7 +1136,7 @@ ul ul {
     background: #005e99;
 }
 
-.blog-post a {
+.container a {
     color:#404040;
     text-decoration: none;
     word-break: break-word;
