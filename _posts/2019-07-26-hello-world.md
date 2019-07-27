@@ -15,7 +15,7 @@ I am going to publish content around a variety of topics from general IT-Consult
 {: .box-note}
 **Note:** Opinions are my own
 
-I currently do work for Microsoft, however, all content published on this domain is based on my experience, opinions and findings. **Content published is NO official Microsoft statement!** (to see official guides go to [docs.microsoft.com](https://docs.microsoft.com))
+I currently work for Microsoft, however, all content published on this domain is based on my experience and opinions. My recommendations might not align with official statemets from Microsoft and must not be quoted as such. **The content published is NO official Microsoft statement!** (to get official guidance go to [docs.microsoft.com](https://docs.microsoft.com)). The content is subject to change - I adhear to make potential changes and updates in articles visible. Otherwise you can follow and track change here: [MarkWarneke/markwarneke.github.io](https://github.com/MarkWarneke/markwarneke.github.io/commits/master).
 
 ## WOW
 
