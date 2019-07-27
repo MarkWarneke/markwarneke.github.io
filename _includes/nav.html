@@ -13,8 +13,10 @@
         <span class="icon-bar"></span>
       </button>
       <a
-        href="https://twitter.com/MarkWarneke"
-        title="Twitter"
+        href="https://twitter.com/intent/tweet?text={{
+          page.title | url_encode
+        }}&url={{ page.url | absolute_url | url_encode }}"
+        title="Share on Twitter"
         class="navbar-toggle"
       >
         <i class="fa fa-twitter"></i>
