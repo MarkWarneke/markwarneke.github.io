@@ -2,7 +2,6 @@
 layout: post
 title: Hello World
 bigimg: /img/path.jpg
-image: /img/path.jpg
 tags: [general]
 comments: true
 time: 1

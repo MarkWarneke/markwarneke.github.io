@@ -155,6 +155,7 @@ exclude:
   - LICENSE
   - README.md
   - Vagrantfile
+  - .vscode
 
 # prose.io config
 prose:
