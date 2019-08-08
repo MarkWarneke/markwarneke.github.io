@@ -1,8 +1,9 @@
 ---
 layout: post
-title: Acceptance Tests for Infrastructure as Code
-subtitle: 
+title: DRAFT: Acceptance Tests for Infrastructure as Code
+subtitle: for Azure Resources using Pester
 bigimg: /img/work.jpg
+image: "/img/nasa.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [test, powershell, arm]
