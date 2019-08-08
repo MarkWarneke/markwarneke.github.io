@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DRAFT: Acceptance Tests for Infrastructure as Code
+title: DRAFT Acceptance Tests for Infrastructure as Code
 subtitle:
 bigimg: /img/work.jpg
 image: "/img/work.jpg"
@@ -8,7 +8,7 @@ gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [test, powershell, arm]
 comments: true
-published: true
+time: 8
 ---
 
 Validating that a deployment has the correct settings applied.
