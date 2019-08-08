@@ -10,7 +10,7 @@ comments: true
 published: false
 ---
 
-Treat infrastrcuture as code as a Software development project. Implementing software engineering practices into the development of infrastructure.
+Treat infrastructure as code as a Software development project. Implementing software engineering practices into the development of infrastructure.
 
 Version Control
 
@@ -68,4 +68,6 @@ Pyton XUnit
 
 # Resources
 
-[Google: Testing Block](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html)
+- [Google: Testing Block](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html)
+- [Move Fast & Don't Break Things
+](https://docs.google.com/presentation/d/15gNk21rjer3xo-b1ZqyQVGebOp_aPvHU3YH7YnOMxtE/edit#slide=id.g437663ce1_53_98)
