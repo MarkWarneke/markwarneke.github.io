@@ -10,6 +10,8 @@ comments: true
 published: true
 ---
 
+# Draft 2019-08-08
+
 Validating that a deployment has the correct settings applied.
 Imaging you are trying to deploy a service to Azure and specifying certain requirements that the resource should meet.
 After you deploy, how are you ensuring that your deployment met the requirements and is still matching them?
