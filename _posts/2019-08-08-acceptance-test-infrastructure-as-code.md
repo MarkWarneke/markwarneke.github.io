@@ -1,9 +1,9 @@
 ---
 layout: post
 title: DRAFT: Acceptance Tests for Infrastructure as Code
-subtitle: for Azure Resources using Pester
+subtitle:
 bigimg: /img/work.jpg
-image: "/img/nasa.jpg"
+image: "/img/work.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [test, powershell, arm]
@@ -11,11 +11,11 @@ comments: true
 published: true
 ---
 
-# Draft 2019-08-08
-
 Validating that a deployment has the correct settings applied.
 Imaging you are trying to deploy a service to Azure and specifying certain requirements that the resource should meet.
 After you deploy, how are you ensuring that your deployment met the requirements and is still matching them?
+
+# Draft 2019-08-08
 
 This blog post introduces you to the idea of validation testing or acceptance test for Infrastructure as Code using PowerShell and [Pester](https://github.com/pester/Pester) the testing framework. 
 If you are not yet familiar with Pester go checkout: [Get started with Pester](https://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/) and [Pester Resources](https://github.com/pester/Pester/wiki/Articles-and-other-resources)
