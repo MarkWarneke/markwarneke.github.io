@@ -76,6 +76,7 @@ Your deployment should always have version controlled parameters or a central co
 Lets take the use case of the Cosmos DB further. Having a configuration file that looks like this:
 
 FIXME: Use .parameter.json
+
 ```json
 {
     "Environment": "S",
@@ -85,10 +86,12 @@ FIXME: Use .parameter.json
     "Descriptor": "testdescriptor",
     "ResourceNameTest": "t-testdescriptor"
 }
+```
 
 Inside of the Azure Resource Manager Template we implement the specification by using the `ipRangeFilter` property. See [Configure an IP firewall](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-firewall#configure-ip-firewall-arm).
 
 TODO: Create real ARM template example to repro
+
 ```json
 { 
   "comments": "Default CosmosDB deployment using defined IP Range Filter for restricting access",
@@ -115,6 +118,7 @@ This will return a list of resources of type `DocumentDB/databaseAccounts`.
 Now to ensure the specification is met we need to add an assertion to validate the settings are set correctly on the obtained Azure Resoruce.
 
 TODO: add to az.new to repro
+
 ```powershell
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "", Justification = "Variables are used inside Pester blocks.")]
 param(
