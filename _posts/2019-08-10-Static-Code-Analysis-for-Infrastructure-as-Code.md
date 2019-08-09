@@ -12,4 +12,4 @@ time: 4
 published: false
 ---
 
-Static code analysis of Azure Resource Manager Templates using pester
+Static code analysis of Azure Resource Manager Templates using peste
