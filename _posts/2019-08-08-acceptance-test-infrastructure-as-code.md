@@ -93,7 +93,7 @@ Inside of the Azure Resource Manager Template we implement the specification by 
 TODO: Create real ARM template example to repro
 
 ```json
-{ 
+{
   "comments": "Default CosmosDB deployment using defined IP Range Filter for restricting access",
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "apiVersion": "2016-03-31",
