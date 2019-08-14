@@ -6,7 +6,7 @@ bigimg: /img/work.jpg
 image: "/img/work.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
-tags: [test, powershell, arm]
+tags: [Test, PowerShell, AzureDevOps]
 comments: true
 time: 8
 ---

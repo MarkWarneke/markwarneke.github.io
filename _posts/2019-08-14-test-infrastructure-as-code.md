@@ -7,7 +7,7 @@ bigimg:
 image: "/img/pyramid.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
-tags: [test, powershell, arm, AzureDevOps]
+tags: [Test, PowerShell, AzureDevOps]
 comments: true
 ---
 
