@@ -136,9 +136,10 @@ Unit and Integration tests could be grouped into the `build phase`.
 While Validation, Acceptance and e2e Tests could be group to the `release phase`.
 While User Acceptance Test and Smoke Tests are done after a particular release.
 
-Some resource deployments however can take up to hours, e.g. VNet Gateways (~25mins).
-Having an integration test inside the build-phase might wast the build time of the [Build Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
-You might only want to leverage e2e tests for these Azure Resources, you should consider the right testing approach.
+Some resource deployments can take hours, e.g. VNet Gateways (~25mins).
+Having an integration test inside the build-phase might wast precious build time of the [Build Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
+You might only want to leverage e2e tests for these Azure Resources.
+The right testing approach should be considered resource by resource.
 
 I would recommend to rely solely on e2e tests inside a release pipeline for these kind of resources.
 The build phase will therefore limit the tests to static analysis and linting of the ARM template.
