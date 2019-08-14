@@ -127,9 +127,11 @@ However, some resource deployments can take up to hours, e.g. VNet Gateways (~25
 If you want to leverage integration or e2e tests for these Azure Resources, you should consider the right testing approach.
 
 I would recommend to rely solely on a release pipeline for these kind of resources.
-The build phase will therefore limit the tests to static analysis and linting of the ARM template and quick unit tests for the scripts.
+The build phase will therefore limit the tests to static analysis and linting of the ARM template.
+The actual deployment happens inside a release-pipeline for the first time.
+
 This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published.
-Also, if changes to the template were minor only the changes will be deployed.
+If changes to the template are minor only the changes will be deployed and the deployment should be rather quick.
 
 This kind of test will result in costs if the resources are not cleaned up periodically.
 
