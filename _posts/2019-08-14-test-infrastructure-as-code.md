@@ -83,7 +83,7 @@ It should be done at least once within the test suite.
 
 ### End-To-End Testing
 
-We also found that a dummy deployment `End-to-End Testing` will help to find missing requirements, missing dependencies and deployment issues.
+We also found that a dummy deployment `End-to-End Testing` (e2e) will help to find missing requirements, missing dependencies and deployment issues.
 Again, a controversial topic as this testing approach is similar to Integration Tests and therefore in a way redundant.
 A combination of both is probably a good approach depending on the resource.
 
@@ -99,14 +99,18 @@ If the engineering subscription is compromised an attacker should not be able to
 
 Additionally a good test should validate different input parameters.
 Having a deployment to *multiple different Azure Regions* can save time when troubleshooting a deployment issue to a new region.
-Some Azure Services are only available (or in Preview) in certain Azure Data center.
-Keeping this in mind a tests should also considers this.
+Some Azure Services are only available (or in Preview) in certain Azure Data centers.
+Keeping this in mind all tests should considers this possibility.
 
 ### Acceptance Tests
 
 Lastly, you want to make sure no deviation or configuration drift is happening.
 Using a test method called `Acceptance Test` of `Validation Tests` can save you a lot of time.
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
+
+Acceptance Tests should be written in a way that they can be executed in different stages.
+An acceptance tests should be small enough to validate a requirement.
+So these kind of tests can be executed inside the integration test, e2e test and especially after a release.
 
 ### Tests Phases
 
