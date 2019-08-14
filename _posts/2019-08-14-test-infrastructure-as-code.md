@@ -64,9 +64,12 @@ As we are not compiling or building a software product we can not rely on any co
 
 ### Integration Tests
 
-Additionally we found in our project that you can only safely say  an ARM template is valid when you actually deploy it once.
-Let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters.
-This might be refereed to a System or `Integration Test` and will take some time until you can actually assert on the return, but we found it worthwhile having.
+We found in our project that you can only safely say an ARM template is valid and deployable if you actually deployed it once.
+As `Test-AzResourceManagerDeployment` is not handled by the Azure Resource Manager Engine, complex templates are not validated fully.
+The general guidance therefore is: let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters.
+This might be refereed to a System or `Integration Test`.
+It will take some time until you can actually assert on the deployed resource, but we found it worthwhile having.
+The deployment is only needed on a change to the ARM template itself.
 
 If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test the implementation of commands like `Get-AzResource`, but if your logic of execution and custom code is doing what is expected.
