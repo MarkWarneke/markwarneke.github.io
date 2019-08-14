@@ -59,7 +59,8 @@ Hence you should make sure your unit is thoroughly tested using available tools 
 ### Unit Tests
 
 I personally refer to an `ARM template unit tests` as a `static code analysis`.
-So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20))
+So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
+As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
 
 ### Integration Tests
 
@@ -102,7 +103,6 @@ Preview-Artefacts are not yet officially published (from the build phase created
 ### Continuous Integration & Continuous Deployment
 
 The result of a build phase when successfully should always be some kind of `Artefact`.
-As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
 Same steps a compiler does could be engineered for IaC, but limited to a configuration file.
 Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`.
 Only then the build Artefact, in this context the ARM template, is a valid.
