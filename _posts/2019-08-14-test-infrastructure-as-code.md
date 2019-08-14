@@ -35,7 +35,7 @@ However, when talking about Infrastructure Development there are slight differen
 </div>
 
 During the PowerShell Conference EU 2019 I had the opportunity to talk about Infrastructure as Code testing and what we learned in a large scale IaC and automation project.
-I covered a few fundamentals on IaC, unfortunately the Fridays session had some technical problems and wasn't recorded.
+I covered a few fundamentals on IaC, unfortunately the Fridays session had some technical problems and hasn't been recorded.
 
 The talk is addressing the following key topics:
 
