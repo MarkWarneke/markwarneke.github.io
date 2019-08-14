@@ -3,7 +3,7 @@ layout: post
 title: Test Infrastructure as Code
 subtitle:
 bigimg:
-    - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
+  - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
 image: "/img/pyramid.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
@@ -43,15 +43,15 @@ The talk is addressing the following key topics:
 - DevOps foundations
 - Quality & Maturity Framework
 
-Let me know if you have feedback in the commands below or [@MarkWarneke](https://twitter.com/MarkWarneke)!
+Let me know if you have feedback in the comments below or [@MarkWarneke](https://twitter.com/MarkWarneke)!
 
 ## Climb the Pyramid
 
 Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file.
-I have not yet heard of a Unit Testing framework for configuration files like YAML, JSON or HTML; I am only aware of [linter](https://en.wikipedia.org/wiki/Lint_(software)) for these file types.
+I have not yet heard of a Unit Testing framework for configuration files like YAML or JSON; I am only aware of [linter](<https://en.wikipedia.org/wiki/Lint_(software)>) for these file types.
 Having said that:
 
-When following the best practices for Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no *unit* or smallest executable code to test except the configuration file itself.
+When following the best practices for Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no _unit_ or smallest executable code to test except the configuration file itself.
 This file usually only describes the desired state of the system to be deployed.
 The specified system consists of one ore more Azure resources that needs to be provisioned.
 Hence, you should make sure your unit is thoroughly tested using available methods, tools and practices.
@@ -59,34 +59,35 @@ Hence, you should make sure your unit is thoroughly tested using available metho
 ![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
 The Test Pyramid for IaC could look something like this.
-Where the **x-axis** indicates how mature the IaC project is where the **y-axis** indicates the quality of the code.
+Where the **x-axis** indicates how mature the IaC project is and the **y-axis** indicates the quality of the IaC.
 This is of course a generalization and you should strive to implement all practices, starting from the bottom left and ending up in top right.
 
 ### Unit Tests
 
 I personally refer to a `unit tests` for ARM templates as asserted `static code analysis`.
-By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file - ARM template.
+By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file (ARM template).
 (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
-See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for implementation of unit tests.
+See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
 
 ### Integration Tests
 
 We found in our project that you can only safely say an ARM template is valid and deployable if you actually deployed it once.
-As `Test-AzResourceManagerDeployment` is not handled by the Azure Resource Manager Engine, complex templates are not validated fully.
-The general guidance therefore is: let the Azure Resource Manager Engine expand, validate and *execute* the template with all its necessary dependencies and parameters.
+
+As `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not validated.
+The general guidance therefore is: Let the Azure Resource Manager Engine expand, validate and _execute_ the template with all its necessary dependencies and parameters. That means, use the ARM template for a deploy at least once.
 This might be refereed to a System or `Integration Test`.
 
-It will take some time until you can actually assert on the deployed resource.
-This might be controversial and I love to have a discussion on this topic as some people think of this step as redundant and obsolete.
-However we found it worthwhile having.
+Deploying the solution will take time, but actually asserting on the deployed resource is very beneficial.
+This might be a controversial point and I would love to have a conversation on this topic, as some people think of this step as redundant and obsolete.
+However we found it worthwhile having as it ensures the template is actually deployable.
 The integration test and therefore complete deployment is only needed on a change to the ARM template itself.
 
 If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test the implementation of commands like `Get-AzResource`, but test wether your logic of execution and written custom code is doing what is expected.
 Assert if your mocks are called and validate your code flow.
 
-However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the  API is mandatory to assert that the code is correct.
+However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the API is mandatory to assert that the code is correct.
 It should be done at least once within the test suite
 The same applies for any post configuration or DSC.
 You want to make sure the configuration got actually applied.
@@ -101,16 +102,16 @@ Having an `Engineering-Pipeline`, that is a Release-Pipeline into a standalone s
 You really want to test if your configuration (ARM Template) is valid and stays valid and can be redeployed [`idempotent`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#idempotence) over and over again.
 The Engineering-Pipeline is also usable for feature and experimental development.
 
-An `Engineering Subscription` is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain *any* data.
+An `Engineering Subscription` is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain _any_ data.
 Also the naming should not indicate in any way the brand.
 If the engineering subscription is compromised an attacker should not be able to identify the company or user.
 
 ### Tests across Azure regions
 
 Additionally a good test should validate different input parameters.
-Having a deployment to *multiple different Azure Regions* can save time when troubleshooting a deployment issue to a new region.
+Having a deployment to _multiple different Azure Regions_ can save time when troubleshooting a deployment issue to a new region.
 Some Azure Services are only available (or in Preview) in certain Azure Data centers.
-Keeping this in mind all tests should considers this possibility.
+Keeping this in mind: All tests should considers different Parameter combination and Azure.
 
 ### Acceptance Tests
 
@@ -119,14 +120,15 @@ Using a test method called `Acceptance Test` of `Validation Tests` can save you 
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
 
 Acceptance Tests should be written in a way that they can be executed in different stages.
-An acceptance tests should be small enough to validate a requirement.
-So these kind of tests can be executed inside the integration test, e2e test and especially after a release.
+An acceptance tests should be small enough to validate a specific requirement.
+These kind of tests can be executed during integration, e2e test and especially after a release.
 
 ### Smoke Tests
 
-Using the specification defined in form of multiple acceptance tests.
-These tests can also be used for exploration testing or `smoke testing` on previously deployed resources.
-That is, querying existing Azure resources and checking the properties against certain requirements or specifications, which are implemented as tests in the acceptance test.
+Using the specification defined in form of a acceptance tests.
+Multiple tests cases can be used combined for exploration testing or `smoke testing` on previously deployed resources.
+
+That is, querying for existing Azure resources and checking the properties against certain requirements or specifications, which are implemented as acceptance tests.
 Smoke tests are usually executed against a black box system to validate and check the state and behavior.
 Using smoke tests against Azure resources will ensure general requirements of resources are met.
 
@@ -134,30 +136,31 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 Unit and Integration tests could be grouped into the `build phase`.
 While Validation, Acceptance and e2e Tests could be group to the `release phase`.
-While User Acceptance Test and Smoke Tests are done after a particular release.
+User Acceptance Test and Smoke Tests are done after a particular release.
 
 Some resource deployments can take hours, e.g. VNet Gateways (~25mins).
 Having an integration test inside the build-phase might wast precious build time of the [Build Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
-You might only want to leverage e2e tests for these Azure Resources.
+You might only want to leverage e2e tests for Azure Resources that take a long time to deploy.
 The right testing approach should be considered resource by resource.
 
-I would recommend to rely solely on e2e tests inside a release pipeline for these kind of resources.
-The build phase will therefore limit the tests to static analysis and linting of the ARM template.
-The actual deployment happens the first time in the release phase only on approval.
+I would recommend to rely solely on e2e tests inside a release pipeline if you are able to keep the resources provisioned.
+The build phase will therefore limit the tests to the static analysis and linting of the ARM template.
+While the actual deployment happens the first time in the release phase.
+You can also limit it to only deploy on approval.
 
 This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published and the approval of the release.
-If changes to the template are minor only the changes will be deployed and the deployment should be rather quick.
+If changes to the template are minor only the changes will be deployed and the deployment should be rather quick, if the resource existed.
 
 This kind of test will result in costs if the resources are not cleaned up periodically.
 
-`Preview-Artifacts` could be leverage to use this kind of Release-Pipeline testing.
+I would recommend `Preview-Artifacts`. these Artifacts can be leverage to use this kind of Release-Pipeline testing.
 These artifacts are not yet officially published and might have a Beta or Preview indicator.
 These Artifact should only be used for demo or testing purposes.
 
 ### Continuous Integration & Continuous Deployment
 
-The result of a build phase if successful should create some kind of `Artifact`.
-Same steps a compiler does could be engineered for IaC, but limited to a configuration file.
+The result of a build phase, if successful, should always create some kind of `Artifact`.
+Similar to a compiler but for a IaC configuration file.
 Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`.
 Only then the build Artifact, in this context the ARM template, is valid.
 An Artifact will have a dedicated traceable version number and should contain release information and a change log.
@@ -176,7 +179,7 @@ Continuous Deployment should be the end goal of every Infrastructure as Code pro
 ## Developer View
 
 There are two views one could have on testing we refer to these as the `InnerLoop` and `OuterLoop`.
-The *InnerLoop* is the view of the Developer.
+The _InnerLoop_ is the view of the Developer.
 
 The requirements of a Developer are usually: quick feedback, quick execution and a smooth workflow.
 
@@ -197,28 +200,28 @@ Its extensibility and configurations makes it a powerful editor of choice.
 ```json
 //.vscode/extensions.json
 {
-    "recommendations": [
-        // Linter for ARM teampltes
-        "msazurermtools.azurerm-vscode-tools",
+  "recommendations": [
+    // Linter for ARM teampltes
+    "msazurermtools.azurerm-vscode-tools",
 
-        // Code generator for ARM template snippets
-        "samcogan.arm-snippets",
+    // Code generator for ARM template snippets
+    "samcogan.arm-snippets",
 
-         // Linter for Markdown
-        "DavidAnson.vscode-markdownlint",
+    // Linter for Markdown
+    "DavidAnson.vscode-markdownlint",
 
-        // Version Control Helper Extension
-        "eamodio.gitlens",
+    // Version Control Helper Extension
+    "eamodio.gitlens",
 
-        // JSON tool
-        "eriklynd.json-tools",
+    // JSON tool
+    "eriklynd.json-tools",
 
-        // PowerShell Extension and Linter (PSScriptAnalyzer)
-        "ms-vscode.PowerShell",
+    // PowerShell Extension and Linter (PSScriptAnalyzer)
+    "ms-vscode.PowerShell",
 
-        // Spell Checker
-        "streetsidesoftware.code-spell-checker"
-    ]
+    // Spell Checker
+    "streetsidesoftware.code-spell-checker"
+  ]
 }
 ```
 
@@ -227,25 +230,24 @@ easy code styles could be enforced by using a `.vscode/settings.json` in the roo
 ```json
 // .vscode/settings.json
 {
+  //-------- Files configuration --------
 
-    //-------- Files configuration --------
+  // When enabled, will trim trailing whitespace when you save a file.
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "files.hotExit": "onExit",
 
-    // When enabled, will trim trailing whitespace when you save a file.
-    "files.trimTrailingWhitespace": true,
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 2000,
-    "files.hotExit": "onExit",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
 
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
+  //-------- PowerShell Configuration --------
 
-    //-------- PowerShell Configuration --------
-
-    // Use a custom PowerShell Script Analyzer settings file for this workspace.
-    // Relative paths for this setting are always relative to the workspace root dir.
-    "powershell.scriptAnalysis.enable": true,
-    "powershell.codeFormatting.openBraceOnSameLine": true,
-    "powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1" // See below
+  // Use a custom PowerShell Script Analyzer settings file for this workspace.
+  // Relative paths for this setting are always relative to the workspace root dir.
+  "powershell.scriptAnalysis.enable": true,
+  "powershell.codeFormatting.openBraceOnSameLine": true,
+  "powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1" // See below
 }
 ```
 
