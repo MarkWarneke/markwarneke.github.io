@@ -120,20 +120,31 @@ These tests are usually executed on a black box system to validate and check the
 
 ### Tests Phases
 
-These Unit and Integration tests could be grouped into the `build phase`, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc..
+These Unit and Integration tests could be grouped into the `build phase`.
 Validation and Acceptance Tests could be group to the `release phase`.
 
-If you want to integration tests these Azure Resources, I would recommend to rely on a release pipeline that is used for testing, this allows to not tests on change to the version control but on a `Preview-Artefact`.
-Preview-Artefacts are not yet officially published (from the build phase created) Artefact for demo or testing purposes.
+However, some resource deployments can take up to hours, e.g. VNet Gateways (~25mins).
+If you want to leverage integration or e2e tests for these Azure Resources, you should consider the right testing approach.
+
+I would recommend to rely solely on a release pipeline for these kind of resources.
+The build phase will therefore limit the tests to static analysis and linting of the ARM template and quick unit tests for the scripts.
+This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published.
+Also, if changes to the template were minor only the changes will be deployed.
+
+This kind of test will result in costs if the resources are not cleaned up periodically.
+
+`Preview-Artifacts` could be leverage to use this kind of Release-Pipeline testing.
+These artifacts are not yet officially published and might have a Beta or Preview indicator.
+These Artifact should only be used for demo or testing purposes.
 
 ### Continuous Integration & Continuous Deployment
 
-The result of a build phase when successfully should always be some kind of `Artefact`.
+The result of a build phase when successfully should always be some kind of `Artifact`.
 Same steps a compiler does could be engineered for IaC, but limited to a configuration file.
 Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`.
-Only then the build Artefact, in this context the ARM template, is a valid.
+Only then the build Artifact, in this context the ARM template, is a valid.
 
-The created artefact is used to release and deploy to the first environment - `Continuous Delivery`, usually a Development (Dev) or Beta environment.
+The created Artifact is used to release and deploy to the first environment - `Continuous Delivery`, usually a Development (Dev) or Beta environment.
 You can use a dedicated Azure subscription or a naming convention inside a resource group.
 I would recommend to have at least dedicated subscriptions for different environments.
 
