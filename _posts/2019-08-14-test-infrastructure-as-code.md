@@ -34,6 +34,17 @@ However, when talking about Infrastructure Development there are slight differen
     <iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+During the PowerShell Conference EU 2019 I had the opportunity to talk about Infrastructure as Code testing and what we learned in a large scale IaC and automation project.
+I covered a few fundamentals on IaC, unfortunately the Fridays session had some technical problems and wasn't recorded.
+
+The talk is addressing the following key topics:
+
+- Introduction to Infrastructure as Code
+- DevOps foundations
+- Quality & Maturity Framework
+
+Let me know if you have feedback in the commands below or [@MarkWarneke](https://twitter.com/MarkWarneke)!
+
 ## Climb the Pyramid
 
 Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file.
