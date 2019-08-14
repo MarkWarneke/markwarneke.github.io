@@ -12,22 +12,23 @@ comments: true
 time: 6
 ---
 
-Treat infrastructure as code as a Software development project. 
-Implementing software engineering practices into the development of infrastructure.
-In this article we are going to look into the different Test practices of Infrastructure as Code.
+Treat infrastructure as code development like as a software engineering project.
+Implementing software development practices into the development of infrastructure.
+In this article we are going to look into different test practices and how to apply them to Infrastructure as Code development.
 
 {: .box-note}
-**Note** The one fundamental thing is **Version Control** <br>
-Get familiar with these practices first before thinking about implementing Tests!
+**Note** The one fundamental is **Version Control** <br>
+Get familiar with these practices first before thinking about implementing tests!
 
-You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
-These principals will force you into writing tested code. A good starting point when looking at Test for infrastructure as code is the the called [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
+You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your Infrastructure as Code project.
+These principals will force you into writing tested code. 
+A good starting point when starting with tests for infrastructure as code is the [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
 Where you want to have many quick and small tests to ensure your code does what is expected.
 However, when talking about Infrastructure Development there are slight differences to Software Development.
 
 ## PowerShell Conference EU
 
-[Video: Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8) [Slides & Code](https://github.com/psconfeu/2019/tree/master/sessions/MarkWarneke)
+[Video: Test Infrastructure as Code?](https://www.youtube.com/watch?v=k33Nini-Dc8) [Slides & Code](https://github.com/psconfeu/2019/tree/master/sessions/MarkWarneke)
 
 <div class="video-container">
     <iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -88,16 +89,20 @@ Preview-Artefacts are not yet officially published (from the build phase created
 
 ### Continuous Integration & Continuous Deployment
  
-The result of a build phase when successfully should always be some kind of Artefact.
-The Artefact in this context is a valid ARM template itself.
-Only if unit and integration test are successful an artefact should be created, this is considered Continuous Integration.
+The result of a build phase when successfully should always be some kind of `Artefact`.
+As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
+Same steps a compiler does could be engineered for IaC, but limited to a configuration file.
+Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`
+The Artefact in this context is only then a valid ARM template.
 
-This artefact is then used to release and deploy to the first environment - Continuous Delivery, usually a Development (Dev) or Beta environment.
+The created artefact is used to release and deploy to the first environment - `Continuous Delivery`, usually a Development (Dev) or Beta environment.
 You can use a dedicated Azure subscription or a naming convention inside a resource group.
 I would recommend to have at least dedicated subscriptions for different environments.
 
-After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment. 
-Only after the approval of a release manager that go the tests result from the key users the next Stage e.g. Pre-Production or Staging should be triggered, using the same artefact. This is considered Continious Deployment and should be the end goal of every infrastructure as code project.
+After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment.
+User Acceptance Tests can be managed and monitored through [Azure DevOps Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/).
+Only after the approval of a release manager, if all tests result from the key users are green, the next Stage e.g. Pre-Production or Staging should be triggered, using the same artefact.
+ This is considered `Continuous Deployment` and should be the end goal of every Infrastructure as Code project.
 
 ## Developer View
 
