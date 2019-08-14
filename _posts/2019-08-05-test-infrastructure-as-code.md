@@ -4,6 +4,7 @@ title: Test Infrastructure as Code
 subtitle: 
 bigimg: 
     - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
+image: "/img/pyramid.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [test, powershell, arm, AzureDevOps]
@@ -93,6 +94,6 @@ The developer also needs to be able to execution tests locally, so relying solel
 
 ## Resources
 
+- [PSConf Eu: Slides & Code](https://github.com/psconfeu/2019/tree/master/sessions/MarkWarneke)
 - [Google: Testing Block](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html)
-- [Move Fast & Don't Break Things
-](https://docs.google.com/presentation/d/15gNk21rjer3xo-b1ZqyQVGebOp_aPvHU3YH7YnOMxtE/edit#slide=id.g437663ce1_53_98)
+- [Move Fast & Don't Break Things](https://docs.google.com/presentation/d/15gNk21rjer3xo-b1ZqyQVGebOp_aPvHU3YH7YnOMxtE/edit#slide=id.g437663ce1_53_98)
