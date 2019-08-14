@@ -58,6 +58,10 @@ Hence, you should make sure your unit is thoroughly tested using available metho
 
 ![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
+The Test Pyramid for IaC could look something like this.
+Where the **x-axis** indicates how mature the IaC project is where the **y-axis** indicates the quality of the code.
+This is of course a generalization and you should strive to implement all practices, starting from the bottom left and ending up in top right.
+
 ### Unit Tests
 
 I personally refer to a `unit tests` for ARM template as asserted `static code analysis`.
