@@ -134,6 +134,7 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 Unit and Integration tests could be grouped into the `build phase`.
 While Validation, Acceptance and e2e Tests could be group to the `release phase`.
+While User Acceptance Test and Smoke Tests are done after a particular release.
 
 Some resource deployments however can take up to hours, e.g. VNet Gateways (~25mins).
 Having an integration test inside the build-phase might wast the build time of the [Build Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
