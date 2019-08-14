@@ -120,17 +120,18 @@ These tests are usually executed on a black box system to validate and check the
 
 ### Tests Phases
 
-These Unit and Integration tests could be grouped into the `build phase`.
-Validation and Acceptance Tests could be group to the `release phase`.
+Unit and Integration tests could be grouped into the `build phase`.
+Validation, Acceptance and e2e Tests could be group to the `release phase`.
 
-However, some resource deployments can take up to hours, e.g. VNet Gateways (~25mins).
-If you want to leverage integration or e2e tests for these Azure Resources, you should consider the right testing approach.
+Some resource deployments however can take up to hours, e.g. VNet Gateways (~25mins).
+Having an integration test inside the build-phase might wast the build time of the [Build Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
+You might only want to leverage e2e tests for these Azure Resources, you should consider the right testing approach.
 
-I would recommend to rely solely on a release pipeline for these kind of resources.
+I would recommend to rely solely on e2e tests inside a release pipeline for these kind of resources.
 The build phase will therefore limit the tests to static analysis and linting of the ARM template.
-The actual deployment happens inside a release-pipeline for the first time.
+The actual deployment happens the first time in the release phase only on approval.
 
-This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published.
+This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published and the release is approved.
 If changes to the template are minor only the changes will be deployed and the deployment should be rather quick.
 
 This kind of test will result in costs if the resources are not cleaned up periodically.
