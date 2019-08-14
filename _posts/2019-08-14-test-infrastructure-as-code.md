@@ -58,9 +58,11 @@ Hence, you should make sure your unit is thoroughly tested using available metho
 
 ### Unit Tests
 
-I personally refer to an `ARM template unit tests` as a `static code analysis`.
-So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
+I personally refer to a `unit tests` for ARM template as asserted `static code analysis`.
+So by using assertion the test should parse, validate, check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file - ARM template.
+(There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
+See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1)
 
 ### Integration Tests
 
