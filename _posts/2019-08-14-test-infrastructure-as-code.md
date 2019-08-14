@@ -12,8 +12,12 @@ comments: true
 time: 6
 ---
 
-Treat infrastructure as code as a Software development project. Implementing software engineering practices into the development of infrastructure.
-The one fundamental thing is [`Version Control`](https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-201. 
+Treat infrastructure as code as a Software development project. 
+Implementing software engineering practices into the development of infrastructure.
+In this article we are going to look into the different Test practices of Infrastructure as Code.
+
+{: .box-note}
+**Note** The one fundamental thing is [`Version Control`](https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-201. 
 Get familiar with these practices first before thinking about Tests!
 
 You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
