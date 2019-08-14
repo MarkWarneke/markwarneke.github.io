@@ -18,16 +18,20 @@ In this article we are going to look into the different Test practices of Infras
 
 {: .box-note}
 **Note** The one fundamental thing is **Version Control**
-
-<p style="text-align: center; padding: 15px;">
-<strong>
-Get familiar with these practices first before thinking about Tests! <br/> (For official guidance visit <a href="https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-201">docs.microsoft.com/version-control</a>).
-</p>
+Get familiar with these practices first before thinking about Tests!
 
 You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
 These principals will force you into writing tested code. A good starting point when looking at Test for infrastructure as code is the the called [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
 Where you want to have many quick and small tests to ensure your code does what is expected.
 However, when talking about Infrastructure Development there are slight differences to Software Development.
+
+## PowerShell Conference EU
+
+[Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8)
+
+<div class="video-container">
+    <iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Climb the Pyramid
 
@@ -79,14 +83,6 @@ I would recommend to have at least dedicated subscriptions for different environ
 
 After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment. 
 Only after the approval of a release manager that go the tests result from the key users the next Stage e.g. Pre-Production or Staging should be triggered, using the same artefact. This is considered Continious Deployment and should be the end goal of every infrastructure as code project.
-
-## Video
-
-PowerShell Conference EU - [Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8)
-
-<div class="video-container">
-    <iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
 
 ## Testing Phase
 
