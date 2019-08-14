@@ -72,8 +72,9 @@ Only after the approval of a release manager that go the tests result from the k
 
 PowerShell Conference EU - [Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8)
 
-<iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<div class="video-container">
+    <iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Testing Phase
 
