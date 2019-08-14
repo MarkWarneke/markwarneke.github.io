@@ -145,7 +145,7 @@ I would recommend to rely solely on e2e tests inside a release pipeline for thes
 The build phase will therefore limit the tests to static analysis and linting of the ARM template.
 The actual deployment happens the first time in the release phase only on approval.
 
-This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published and the release is approved.
+This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published and the approval of the release.
 If changes to the template are minor only the changes will be deployed and the deployment should be rather quick.
 
 This kind of test will result in costs if the resources are not cleaned up periodically.
