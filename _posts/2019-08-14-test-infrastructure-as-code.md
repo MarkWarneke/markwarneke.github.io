@@ -88,12 +88,12 @@ If you want to integration tests these Azure Resources, I would recommend to rel
 Preview-Artefacts are not yet officially published (from the build phase created) Artefact for demo or testing purposes.
 
 ### Continuous Integration & Continuous Deployment
- 
+
 The result of a build phase when successfully should always be some kind of `Artefact`.
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
 Same steps a compiler does could be engineered for IaC, but limited to a configuration file.
-Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`
-The Artefact in this context is only then a valid ARM template.
+Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`.
+Only then the build Artefact, in this context the ARM template, is a valid.
 
 The created artefact is used to release and deploy to the first environment - `Continuous Delivery`, usually a Development (Dev) or Beta environment.
 You can use a dedicated Azure subscription or a naming convention inside a resource group.
