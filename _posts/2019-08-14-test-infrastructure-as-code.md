@@ -35,38 +35,38 @@ However, when talking about Infrastructure Development there are slight differen
 
 ## Climb the Pyramid
 
-![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
-
 If you are asking about an Azure Resource Manager template as the subject under test we are talking about a configuration file. I have not heard about a Unit Testing framework for e.g. YAML, HTML or JSON. Having said that:
 
-When going the [declarative approach](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) there really is no unit except the configuration file.
+When going the [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) there really is no unit except the configuration file.
 Hence you should make sure your unit is thoroughly tested using available tools and practices.
 
 I personally refer to an `ARM template unit tests` as a `static code analysis`.
 So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20))
-Additionally we found in our project that you can only safely say  an ARM template is valid when you actually deploy it once. 
-Let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters. 
-This might be refereed to a System or Integration tests and will take some time until you can actually assert on the return, but we found it worthwhile having.
+Additionally we found in our project that you can only safely say  an ARM template is valid when you actually deploy it once.
+Let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters.
+This might be refereed to a System or `Integration Test` and will take some time until you can actually assert on the return, but we found it worthwhile having.
 
-If you have additional imperative scripts (e.g. post configuration, custom script extension, DSC) you want to test I would emphasize to unit tests these scripts and Mock the Az native calls.
+If you have additional `imperative` scripts (e.g. post configuration, custom script extension, DSC) you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test if the implementation of these scripts (e.g. Get-AzResource) are correct but if your logic of execution is as expected. So assert if your mocks are called and validate your code flow.
 
-We also found that a dummy deployment help finding out missing requirements and missing dependencies.
+![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
+
+We also found that a dummy deployment `End-to-End Testing` help finding out missing requirements and missing dependencies.
 Having a `Engineering-Pipeline` e.g. to a standalone subscription is worthwhile having - as you really want to test if your configuration (ARM Template) is valid and stays valid.
 An `Engineering Subscription` is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer or sensitive data.
 Also the naming should not indicate the customers name - if this subscription gets compromised an attack should not identify the company or user.
 
 Additionally a good test should validate different input parameters.
-Having a deployment to multiple different Azure Regions can save time when troubleshooting a deployment issue to a new region.
+Having a deployment to *multiple different Azure Regions* can save time when troubleshooting a deployment issue to a new region.
 Some Azure Services are only available (or in Preview) in certain Azure Data center.
 Keeping this in mind a tests should also considers this.
 
 Lastly, you want to make sure no deviation or configuration drift is happening.
-Using a test method called Acceptance Test of Validation Tests can save you a lot of time. 
+Using a test method called `Acceptance Test` of `Validation Tests` can save you a lot of time. 
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
 
-These Unit and Integration tests could be grouped into the build phase, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc.. 
-Validation and Acceptance Tests could be group to the release phase. 
+These Unit and Integration tests could be grouped into the `build phase`, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc.. 
+Validation and Acceptance Tests could be group to the `release phase`. 
 
 If you want to integration tests these Azure Resources, I would recommend to rely on a release pipeline that is used for testing, this allows to not tests on change to the version control but on a `Preview-Artefact`.
 Preview-Artefacts are not yet officially published (from the build phase created) Artefact for demo or testing purposes.
