@@ -191,7 +191,7 @@ To rely solely on a release pipeline is not recommended, as the pipeline could b
 
 ### VSCode Setup
 
-Visual Studio Code is the go to editor when developing Azure Resource MAnager templates.
+Visual Studio Code is the go to editor when developing Azure Resource Manager templates.
 Its extensibility and configurations makes it a powerful editor of choice.
 
 ```json
