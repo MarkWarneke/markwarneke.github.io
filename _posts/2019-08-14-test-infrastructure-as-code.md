@@ -87,7 +87,9 @@ You don't want to test the implementation of commands like `Get-AzResource`, but
 Assert if your mocks are called and validate your code flow.
 
 However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the  API is mandatory to assert that the code is correct.
-It should be done at least once within the test suite.
+It should be done at least once within the test suite
+The same applies for any post configuration or DSC.
+You want to make sure the configuration got actually applied.
 
 ### End-To-End Testing
 
