@@ -13,8 +13,8 @@ comments: true
 Treat infrastructure as code as a Software development project. Implementing software engineering practices into the development of infrastructure.
 The first thing to have before thinking about Tests is Version Control. Get familiar with these practices first! [Docs: Version Control](https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-2019)
 
-You should embrace[`Behavior Drive Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
-These principals will force you into writing tested code. A good starting point when looking at Test for infrastructure as code is the the called Test Pyramid e.g. [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
+You should embrace[`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
+These principals will force you into writing tested code. A good starting point when looking at Test for infrastructure as code is the the called [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
 Where you want to have many quick and small tests to ensure your code does what is expected.
 However, when talking about Infrastructure Development there are slight differences to Software Development.
 
@@ -22,11 +22,12 @@ However, when talking about Infrastructure Development there are slight differen
 
 ![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
-If you are asking about an ARM template as the subject under test we are talking about a configuration file. I have not heard about a Unit Testing framework for e.g. YAML, HTML or JSON. Having said that:
+If you are asking about an Azure Resource Manager template as the subject under test we are talking about a configuration file. I have not heard about a Unit Testing framework for e.g. YAML, HTML or JSON. Having said that:
 
-When going the [declarative approach](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) there really is no unit except the configuration file. 
-Hence you should make sure your unit is thoroughly tested in terms of available tools. 
-I personally refer to an 'ARM template unit tests' as a static 'code' analysis of the configuration file. 
+When going the [declarative approach](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) there really is no unit except the configuration file.
+Hence you should make sure your unit is thoroughly tested using available tools and practices.
+
+I personally refer to an `ARM template unit tests` as a `static code analysis`.
 So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20))
 Additionally we found in our project that you can only safely say  an ARM template is valid when you actually deploy it once. 
 Let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters. 
