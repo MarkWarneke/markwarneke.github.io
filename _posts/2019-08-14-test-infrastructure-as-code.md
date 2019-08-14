@@ -83,10 +83,17 @@ It should be done at least once within the test suite.
 
 ### End-To-End Testing
 
-We also found that a dummy deployment `End-to-End Testing` help finding out missing requirements and missing dependencies.
-Having a `Engineering-Pipeline` e.g. to a standalone subscription is worthwhile having - as you really want to test if your configuration (ARM Template) is valid and stays valid.
-An `Engineering Subscription` is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer or sensitive data.
-Also the naming should not indicate the customers name - if this subscription gets compromised an attack should not identify the company or user.
+We also found that a dummy deployment `End-to-End Testing` will help to find missing requirements, missing dependencies and deployment issues.
+Again, a controversial topic as these two testing approaches are in a way redundant.
+A combination of both is probably a good approach depending on the resource.
+
+Having an `Engineering-Pipeline`, that is a Release-Pipeline into a standalone subscription, is also worthwhile having.
+You really want to test if your configuration (ARM Template) is valid and stays valid and can be redeployed [`idempotent`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#idempotence) over and over again.
+The Engineering-Pipeline is also usable for feature and experimental development.
+
+An `Engineering Subscription` is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain *any* data.
+Also the naming should not indicate in any way the brand.
+If the engineering subscription is compromised an attacker should not be able to identify the company or user.
 
 ### Tests across Azure regions
 
