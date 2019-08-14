@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Test Infrastructure as Code
-subtitle: 
-bigimg: 
+subtitle:
+bigimg:
     - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
 image: "/img/pyramid.jpg"
 gh-repo: MarkWarneke/Az.Test
@@ -13,7 +13,7 @@ time: 10
 ---
 
 Treat infrastructure as code development like as a software engineering project.
-Implementing software development practices into the development of infrastructure.
+Implement software development practices into the development of infrastructure.
 In this article we are going to look into different test practices and how to implement them in an Infrastructure as Code project.
 
 {: .box-note}
@@ -21,7 +21,7 @@ In this article we are going to look into different test practices and how to im
 Get familiar with these practices first before thinking about implementing tests!
 
 You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your `Infrastructure as Code` IaC project.
-These principals will force you into writing tested code. 
+These principals will force you into writing tested code.
 A good starting point when starting with tests for infrastructure as code is the [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
 Where you want to have many quick and small tests to ensure your code does what is expected.
 However, when talking about Infrastructure Development there are slight differences to Software Development.
@@ -36,26 +36,27 @@ However, when talking about Infrastructure Development there are slight differen
 
 ## Climb the Pyramid
 
-Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file. 
-I have not yet heard of a Unit Testing framework for configuration files like YAML, HTML or JSON, I am only aware of [linter](https://en.wikipedia.org/wiki/Lint_(software)). 
+Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file.
+I have not yet heard of a Unit Testing framework for configuration files like YAML, HTML or JSON, I am only aware of [linter](https://en.wikipedia.org/wiki/Lint_(software)).
 Having said that:
 
 When following the best practices of Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no *unit* or smallest executable unit to test except the configuration file itself, which contains the desired state of the environment.
 Hence you should make sure your unit is thoroughly tested using available tools and practices.
 
-### Unit Tests 
+### Unit Tests
 
 I personally refer to an `ARM template unit tests` as a `static code analysis`.
 So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20))
 
-### Integration Tests 
+### Integration Tests
 
 Additionally we found in our project that you can only safely say  an ARM template is valid when you actually deploy it once.
 Let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters.
 This might be refereed to a System or `Integration Test` and will take some time until you can actually assert on the return, but we found it worthwhile having.
 
-If you have additional `imperative` scripts (e.g. post configuration, custom script extension, DSC) you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
-You don't want to test if the implementation of these scripts (e.g. Get-AzResource) are correct but if your logic of execution is as expected. So assert if your mocks are called and validate your code flow.
+If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
+You don't want to test the implementation of commands like `Get-AzResource`, but if your logic of execution and custom code is doing what is expected.
+Assert if your mocks are called and validate your code flow.
 
 ![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
@@ -76,12 +77,12 @@ Keeping this in mind a tests should also considers this.
 ### Acceptance Tests
 
 Lastly, you want to make sure no deviation or configuration drift is happening.
-Using a test method called `Acceptance Test` of `Validation Tests` can save you a lot of time. 
+Using a test method called `Acceptance Test` of `Validation Tests` can save you a lot of time.
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
 
 ### Tests Phases
 
-These Unit and Integration tests could be grouped into the `build phase`, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc.. 
+These Unit and Integration tests could be grouped into the `build phase`, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc..
 Validation and Acceptance Tests could be group to the `release phase`.
 
 If you want to integration tests these Azure Resources, I would recommend to rely on a release pipeline that is used for testing, this allows to not tests on change to the version control but on a `Preview-Artefact`.
@@ -102,7 +103,7 @@ I would recommend to have at least dedicated subscriptions for different environ
 After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment.
 User Acceptance Tests can be managed and monitored through [Azure DevOps Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/).
 Only after the approval of a release manager, if all tests result from the key users are green, the next Stage e.g. Pre-Production or Staging should be triggered.
-This staging and deployment from one environment to the next is considered `Continuous Deployment`. 
+This staging and deployment from one environment to the next is considered `Continuous Deployment`.
 Continuous Deployment should be the end goal of every Infrastructure as Code project.
 
 ## Developer View
@@ -131,7 +132,7 @@ Its extensibility and configurations makes it a powerful editor of choice.
 {
     "recommendations": [
         // Linter for ARM teampltes
-        "msazurermtools.azurerm-vscode-tools",  
+        "msazurermtools.azurerm-vscode-tools",
 
         // Code generator for ARM template snippets
         "samcogan.arm-snippets",
@@ -154,7 +155,7 @@ Its extensibility and configurations makes it a powerful editor of choice.
 }
 ```
 
-easy code styles could be enforced by using a `.vscode/settings.json` in the root of a vscode session. 
+easy code styles could be enforced by using a `.vscode/settings.json` in the root of a vscode session.
 
 ```json
 // .vscode/settings.json
@@ -201,7 +202,6 @@ PowerShell linting and best practices validation through [`PSScriptAnalyzerSetti
     }
 }
 ```
-
 
 ## Resources
 

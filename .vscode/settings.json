@@ -1,5 +1,12 @@
 {
   "editor.trimAutoWhitespace": false,
   "files.trimTrailingWhitespace": false,
-  "workbench.colorCustomizations": {}
+  "workbench.colorCustomizations": {},
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "files.hotExit": "onExit",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
 }
