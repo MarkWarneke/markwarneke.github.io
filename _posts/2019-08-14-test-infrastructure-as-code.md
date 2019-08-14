@@ -142,10 +142,12 @@ These Artifact should only be used for demo or testing purposes.
 
 ### Continuous Integration & Continuous Deployment
 
-The result of a build phase when successfully should always be some kind of `Artifact`.
+The result of a build phase if successful should create some kind of `Artifact`.
 Same steps a compiler does could be engineered for IaC, but limited to a configuration file.
 Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`.
 Only then the build Artifact, in this context the ARM template, is a valid.
+And Artifact will have a dedicated traceable version number and should contain release information and a change log.
+Other teams can subscribe and get notification on new Artifact versions.
 
 The created Artifact is used to release and deploy to the first environment - `Continuous Delivery`, usually a Development (Dev) or Beta environment.
 You can use a dedicated Azure subscription or a naming convention inside a resource group.
