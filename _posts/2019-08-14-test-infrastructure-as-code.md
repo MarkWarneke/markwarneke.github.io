@@ -174,6 +174,8 @@ easy code styles could be enforced by:
 }
 ```
 
+PowerShell linting and best practices validation through [`PSScriptAnalyzerSettings`](https://github.com/PowerShell/PSScriptAnalyzer) which can be configured with a `PSScriptAnalyzerSettings.psd1` file.
+
 ```powershell
 #./PSScriptAnalyzerSettings.psd1
 @{
