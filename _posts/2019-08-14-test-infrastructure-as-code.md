@@ -124,9 +124,11 @@ So these kind of tests can be executed inside the integration test, e2e test and
 
 ### Smoke Tests
 
-Using these specification defined in form of a acceptance tests could also be used for exploration testing or `smoke testing`.
-That is querying Azure resources and checking properties against certain requirements or specifications.
-These tests are usually executed on a black box system to validate and check the state.
+Using the specification defined in form of multiple acceptance tests.
+These tests can also be used for exploration testing or `smoke testing` on previously deployed resources.
+That is, querying existing Azure resources and checking the properties against certain requirements or specifications, which are implemented as tests in the acceptance test.
+Smoke tests are usually executed against a black box system to validate and check the state and behavior.
+Using smoke tests against Azure resources will ensure general requirements of resources are met.
 
 ### Tests Phases
 
