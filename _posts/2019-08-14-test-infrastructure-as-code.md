@@ -9,6 +9,7 @@ gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [Test, PowerShell, AzureDevOps]
 comments: true
+time: 6
 ---
 
 Treat infrastructure as code as a Software development project. Implementing software engineering practices into the development of infrastructure.
