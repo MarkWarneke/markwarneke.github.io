@@ -112,6 +112,12 @@ Acceptance Tests should be written in a way that they can be executed in differe
 An acceptance tests should be small enough to validate a requirement.
 So these kind of tests can be executed inside the integration test, e2e test and especially after a release.
 
+### Smoke Tests
+
+Using these specification defined in form of a acceptance tests could also be used for exploration testing or `smoke testing`.
+That is querying Azure resources and checking properties against certain requirements or specifications.
+These tests are usually executed on a black box system to validate and check the state.
+
 ### Tests Phases
 
 These Unit and Integration tests could be grouped into the `build phase`, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc..
