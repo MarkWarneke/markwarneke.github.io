@@ -163,7 +163,7 @@ Continuous Deployment should be the end goal of every Infrastructure as Code pro
 
 ## Developer View
 
-There are two views one could have on testing we refer to these as the `InnterLoop` and `OuterLoop`.
+There are two views one could have on testing we refer to these as the `InnerLoop` and `OuterLoop`.
 The *InnerLoop* is the view of the Developer.
 
 The requirements of a Developer are usually: quick feedback, quick execution and a smooth workflow.
