@@ -121,8 +121,13 @@ Creating Code generators will not only save time but also increase consistency t
 The developer needs to be able to work independently and execute tests locally, so she is able to test the code before checking.
 To rely solely on a release pipeline is not recommended, as the pipeline could be overcrowded and the developer might be missing the access to it.
 
+### VSCode Setup
+
+Visual Studio Code is the go to editor when developing Azure Resource MAnager templates.
+Its extensibility and configurations makes it a powerful editor of choice.
 
 ```json
+//.vscode/extensions.json
 {
     "recommendations": [
         // Linter for ARM teampltes
@@ -149,10 +154,12 @@ To rely solely on a release pipeline is not recommended, as the pipeline could b
 }
 ```
 
-easy code styles could be enforced by:
+easy code styles could be enforced by using a `.vscode/settings.json` in the root of a vscode session. 
 
 ```json
+// .vscode/settings.json
 {
+
     //-------- Files configuration --------
 
     // When enabled, will trim trailing whitespace when you save a file.
