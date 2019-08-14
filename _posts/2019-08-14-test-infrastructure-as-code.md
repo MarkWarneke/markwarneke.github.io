@@ -13,7 +13,7 @@ time: 10
 ---
 
 Treat Infrastructure as Code development like a software engineering project.
-Implement existing software development practices into the infrastructure development.
+Implement existing software development practices into your infrastructure development.
 In this article we are going to look into different practices regarding test implementation in an Infrastructure as Code project.
 
 {: .box-note}
