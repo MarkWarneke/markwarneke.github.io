@@ -54,6 +54,8 @@ Having said that:
 When following the best practices of Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no *unit* or smallest executable unit to test except the configuration file itself, which contains the desired state of the environment.
 Hence you should make sure your unit is thoroughly tested using available tools and practices.
 
+![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
+
 ### Unit Tests
 
 I personally refer to an `ARM template unit tests` as a `static code analysis`.
@@ -68,8 +70,6 @@ This might be refereed to a System or `Integration Test` and will take some time
 If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test the implementation of commands like `Get-AzResource`, but if your logic of execution and custom code is doing what is expected.
 Assert if your mocks are called and validate your code flow.
-
-![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
 ### End-To-End Testing
 
