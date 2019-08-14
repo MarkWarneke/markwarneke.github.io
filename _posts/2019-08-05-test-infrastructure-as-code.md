@@ -20,6 +20,8 @@ However, when talking about Infrastructure Development there are slight differen
 
 ## Climb the Pyramid
 
+![Test Pyramid](./img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
+
 If you are asking about an ARM template as the subject under test we are talking about a configuration file. I have not heard about a Unit Testing framework for e.g. YAML, HTML or JSON. Having said that:
 
 When going the [declarative approach](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) there really is no unit except the configuration file. 
@@ -51,7 +53,7 @@ These Unit and Integration tests could be grouped into the build phase, however 
 Validation and Acceptance Tests could be group to the release phase. 
 
 If you want to integration tests these Azure Resources, I would recommend to rely on a release pipeline that is used for testing, this allows to not tests on change to the version control but on a `Preview-Artefact`.
-`Preview-Artefacts` are not yet officially published (from the build phase created) Artefact for demo or testing purposes.
+Preview-Artefacts are not yet officially published (from the build phase created) Artefact for demo or testing purposes.
 
 ### CI-CD
  
