@@ -104,7 +104,7 @@ Keeping this in mind all tests should considers this possibility.
 
 ### Acceptance Tests
 
-Lastly, you want to make sure no deviation or configuration drift is happening.
+You probably want to make sure no deviation or configuration drift is happening.
 Using a test method called `Acceptance Test` of `Validation Tests` can save you a lot of time.
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
 
