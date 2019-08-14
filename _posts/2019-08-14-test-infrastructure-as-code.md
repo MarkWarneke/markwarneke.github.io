@@ -48,11 +48,11 @@ Let me know if you have feedback in the commands below or [@MarkWarneke](https:/
 ## Climb the Pyramid
 
 Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file.
-I have not yet heard of a Unit Testing framework for configuration files like YAML, HTML or JSON, I am only aware of [linter](https://en.wikipedia.org/wiki/Lint_(software)).
+I have not yet heard of a Unit Testing framework for configuration files like YAML, JSON or HTML; I am only aware of [linter](https://en.wikipedia.org/wiki/Lint_(software)) for these file types.
 Having said that:
 
-When following the best practices of Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no *unit* or smallest executable unit to test except the configuration file itself, which contains the desired state of the environment.
-Hence you should make sure your unit is thoroughly tested using available tools and practices.
+When following the best practices of Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no *unit* or smallest executable code to test except the configuration file itself, which contains the desired state of the environment.
+Hence, you should make sure your unit is thoroughly tested using available methods, tools and practices.
 
 ![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
