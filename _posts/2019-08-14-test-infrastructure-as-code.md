@@ -12,13 +12,13 @@ comments: true
 time: 10
 ---
 
-Treat infrastructure as code development like as a software engineering project.
-Implement software development practices into the development of infrastructure.
-In this article we are going to look into different test practices and how to implement them in an Infrastructure as Code project.
+Treat Infrastructure as Code development like a software engineering project.
+Implement existing software development practices into the infrastructure development.
+In this article we are going to look into different practices regarding test implementation in an Infrastructure as Code project.
 
 {: .box-note}
 **Note** The one fundamental is **Version Control** <br>
-Get familiar with these practices first before thinking about implementing tests!
+Get familiar with this practice first before thinking about implementing tests!
 
 You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your `Infrastructure as Code` IaC project.
 These principals will force you into writing tested code.
