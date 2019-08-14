@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DRAFT Acceptance Tests for Infrastructure as Code
+title: Acceptance Tests for Infrastructure as Code
 subtitle:
 bigimg: /img/work.jpg
 image: "/img/work.jpg"
