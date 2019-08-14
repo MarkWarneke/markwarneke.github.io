@@ -42,6 +42,7 @@ Hence you should make sure your unit is thoroughly tested using available tools 
 
 I personally refer to an `ARM template unit tests` as a `static code analysis`.
 So validating, checking and parsing the configuration file - the ARM template. (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20))
+
 Additionally we found in our project that you can only safely say  an ARM template is valid when you actually deploy it once.
 Let the Azure Resource Manager Engine expand, validate and EXECUTE the template with all its necessary dependencies and parameters.
 This might be refereed to a System or `Integration Test` and will take some time until you can actually assert on the return, but we found it worthwhile having.
