@@ -13,9 +13,10 @@ time: 6
 ---
 
 Treat infrastructure as code as a Software development project. Implementing software engineering practices into the development of infrastructure.
-The first thing to have before thinking about Tests is Version Control. Get familiar with these practices first! [Docs: Version Control](https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-2019)
+The one fundamental thing is [`Version Control`](https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-201. 
+Get familiar with these practices first before thinking about Tests!
 
-You should embrace[`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
+You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
 These principals will force you into writing tested code. A good starting point when looking at Test for infrastructure as code is the the called [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
 Where you want to have many quick and small tests to ensure your code does what is expected.
 However, when talking about Infrastructure Development there are slight differences to Software Development.
