@@ -17,8 +17,12 @@ Implementing software engineering practices into the development of infrastructu
 In this article we are going to look into the different Test practices of Infrastructure as Code.
 
 {: .box-note}
-**Note** The one fundamental thing is [`Version Control`](https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-201. 
-Get familiar with these practices first before thinking about Tests!
+**Note** The one fundamental thing is **Version Control**
+
+<p style="text-align: center; padding: 15px;">
+<strong>
+Get familiar with these practices first before thinking about Tests! <br/> (For official guidance visit <a href="https://docs.microsoft.com/en-us/visualstudio/version-control/?view=vs-201">docs.microsoft.com/version-control</a>).
+</p>
 
 You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your infrastructure as code project.
 These principals will force you into writing tested code. A good starting point when looking at Test for infrastructure as code is the the called [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
