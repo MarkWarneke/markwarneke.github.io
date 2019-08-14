@@ -64,11 +64,11 @@ This is of course a generalization and you should strive to implement all practi
 
 ### Unit Tests
 
-I personally refer to a `unit tests` for ARM template as asserted `static code analysis`.
-So by using assertion the test should parse, validate, check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file - ARM template.
+I personally refer to a `unit tests` for ARM templates as asserted `static code analysis`.
+By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file - ARM template.
 (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
-See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1)
+See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for implementation of unit tests.
 
 ### Integration Tests
 
@@ -83,7 +83,7 @@ However we found it worthwhile having.
 The integration test and therefore complete deployment is only needed on a change to the ARM template itself.
 
 If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
-You don't want to test the implementation of commands like `Get-AzResource`, but if your logic of execution and custom code is doing what is expected.
+You don't want to test the implementation of commands like `Get-AzResource`, but test wether your logic of execution and written custom code is doing what is expected.
 Assert if your mocks are called and validate your code flow.
 
 However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the  API is mandatory to assert that the code is correct.
