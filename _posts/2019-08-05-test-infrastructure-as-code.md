@@ -20,7 +20,7 @@ However, when talking about Infrastructure Development there are slight differen
 
 ## Climb the Pyramid
 
-![Test Pyramid](./img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
+![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
 If you are asking about an ARM template as the subject under test we are talking about a configuration file. I have not heard about a Unit Testing framework for e.g. YAML, HTML or JSON. Having said that:
 
