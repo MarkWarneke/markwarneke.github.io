@@ -68,10 +68,9 @@ Only after the approval of a release manager that go the tests result from the k
 
 ## Video
 
-PowerShell Conference EU - Test infrastructure as code?
-![Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8)
+PowerShell Conference EU - [Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Testing Phase

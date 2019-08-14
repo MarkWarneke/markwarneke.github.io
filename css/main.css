@@ -1171,3 +1171,11 @@ ul ul {
 body {
   background-color: #f8f8f8 !important;
 }
+
+@media screen and (max-width: 750px) {
+    iframe {
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+    }
+}
