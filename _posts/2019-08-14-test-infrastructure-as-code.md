@@ -72,11 +72,14 @@ This might be refereed to a System or `Integration Test`.
 It will take some time until you can actually assert on the deployed resource.
 This might be controversial and I love to have a discussion on this topic as some people think of this step as redundant and obsolete.
 However we found it worthwhile having.
-The integration test and therefore complete deployment is of course only needed on a change to the ARM template itself.
+The integration test and therefore complete deployment is only needed on a change to the ARM template itself.
 
 If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test the implementation of commands like `Get-AzResource`, but if your logic of execution and custom code is doing what is expected.
 Assert if your mocks are called and validate your code flow.
+
+However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the  API is mandatory to assert that the code is correct.
+It should be done at least once within the test suite.
 
 ### End-To-End Testing
 
