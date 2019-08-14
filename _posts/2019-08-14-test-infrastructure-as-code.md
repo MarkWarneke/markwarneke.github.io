@@ -186,7 +186,7 @@ Consistent code styles and formats prevent errors and increase productivity.
 [@RobinManuelT](https://twitter.com/robinmanuelt) create a great blog post describing his setup to [enforce a consistent Coding Style across projects and programming languages](https://pumpingco.de/blog/enforcing-a-consistent-coding-style-across-projects-and-programming-languages/).
 Creating Code generators will not only save time but also increase consistency throughout the code base. An example can be found in the [Az.New](https://aka.ms/Az.New) module.
 
-The developer needs to be able to work independently and execute tests locally, so she is able to test the code before checking.
+The developer needs to be able to work independently and execute tests locally, so she is able to test the code before check-in.
 To rely solely on a release pipeline is not recommended, as the pipeline could be overcrowded and the developer might be missing the access to it.
 
 ### VSCode Setup
