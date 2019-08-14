@@ -27,7 +27,7 @@ However, when talking about Infrastructure Development there are slight differen
 
 ## PowerShell Conference EU
 
-[Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8)
+[Video: Test infrastructure as code?](https://www.youtube.com/watch?v=k33Nini-Dc8) [Slides & Code](https://github.com/psconfeu/2019/tree/master/sessions/MarkWarneke)
 
 <div class="video-container">
     <iframe  src="https://www.youtube.com/embed/k33Nini-Dc8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -35,9 +35,11 @@ However, when talking about Infrastructure Development there are slight differen
 
 ## Climb the Pyramid
 
-If you are asking about an Azure Resource Manager template as the subject under test we are talking about a configuration file. I have not heard about a Unit Testing framework for e.g. YAML, HTML or JSON. Having said that:
+Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file. 
+I have not yet heard of a Unit Testing framework for configuration files like YAML, HTML or JSON, I am only aware of [linter](https://en.wikipedia.org/wiki/Lint_(software)). 
+Having said that:
 
-When going the [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) there really is no unit except the configuration file.
+When following the best practices of Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no *unit* or smallest executable unit to test except the configuration file itself, which contains the desired state of the environment.
 Hence you should make sure your unit is thoroughly tested using available tools and practices.
 
 ### Unit Tests 
@@ -79,7 +81,7 @@ These Tests are written to ensure a requirement is met. You can execute these te
 ### Tests Phases
 
 These Unit and Integration tests could be grouped into the `build phase`, however some resource deployments might take a couple of hours, e.g. VNet Gateways (~25mins) etc.. 
-Validation and Acceptance Tests could be group to the `release phase`. 
+Validation and Acceptance Tests could be group to the `release phase`.
 
 If you want to integration tests these Azure Resources, I would recommend to rely on a release pipeline that is used for testing, this allows to not tests on change to the version control but on a `Preview-Artefact`.
 Preview-Artefacts are not yet officially published (from the build phase created) Artefact for demo or testing purposes.
