@@ -102,21 +102,97 @@ I would recommend to have at least dedicated subscriptions for different environ
 After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment.
 User Acceptance Tests can be managed and monitored through [Azure DevOps Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/).
 Only after the approval of a release manager, if all tests result from the key users are green, the next Stage e.g. Pre-Production or Staging should be triggered.
-This staging and deployment from one environment to the next is considered `Continuous Deployment` and should be the end goal of every Infrastructure as Code project.
+This staging and deployment from one environment to the next is considered `Continuous Deployment`. 
+Continuous Deployment should be the end goal of every Infrastructure as Code project.
 
 ## Developer View
 
 There are two views one could have on testing we refer to these as the `InnterLoop` and `OuterLoop`.
-The Inner-Loop is the view of the Developer. 
-The requirements of a Developer are usually quick feedback and a smooth workflow when working on code.
-Testing tools like linting e.g. through .vscode/extensions/ json lint.
-These linters usually don't exist natively and are just a static analysis of style and form. 
-A good practice to have in the inner loop is rely on convention and default formating - you could use the .vscode/settings (e.g. trim whitespace, new line, brackets, tabs).
-Consistent code styles and formats prevent errors and increase productivity.
-Creating Code generators will not only save time but also increase consistency throughout the code base.
-You can leverage tools like Plaster or Az.New.
+The *InnerLoop* is the view of the Developer.
 
-The developer also needs to be able to execution tests locally, so relying solely on a release pipeline won't help if the developer is missing the access to it.
+The requirements of a Developer are usually: quick feedback, quick execution and a smooth workflow.
+
+Tools like linting integrate easily into the workflow of a developer.
+A good practice to have for the InnerLoop are convention and consistent formating.
+Consistent code styles and formats prevent errors and increase productivity.
+[@RobinManuelT](https://twitter.com/robinmanuelt) create a great blog post describing his setup to [enforce a consistent Coding Style across projects and programming languages](https://pumpingco.de/blog/enforcing-a-consistent-coding-style-across-projects-and-programming-languages/).
+Creating Code generators will not only save time but also increase consistency throughout the code base. An example can be found in the [Az.New](https://aka.ms/Az.New) module.
+
+The developer needs to be able to work independently and execute tests locally, so she is able to test the code before checking.
+To rely solely on a release pipeline is not recommended, as the pipeline could be overcrowded and the developer might be missing the access to it.
+
+
+```json
+{
+    "recommendations": [
+        // Linter for ARM teampltes
+        "msazurermtools.azurerm-vscode-tools",  
+
+        // Code generator for ARM template snippets
+        "samcogan.arm-snippets",
+
+         // Linter for Markdown
+        "DavidAnson.vscode-markdownlint",
+
+        // Version Control Helper Extension
+        "eamodio.gitlens",
+
+        // JSON tool
+        "eriklynd.json-tools",
+
+        // PowerShell Extension and Linter (PSScriptAnalyzer)
+        "ms-vscode.PowerShell",
+
+        // Spell Checker
+        "streetsidesoftware.code-spell-checker"
+    ]
+}
+```
+
+easy code styles could be enforced by:
+
+```json
+{
+    //-------- Files configuration --------
+
+    // When enabled, will trim trailing whitespace when you save a file.
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2000,
+    "files.hotExit": "onExit",
+
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+
+    //-------- PowerShell Configuration --------
+
+    // Use a custom PowerShell Script Analyzer settings file for this workspace.
+    // Relative paths for this setting are always relative to the workspace root dir.
+    "powershell.scriptAnalysis.enable": true,
+    "powershell.codeFormatting.openBraceOnSameLine": true,
+    "powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1" // See below
+}
+```
+
+```powershell
+#./PSScriptAnalyzerSettings.psd1
+@{
+    Rules = @{
+        PSUseCompatibleSyntax = @{
+            # This turns the rule on (setting it to false will turn it off)
+            Enable         = $true
+
+            # List the targeted versions of PowerShell here
+            TargetVersions = @(
+                '3.0',
+                '5.1',
+                '6.2'
+            )
+        }
+    }
+}
+```
+
 
 ## Resources
 
