@@ -101,8 +101,8 @@ I would recommend to have at least dedicated subscriptions for different environ
 
 After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment.
 User Acceptance Tests can be managed and monitored through [Azure DevOps Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/).
-Only after the approval of a release manager, if all tests result from the key users are green, the next Stage e.g. Pre-Production or Staging should be triggered, using the same artefact.
- This is considered `Continuous Deployment` and should be the end goal of every Infrastructure as Code project.
+Only after the approval of a release manager, if all tests result from the key users are green, the next Stage e.g. Pre-Production or Staging should be triggered.
+This staging and deployment from one environment to the next is considered `Continuous Deployment` and should be the end goal of every Infrastructure as Code project.
 
 ## Developer View
 
