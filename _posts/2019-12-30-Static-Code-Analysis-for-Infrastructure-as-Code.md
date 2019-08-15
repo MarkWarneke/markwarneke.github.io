@@ -111,7 +111,7 @@ I know of two public available static code analysis tests, one is implemented by
 See VDC code blocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1).
 
 The assertion checks if the converted JSON has expected properties.
-The basic [Azure Resource Manager template schema](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts#understand-the-schema) asks for describes, `$schema`, `contentVersion`, `parameters`, `variables`, `resources` and `outputs`.
+The basic [Azure Resource Manager template schema](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts#understand-the-schema) schema accepts `$schema`, `contentVersion`, `parameters`, `variables`, `resources` and `outputs` as top level properties.
 
 ```json
 // azuredeploy.json
@@ -126,7 +126,9 @@ The basic [Azure Resource Manager template schema](https://docs.microsoft.com/en
 ```
 
 PowerShell has native support for working with JSON files.
-PowerShell can be easily converted a JSON file to a PowerShell object.
+PowerShell can easily read and convert a JSON file to a PowerShell object.
+If the conversion is not possible or the JSON is invalid, a terminating error is thrown.
+This could be the first test.
 
 ```powershell
 $TemplateFile = './azuredeploy.json'
@@ -140,28 +142,40 @@ $TemplateJSON
 # outputs        :
 ```
 
-`Get-Content` reads the text from the given file, `-Raw` reads it as one chunk rather then per line. `ConvertFrom-Json` will convert the string into a PowerShell object.
+`Get-Content -Raw`reads the text from the given file as one object rather then per line.`ConvertFrom-Json` will convert the string into a PowerShell object.
 
 ```powershell
 #vdc/Modules/SQLDatabase/2.0/Tests/module.tests.ps1
-It "Converts from JSON and has the expected properties" -TestCases $TemplateFileTestCases {
+
+# $TemplateFileTestCases can store multiple TemplateFileTestCases to test
+It "Converts from JSON and has the expected properties" `
+ -TestCases $TemplateFileTestCases {
+    # Accept a template file per time
     Param ($TemplateFile)
+
+    # Define all expected properties as pet ARM schema
     $expectedProperties = '$schema',
     'contentVersion',
     'parameters',
     'variables',
     'resources',
     'outputs'| Sort-Object
-    $templateProperties = (Get-Content (Join-Path "$here" "$TemplateFile") |
+
+    # Get actual properties from the TemplateFile
+    $templateProperties =
+        (Get-Content (Join-Path "$here" "$TemplateFile") |
         ConvertFrom-Json -ErrorAction SilentlyContinue) |
         Get-Member -MemberType NoteProperty |
         Sort-Object -Property Name |
         ForEach-Object Name
+
+    # Assert that the template properties are present
+    # PowerShell will compare strings here, as toString() is invoked on the array of Names
     $templateProperties | Should Be $expectedProperties
 }
 ```
 
-The tests Asserts that the `$expectedProperties` are present within the JSON file by getting the `NoteProperties` of given PowerShell object.
+The tests Asserts that the `$expectedProperties` are present within the JSON file by getting the `NoteProperties` `Name` of the converted PowerShell object.
 
 The `Noteproperties` of a blank ARM template look like this:
 
@@ -171,12 +185,12 @@ $TemplateJSON | Get-Member -MemberType NoteProperty
 #   TypeName: System.Management.Automation.PSCustomObject
 # Name           MemberType   Definition
 # ----           ----------   ----------
-# $schema        NoteProperty string $schema=https://schema.management.azure.com/schemas/2015-01-01/…
+# $schema        NoteProperty string $schema=https://...
 # contentVersion NoteProperty string contentVersion=1.0.0.0
-# outputs        NoteProperty System.Management.Automation.PSCustomObject outputs=
-# parameters     NoteProperty System.Management.Automation.PSCustomObject parameters=
+# outputs        NoteProperty PSCustomObject outputs=
+# parameters     NoteProperty PSCustomObject parameters=
 # resources      NoteProperty Object[] resources=System.Object[]
-# variables      NoteProperty System.Management.Automation.PSCustomObject variables=
+# variables      NoteProperty PSCustomObject variables=
 
 $TemplateJSON | Get-Member -MemberType NoteProperty | select Name
 # Name
@@ -194,6 +208,8 @@ The same test can be applied for the parameter file too.
 
 The `module.tests.ps1` then parses the given template and checks if the required `parameters` are present in a given parameter file. A required parameter can be identified if the `defaultValue` is not set on the parameter property.
 
+Given the following parameters inside an ARM template, we could check the `mandatory` property is present in the parameters file.
+
 ```json
 // azuredeploy.json
 {
@@ -204,15 +220,20 @@ The `module.tests.ps1` then parses the given template and checks if the required
       "type": "string",
       "defaultValue": "Mark"
     },
-    "surename": {
+    "mandatory": {
       "type": "string"
     }
   } // ...
 }
 ```
 
-Given above template only `surename` is mandatory, as the `defaultValue` property is not present.
-Using `Where-Object -FilterScript { -not ($_.Value.PSObject.Properties.Name -eq "defaultValue") }`
+Given above template only `mandatory` is a mandatory parameter, as the `defaultValue` property is not present.
+Using
+
+```powershell
+Where-Object -FilterScript { -not ($_.Value.PSObject.Properties.Name -eq "defaultValue") }
+```
+
 we can check the presence of `PSObjects` `Value` properties `defaultValue`.
 
 ```powershell
@@ -235,7 +256,9 @@ $TemplateJSON.Parameters.PSObject.Properties
 # Name            : mandatory
 # IsInstance      : True
 $TemplateJSON.Parameters.PSObject.Properties |
-    Where-Object -FilterScript { -not ($_.Value.PSObject.Properties.Name -eq "defaultValue") }
+    Where-Object -FilterScript {
+        -not ($_.Value.PSObject.Properties.Name -eq "defaultValue")
+    }
 # Value           : @{type=string}
 # MemberType      : NoteProperty
 # IsSettable      : True
@@ -247,7 +270,7 @@ $TemplateJSON.Parameters.PSObject.Properties |
 
 We can then check if the returned values are present in the parameter file.
 
-```
+```powershell
 $requiredParametersInTemplateFile = (Get-Content (Join-Path "$here" "$($Module.Template)") |
     ConvertFrom-Json -ErrorAction SilentlyContinue).Parameters.PSObject.Properties |
     Where-Object -FilterScript { -not ($_.Value.PSObject.Properties.Name -eq | "defaultValue") }
