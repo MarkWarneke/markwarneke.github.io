@@ -131,7 +131,19 @@ That is, querying for existing Azure resources and checking the properties again
 Smoke tests are usually executed against a black box system to validate and check the state and behavior.
 Using smoke tests against Azure resources will ensure general requirements of resources are met.
 
-### Tests Phases
+## Code generator
+
+Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been create to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is based on the common code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the Developer workflow on generating code, it is less error prone and implement code consistency.
+
+## Review und Pull-Requests
+
+A good practice is to have regular **peer reviews** and using **pull-requests** to apply changes.
+
+A **branching policy** prevents the immediate change to a given branch. It is a must to implement a branching policy when using IaC. The branching policy should enforce a required reviewer and foster the peer review concept. The review is therefore enforced on each change to the code base. The four eyes principle increases Code Quality tremendously and helps knowledge sharing.
+
+The branching policy can also enforce the assignment of tickets like change request of feature updates. And can also be associated to a build pipeline. The pipeline will pre-merge the changes and executes the tests and checks before the actual change to the code base happens.
+
+## Tests Phases
 
 Unit and Integration tests could be grouped into the **build phase**.
 While Validation, Acceptance and e2e Tests could be group to the **release phase**.
@@ -156,7 +168,7 @@ I would recommend **Preview-Artifacts**. these Artifacts can be leverage to use 
 These artifacts are not yet officially published and might have a Beta or Preview indicator.
 These Artifact should only be used for demo or testing purposes.
 
-### Continuous Integration & Continuous Deployment
+## Continuous Integration & Continuous Deployment
 
 The result of a build phase, if successful, should always create some kind of **Artifact**.
 Similar to a compiler but for a IaC configuration file.
@@ -299,8 +311,10 @@ The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-mana
   - [Tests across Azure regions](#tests-across-azure-regions)
   - [Acceptance Tests](#acceptance-tests)
   - [Smoke Tests](#smoke-tests)
-  - [Tests Phases](#tests-phases)
-  - [Continuous Integration & Continuous Deployment](#continuous-integration--continuous-deployment)
+- [Code generator](#code-generator)
+- [Review und Pull-Requests](#review-und-pull-requests)
+- [Tests Phases](#tests-phases)
+- [Continuous Integration & Continuous Deployment](#continuous-integration--continuous-deployment)
 - [Developer View](#developer-view)
   - [VSCode Setup](#vscode-setup)
 - [Resources](#resources)
