@@ -297,9 +297,9 @@ The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-mana
 
 ## Changelog
 
-| Date       | Change                     |
-| ---------- | -------------------------- |
-| 15.08.2019 | Edit Intro and add Remarks |
+| Date       | Change                                                     |
+| ---------- | ---------------------------------------------------------- |
+| 15.08.2019 | Edit Intro, add Remarks, Code Generator and Review Section |
 
 ## Table of Contents
 
