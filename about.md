@@ -52,3 +52,7 @@ _The Mythical Man-Month: Essays on Software Engineering_
 # Icons made by
 
 [Dimitry Miroliubov](https://www.flaticon.com/authors/dimitry-miroliubov) [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
+
+# Pictures
+
+Pictures by [unsplash](https://unsplash.com) if not otherwise stated.
