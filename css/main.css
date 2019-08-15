@@ -1242,7 +1242,6 @@ article {
 }
 
 #scroll:hover {
-  background-color: #e74c3c;
   opacity: 1;
   filter: "alpha(opacity=100)";
   -ms-filter: "alpha(opacity=100)";
