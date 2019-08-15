@@ -9,7 +9,7 @@
   <link rel="manifest" href="/manifest.json" />
 
   <title>
-    {% if page.use-site-title %}{{ site.title }} {{ site.title - separator }}
+    {% if page.use-site-title %}{{ site.title }} {{ site.title-separator }}
     {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{
       site.title
     }}{% endif %}
@@ -24,7 +24,7 @@
   <link
     rel="alternate"
     type="application/rss+xml"
-    title="{{ site.title }} {{ site.title - separator }} {{ site.description }}"
+    title="{{ site.title }} {{ site.title-separator }} {{ site.description }}"
     href="{{ '/feed.xml' | absolute_url }}"
   />
 
@@ -49,13 +49,13 @@
   {% if site.fb_app_id %}
   <meta property="fb:app_id" content="{{ site.fb_app_id }}" />
   {% endif %} {% if page.meta-title %}
-  <meta property="og:title" content="{{ page.meta - title }}" />
+  <meta property="og:title" content="{{ page.meta-title }}" />
   {% elsif page.title %}
   <meta property="og:title" content="{{ page.title }}" />
   {% else %}
   <meta property="og:title" content="{{ site.title }}" />
   {% endif %} {% if page.meta-description %}
-  <meta property="og:description" content="{{ page.meta - description }}" />
+  <meta property="og:description" content="{{ page.meta-description }}" />
   {% elsif page.subtitle %}
   <meta property="og:description" content="{{ page.subtitle }}" />
   {% else %}
@@ -88,13 +88,13 @@
   <meta name="twitter:creator" content="@{{ site.author.twitter }}" />
 
   {% if page.meta-title %}
-  <meta name="twitter:title" content="{{ page.meta - title }}" />
+  <meta name="twitter:title" content="{{ page.meta-title }}" />
   {% elsif page.title %}
   <meta name="twitter:title" content="{{ page.title }}" />
   {% else %}
   <meta name="twitter:title" content="{{ site.title }}" />
   {% endif %} {% if page.meta-description %}
-  <meta name="twitter:description" content="{{ page.meta - description }}" />
+  <meta name="twitter:description" content="{{ page.meta-description }}" />
   {% elsif page.subtitle %}
   <meta name="twitter:description" content="{{ page.subtitle }}" />
   {% else %}
