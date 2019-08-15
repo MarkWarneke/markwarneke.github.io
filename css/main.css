@@ -1195,7 +1195,7 @@ body {
   margin: 1.5em 0 3em;
 }
 
-.code {
+code {
   background-color: #e5eff5;
   color: #404040;
 }
