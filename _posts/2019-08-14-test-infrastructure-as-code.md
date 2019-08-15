@@ -6,7 +6,7 @@ bigimg:
   - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
 image: "/img/pyramid.jpg"
 share-img: "/img/pyramid.jpg"
-gh-repo: MarkWarneke/Az.Test
+gh-repo: MarkWarneke/Az.New
 gh-badge: [star, follow]
 tags: [Test, PowerShell, AzureDevOps]
 comments: true
