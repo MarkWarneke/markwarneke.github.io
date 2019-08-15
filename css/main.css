@@ -1192,3 +1192,8 @@ body {
 .highlight {
   font-size: 0.8em;
 }
+
+.code {
+  background-color: #e5eff5;
+  color: #404040;
+}
