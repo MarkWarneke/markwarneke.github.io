@@ -47,14 +47,13 @@ Let me know if you have feedback in the comments below or [@MarkWarneke](https:/
 
 ## Climb the Pyramid
 
-Using an **Azure Resource Manager Template** (ARM Template) as the subject under test we are asking to test a JSON configuration file.
-I have not yet heard of a Unit Testing framework for configuration files like YAML or JSON; I am only aware of [linter](<https://en.wikipedia.org/wiki/Lint_(software)>) for these file types.
-Having said that:
-
 When following the best practices for Infrastructure as Code by using a [**declarative approach**](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no _unit_ or smallest executable code to test except the configuration file itself.
 This file usually only describes the desired state of the system to be deployed.
 The specified system consists of one ore more Azure resources that needs to be provisioned.
 Hence, you should make sure your unit is thoroughly tested using available methods, tools and practices.
+
+Having an **Azure Resource Manager Template** (ARM Template) as the subject under test we are looking into _testing_ a JSON configuration file.
+I have not yet heard of a Unit Testing framework for configuration files like YAML or JSON; I am only aware of [linter](<https://en.wikipedia.org/wiki/Lint_(software)>) for these file types.
 
 ![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
 
@@ -66,15 +65,15 @@ This is of course a generalization and you should strive to implement all practi
 
 I personally refer to a **unit tests** for ARM templates as asserted **static code analysis**.
 By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file (ARM template).
-(There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
+
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
 See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
 
 ### Integration Tests
 
-We found in our project that you can only safely say an ARM template is valid and deployable if you actually deployed it once.
+We found in our project that you can only safely say _an ARM template is valid and deployable if you deployed it once_.
 
-As **Test-AzResourceManagerDeployment** is not invoking the Azure Resource Manager Engine, complex templates are not validated.
+As `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not validated.
 The general guidance therefore is: Let the Azure Resource Manager Engine expand, validate and _execute_ the template with all its necessary dependencies and parameters. That means, use the ARM template for a deploy at least once.
 This might be refereed to a System or **Integration Test**.
 
@@ -103,8 +102,8 @@ You really want to test if your configuration (ARM Template) is valid and stays 
 The Engineering-Pipeline is also usable for feature and experimental development.
 
 An **Engineering Subscription** is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain _any_ data.
-Also the naming should not indicate in any way the brand.
 If the engineering subscription is compromised an attacker should not be able to identify the company or user.
+Also the naming should not indicate in any way the company or brand.
 
 ### Tests across Azure regions
 
@@ -277,3 +276,34 @@ PowerShell linting and best practices validation through [`PSScriptAnalyzerSetti
 - [PSConf Eu: Slides & Code](https://github.com/psconfeu/2019/tree/master/sessions/MarkWarneke)
 - [Google: Testing Block](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html)
 - [Move Fast & Don't Break Things](https://docs.google.com/presentation/d/15gNk21rjer3xo-b1ZqyQVGebOp_aPvHU3YH7YnOMxtE/edit#slide=id.g437663ce1_53_98)
+
+## Remarks
+
+There are open source projects working on creating an Abstract Syntax Tree (AST) from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20).
+
+The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-manager-schemas) Files are located on github. A simple way to ensure a JSON file has the correct syntax is validating the JSON against its schema. You can leverage [Get-xAzSchema](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/Public/Get-Schema.ps1) from the [xAz](https://github.com/MarkWarneke/Az.New) Module to obtain a given Resource Schema by Provider Name and leverage PowerShell Core 6 `Test-Json` to validate.
+
+## Changelog
+
+| Date       | Change                     |
+| ---------- | -------------------------- |
+| 15.08.2019 | Edit Intro and add Remarks |
+
+## Table of Contents
+
+- [PowerShell Conference EU](#powershell-conference-eu)
+- [Climb the Pyramid](#climb-the-pyramid)
+  - [Unit Tests](#unit-tests)
+  - [Integration Tests](#integration-tests)
+  - [End-To-End Testing](#end-to-end-testing)
+  - [Tests across Azure regions](#tests-across-azure-regions)
+  - [Acceptance Tests](#acceptance-tests)
+  - [Smoke Tests](#smoke-tests)
+  - [Tests Phases](#tests-phases)
+  - [Continuous Integration & Continuous Deployment](#continuous-integration--continuous-deployment)
+- [Developer View](#developer-view)
+  - [VSCode Setup](#vscode-setup)
+- [Resources](#resources)
+- [Remarks](#remarks)
+- [Changelog](#changelog)
+- [Table of Contents](#table-of-contents)
