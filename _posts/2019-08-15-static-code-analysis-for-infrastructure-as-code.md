@@ -2,12 +2,12 @@
 layout: post
 title: Unit Test Azure Resource Manager Templates using Pester
 subtitle: Static code Analysis of Configuration Files
-bigimg: /img/work.jpg
-image: "/img/work.jpg"
-share-img: "/img/work.jpg"
+bigimg: /img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code//img/static-pester-test.jpg
+image: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpg"
+share-img: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
-tags: [test, powershell, arm]
+tags: [Test, PowerShell, ARM, AzureDevOps]
 comments: true
 time: 4
 published: true
@@ -16,6 +16,8 @@ published: true
 Treat Infrastructure as Code development like a software engineering project.
 In this article we are building on top of the post "Test Infrastructure as Code".
 We are looking into and digging a little deeper on how to unit test Infrastructure as Code.
+
+# Draft 15.08.19
 
 Generally Infrastructure as Code (IaC) can be distinguished between two [approaches](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#Approach).
 
