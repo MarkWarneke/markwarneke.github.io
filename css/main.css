@@ -1191,9 +1191,15 @@ body {
 
 .highlight {
   font-size: 0.8em;
+  border-radius: 5px;
+  margin: 1.5em 0 3em;
 }
 
 .code {
   background-color: #e5eff5;
   color: #404040;
+}
+
+pre code {
+  white-space: inherit;
 }
