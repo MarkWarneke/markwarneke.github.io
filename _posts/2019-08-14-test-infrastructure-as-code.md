@@ -133,15 +133,15 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 ## Code generator
 
-Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been create to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is based on the common code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the Developer workflow on generating code, it is less error prone and implement code consistency.
+Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been create to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is inspired on the code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the Developer workflow on generating code, it is less error prone and implement code consistency.
 
 ## Review und Pull-Requests
 
-A good practice is to have regular **peer reviews** and using **pull-requests** to apply changes.
+A good practice is to have regular **peer reviews** and rely on **pull-requests** to apply changes to the code base.
 
 A **branching policy** prevents the immediate change to a given branch. It is a must to implement a branching policy when using IaC. The branching policy should enforce a required reviewer and foster the peer review concept. The review is therefore enforced on each change to the code base. The four eyes principle increases Code Quality tremendously and helps knowledge sharing.
 
-The branching policy can also enforce the assignment of tickets like change request of feature updates. And can also be associated to a build pipeline. The pipeline will pre-merge the changes and executes the tests and checks before the actual change to the code base happens.
+The branching policy can also enforce the assignment of tickets like change request, features or bugs. The policy can also associated a build pipeline. This pipeline will pre-merge the requested changes and execute the pipeline on the pre merged code. The tests are thus executed before the actual change is done to the code base.
 
 ## Tests Phases
 
