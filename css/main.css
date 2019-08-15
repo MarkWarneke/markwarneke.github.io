@@ -1212,39 +1212,6 @@ article {
   margin: 0 0 3vw
 }
 
-#topBtn {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Fixed/sticky position */
-  bottom: 70px;
-  /* Place the button at the bottom of the page */
-  right: 30px;
-  /* Place the button 30px from the right */
-  z-index: 99;
-  /* Make sure it does not overlap */
-  border: none;
-  /* Remove borders */
-  outline: none;
-  /* Remove outline */
-  background-color: rgba(0, 0, 0, 0.3);
-  /* Set a background color */
-  color: grey;
-  /* Text color */
-  cursor: pointer;
-  /* Add a mouse pointer on hover */
-  padding: 15px;
-  /* Some padding */
-  border-radius: 10px;
-  /* Rounded corners */
-  font-size: 18px;
-  /* Increase font size */
-}
-
-#topBtn:hover {
-  background-color: #555;
-  /* Add a dark-grey background on hover */
-}
 
 #scroll {
   position: fixed;
@@ -1253,7 +1220,7 @@ article {
   cursor: pointer;
   width: 50px;
   height: 50px;
-  background-color: #3498db;
+  background-color: #e74c3c;
   text-indent: -9999px;
   display: none;
   -webkit-border-radius: 60px;
@@ -1274,7 +1241,7 @@ article {
 }
 
 #scroll:hover {
-  background-color: #e74c3c;
+  background-color: #3498db;
   opacity: 1;
   filter: "alpha(opacity=100)";
   -ms-filter: "alpha(opacity=100)";
