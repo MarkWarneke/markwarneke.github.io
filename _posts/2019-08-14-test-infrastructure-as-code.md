@@ -20,7 +20,7 @@ In this article we are going to look into different practices regarding test imp
 **Note** The one fundamental is **Version Control** <br>
 Get familiar with this practice first before thinking about implementing tests!
 
-You should embrace [`Behavior Driven Development`](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your `Infrastructure as Code` IaC project.
+You should embrace [**Behavior Driven Development**](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your **Infrastructure as Code** IaC project.
 These principals will force you into writing tested code.
 A good starting point when starting with tests for infrastructure as code is the [Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html).
 Where you want to have many quick and small tests to ensure your code does what is expected.
@@ -47,11 +47,11 @@ Let me know if you have feedback in the comments below or [@MarkWarneke](https:/
 
 ## Climb the Pyramid
 
-Using an `Azure Resource Manager Template` (ARM Template) as the subject under test we are asking to test a JSON configuration file.
+Using an **Azure Resource Manager Template** (ARM Template) as the subject under test we are asking to test a JSON configuration file.
 I have not yet heard of a Unit Testing framework for configuration files like YAML or JSON; I am only aware of [linter](<https://en.wikipedia.org/wiki/Lint_(software)>) for these file types.
 Having said that:
 
-When following the best practices for Infrastructure as Code by using a [`declarative approach`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no _unit_ or smallest executable code to test except the configuration file itself.
+When following the best practices for Infrastructure as Code by using a [**declarative approach**](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#approach) to provision resources there really is no _unit_ or smallest executable code to test except the configuration file itself.
 This file usually only describes the desired state of the system to be deployed.
 The specified system consists of one ore more Azure resources that needs to be provisioned.
 Hence, you should make sure your unit is thoroughly tested using available methods, tools and practices.
@@ -64,7 +64,7 @@ This is of course a generalization and you should strive to implement all practi
 
 ### Unit Tests
 
-I personally refer to a `unit tests` for ARM templates as asserted `static code analysis`.
+I personally refer to a **unit tests** for ARM templates as asserted **static code analysis**.
 By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file (ARM template).
 (There are open source projects working on creating an AST from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20)).
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
@@ -74,16 +74,16 @@ See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Mo
 
 We found in our project that you can only safely say an ARM template is valid and deployable if you actually deployed it once.
 
-As `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not validated.
+As **Test-AzResourceManagerDeployment** is not invoking the Azure Resource Manager Engine, complex templates are not validated.
 The general guidance therefore is: Let the Azure Resource Manager Engine expand, validate and _execute_ the template with all its necessary dependencies and parameters. That means, use the ARM template for a deploy at least once.
-This might be refereed to a System or `Integration Test`.
+This might be refereed to a System or **Integration Test**.
 
 Deploying the solution will take time, but actually asserting on the deployed resource is very beneficial.
 This might be a controversial point and I would love to have a conversation on this topic, as some people think of this step as redundant and obsolete.
 However we found it worthwhile having as it ensures the template is actually deployable.
 The integration test and therefore complete deployment is only needed on a change to the ARM template itself.
 
-If you have additional `imperative` scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
+If you have additional **imperative** scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test the implementation of commands like `Get-AzResource`, but test wether your logic of execution and written custom code is doing what is expected.
 Assert if your mocks are called and validate your code flow.
 
@@ -94,15 +94,15 @@ You want to make sure the configuration got actually applied.
 
 ### End-To-End Testing
 
-We also found that a dummy deployment `End-to-End Testing` (e2e) will help to find missing requirements, missing dependencies and deployment issues.
+We also found that a dummy deployment **End-to-End Testing** (e2e) will help to find missing requirements, missing dependencies and deployment issues.
 Again, a controversial topic as this testing approach is similar to Integration Tests and therefore in a way redundant.
 A combination of both is probably a good approach depending on the resource.
 
-Having an `Engineering-Pipeline`, that is a Release-Pipeline into a standalone subscription, is also worthwhile having.
-You really want to test if your configuration (ARM Template) is valid and stays valid and can be redeployed [`idempotent`](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#idempotence) over and over again.
+Having an **Engineering-Pipeline**, that is a Release-Pipeline into a standalone subscription, is also worthwhile having.
+You really want to test if your configuration (ARM Template) is valid and stays valid and can be redeployed [**idempotent**](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#idempotence) over and over again.
 The Engineering-Pipeline is also usable for feature and experimental development.
 
-An `Engineering Subscription` is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain _any_ data.
+An **Engineering Subscription** is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain _any_ data.
 Also the naming should not indicate in any way the brand.
 If the engineering subscription is compromised an attacker should not be able to identify the company or user.
 
@@ -116,7 +116,7 @@ Keeping this in mind: All tests should considers different Parameter combination
 ### Acceptance Tests
 
 You probably want to make sure no deviation or configuration drift is happening.
-Using a test method called `Acceptance Test` of `Validation Tests` can save you a lot of time.
+Using a test method called **Acceptance Test** of **Validation Tests** can save you a lot of time.
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
 
 Acceptance Tests should be written in a way that they can be executed in different stages.
@@ -126,7 +126,7 @@ These kind of tests can be executed during integration, e2e test and especially 
 ### Smoke Tests
 
 Using the specification defined in form of a acceptance tests.
-Multiple tests cases can be used combined for exploration testing or `smoke testing` on previously deployed resources.
+Multiple tests cases can be used combined for exploration testing or **smoke testing** on previously deployed resources.
 
 That is, querying for existing Azure resources and checking the properties against certain requirements or specifications, which are implemented as acceptance tests.
 Smoke tests are usually executed against a black box system to validate and check the state and behavior.
@@ -134,8 +134,8 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 ### Tests Phases
 
-Unit and Integration tests could be grouped into the `build phase`.
-While Validation, Acceptance and e2e Tests could be group to the `release phase`.
+Unit and Integration tests could be grouped into the **build phase**.
+While Validation, Acceptance and e2e Tests could be group to the **release phase**.
 User Acceptance Test and Smoke Tests are done after a particular release.
 
 Some resource deployments can take hours, e.g. VNet Gateways (~25mins).
@@ -148,37 +148,37 @@ The build phase will therefore limit the tests to the static analysis and lintin
 While the actual deployment happens the first time in the release phase.
 You can also limit it to only deploy on approval.
 
-This approach will not trigger a new deployment on each change to the version control but on each new `Artifact` that is being published and the approval of the release.
+This approach will not trigger a new deployment on each change to the version control but on each new **Artifact** that is being published and the approval of the release.
 If changes to the template are minor only the changes will be deployed and the deployment should be rather quick, if the resource existed.
 
 This kind of test will result in costs if the resources are not cleaned up periodically.
 
-I would recommend `Preview-Artifacts`. these Artifacts can be leverage to use this kind of Release-Pipeline testing.
+I would recommend **Preview-Artifacts**. these Artifacts can be leverage to use this kind of Release-Pipeline testing.
 These artifacts are not yet officially published and might have a Beta or Preview indicator.
 These Artifact should only be used for demo or testing purposes.
 
 ### Continuous Integration & Continuous Deployment
 
-The result of a build phase, if successful, should always create some kind of `Artifact`.
+The result of a build phase, if successful, should always create some kind of **Artifact**.
 Similar to a compiler but for a IaC configuration file.
-Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as `Continuous Integration`.
+Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as **Continuous Integration**.
 Only then the build Artifact, in this context the ARM template, is valid.
 An Artifact will have a dedicated traceable version number and should contain release information and a change log.
 Other teams can subscribe and get notification on new Artifact versions.
 
-The created Artifact is used to release and deploy to the first environment - `Continuous Delivery`, usually a Development (Dev) or Beta environment.
+The created Artifact is used to release and deploy to the first environment - **Continuous Delivery**, usually a Development (Dev) or Beta environment.
 You can use a dedicated Azure subscription or a naming convention inside a resource group.
 I would recommend to have at least dedicated subscriptions for different environments.
 
-After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run `User Acceptance Tests` on the particular 'test' environment.
+After the deployment to the first stage is successful you can execute the automated Acceptance Tests and have a gate that notifies Key Users to run **User Acceptance Tests** on the particular 'test' environment.
 User Acceptance Tests can be managed and monitored through [Azure DevOps Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/).
 Only after the approval of a release manager, if all tests result from the key users are green, the next Stage e.g. Pre-Production or Staging should be triggered.
-This staging and deployment from one environment to the next is considered `Continuous Deployment`.
+This staging and deployment from one environment to the next is considered **Continuous Deployment**.
 Continuous Deployment should be the end goal of every Infrastructure as Code project.
 
 ## Developer View
 
-There are two views one could have on testing we refer to these as the `InnerLoop` and `OuterLoop`.
+There are two views one could have on testing we refer to these as the **InnerLoop** and **OuterLoop**.
 The _InnerLoop_ is the view of the Developer.
 
 The requirements of a Developer are usually: quick feedback, quick execution and a smooth workflow.
