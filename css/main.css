@@ -1203,3 +1203,11 @@ code {
 pre code {
   white-space: inherit;
 }
+
+.card-img-top {
+  border-radius: 5px 5px 0 0;
+}
+
+artile {
+  margin: 0 20px 5vw
+}
