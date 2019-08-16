@@ -7,7 +7,6 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
 
 <div class="posts-list">
     {% for post in paginator.posts %}
-    {% if post.tags contains 'draft' %}
 
     <article>
 
@@ -49,8 +48,6 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
                 </p>
             </div>
     </article>
-    {% else %}
-    {% endif %}
     {% endfor %}
 </div>
 
