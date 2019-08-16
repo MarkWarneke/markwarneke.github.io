@@ -9,5 +9,4 @@ gh-badge: [star, follow]
 tags: [test, powershell, arm, draft]
 comments: true
 time: 4
-draft: true
 ---
