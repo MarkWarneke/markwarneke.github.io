@@ -1246,3 +1246,7 @@ article {
   filter: "alpha(opacity=100)";
   -ms-filter: "alpha(opacity=100)";
 }
+
+.text-muted {
+  text-transform: uppercase;
+}
