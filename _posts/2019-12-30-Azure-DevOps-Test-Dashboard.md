@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DRAFT Generate Infrastructure as Code Azure Resource Manager documentation using PowerShell 
+title: DRAFT Azure DevOps Pester Tests and how to publish a Test Dashboard
 subtitle:
 bigimg: 
   - "/img/draft.jpg": "https://unsplash.com/photos/wE37SqLAO9M"
