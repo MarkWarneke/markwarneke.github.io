@@ -4,17 +4,17 @@ title: Imprint
 use-site-title: true
 ---
 
-# Contact
+## Contact
 
 Mark Warneke  
-Bismarckstr 21  
-80803 Munich  
+Bismarckstr 21
+80803 Munich
 Germany
 
-warneke.mark@gmail.com  
+warneke.mark@gmail.com
 twitter.com/MarkWarneke
 
-# Disclaimer
+## Disclaimer
 
 Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
 
@@ -32,7 +32,7 @@ Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unt
 
 Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
 
-</p>
+
 
 ### Datenschutz
 
@@ -42,7 +42,7 @@ Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Date
 
 Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
 
-</p>
+
 
 ### Datenschutzerklärung für die Nutzung von Google Analytics
 
@@ -56,14 +56,14 @@ Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihr
 
 Sie können die Erfassung durch Google Analytics verhindern, indem Sie auf folgenden Link klicken. Es wird ein Opt-Out-Cookie gesetzt, das das Erfassung Ihrer Daten bei zukünftigen Besuchen dieser Website verhindert: <a href="javascript:gaOptout() ">Google Analytics deaktivieren</a>
 
-# Theme by
+## Theme by
 
 [beautiful-jekyll](https://deanattali.com/beautiful-jekyll/)
 
-# Icon by
+## Icon by
 
 <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
-# Images by
+## Images by
 
 if not stated otherwise images by https://unsplash.com/
