@@ -8,7 +8,7 @@ image: "/img/pyramid.jpg"
 share-img: "/img/pyramid.jpg"
 gh-repo: MarkWarneke/Az.New
 gh-badge: [star, follow]
-tags: [Test, PowerShell, AzureDevOps]
+tags: [PowerShell, AzureDevOps]
 comments: true
 time: 16
 ---

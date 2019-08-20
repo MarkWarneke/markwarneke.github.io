@@ -3,7 +3,6 @@
   "files.trimTrailingWhitespace": false,
   "workbench.colorCustomizations": {},
   "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "files.hotExit": "onExit",

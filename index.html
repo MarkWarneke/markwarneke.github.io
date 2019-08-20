@@ -7,59 +7,61 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
 
 <div class="posts-list">
   {% for post in paginator.posts %}
-  <article>
+  {% if post.tags contains 'draft' %}
+  {% else %}
+    <article>
 
-      <div class="card rounded">
+        <div class="card rounded">
 
-        {% if post.image %}
-        <div class="outer-div card-img-top">
-          <a href="{{ post.url | relative_url }}">
-            <div class="inner-div" style="background-image: url({{ post.image | relative_url }})" ></div>
-          </a>
-        </div>
-        {% endif %}
-        <div class="card-body">
-          <p class="card-text">
-            <small class="text-muted">
-              {{ post.date | date: "%-d %B %Y" }}
-              <span> / {{ post.time }} MIN READ / </span>
-              {% if post.tags.size > 0 %} {% if site.link-tags %} {% for tag in
-              post.tags %}
-              <a
-                href=" {{ '/tags' | relative_url }}#{{- tag -}}"
-                >{{- tag -}}</a
-              >
-              {% endfor %} {% else %}
-              {{ post.tags | join: ", " }}
-              {% endif %} {% endif %}
-            </small>
-          </p>
-          <a href="{{ post.url | relative_url }}">
-            <h1 class="card-title">{{ post.title }}</h1>
-            {% if post.subtitle %}
-              <h5>{{ post.subtitle }}</h5>
-            {% endif %}
-          </a>
-          <p class="card-text">
-            {{
-              post.excerpt
-                | strip_html
-                | xml_escape
-                | truncatewords: site.excerpt_length
-            }}
-            {% assign excerpt_word_count = post.excerpt | number_of_words %} {%
-            if post.content != post.excerpt or excerpt_word_count >
-            site.excerpt_length %}
-            <a href="{{ post.url | relative_url }}" class="post-read-more"
-              >Read&nbsp;More</a
-            >
-          </p>
+          {% if post.image %}
+          <div class="outer-div card-img-top">
+            <a href="{{ post.url | relative_url }}">
+              <div class="inner-div" style="background-image: url({{ post.image | relative_url }})" ></div>
+            </a>
+          </div>
           {% endif %}
-        </p>
-      </div>
-  </article>
+          <div class="card-body">
+            <p class="card-text">
+              <small class="text-muted">
+                {{ post.date | date: "%-d %B %Y" }}
+                <span> - {{ post.time }} MIN READ </span>
+              </small>
+            </p>
+            <a href="{{ post.url | relative_url }}">
+              <h1 class="card-title">{{ post.title }}</h1>
+              {% if post.subtitle %}
+                <h5>{{ post.subtitle }}</h5>
+              {% endif %}
+            </a>
+            <p class="card-text">
+              {{
+                post.excerpt
+                  | strip_html
+                  | xml_escape
+                  | truncatewords: site.excerpt_length
+              }}
+              {% assign excerpt_word_count = post.excerpt | number_of_words %} {%
+              if post.content != post.excerpt or excerpt_word_count >
+              site.excerpt_length %}
+              <a href="{{ post.url | relative_url }}" class="post-read-more"
+                >Read&nbsp;More</a
+              >
+            </p>
+            {% endif %}
+          </p>
+        </div>
+    </article>
+    {% endif %}
   {% endfor %}
 </div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Anzeige Small -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1202813824807024" data-ad-slot="5262624338"
+  data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 {% if paginator.total_pages > 1 %}
 <ul class="pager main-pager">
