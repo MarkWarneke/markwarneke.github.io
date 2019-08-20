@@ -290,3 +290,210 @@ $allParametersInParamersFile | Should Contain $requiredParametersInTemplateFile
 ### Az.Test
 
 See Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1)
+
+
+## Example Azure Data Lake Gen 2 Static Analysis
+
+Lets take an example of statically analyzing a given ARM template.
+We want to ensure that requirements are implemented as specified.
+
+The (assumed) requirements for this case are:
+
+- Provision an Azure Data Lake Storage Account Generation 2
+- Ensure encryption is enforced at rest
+- Ensure encryption is enforced in transit
+- Allow application teams to define a set of geo replication settings
+- Allow applications teams to specific access availability
+- Allow a set of dynamically created network access control lists (ACLs) to be processed
+
+{: .box-note}
+**Note** The dynamic ACLs deserves further deep dive, for now assume a valid ACL object is passed to the deployment
+
+```json
+//azuredeploy.json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "componentName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Data Lake Storage Account"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Azure location for deployment"
+            }
+        },
+        "storageAccountSku": {
+            "type": "string",
+            "defaultValue": "Standard_ZRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Standard_ZRS",
+                "Standard_GZRS",
+                "Standard_RAGZRS"
+            ],
+            "metadata": {
+                "description": "Optional. Storage Account Sku Name."
+            }
+        },
+        "storageAccountAccessTier": {
+            "type": "string",
+            "defaultValue": "Hot",
+            "allowedValues": [
+                "Hot",
+                "Cool"
+            ],
+            "metadata": {
+                "description": "Optional. Storage Account Access Tier."
+            }
+        },
+        "networkAcls": {
+            "type": "string",
+            "metadata": {
+                "description": "Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information."
+            }
+        }
+    },
+    "variables": {
+    },
+    "resources": [
+        {
+            "comments": "Azure Data Lake Gen 2 Storage Account",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[parameters('componentName')]",
+            "sku": {
+                "name": "[parameters('storageAccountSku')]"
+            },
+            "kind": "StorageV2",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "isHnsEnabled": true,
+                "networkAcls": "[json(parameters('networkAcls'))]",
+                "accessTier": "[parameters('storageAccountAccessTier')]",
+                "supportsHttpsTrafficOnly": true
+            },
+            "resources": [
+                {
+                    "comments": "Deploy advanced thread protection to storage account",
+                    "type": "providers/advancedThreatProtectionSettings",
+                    "apiVersion": "2017-08-01-preview",
+                    "name": "Microsoft.Security/current",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Storage/storageAccounts/', parameters('componentName'))]"
+                    ],
+                    "properties": {
+                        "isEnabled": true
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+        "resourceID": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.DataLakeStore/accounts', parameters('resourceName'))]"
+        },
+        "componentName": {
+            "type": "string",
+            "value": "[parameters('resourceName')]"
+        }
+    }
+}
+```
+
+Now, all requirements should be implemented.
+Based on the requirement specification we can implement out tests.
+First we need to accept a given ARM template - we assume the template is called `azuredeploy.json` and that it is located in the same directory as the test.
+We are testing the presence of the template, validate that we can read it and convert it from the JSON string to a PowerShell object.
+Then the test is storing the resource that matches the `type` `Microsoft.Storage/storageAccounts`.
+
+Now we are asserting if the specified properties are described as required.
+The tests are written in a way that it is human readable.
+
+![ADLS Template Test]("/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg")
+
+```powershell
+param (
+  $Path = (Join-Path $PSScriptRoot "azuredeploy.json")
+)
+    # Test for template presence
+    $null = Test-Path $Path -ErrorAction Stop
+
+    # Test if arm template content is readable
+    $text = Get-Content $Path -Raw -ErrorAction Stop
+
+     # Convert the ARM template to an Object
+    $json = ConvertFrom-Json $text -ErrorAction Stop
+
+  # Query naively all resources for type that match type storageAccounts
+  # Might need to be adjusted based on the actual resource manager template
+  $resource = $json.resources | Where-Object -Property "type" -eq "Microsoft.Storage/storageAccounts"
+
+  Describe "Azure Data Lake Generation 2 Resource Manager Template" {
+
+      # Mandatory requirement of ADLS Gen 2 are:
+      # - Resoruce Type is Microsoft.Storage/storageAccounts
+      # - Kind is StorageV2
+      # - Hierarchical namespace is enabled
+      # https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+
+      it "should have resource properties  present" {
+          $resource | Should -Not -BeNullOrEmpty
+      }
+
+      it "should be of type Microsoft.Storage/storageAccounts" {
+          $resource.type | Should -Be "Microsoft.Storage/storageAccounts"
+      }
+
+      it "should be of kind StorageV2" {
+          $resource.kind | Should -Be "StorageV2"
+      }
+
+      it "should have Hns enabled" {
+          $resource.properties.isHnsEnabled | Should -Be $true
+      }
+
+      # Optional validation tests:
+      # - Ensure encryption is as specified
+      # - Secure Transfer by enforcing HTTPS
+
+      it "should have encryption key source set to Storage " {
+          $resource.properties.encryption.keySource | Should -Be "Microsoft.Storage"
+      }
+
+      it "should have blob encryption enabled" {
+          $resource.properties.encryption.services.blob.enabled | Should -Be $true
+      }
+
+      it "should have file encryption enabled" {
+          $resource.properties.encryption.services.blob.enabled | Should -Be $true
+      }
+
+      it "should enforce Https Traffic Only" {
+          $resource.properties.supportsHttpsTrafficOnly | Should -Be $true
+      }
+}
+```
