@@ -284,14 +284,14 @@ $allParametersInParametersFile = (Get-Content (Join-Path "$here" "$($Module.Para
     Sort-Object -Property Name |
     ForEach-Object Name
 
-$allParametersInParamersFile | Should Contain $requiredParametersInTemplateFile
+$allParametersInParametersFile | Should Contain $requiredParametersInTemplateFile
 ```
 
 ### Az.Test
 
 See Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1)
 
-## Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation 
+## Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation
 
 Lets take an example of statically analyzing a given ARM template.
 We want to ensure that requirements are implemented as specified.
@@ -436,7 +436,7 @@ We are storing the resources configuration for readability in `$resource`.
 Now we can asserting if the requirement's are implemented.
 We want to ensure that our tests are written in a way that the output is as human readable and close to the requirements as possible.
 
-![ADLS Template Test]("/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg")
+![ADLS Template Test]("../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg")
 
 ```powershell
 param (
