@@ -2,9 +2,9 @@
 layout: post
 title: Acceptance Tests for Infrastructure as Code
 subtitle:
-bigimg: /img/work.jpg
-image: "/img/work.jpg"
-share-img: "/img/work.jpg"
+bigimg: /img/work.jpeg
+image: "/img/work.jpeg"
+share-img: "/img/work.jpeg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [follow]
 tags: [PowerShell, AzureDevOps]

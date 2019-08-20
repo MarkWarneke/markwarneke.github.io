@@ -3,9 +3,9 @@ layout: post
 title: Test Infrastructure as Code
 subtitle:
 bigimg:
-  - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
-image: "/img/pyramid.jpg"
-share-img: "/img/pyramid.jpg"
+  - "/img/pyramid.jpeg": "https://unsplash.com/photos/I74RH4XeHlA"
+image: "/img/pyramid.jpeg"
+share-img: "/img/pyramid.jpeg"
 gh-repo: MarkWarneke/Az.New
 gh-badge: [star, follow]
 tags: [PowerShell, AzureDevOps]

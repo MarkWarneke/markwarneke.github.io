@@ -2,9 +2,9 @@
 layout: post
 title: Unit Test Azure Resource Manager Templates using Pester
 subtitle: Static code Analysis of Configuration Files
-bigimg: /img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpg
-image: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpg"
-share-img: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpg"
+bigimg: /img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpeg
+image: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpeg"
+share-img: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpeg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [PowerShell, AzureDevOps]
