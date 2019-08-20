@@ -291,7 +291,7 @@ $allParametersInParamersFile | Should Contain $requiredParametersInTemplateFile
 
 See Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1)
 
-## Example: Azure Data Lake Gen 2 Static Analysis
+## Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation 
 
 Lets take an example of statically analyzing a given ARM template.
 We want to ensure that requirements are implemented as specified.
@@ -314,7 +314,7 @@ The (assumed) requirements for this case are:
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "componentName": {
+        "resourceName": {
             "type": "string",
             "metadata": {
                 "description": "Name of the Data Lake Storage Account"
@@ -367,7 +367,7 @@ The (assumed) requirements for this case are:
             "comments": "Azure Data Lake Gen 2 Storage Account",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-04-01",
-            "name": "[parameters('componentName')]",
+            "name": "[parameters('resourceName')]",
             "sku": {
                 "name": "[parameters('storageAccountSku')]"
             },
@@ -401,7 +401,7 @@ The (assumed) requirements for this case are:
                     "apiVersion": "2017-08-01-preview",
                     "name": "Microsoft.Security/current",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Storage/storageAccounts/', parameters('componentName'))]"
+                        "[resourceId('Microsoft.Storage/storageAccounts/', parameters('resourceName'))]"
                     ],
                     "properties": {
                         "isEnabled": true
