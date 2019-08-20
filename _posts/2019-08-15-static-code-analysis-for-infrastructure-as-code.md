@@ -291,8 +291,7 @@ $allParametersInParamersFile | Should Contain $requiredParametersInTemplateFile
 
 See Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1)
 
-
-## Example Azure Data Lake Gen 2 Static Analysis
+## Example: Azure Data Lake Gen 2 Static Analysis
 
 Lets take an example of statically analyzing a given ARM template.
 We want to ensure that requirements are implemented as specified.
