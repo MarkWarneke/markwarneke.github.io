@@ -436,7 +436,7 @@ We are storing the resources configuration for readability in `$resource`.
 Now we can asserting if the requirement's are implemented.
 We want to ensure that our tests are written in a way that the output is as human readable and close to the requirements as possible.
 
-![ADLS Template Test]("../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg")
+![ADLS Template Test](../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg)
 
 ```powershell
 param (
