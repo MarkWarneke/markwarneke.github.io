@@ -427,16 +427,16 @@ Now, all requirements should be implemented.
 Based on the requirement specification we can implement tests.
 We will leverage PowerShells native JSON capabilities to validate the requirements.
 
+Now we can asserting if the requirement's are implemented.
+We want to ensure that our tests are written in a way that the output is as human readable and close to the requirements as possible.
+
+![ADLS Template Test](../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg){: .center-block :}
+
 First, we accept a given ARM template path - by default we will assume the template is called `azuredeploy.json` and that it is located in the same directory as the test. Otherwise a path to an ARM template can be passed via the `-Path` parameter.
 We are testing the presence of the template, validate that we can read it and convert it from a JSON string to a PowerShell object.
 
 After we have a PowerShell object we will query the object naively for a resource that matches the `type` `Microsoft.Storage/storageAccounts`.
 We are storing the resources configuration for readability in `$resource`.
-
-Now we can asserting if the requirement's are implemented.
-We want to ensure that our tests are written in a way that the output is as human readable and close to the requirements as possible.
-
-![ADLS Template Test](../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg)
 
 ```powershell
 param (
