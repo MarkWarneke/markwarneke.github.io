@@ -43,6 +43,8 @@ We are going to take this example and have a look at a potential implementation 
 - Allow applications teams to specific access availability
 - Allow a set of dynamically created network access control lists (ACLs) to be processed
 
+## Approach
+
 The idea is to validate after the deployments whether the requirements are met, or not.
 We want to ensure that the tests can be executed automatically and on a regular basisis to ensure no divergence to the initial state happened and that the specification is still met.
 
@@ -366,6 +368,7 @@ The test results are displayed in a human readable form so the specification can
 Furthermore the results are human readable and can be share with non-technical people easily.
 
 ## Table of Content
+- [Approach](#approach)
 - [Why?](#why)
 - [Implementation](#implementation)
   - [One step further](#one-step-further)
