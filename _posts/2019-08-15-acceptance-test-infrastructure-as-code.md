@@ -82,7 +82,7 @@ If the infrastructure as code is based on specified, documented requirements you
 Automated tests scale and reduce human error.
 
 Also, you want to ensure that your initial deployment is meeting the customers requirement.
-And non-technical people should evaluate if a specification is met, a human readable form of feedback is therefore necessary.
+Non-technical people should evaluate if a specification is met, a human readable form of feedback is therefore necessary.
 You should have _"proof"_ your implementation matched the specification.
 
 ## Implementation
