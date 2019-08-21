@@ -12,28 +12,30 @@ comments: true
 time: 8
 ---
 
-Validating that a deployment has the correct settings applied.
-Imaging you are trying to deploy a service to Azure and specifying certain requirements that the resource should meet.
-After you deploy, how are you ensuring that your deployment met the requirements and is still matching them?
+How to validate that a deployment has the correct settings applied. And is implementing the specification?
+Imaging you are trying to deploy a service to Azure and want to tests whether a given resource implements the specification.
+After you deploy, how are you ensuring that your deployment is valid?
 
-This blog post introduces you to the idea of validation testing or acceptance test for Infrastructure as Code using PowerShell and [Pester](https://github.com/pester/Pester) the testing framework.
-If you are not yet familiar with Pester go checkout: [Get started with Pester](https://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/) and [Pester Resources](https://github.com/pester/Pester/wiki/Articles-and-other-resources)
-The idea of validation testing is to ensure a specification defined by the stakeholder is matched.
+This blog post introduces you to the idea of validation testing or acceptance test for Infrastructure as Code using PowerShell and [Pester](https://github.com/pester/Pester).
+If you are not yet familiar with Pester checkout: [Get started with Pester](https://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/) and [Pester Resources](https://github.com/pester/Pester/wiki/Articles-and-other-resources)
+
+The idea of validation testing is to ensure a specification defined by a stakeholder is matched.
 Automated validation testing is the concept of writing automated tests that can be parametrized to assert the validity or correctness of a specification.
 
-Specifications could be:
+Specifications could be for instance:
 
-- A Naming Convention
-- Allowed Locations
-- RBAC rules
-- Inbound ports of NSGs on a subnets
-- Applied Firewall rules on a PaaS service
-- Configuration of a database like RUs or configuration of a IaaS service like a VM
-
+- A naming convention
+- Specified locations or limitations to locations
+- Mandatory RBAC role assignments 
+- Inbound IPs and ports for NSGs on a subnets
+- Firewall rules applied to a PaaS service
+- Configuration of a database, like RUs 
+- or even configuration of an IaaS service like a Service running in a VM
 
 ### Example Requirements
 
-An example requirement of the business including a specification could look like
+An example requirement of the business including a specification could look like this.
+We are going to take this example and have a look at a potential implementation of an Acceptance Test.
 
 - Provision an Azure Data Lake Storage Account Generation 2
 - Ensure encryption is enforced at rest
@@ -42,21 +44,24 @@ An example requirement of the business including a specification could look like
 - Allow applications teams to specific access availability
 - Allow a set of dynamically created network access control lists (ACLs) to be processed
 
-The idea is to validate right after the deployments if the requirements are met, and to ensure that after a while the tests can be executed frequently to ensure no divergence to the initial state is happening and that the requirements specification are still met after changes have been applied manually or automated.
+The idea is to validate after the deployments whether the requirements are met, or not.
+We want to ensure that the tests can be executed automatically and on a regular basisis to ensure no divergence to the initial state happened and that the specification is still met.
 
-These kind of tests can be very sophisticated, you could imagine writing some automated test even for the inner-view of the VM by using [PowerShell Remoting](https://blogs.technet.microsoft.com/rohit-minni/2017/01/18/remoting-into-azure-arm-virtual-machines-using-powershell/) or using [SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) to check the state of Virtual Machines.
-Also querying REST APIs to ensure certain settings are valid or checking a [health check](https://microservices.io/patterns/observability/health-check-api.html) on a web api.
+These kind of tests can be very sophisticated.
+You could think about writing a test that checks the inner-view of the VM by using e.g. [PowerShell Remoting](https://blogs.technet.microsoft.com/rohit-minni/2017/01/18/remoting-into-azure-arm-virtual-machines-using-powershell/) or using [SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys), that ensures a given service is running.
+Also, querying an APIs to ensure certain settings are valid or checking a [health signal](https://microservices.io/patterns/observability/health-check-api.html).
 The options are limitless and depend on the use case.
+
+In this article we are going to look into how to validate the outer-view of a resource deployment in Azure.
+The inner-loop demands a bit more detail and sophistication as direct access over the internet to the resource is often not permitted.
 
 ## Why?
 
 Why should we write these Acceptance Tests if they are sophisticated and additional work is needed?
-You could say that inside of the Azure Resource Manager template everything is specified.
+You could argue that the Azure Resource Manager template is the specification.
 
-> Automated tests scale.
-
-You are however, probably deploying for a customer, whether its you, your business or end users.
-Imagine a customer asking you why some stopped working.
+You are however, probably deploying for a customer, whether its you, your business or an end-users.
+Imagine a customer asking you why something stopped working or is different then before.
 
 You have two options:
 
@@ -68,6 +73,8 @@ Your Azure Resource Manager might have the correct specification, however it cou
 
 Which one is the better option if that or another customer is writing you the same question again?
 With _Acceptance Tests_ we are trying to address the problem of post deployment validation and consistency.
+
+> Automated tests scale.
 
 If the infrastructure as code is based on specified, documented requirements you should be able to validate them without manual intervention.
 Automated tests scale and reduce human error.
