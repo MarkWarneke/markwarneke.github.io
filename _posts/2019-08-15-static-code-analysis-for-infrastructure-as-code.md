@@ -17,9 +17,8 @@ Treat Infrastructure as Code development like a software engineering project.
 In this article we are building on top of the post "Test Infrastructure as Code".
 We are looking into and digging a little deeper on how to unit test Infrastructure as Code.
 
-# Draft 15.08.19
-
-Generally Infrastructure as Code (IaC) can be distinguished between two [approaches](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#Approach).
+Generally Infrastructure as Code (IaC) can be distinguished between two [approaches](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#Approach). 
+Declarative and Imperative, this article will focus on the declarative approach and how to test it.
 
 ### Declarative
 
@@ -680,14 +679,11 @@ $allParametersInParametersFile | Should Contain $requiredParametersInTemplateFil
 
 ## Table of Content
 
-- [Draft 15.08.19](#draft-150819)
-    - [Declarative](#declarative)
-    - [Imperative](#imperative)
-  - [Unit Tests](#unit-tests)
-  - [Static Code Analysis](#static-code-analysis)
-    - [General Approach](#general-approach)
-    - [Az.Test](#aztest)
-    - [Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation](#resource-specific-static-analysis-for-example-azure-data-lake-gen-2-implementation)
-    - [VDC implementation](#vdc-implementation)
-  - [Remarks](#remarks)
-  - [Table of Content](#table-of-content)
+- [Unit Tests](#unit-tests)
+- [Static Code Analysis](#static-code-analysis)
+  - [General Approach](#general-approach)
+  - [Az.Test](#aztest)
+  - [Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation](#resource-specific-static-analysis-for-example-azure-data-lake-gen-2-implementation)
+  - [VDC implementation](#vdc-implementation)
+- [Remarks](#remarks)
+- [Table of Content](#table-of-content)
