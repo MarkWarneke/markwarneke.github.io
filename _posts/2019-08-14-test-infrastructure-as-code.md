@@ -10,7 +10,7 @@ gh-repo: MarkWarneke/Az.New
 gh-badge: [star, follow]
 tags: [PowerShell, AzureDevOps]
 comments: true
-time: 16
+time: 10
 ---
 
 Treat Infrastructure as Code development like a software engineering project.
