@@ -9,7 +9,7 @@ gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
 tags: [PowerShell, AzureDevOps]
 comments: true
-time: 4
+time: 9
 published: true
 ---
 
@@ -436,7 +436,7 @@ param (
   Describe "Azure Data Lake Generation 2 Resource Manager Template" {
 
       # Mandatory requirement of ADLS Gen 2 are:
-      # - Resoruce Type is Microsoft.Storage/storageAccounts
+      # - Resource Type is Microsoft.Storage/storageAccounts
       # - Kind is StorageV2
       # - Hierarchical namespace is enabled
       # https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
