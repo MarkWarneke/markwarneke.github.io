@@ -45,11 +45,11 @@ We are going to take this example and have a look at a potential implementation 
 
 ## Approach
 
-The idea is to validate after the deployments whether the requirements are met, or not.
-We want to ensure that the tests can be executed automatically and on a regular basisis to ensure no divergence to the initial state happened and that the specification is still met.
+The idea is to validate, after the deployments, whether the specification is implemented, or not.
+We want to ensure that the tests can be executed automatically and on a regular basis's to ensure no divergence to the initial requirement happened and that the specification is still met.
 
 These kind of tests can be very sophisticated.
-You could think about writing a test that checks the inner-view of the VM by using e.g. [PowerShell Remoting](https://blogs.technet.microsoft.com/rohit-minni/2017/01/18/remoting-into-azure-arm-virtual-machines-using-powershell/) or using [SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys), that ensures a given service is running.
+You could think about writing a test that checks the inner-view of the VM by using e.g. [PowerShell Remoting](https://blogs.technet.microsoft.com/rohit-minni/2017/01/18/remoting-into-azure-arm-virtual-machines-using-powershell/) or using [SSH](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) that asserts a given service is running.
 Also, querying an APIs to ensure certain settings are valid or checking a [health signal](https://microservices.io/patterns/observability/health-check-api.html).
 The options are limitless and depend on the use case.
 
@@ -69,10 +69,11 @@ You have two options:
 1. Visit portal.azure.com, identify the resource and check if a setting is applied
 2. Write a Script that checks that for you
 
-Your Azure Resource Manager might have the correct specification, however it could have be changed post deployment.
+Your Azure Resource Manager might have the correct specification, however it could have ben changed post deployment.
 (E.g. Azure Policy, manual intervention etc.)
 
-Which one is the better option if that or another customer is writing you the same question again?
+Which one is the better option?
+It might be fun one time but what if a customer is writing you the same question again and again...?
 With _Acceptance Tests_ we are trying to address the problem of post deployment validation and consistency.
 
 > Automated tests scale.
