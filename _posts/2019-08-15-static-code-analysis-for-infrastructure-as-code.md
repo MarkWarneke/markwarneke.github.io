@@ -485,7 +485,7 @@ If changes to the ARM template happen we can still ensure our requirements are m
 The output of these testes are written in a way that it is human readable and can be interpreted by non-technical people.
 
 Having this kind of validation in place, we can ensure the specified requirements are configured and in place at development time.
-To validate that the requirements are deployed and correctly configured we should write [**Acceptance Tests**](./2019-08-15-acceptance-test-infrastructure-as-code).
+To validate that the requirements are deployed and correctly configured we should write [**Acceptance Tests**](../2019-08-15-acceptance-test-infrastructure-as-code).
 These tests should be triggered after the deployment of the actual resource.
 Acceptance Tests follow the same procedure but will assert on the object returned from the Azure Resource Manager.
 
