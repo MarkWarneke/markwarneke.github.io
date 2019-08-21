@@ -12,9 +12,8 @@ comments: true
 time: 8
 ---
 
-How to validate that a deployment has the correct settings applied. And is implementing the specification?
 Imaging you are trying to deploy a service to Azure and want to tests whether a given resource implements the specification.
-After you deploy, how are you ensuring that your deployment is valid?
+In this article we are going to look into how to validate that a resource deployment has the correct settings applied.
 
 This blog post introduces you to the idea of validation testing or acceptance test for Infrastructure as Code using PowerShell and [Pester](https://github.com/pester/Pester).
 If you are not yet familiar with Pester checkout: [Get started with Pester](https://www.powershellmagazine.com/2014/03/12/get-started-with-pester-powershell-unit-testing-framework/) and [Pester Resources](https://github.com/pester/Pester/wiki/Articles-and-other-resources)
