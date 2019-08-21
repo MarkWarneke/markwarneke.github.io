@@ -304,6 +304,10 @@ There are open source projects working on creating an Abstract Syntax Tree (AST)
 
 The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-manager-schemas) Files are located on github. A simple way to ensure a JSON file has the correct syntax is validating the JSON against its schema. You can leverage [Get-xAzSchema](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/Public/Get-Schema.ps1) from the [xAz](https://github.com/MarkWarneke/Az.New) Module to obtain a given Resource Schema by Provider Name and leverage PowerShell Core 6 `Test-Json` to validate.
 
+Once resource that is highly valuable is [DevOps at Microsoft](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/). This reference is a must read. One particular interesting read is the [Shift Left to Make Testing Fast and Reliable](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable). This article describes the journey of moving to L01/L1 Tests which are essentially Unit tests.
+
+> We push the accountability to the person who is writing the code. [Test Principles](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable#test-principles)
+
 ## Changelog
 
 | Date       | Change                                                     |
