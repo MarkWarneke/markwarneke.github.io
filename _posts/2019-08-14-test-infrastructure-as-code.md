@@ -19,7 +19,7 @@ In this article we are going to look into different practices regarding test imp
 
 {: .box-note}
 **Note** The one fundamental is **Version Control** <br>
-Get familiar with this practice first before thinking about implementing tests!
+Get familiar with this practice first before thinking about implementing tests! [Learn Git](https://learngitbranching.js.org/)
 
 You should embrace [**Behavior Driven Development**](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your **Infrastructure as Code** IaC project.
 These principals will force you into writing tested code.
@@ -71,7 +71,7 @@ As we are not compiling or building a software product we can not rely on any co
 See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
 
 {: .box-note}
-**Note:** [Unit Test Azure Resource Manager Templates using Pester](2019-08-21-static-code-analysis-for-infrastructure-as-code/)
+**Note:** [Unit Test Azure Resource Manager Templates using Pester](/2019-08-21-static-code-analysis-for-infrastructure-as-code/)
 
 ### Integration Tests
 
