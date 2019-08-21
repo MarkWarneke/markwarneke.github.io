@@ -230,8 +230,10 @@ This script is a good base-line to add own best practices and checks.
 We can add the support for multiple ARM templates that are located in a given path by wrapping the script into a `foreach` loop.
 To reuse it we can rename `azuredeploy.Tests.ps1` to `azuredeploy.spec.ps1`.
 
-`Spec` as a means to describing that this is a specification that is going to be applied.
+`Spec` as a means to describing that this is a specification that is going to be validated.
+
 > If you wish to create script files manually with different conventions, that's fine, but all Pester test scripts must end with .Tests.ps1 in order for Invoke‐Pester to run them.sSee [Creating a Pester Test](https://github.com/pester/Pester/wiki/Pester#creating-a-pester-test)
+
 As Pester will pick up every `*.Tests.ps1` we want the specification to not be triggered, rather our loop through all resource manager templates should invoke our specification and validate.
 Hence we are going to create a new file with the name `azuredeploy.Tests.ps1` which will invoke our `azuredeploy.spec.ps1` with a given ARM template.
 This can of course be merged and adjusted as this approach is very opinionated, using this approach will enable you to extend your checks dynamically by adding more `*.spec.ps1` files.
