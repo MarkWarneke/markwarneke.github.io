@@ -484,15 +484,19 @@ Now we tested our implementation by validating within our tests that the require
 If changes to the ARM template happen we can still ensure our requirements are met if all tests are passed.
 The output of these testes are written in a way that it is human readable and can be interpreted by non-technical people.
 
-Having the validation in place allows us to trust that the specified requirements are met at development time.
-To validate that the requirements are implemented we should ensure that our [**Acceptance Tests**](./2019-08-15-acceptance-test-infrastructure-as-code) are green too.
+Having this kind of validation in place, we can ensure the specified requirements are configured and in place at development time.
+To validate that the requirements are deployed and correctly configured we should write [**Acceptance Tests**](./2019-08-15-acceptance-test-infrastructure-as-code).
+These tests should be triggered after the deployment of the actual resource.
+Acceptance Tests follow the same procedure but will assert on the object returned from the Azure Resource Manager.
 
 ### VDC implementation
 
-See VDC code blocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1).
+See VDC code blocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) for the full implementation of the engine.
 
-The assertion checks if the converted JSON has expected properties.
-The basic [Azure Resource Manager template schema](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts#understand-the-schema) schema accepts `$schema`, `contentVersion`, `parameters`, `variables`, `resources` and `outputs` as top level properties.
+VDC module tests asserts that the converted JSON has expected properties in place.
+The basic [Azure Resource Manager template schema](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts#understand-the-schema) describes `$schema`, `contentVersion`, `parameters`, `variables`, `resources` and `outputs` as top level properties.
+
+Here is the basic schema as an example.
 
 ```json
 // azuredeploy.json
@@ -507,9 +511,10 @@ The basic [Azure Resource Manager template schema](https://docs.microsoft.com/en
 ```
 
 PowerShell has native support for working with JSON files.
-PowerShell can easily read and convert a JSON file to a PowerShell object.
+We can easily read and convert a JSON file into a PowerShell object.
 If the conversion is not possible or the JSON is invalid, a terminating error is thrown.
-This could be the first test.
+
+The validity of JSON could be the first test.
 
 ```powershell
 $TemplateFile = './azuredeploy.json'
@@ -523,7 +528,8 @@ $TemplateJSON
 # outputs        :
 ```
 
-`Get-Content -Raw`reads the text from the given file as one object rather then per line.`ConvertFrom-Json` will convert the string into a PowerShell object.
+`Get-Content -Raw` will read the content of a file as one string rather then an array of strings per line.
+`ConvertFrom-Json` converts the passed string into a PowerShell object.
 
 ```powershell
 #vdc/Modules/SQLDatabase/2.0/Tests/module.tests.ps1
@@ -584,12 +590,14 @@ $TemplateJSON | Get-Member -MemberType NoteProperty | select Name
 # variables
 ```
 
-Using the Name property of the `Get-Member` function we can assert all JSON properties are present.
-The same test can be applied for the parameter file too.
+Using the Name property returned from the `Get-Member` function, we can assert that all expected JSON properties are present.
+The same test can be applied for the parameter files, too.
 
-The `module.tests.ps1` then parses the given template and checks if the required `parameters` are present in a given parameter file. A required parameter can be identified if the `defaultValue` is not set on the parameter property.
+The `module.tests.ps1` then parses the given template and checks if the required `parameters` in a given parameter file are present.
+A required parameter can be identified by the missing `defaultValue` property.
 
-Given the following parameters inside an ARM template, we could check the `mandatory` property is present in the parameters file.
+Given the following parameters property of an ARM template, we could check, if the `mandatory` parameter is present in the parameters file.
+As the `mandatory` parameter doesn't specify the `defaultValue` the ARM template expects a parameter to be passed.
 
 ```json
 // azuredeploy.json
@@ -608,20 +616,21 @@ Given the following parameters inside an ARM template, we could check the `manda
 }
 ```
 
-Given above template only `mandatory` is a mandatory parameter, as the `defaultValue` property is not present.
-Using
+Using PowerShell, we can search for the property that is missing `defaultValue`.
+Leveraging `-FilterScript` we can ensure that the property Name of a given PSObject is  `defaultValue`.
 
 ```powershell
 Where-Object -FilterScript { -not ($_.Value.PSObject.Properties.Name -eq "defaultValue") }
 ```
 
-we can check the presence of `PSObjects` `Value` properties `defaultValue`.
+We can check the presence of `PSObjects` `Value` properties `defaultValue`.
+To explain and visualize what is happening the `PsObject` output is displayed below.
 
 ```powershell
 $TemplateFile = './azuredeploy.json'
 $TemplateJSON = Get-Content $TemplateFile -Raw | ConvertFrom-Json
 $TemplateJSON.Parameters.PSObject.Properties
-# Value           : @{type=string; defaultValue=Mark}
+# Value           : @{type=string; defaultValue=Mark}   # <----- Inside Value we find the object, by looking for the Property with Name defaultValue
 # MemberType      : NoteProperty
 # IsSettable      : True
 # IsGettable      : True
@@ -629,7 +638,7 @@ $TemplateJSON.Parameters.PSObject.Properties
 # Name            : name
 # IsInstance      : True
 
-# Value           : @{type=string}
+# Value           : @{type=string}                      # <----- The Property with Name defaultValue is missing here!
 # MemberType      : NoteProperty
 # IsSettable      : True
 # IsGettable      : True
@@ -649,7 +658,8 @@ $TemplateJSON.Parameters.PSObject.Properties |
 # IsInstance      : True
 ```
 
-We can then check if the returned values are present in the parameter file.
+Using the same idea we can then check if the returned values are present in the parameter file.
+By reading the file and getting again the Name of the Parameter.
 
 ```powershell
 $requiredParametersInTemplateFile = (Get-Content (Join-Path "$here" "$($Module.Template)") |
@@ -669,6 +679,7 @@ $allParametersInParametersFile | Should Contain $requiredParametersInTemplateFil
 ## Remarks
 
 ## Table of Content
+
 - [Draft 15.08.19](#draft-150819)
     - [Declarative](#declarative)
     - [Imperative](#imperative)
