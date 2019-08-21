@@ -1,16 +1,15 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
 
   <link rel="manifest" href="/manifest.json" />
 
   <title>
-    {% if page.use-site-title %}{{ site.title }} {{ site.title - separator }}
-    {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{
+    {% if page.use-site-title %}
+    {{ site.title }}
+    {{ site.description }}
+    {% elsif page.title %}{{ page.title }}{% else %}{{
       site.title
     }}{% endif %}
   </title>
@@ -20,15 +19,11 @@
   {% if page.subtitle %}
   <meta name="description" content="{{ page.subtitle }}" />
   {% else %}
-   <meta name="description" content="{{ site.description }}" />
+  <meta name="description" content="{{ site.description }}" />
   {% endif %}
 
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="{{ site.title }} {{ site.title - separator }} {{ site.description }}"
-    href="{{ '/feed.xml' | absolute_url }}"
-  />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}  {{ site.description }}"
+    href="{{ '/feed.xml' | absolute_url }}" />
 
   {% include gtag.html %} {% include gtm_head.html %} {% include
   google_analytics.html %} {% if layout.common-ext-css %} {% for css in
@@ -47,10 +42,7 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
   {% endfor %} {% endif %}
 
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-  ></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({
       google_ad_client: "ca-pub-1202813824807024",
@@ -72,10 +64,7 @@
   {% elsif page.subtitle %}
   <meta property="og:description" content="{{ page.subtitle }}" />
   {% else %}
-  <meta
-    property="og:description"
-    content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}"
-  />
+  <meta property="og:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}" />
   {% endif %}
 
   <meta property="og:type" content="website" />
@@ -84,10 +73,7 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   {% else %}
-  <meta
-    property="og:url"
-    content="{{ page.url | absolute_url | strip_index }}"
-  />
+  <meta property="og:url" content="{{ page.url | absolute_url | strip_index }}" />
   <link rel="canonical" href="{{ page.url | absolute_url | strip_index }}" />
   {% endif %} {% if page.share-img %}
   <meta property="og:image" content="{{ page.share - img | absolute_url }}" />
@@ -111,10 +97,7 @@
   {% elsif page.subtitle %}
   <meta name="twitter:description" content="{{ page.subtitle }}" />
   {% else %}
-  <meta
-    name="twitter:description"
-    content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}"
-  />
+  <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}" />
   {% endif %} {% if page.share-img %}
   <meta name="twitter:image" content="{{ page.share - img | absolute_url }}" />
   {% elsif site.avatar %}
