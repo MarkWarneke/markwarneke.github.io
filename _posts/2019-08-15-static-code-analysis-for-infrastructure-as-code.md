@@ -43,7 +43,7 @@ The specified system consists generally of one ore more Azure resources that nee
 Each resource in an Azure Resource Manager template adheres to a specific [schema](https://github.com/Azure/azure-resource-manager-schemas).
 The schema describes the resources properties that needs to be passed to be able to be deployed.
 It also indicates mandatory and optional values.
-The human readable form of the schema can be found in the [Azure Template Refernce](https://docs.microsoft.com/en-us/azure/templates/).
+The human readable form of the schema can be found in the [Azure Template Reference](https://docs.microsoft.com/en-us/azure/templates/).
 
 Taking the automation account as an example the Azure Resource Manager Template resource implementation looks like this.
 
