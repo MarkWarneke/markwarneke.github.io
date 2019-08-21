@@ -123,7 +123,7 @@ param (
   $Path = (Join-Path $PSScriptRoot "azuredeploy.json")
 )
 
-Describe "azuredeploy.json should be valid" -Tag Unit {
+Describe "[$Path] should be valid" -Tag Unit {
 
     # Test for template presence
     $null = Test-Path $Path -ErrorAction Stop
