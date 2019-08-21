@@ -99,9 +99,9 @@ The parameters or configuration needs to be stored somewhere centrally and the i
 
 Lets take an example of validating the deployment of a given ARM template.
 In this case we take the requirements from the business to deploy a specified Azure Data Lake Storage Account Generation 2.
+Using the requirements describe in the [into](#example-requirements).
 
 We want to ensure that requirements are implemented as specified.
-Using the requirements describe in the [into](#ExampleRequirements).
 To ensure the requirements are implemented at development time, have a look at the [Unit Tests](../2019-08-21-static-code-analysis-for-infrastructure-as-code) article how to statically analyze a given ARM template and ensure specifications are met.
 
 Here is the ARM template we are going to use.
