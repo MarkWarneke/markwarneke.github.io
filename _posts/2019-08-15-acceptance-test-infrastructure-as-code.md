@@ -99,12 +99,15 @@ The parameters or configuration needs to be stored somewhere centrally and the i
 
 Lets take an example of validating the deployment of a given ARM template.
 In this case we take the requirements from the business to deploy a specified Azure Data Lake Storage Account Generation 2.
-Using the requirements describe in the [into](#example-requirements).
+Using the requirements describe in the [intro](#example-requirements).
 
 We want to ensure that requirements are implemented as specified.
-To ensure the requirements are implemented at development time, have a look at the [Unit Tests](../2019-08-21-static-code-analysis-for-infrastructure-as-code) article how to statically analyze a given ARM template and ensure specifications are met.
+To ensure the requirements are implemented correctly at development time, have a look at the [Unit Tests](../2019-08-21-static-code-analysis-for-infrastructure-as-code) article.
+This describes how to analyze a given ARM template statically and ensure specifications are met in a given configuration file.
 
-Here is the ARM template we are going to use.
+#### Example ARM Template
+
+Here is the ARM template we are going to use:
 
 ```json
 //azuredeploy.json
@@ -221,25 +224,33 @@ Here is the ARM template we are going to use.
 }
 ```
 
+#### Example Implementation
+
 To ensure the specification are applied to the resource after the deployment we are writing a script to validate its properties.
+
 Therefore, we need to first get the resource and its properties. Using the Az module we can leverage a `Get-` command.
 
 The Azure module provide the command `Get-AzResource` to query any resource by `Name`, as well as either a `ResourceGroup` or `ResourceType`.
 
-We are can get the deployed resource by using `Get-AzResource -ResourceType 'Microsoft.Storage/storageAccounts'` without providing a ResourceGroupName.
+We can get the deployed resource by using `Get-AzResource -ResourceType 'Microsoft.Storage/storageAccounts'` without providing a ResourceGroupName.
 As Storage Accounts are unique by name this will only return one account.
 Other resources might support reuse of names, this should be considered.
 
-In PowerShell a best practice is to enable Pipelines support, which essentials means an array of objects should be passable to the script anyway.
+In PowerShell a best practice is to enable Pipeline support.
+Essentials this means to accept an array of objects that should be passable by the script.
+
 Now, to ensure the specification is met we need to add assertion based on the specification to validate the settings are set correctly on the deployed Azure Resource.
 
-We are storing the file with a `*.spec.ps1`, `Spec` as a means to describing that this is a specification that is going to be validated.
+We are storing the file with a `*.spec.ps1` file type.
+`Spec` as a means to describing that this is file contains a specification that is going to be validated.
 
-> If you wish to create script files manually with different conventions, that's fine, but all Pester test scripts must end with .Tests.ps1 in order for Invoke‐Pester to run them. See [Creating a Pester Test](https://github.com/pester/Pester/wiki/Pester#creating-a-pester-test)
+> If you wish to create script files manually with different conventions, that's fine, but all Pester test scripts must end with `.Tests.ps1` in order for Invoke‐Pester to run them. See [Creating a Pester Test](https://github.com/pester/Pester/wiki/Pester#creating-a-pester-test)
 
-As Pester will pick up every `*.Tests.ps1` we want the specification to not be triggered, rather our loop through all resource manager templates should invoke our specification and validate.
-Hence we are going to create a new file with the name `*.Tests.ps1` which will invoke our `*.spec.ps1` with a given name.
-This can of course be merged and adjusted as this approach is very opinionated, using this approach will enable you to extend your checks dynamically by adding more `*.spec.ps1` files.
+As Pester will pick up every `*.Tests.ps1` we want the specification to not be triggered, rather our loop through all resources, subjects under tests, should invoke our specification.
+
+Hence we are going to create an additonal file with the file ending  `*.Tests.ps1`, which will invoke all `*.spec.ps1` with a given name (and resource group name).
+This can be merged and adjusted, if the flexibility is not needed, and as this approach is very opinionated.
+Using this approach, however, will enable you to extend your specifications dynamically by adding more and more spec `*.spec.ps1` files.
 
 ```powershell
 # adls.acceptance.spec.ps1
@@ -376,6 +387,8 @@ Furthermore the results are human readable and can be share with non-technical p
 - [Why?](#why)
 - [Implementation](#implementation)
   - [Resource Specific Acceptance Test for Example Azure Data Lake Gen 2 implementation](#resource-specific-acceptance-test-for-example-azure-data-lake-gen-2-implementation)
+    - [Example ARM Template](#example-arm-template)
+    - [Example Implementation](#example-implementation)
   - [One step further](#one-step-further)
 - [Wrap Up](#wrap-up)
 - [Table of Content](#table-of-content)
