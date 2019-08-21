@@ -480,7 +480,7 @@ param (
 }
 ```
 
-Now we tested our implementation by validating within our tests that the requirements are implemented.
+Now we tested our implementation by validating within our tests that the requirements are present in our configuration file.
 If changes to the ARM template happen we can still ensure our requirements are met if all tests are passed.
 The output of these testes are written in a way that it is human readable and can be interpreted by non-technical people.
 
