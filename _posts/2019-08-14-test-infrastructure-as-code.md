@@ -70,6 +70,9 @@ By using assertion the test should parse, validate and check for [best practices
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
 See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
 
+{: .box-note}
+**Note:** Full Article: [Unit Test Azure Resource Manager Templates using Pester](2019-08-21-static-code-analysis-for-infrastructure-as-code/)
+
 ### Integration Tests
 
 We found in our project that you can only safely say _an ARM template is valid and deployable if you deployed it once_.
@@ -122,6 +125,9 @@ These Tests are written to ensure a requirement is met. You can execute these te
 Acceptance Tests should be written in a way that they can be executed in different stages.
 An acceptance tests should be small enough to validate a specific requirement.
 These kind of tests can be executed during integration, e2e test and especially after a release.
+
+{: .box-note}
+**Note:** Full Post: [Acceptance Tests for Infrastructure as Code](/2019-08-15-acceptance-test-infrastructure-as-code/)
 
 ### Smoke Tests
 
