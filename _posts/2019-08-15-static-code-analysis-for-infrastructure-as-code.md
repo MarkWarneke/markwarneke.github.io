@@ -412,10 +412,10 @@ Also, we want to ensure that our tests are written in a way that the output is a
 ![ADLS Template Test](../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/adls-static-pester-test.jpg){: .center-block :}
 
 First, we accept a given ARM template path - by default we will assume the template is called `azuredeploy.json` and that it is located in the same directory as the test. Otherwise a path to an ARM template can be passed via the `-Path` parameter.
-We are testing the presence of the template, validate that we can read it and convert it from a JSON string to a PowerShell object.
 
-Having the object we can query its properties _naively_ for a resource that matches the `type` `Microsoft.Storage/storageAccounts`.
-We are storing the resources configuration for readability in `$resource`.
+We are testing the presence of the template, validate that we can read it and convert it from a JSON string to a PowerShell object.
+Having the JSON file as an object we can query its properties _naively_ for a resource that matches the `type` `Microsoft.Storage/storageAccounts`.
+For readability we are storing the resources configuration in `$resource`.
 
 ```powershell
 param (
