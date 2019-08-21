@@ -226,7 +226,7 @@ Describe "[$Path] should be valid" -Tag Unit {
 }
 ```
 
-This script is a good base line to add own best practices and checks.
+This script is a good base-line to add own best practices and checks.
 We can add the support for multiple ARM templates that are located in a given path by wrapping the script into a `foreach` loop.
 To reuse it we can rename `azuredeploy.Tests.ps1` to `azuredeploy.spec.ps1`.
 
