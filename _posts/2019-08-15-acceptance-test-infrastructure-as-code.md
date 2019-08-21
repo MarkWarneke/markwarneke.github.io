@@ -95,6 +95,8 @@ Your deployment should **always** have _version controlled_ parameter files or a
 
 The parameters or configuration needs to be stored somewhere centrally and the information should be able to be acquired through an API.
 
+### Resource Specific Acceptance Test for Example Azure Data Lake Gen 2 implementation
+
 Lets take an example of validating the deployment of a given ARM template.
 In this case we take the requirements from the business to deploy a specified Azure Data Lake Storage Account Generation 2.
 
@@ -373,6 +375,7 @@ Furthermore the results are human readable and can be share with non-technical p
 - [Approach](#approach)
 - [Why?](#why)
 - [Implementation](#implementation)
+  - [Resource Specific Acceptance Test for Example Azure Data Lake Gen 2 implementation](#resource-specific-acceptance-test-for-example-azure-data-lake-gen-2-implementation)
   - [One step further](#one-step-further)
 - [Wrap Up](#wrap-up)
 - [Table of Content](#table-of-content)
