@@ -663,3 +663,18 @@ $allParametersInParametersFile = (Get-Content (Join-Path "$here" "$($Module.Para
 
 $allParametersInParametersFile | Should Contain $requiredParametersInTemplateFile
 ```
+
+## Remarks
+
+## Table of Content
+- [Draft 15.08.19](#draft-150819)
+    - [Declarative](#declarative)
+    - [Imperative](#imperative)
+  - [Unit Tests](#unit-tests)
+  - [Static Code Analysis](#static-code-analysis)
+    - [General Approach](#general-approach)
+    - [Az.Test](#aztest)
+    - [Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation](#resource-specific-static-analysis-for-example-azure-data-lake-gen-2-implementation)
+    - [VDC implementation](#vdc-implementation)
+  - [Remarks](#remarks)
+  - [Table of Content](#table-of-content)
