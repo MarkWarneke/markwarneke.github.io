@@ -91,8 +91,9 @@ The implementation is based on a parameterized Pester tests.
 Any testing framework should be able to support this kind of tests.
 We are going to implement a demonstration using pester, the concept is the same for others testing frameworks.
 
-Your deployment should always have _version controlled_ parameter file or a central _configuration management database_.
-The parameters needs to be stored somewhere centrally and the information can be acquired through an API that is queried by automation code.
+Your deployment should **always** have _version controlled_ parameter files or a central _configuration management database_.
+
+The parameters or configuration needs to be stored somewhere centrally and the information should be able to be acquired through an API.
 
 Lets take an example of validating the deployment of a given ARM template.
 In this case we take the requirements from the business to deploy a specified Azure Data Lake Storage Account Generation 2.
