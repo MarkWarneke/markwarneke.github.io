@@ -86,7 +86,7 @@ I know of two public available static code analysis tests, one is implemented by
 ### General Approach
 
 We want to ensure we have consistency and best practices checked when testing our ARM templates.
-The output should be human readable and the test should ensure consistency across different ARM templates.
+The output should be human readable and easy to understand.
 
 ![General Template Test](../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/general-static-pester-test.jpg){: .center-block :}
 
