@@ -353,7 +353,7 @@ Taking this approach a bit further and ensuring ALL deployments are matching the
 We can get all config files by using `Get-ChildItem` on a `Path` that contain the config files to the deployment.
 Or any other query against the Configuration Database or API to get the configuration or really just the resources name, resource group and/or resource type.
 
-After the config is loaded we iterate through the list and invoke the same specification.
+After the config is loaded we iterate through the list and invoke the specification.
 
 ```powershell
 # adls.acceptance.tests.ps1
