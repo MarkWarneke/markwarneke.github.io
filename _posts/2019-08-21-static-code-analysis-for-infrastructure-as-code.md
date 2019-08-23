@@ -211,7 +211,8 @@ To reuse it we can rename `azuredeploy.Tests.ps1` to `azuredeploy.spec.ps1`.
 
 As Pester will pick up every `*.Tests.ps1` we want the specification to not be triggered, rather our loop through all resource manager templates should invoke our specification and validate.
 Hence we are going to create a new file with the name `azuredeploy.Tests.ps1` which will invoke our `azuredeploy.spec.ps1` with a given ARM template.
-This can of course be merged and adjusted as this approach is very opinionated, using this approach will enable you to extend your checks dynamically by adding more `*.spec.ps1` files.
+This can of course be merged and adjusted as this approach is very opinionated.
+However using this approach will enable you to extend the checks dynamically by changing or adding more `*.spec.ps1` files.
 
 ```powershell
 #azuredeploy.Tests.ps1
