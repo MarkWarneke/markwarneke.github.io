@@ -228,7 +228,7 @@ Here is the ARM template we are going to use:
 
 To ensure the specification are applied to the resource after the deployment we are writing a script to validate its properties.
 
-Therefore, we need to first get the resource and its properties. Using the Az module we can leverage a `Get-` command.
+Therefore, we need to first get the resource and its properties. Using the Az module we can leverage a `Get-Az*` command.
 
 The Azure module provide the command `Get-AzResource` to query any resource by `Name`, as well as either a `ResourceGroup` or `ResourceType`.
 
@@ -243,11 +243,12 @@ Now, to ensure the specification is met we need to add assertion based on the sp
 These assertions should validate that the properties are set correctly on the deployed Azure Resource.
 
 We are storing the file with a `*.spec.ps1` file type.
-`Spec` as a means to describing that this is file contains a specification that is going to be validated.
+`Spec` as a means to describing that this file contains a specification that is going to be validated.
 
 > If you wish to create script files manually with different conventions, that's fine, but all Pester test scripts must end with `.Tests.ps1` in order for Invoke‐Pester to run them. See [Creating a Pester Test](https://github.com/pester/Pester/wiki/Pester#creating-a-pester-test)
 
-As Pester will pick up every `*.Tests.ps1` we want the specification to not be triggered, rather our loop through all resources, subjects under tests, should invoke our specification.
+As Pester picks up every `*.Tests.ps1` we want the specification itself to not be triggered, as the specification is general and should be reusable.
+Rather we want to loop through a set of resources or subjects under tests that should be tested against the specification.
 
 Hence we are going to create an additonal file with the file ending  `*.Tests.ps1`, which will invoke all `*.spec.ps1` with a given name (and resource group name).
 This can be merged and adjusted, if the flexibility is not needed, and as this approach is very opinionated.
