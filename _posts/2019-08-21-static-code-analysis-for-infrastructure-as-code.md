@@ -230,9 +230,11 @@ foreach ($Template in $TemplatePath) {
     $Path = $Template.FullName
 
     # invoke our former `azuredeploy.Tests.ps1` script with the found template.
+    # this could be wrapped into a loop of all *.spec.ps1 files, similar to the ARM template loop.
     . azuredeploy.spec.ps1 -Path $Path
 }
 ```
+
 Now we can run this tests given multiple ARM templates, ensuring we have consistency and best practices checks in place.
 We can add more checks to our `azuredeploy.spec.ps1`.
 Eventually we could add support for multiple spec files, add a loop through get all `*.spec.ps1` files and invoking them.
