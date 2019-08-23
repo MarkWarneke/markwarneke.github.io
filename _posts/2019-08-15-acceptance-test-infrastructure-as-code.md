@@ -250,9 +250,9 @@ We are storing the file with a `*.spec.ps1` file type.
 As Pester picks up every `*.Tests.ps1` we want the specification itself to not be triggered, as the specification is general and should be reusable.
 Rather we want to loop through a set of resources or subjects under tests that should be tested against the specification.
 
-Hence we are going to create an additonal file with the file ending  `*.Tests.ps1`, which will invoke all `*.spec.ps1` with a given name (and resource group name).
-This can be merged and adjusted, if the flexibility is not needed, and as this approach is very opinionated.
-Using this approach, however, will enable you to extend your specifications dynamically by adding more and more spec `*.spec.ps1` files.
+Hence we are going to create an additional file with the file ending  `*.Tests.ps1`, which will invoke all `*.spec.ps1` with a given name (and resource group name).
+This can of course be merged and adjusted as this approach is very opinionated.
+However using this approach will enable you to extend the checks dynamically by changing or adding more `*.spec.ps1` files.
 
 ```powershell
 # adls.acceptance.spec.ps1
@@ -284,7 +284,7 @@ else {
 }
 
 Describe "$Name Data Lake Storage Account Generation 2" {
-    
+
     <# Mandatory requirement of ADLS Gen 2 are:
      - Resource Type is Microsoft.Storage/storageAccounts, as we know we are looking for this it is obsolete to check
      - Kind is StorageV2
@@ -317,7 +317,7 @@ Describe "$Name Data Lake Storage Account Generation 2" {
     it "should have network rule set  default action Deny" {
         $adls.NetworkRuleSet.DefaultAction | Should -Be "Deny"
     }
-    
+
     <#
       Check for network firewall:
         - Enable Azure Services and Logs 
@@ -372,11 +372,14 @@ Foreach ($Path in $ParameterPath) {
     $json = ConvertFrom-Json $text -ErrorAction Stop
 
     # Invoke or acceptance tests specification
+    # this could be wrapped into a loop of all *.spec.ps1 files, similar to the parameter file loop.
    . adls.acceptance.spec.ps1 -Name $json.ResourceName -ResourceGroup $json.ResourceGroupName
 }
 ```
 
 We can even go further and remove the tests for certain resources and just query for all resources using `Get-AzResource -ResourceType $ResourceType` to ensure all Resources confirm to the specification.
+
+Eventually we could add support for multiple spec files, by adding a loop that invokes all `*.spec.ps1` files.
 
 ## Wrap Up
 
