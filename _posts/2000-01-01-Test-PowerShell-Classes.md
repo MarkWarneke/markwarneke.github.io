@@ -15,12 +15,10 @@ In thie post we are going to look into how we can write Pester test for PowerShe
 
 ## Learn Classes
 
-If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the [Video: Stéphane van Gulick - Learn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg)
-
- [Slides & Code](https://github.com/psconfeu/2019/tree/master/sessions/MarkWarneke)
+If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEu [Video: SLearn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg)
 
 <div class="video-container">
-    <iframe  src="https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe  src="https://www.youtube.com/embed/hSk-ocD6VP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ## Test Classes Implementation of Parameter File Generator
