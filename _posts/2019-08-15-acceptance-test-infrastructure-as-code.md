@@ -350,7 +350,8 @@ Describe "$Name Data Lake Storage Account Generation 2" {
 ### One step further
 
 Taking this approach a bit further and ensuring ALL deployments are matching the requirements we can adjust the Pester test.
-We can get all config files by using `Get-ChildItem` on a `Path` the contain the config files to the deployment.
+We can get all config files by using `Get-ChildItem` on a `Path` that contain the config files to the deployment. 
+(Or you can query the Configuration Database or any other API).
 Or any other query to get the configuration or really just the resources name, resource group name or type.
 
 After the config is loaded we iterate through the list and invoke the same specification.
