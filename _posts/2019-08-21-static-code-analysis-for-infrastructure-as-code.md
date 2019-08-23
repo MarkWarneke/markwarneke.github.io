@@ -81,12 +81,12 @@ Install-Module -Name Pester -Scope CurrentUser -Force
 I personally refer to a **unit tests** for ARM templates as asserted **static code analysis**.
 By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file (ARM template).
 
-I know of two public available static code analysis tests, one is implemented by the [Azure Virtual Datacenter](https://github.com/Azure/vdc/) (VDC) and [Az.Test](https://github.com/MarkWarneke/Az.Test).
+I know of two public available static code analysis tests, one is implemented by the [Azure Virtual Datacenter](https://github.com/Azure/vdc/) (VDC) and one in [Az.Test](https://github.com/MarkWarneke/Az.Test).
 
 ### General Approach
 
 We want to ensure we have consistency and best practices checked when testing our ARM templates.
-The output should be human readable and should check for constancy.
+The output should be human readable and the test should ensure consistency across different ARM templates.
 
 ![General Template Test](../img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/general-static-pester-test.jpg){: .center-block :}
 
