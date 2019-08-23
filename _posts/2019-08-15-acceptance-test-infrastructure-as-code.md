@@ -234,7 +234,7 @@ The Azure module provide the command `Get-AzResource` to query any resource by `
 
 We can get the deployed resource by using `Get-AzResource -ResourceType 'Microsoft.Storage/storageAccounts'` without providing a ResourceGroupName.
 As Storage Accounts are unique by name this will only return one account.
-Other resources might support reuse of names and could return multiple resources - this neds to be considered.
+Other resources might support reuse of names and could return multiple resources - this needs to be considered.
 
 In PowerShell a best practice is to enable support for Pipeline usage.
 Essentials this means to accept an array of objects that should be passable to the script.
