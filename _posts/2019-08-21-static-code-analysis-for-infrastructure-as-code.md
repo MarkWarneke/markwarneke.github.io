@@ -76,30 +76,6 @@ I recommend getting the latest version from the [PSGallery](https://www.powershe
 Install-Module -Name Pester -Scope CurrentUser -Force
 ```
 
-Going the imperative approach the subject under test might vary and depends on the implementation.
-A unit tests should execute quick, as the [Az](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az?view=azps-2.5.0) PowerShell Module is communicating with Azure this would violate the Unit Testing definition.
-Hence you want to Mock all Az scripts and tests the flow of you implementation.
-The [`Assert-MockCalled`](https://github.com/pester/Pester#mocking) ensures the flow of you code is as expected.
-Generally we trust that the provided commands are thoroughly tested by Microsoft.
-
-A unit test for a deployment script can leverage PowerShells [`WhatIf`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_commonparameters?view=powershell-6#whatif) functionally as a way of preventing actual execution to Azure too.
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName $rg -TemplateFile $tf -TemplateParameterFile $tpf -WhatIf
-```
-
-A deployment script should implement the [ShouldProcess](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-6#shouldprocess) functionality of PowerShell.
-
-```powershell
-[CmdletBinding(SupportsShouldProcess=$True)]
-# ...
-if ($PSCmdlet.ShouldProcess("ResourceGroupName $rg deployment of", "TemplateFile $tf")) {
-    New-AzResourceGroupDeployment -ResourceGroupName $rg -TemplateFile $tf -TemplateParameterFile $tpf
-}
-```
-
-This ensures the script can be executed using the `-WhatIf` switch to execute a _dry run_ of the code.
-
 ## Static Code Analysis
 
 I personally refer to a **unit tests** for ARM templates as asserted **static code analysis**.
@@ -675,6 +651,32 @@ $allParametersInParametersFile = (Get-Content (Join-Path "$here" "$($Module.Para
 $allParametersInParametersFile | Should Contain $requiredParametersInTemplateFile
 ```
 
+## Imperative Considerations
+
+Going the imperative approach the subject under test might vary and depends on the implementation.
+A unit tests should execute quick, as the [Az](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az?view=azps-2.5.0) PowerShell Module is communicating with Azure this would violate the Unit Testing definition.
+Hence you want to Mock all Az scripts and tests the flow of you implementation.
+The [`Assert-MockCalled`](https://github.com/pester/Pester#mocking) ensures the flow of you code is as expected.
+Generally we trust that the provided commands are thoroughly tested by Microsoft.
+
+A unit test for a deployment script can leverage PowerShells [`WhatIf`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_commonparameters?view=powershell-6#whatif) functionally as a way of preventing actual execution to Azure too.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName $rg -TemplateFile $tf -TemplateParameterFile $tpf -WhatIf
+```
+
+A deployment script should implement the [ShouldProcess](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_methods?view=powershell-6#shouldprocess) functionality of PowerShell.
+
+```powershell
+[CmdletBinding(SupportsShouldProcess=$True)]
+# ...
+if ($PSCmdlet.ShouldProcess("ResourceGroupName $rg deployment of", "TemplateFile $tf")) {
+    New-AzResourceGroupDeployment -ResourceGroupName $rg -TemplateFile $tf -TemplateParameterFile $tpf
+}
+```
+
+This ensures the script can be executed using the `-WhatIf` switch to execute a _dry run_ of the code.
+
 ## Remarks
 
 ## Table of Content
@@ -685,5 +687,6 @@ $allParametersInParametersFile | Should Contain $requiredParametersInTemplateFil
   - [Az.Test](#aztest)
   - [Resource Specific Static Analysis for Example Azure Data Lake Gen 2 implementation](#resource-specific-static-analysis-for-example-azure-data-lake-gen-2-implementation)
   - [VDC implementation](#vdc-implementation)
+- [Imperative Considerations](#imperative-considerations)
 - [Remarks](#remarks)
 - [Table of Content](#table-of-content)
