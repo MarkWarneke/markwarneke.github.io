@@ -239,7 +239,7 @@ Now we can run this tests given multiple ARM templates, ensuring we have consist
 We can add more checks to our `azuredeploy.spec.ps1`.
 
 Eventually we could add support for multiple spec files, by adding a loop that invokes all `*.spec.ps1` files.
-For a starters we created a flexible baseline that ensures a set of best practice and mandatory properties are present.
+For starters we created a flexible baseline that ensures a set of best practice and mandatory properties are tested.
 
 Next up we are going to have a look at how to extend on this approach and test a specific ARM template implementation.
 
