@@ -81,6 +81,8 @@ With _Acceptance Tests_ we are trying to address the problem of post deployment 
 If the infrastructure as code is based on specified, documented requirements you should be able to validate them without manual intervention.
 Automated tests scale and reduce human error.
 
+![ADLS Acceptance Test](../img/posts/2019-08-15-acceptance-test-infrastructure-as-code/acceptence-test-result.jpeg){: .center-block :}
+
 Also, you want to ensure that your initial deployment is meeting the customers requirement.
 Non-technical people should evaluate if a specification is met, a human readable form of feedback is therefore necessary.
 You should have _"proof"_ your implementation matched the specification.
