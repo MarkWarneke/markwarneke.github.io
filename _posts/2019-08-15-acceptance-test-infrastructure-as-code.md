@@ -234,12 +234,13 @@ The Azure module provide the command `Get-AzResource` to query any resource by `
 
 We can get the deployed resource by using `Get-AzResource -ResourceType 'Microsoft.Storage/storageAccounts'` without providing a ResourceGroupName.
 As Storage Accounts are unique by name this will only return one account.
-Other resources might support reuse of names, this should be considered.
+Other resources might support reuse of names and could return multiple resources - this neds to be considered.
 
-In PowerShell a best practice is to enable Pipeline support.
-Essentials this means to accept an array of objects that should be passable by the script.
+In PowerShell a best practice is to enable support for Pipeline usage.
+Essentials this means to accept an array of objects that should be passable to the script.
 
-Now, to ensure the specification is met we need to add assertion based on the specification to validate the settings are set correctly on the deployed Azure Resource.
+Now, to ensure the specification is met we need to add assertion based on the specification.
+These assertions should validate that the properties are set correctly on the deployed Azure Resource.
 
 We are storing the file with a `*.spec.ps1` file type.
 `Spec` as a means to describing that this is file contains a specification that is going to be validated.

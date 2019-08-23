@@ -1,0 +1,5 @@
+There are lots of discussions going on regarding #infrastructureascode especially about best practices and testing scenarios.
+
+In this article I am building on top of the general post “Test Infrastructure as Code”. And dig a little deeper into *how* to unit test Infrastructure as Code. https://markwarneke.me/2019-08-21-static-code-analysis-for-infrastructure-as-code/
+
+Let me know what you think! Is this applicable for your infrastructure as code implementation? Do you tests your code?
