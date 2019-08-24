@@ -3,9 +3,9 @@ layout: page
 title: Code
 subtitle: Repository for all code and scripts on this blog
 bigimg:
-  - "/img/draft.jpg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpg"
-share-img: "/img/draft.jpg"
+  - "/img/EaB4Ml7C7fE.jpeg": "https://unsplash.com/photos/EaB4Ml7C7fE"
+image: "/img/EaB4Ml7C7fE.jpeg"
+share-img: "/img/EaB4Ml7C7fE.jpeg"
 ---
 
 ## Table of Contents
@@ -24,6 +24,7 @@ This code repositories contains an `azuredeploy.json` and different scripts to c
 
 ## Getting Started
 
+Get the [Code](https://github.com/MarkWarneke/markwarneke.github.io/tree/master/code).
 Run:
 
 ```powershell
