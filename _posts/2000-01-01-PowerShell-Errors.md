@@ -11,7 +11,6 @@ comments: true
 time: 4
 ---
 
-- [Parameter](#parameter)
 - [Error](#error)
   - [Prioritize Errors](#prioritize-errors)
   - [List All Error Members](#list-all-error-members)
@@ -24,13 +23,6 @@ time: 4
   - [Save Session State](#save-session-state)
 - [Pester Test](#pester-test)
   - [ScriptAnalyzer](#scriptanalyzer)
-
-## Parameter
-
-```powershell
-#Get Function Parameters in Script
-$params = $PSBoundParameters
-```
 
 ## Error
 
