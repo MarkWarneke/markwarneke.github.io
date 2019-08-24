@@ -136,7 +136,7 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been create to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is inspired on the code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the Developer workflow on generating code, it is less error prone and implement code consistency.
 
-## Review und Pull-Requests
+## Review & Pull-Requests
 
 A good practice is to have regular **peer reviews** and rely on **pull-requests** to apply changes to the code base.
 
@@ -315,7 +315,7 @@ The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-mana
   - [Acceptance Tests](#acceptance-tests)
   - [Smoke Tests](#smoke-tests)
 - [Code generator](#code-generator)
-- [Review und Pull-Requests](#review-und-pull-requests)
+- [Review & Pull-Requests](#review--pull-requests)
 - [Tests Phases](#tests-phases)
 - [Continuous Integration & Continuous Deployment](#continuous-integration--continuous-deployment)
 - [Developer View](#developer-view)
