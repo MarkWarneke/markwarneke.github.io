@@ -45,7 +45,9 @@ if (Test-Path $testScriptsPath) {
 ## Pipeline
 
 PowerShell `errorActionPreference: "continue"`
-PublishTestResults `failTaskOnFailedTests`
+
+testRunner: 'NUnit'
+PublishTestResults: `failTaskOnFailedTests`
 
 ```yaml
 trigger:
@@ -77,7 +79,7 @@ jobs:
 
     - task: PublishTestResults@2
       inputs:
-        testRunner: 'NUnit'
+        testRunner: 'NUnit'   # Make sure to use the 'NUnit' test runner
         testResultsFiles: '**/TestResults.module.xml'
         testRunTitle: 'PS_Win2016_Module'
       displayName: 'Publish Module Test Results'
