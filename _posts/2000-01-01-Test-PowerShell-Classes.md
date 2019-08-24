@@ -15,7 +15,7 @@ In thie post we are going to look into how we can write Pester test for PowerShe
 
 ## Learn Classes
 
-If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEu [Video: SLearn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg)
+If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEu [Video: Learn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg)
 
 <div class="video-container">
     <iframe  src="https://www.youtube.com/embed/hSk-ocD6VP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -70,13 +70,14 @@ I created a Plain PowerShell Object based on the schema of the [Azure Resource M
 
 The `ParamterObject` class therefor has the properties `schema`, `contenVersion` and `parameters`.
 As the file expects to have the parameters name as a key I opted for a hashtable for each parameter.
-The hastables key is the parameter name, this converts nicely into the expected json when using `ConverTo-Json`.
+The hashtables key is the parameter name, this converts nicely into the expected json when using `ConverTo-Json`.
 
-A parameter file could have all, none, a subset or only the _mandatory_ parameters specified in the ARM template prsent.
-Having multiple different options for ParameterFiles the ParameterObject could be used as the base class and concrete implementations could inherit it's properties.
+A parameter file could contain all, none, a subset or only the _mandatory_ parameters specified in the ARM template.
+My idea is, having multiple different options for ParameterFiles the ParameterObject could be used as the base class and concrete implementations could inherit it's properties.
 
 The creation of a specific file is abstracted into a Factory.
-Which creates objects without having to specify the exact class of the object that will be created, see [Wiki](https://en.wikipedia.org/wiki/Factory_method_pattern).
+A factory is concerned with the creation of objects so the user is not having to specify the exact class of the object that will be created, see [Wiki](https://en.wikipedia.org/wiki/Factory_method_pattern).
+
 The factory `ParameterFileFactory` is created based on a given template.
 It exposes the factory method `CreateParameterFile` that creates a parameter file json string based on the specification passed.
 In this implementation you can specify to create a file with _mandatory_ parameters only or all parameters.
@@ -212,6 +213,63 @@ function New-ParameterFile {
          # Could be abstract further by using | out-file
     }
 }
+```
+
+## Usage
+
+Now we created a function that can create Parameter Files of a given template.
+The usage is pretty straight forward.
+
+```powershell
+# Functionality needs to dot source
+# Sould be placed into a module
+. .\New-ParameterFile.ps1
+
+New-ParameterFile
+<#
+{
+  "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contenVersion": "1.0.0.0",
+  "parameters": {
+    "networkAcls": {
+      "value": "Prompt"
+    },
+    "storageAccountAccessTier": {
+      "value": "Prompt"
+    },
+    "storageAccountSku": {
+      "value": "Prompt"
+    },
+    "location": {
+      "value": "Prompt"
+    },
+    "resourceName": {
+      "value": "Prompt"
+    }
+  }
+}
+#>
+
+New-ParameterFile -OnlyMandatoryParameter
+<#
+{
+  "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contenVersion": "1.0.0.0",
+  "parameters": {
+    "resourceName": {
+      "value": "Prompt"
+    },
+    "networkAcls": {
+      "value": "Prompt"
+    }
+  }
+}
+#>
+
+# Or specify a path to the ARM template manually
+$AzureDeployPath = "azuredeploy.json"
+New-ParameterFile -Path $AzureDeployPath
+New-ParameterFile -Path $AzureDeployPath -OnlyMandatoryParameter
 ```
 
 ## Test PowerShell classes
@@ -353,57 +411,7 @@ Describe ".\New-ParameterFile" {
 
 In order to validate the code I used the example ADLS Gen2 [ARM template](/Code/azuredeploy.json).
 
-Now we created a function that can create Parameter Files of a given template.
-
-```powershell
-. .\New-ParameterFile.ps1
-
-New-ParameterFile
-<#
-{
-  "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contenVersion": "1.0.0.0",
-  "parameters": {
-    "networkAcls": {
-      "value": "Prompt"
-    },
-    "storageAccountAccessTier": {
-      "value": "Prompt"
-    },
-    "storageAccountSku": {
-      "value": "Prompt"
-    },
-    "location": {
-      "value": "Prompt"
-    },
-    "resourceName": {
-      "value": "Prompt"
-    }
-  }
-}
-#>
-
-New-ParameterFile -OnlyMandatoryParameter
-<#
-{
-  "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contenVersion": "1.0.0.0",
-  "parameters": {
-    "resourceName": {
-      "value": "Prompt"
-    },
-    "networkAcls": {
-      "value": "Prompt"
-    }
-  }
-}
-#>
-
-# Or specify a path to the ARM template manually
-$AzureDeployPath = "azuredeploy.json"
-New-ParameterFile -Path $AzureDeployPath
-New-ParameterFile -Path $AzureDeployPath -OnlyMandatoryParameter
-```
+![Pester Output](../img/posts/2000-01-01-Test-PowerShell-Classes/pester-output.jp2)
 
 ## Remarks
 
@@ -413,6 +421,7 @@ New-ParameterFile -Path $AzureDeployPath -OnlyMandatoryParameter
 - [Implementation of Parameter File Generator](#implementation-of-parameter-file-generator)
 - [Implementation Considerations](#implementation-considerations)
 - [Implementation](#implementation)
+- [Usage](#usage)
 - [Test PowerShell classes](#test-powershell-classes)
 - [Remarks](#remarks)
 - [Table of contents](#table-of-contents)
