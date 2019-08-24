@@ -1,3 +1,9 @@
+---
+layout: page
+title: Code
+use-site-title: true
+---
+
 - [Test Infrastructure as Code](#test-infrastructure-as-code)
   - [Getting Started](#getting-started)
   - [Files](#files)
@@ -8,7 +14,7 @@
 
 # Test Infrastructure as Code
 
-This code repositories contains an `azuredeploy.json` and differnt scripts to create, run and tests a deployment.
+This code repositories contains an `azuredeploy.json` and different scripts to create, run and tests a deployment.
 
 ## Getting Started
 
