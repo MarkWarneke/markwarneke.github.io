@@ -8,11 +8,11 @@
 
 # Test Infrastructure as Code
 
-This code repositories contains an `azuredeploy.json`
+This code repositories contains an `azuredeploy.json` and differnt scripts to create, run and tests a deployment.
 
 ## Getting Started
 
-Run
+Run:
 
 ```powershell
 # azuredeploy.ps1
@@ -24,7 +24,9 @@ $TemplateParameterFile = "$PSScriptRoot\azuredeploy.parameters.json"
 
 New-ParameterFile | Out-File $TemplateParameterFile
 
-New-AzResourceGroup -Name $Name -Location $Location
+# Change Parameter File Properties
+
+New-AzResourceGroup -Name $Name -Location $Location -Confirm
 New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -Verbose
 ```
 
