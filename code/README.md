@@ -1,7 +1,11 @@
 ---
 layout: page
 title: Code
-use-site-title: true
+subtitle: Repository for all code and scripts on this blog
+bigimg:
+  - "/img/draft.jpg": "https://unsplash.com/photos/wE37SqLAO9M"
+image: "/img/draft.jpg"
+share-img: "/img/draft.jpg"
 ---
 
 ## Table of Contents
