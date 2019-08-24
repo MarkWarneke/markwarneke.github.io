@@ -96,9 +96,9 @@ $StringBuilderOutput += $json.parameters | get-member -MemberType NoteProperty |
 
 $StringBuilderResource
 <#
-| Resource Name | Resource Type | Resource Comment |
+| Resource Type | Resource Name |  Resource Comment |
 | --- | --- | --- |
- | [parameters('resourceName')]| Microsoft.Storage/storageAccounts |
+ | Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
 #>
 
 $StringBuilderParameter
@@ -135,27 +135,27 @@ We can output and save this to a file using `Out-File`
 ## Parameters
 | Parameter Name | Parameter Type |Parameter Description | Parameter DefaultValue |
 | --- | --- | --- | --- |
- | location| string | Azure location for deployment | [resourceGroup().location] |
- | networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |  |
- | resourceName| string | Name of the Data Lake Storage Account |  |
- | storageAccountAccessTier| string | Optional. Storage Account Access Tier. | Hot |
- | storageAccountSku| string | Optional. Storage Account Sku Name. | Standard_ZRS |
+| location| string | Azure location for deployment | [resourceGroup().location] |
+| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |  |
+| resourceName| string | Name of the Data Lake Storage Account |  |
+| storageAccountAccessTier| string | Optional. Storage Account Access Tier. | Hot |
+| storageAccountSku| string | Optional. Storage Account Sku Name. | Standard_ZRS |
 
 ## Resources
 
-| Resource Name | Resource Type | Resource Comment |
+| Resource Type | Resource Name |  Resource Comment |
 | --- | --- | --- |
- | [parameters('resourceName')]| Microsoft.Storage/storageAccounts |
+| Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
 
 ## Outputs
 
 | Output Name | Output Value | Output Type |
 | --- | --- | --- |
- | location| string | Azure location for deployment |
- | networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |
- | resourceName| string | Name of the Data Lake Storage Account |
- | storageAccountAccessTier| string | Optional. Storage Account Access Tier. |
- | storageAccountSku| string | Optional. Storage Account Sku Name. |
+| location| string | Azure location for deployment |
+| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |
+| resourceName| string | Name of the Data Lake Storage Account |
+| storageAccountAccessTier| string | Optional. Storage Account Access Tier. |
+| storageAccountSku| string | Optional. Storage Account Sku Name. |
 
 ```
 
@@ -177,9 +177,9 @@ _For demo purposes I changed the levle for the heading_
 
 #### Resources
 
-| Resource Name                | Resource Type                     | Resource Comment |
-| ---------------------------- | --------------------------------- | ---------------- |
-| [parameters('resourceName')] | Microsoft.Storage/storageAccounts |
+| Resource Type                     | Resource Name                | Resource Comment                      |
+| --------------------------------- | ---------------------------- | ------------------------------------- |
+| Microsoft.Storage/storageAccounts | [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
 
 #### Outputs
 

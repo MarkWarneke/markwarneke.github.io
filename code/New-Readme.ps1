@@ -15,7 +15,7 @@ $text = Get-Content $Path -Raw -ErrorAction Stop
 $json = ConvertFrom-Json $text -ErrorAction Stop
 
 # Create Strings
-$resourceHeader = "| Resource Name | Resource Type | Resource Comment |"
+$resourceHeader = "| Resource Type | Resource Name |  Resource Comment |"
 $resourceHeaderDivider = "| --- | --- | --- |"
 $resourceRow = " | {0}| {1} | {2} |"
 
@@ -39,7 +39,7 @@ $StringBuilderResource = @()
 $StringBuilderResource += $resourceHeader
 $StringBuilderResource += $resourceHeaderDivider
 
-$StringBuilderResource += $json.resources | % { $row -f $_.Name, $_.Type, $_.Comments }
+$StringBuilderResource += $json.resources | % { $resourceRow -f $_.Type, $_.Name, $_.Comments }
 
 # Create an Output List Table
 $StringBuilderOutput = @()
@@ -69,9 +69,9 @@ Write-Output ""# Empty Line
 
 $StringBuilderResource
 <#
-| Resource Name | Resource Type | Resource Comment |
+| Resource Type | Resource Name |  Resource Comment |
 | --- | --- | --- |
- | [parameters('resourceName')]| Microsoft.Storage/storageAccounts |
+ | Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
 #>
 
 Write-Output ""# Empty Line
