@@ -16,14 +16,14 @@ I am going to publish content around a variety of topics from general IT-Consult
 {: .box-note}
 **Note:** Opinions are my own
 
-I currently work for Microsoft, however, all content published on this domain is based on my experience and opinions. My recommendations might not align with official statemets from Microsoft and must not be quoted as such.
+I currently work for Microsoft, however, all content published on this domain is based on my experience and opinions. My recommendations might not align with official statements from Microsoft and must not be quoted as such.
 
 <p style="text-align: center; padding: 15px;">
 <strong>
 The content published is NOT an official Microsoft statement!</strong> <br/> (For official guidance visit <a href="https://docs.microsoft.com">docs.microsoft.com</a>).
 </p>
 
-The content is subject to change - I adhear to highlight updated articles. Otherwise you can follow and track changes in the public Github repo: [markwarneke.github.io](https://github.com/MarkWarneke/markwarneke.github.io/commits/master).
+The content is subject to change - I adhere to highlight updated articles. Otherwise you can follow and track changes in the public Github repository: [markwarneke.github.io](https://github.com/MarkWarneke/markwarneke.github.io/commits/master).
 
 ## WOW
 
