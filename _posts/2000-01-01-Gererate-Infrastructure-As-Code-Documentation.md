@@ -28,6 +28,8 @@ To address the lack of readability, we can gather a few requirements based on co
 
 We can use PowerShell to return a list of resources by simply returning the `resources` `type` and `name` of an ARM template.
 
+For demo purposes I am using [azuredeploy.json](/code/azuredeploy.json)
+
 ```powershell
 # New-Readme.ps1
 param (
