@@ -61,6 +61,8 @@ $Deployment = @{
 New-AzResourceGroupDeployment @Deployment
 ```
 
+## Implementation Considerations
+
 With all that being said, not all parameters specified in an ARM template are really necessary.
 For these requirements I figured I needed some kind of flexibility and extensibility and opted for a class first code approach.
 
@@ -80,6 +82,8 @@ It exposes the factory method `CreateParameterFile` that creates a parameter fil
 In this implementation you can specify to create a file with _mandatory_ parameters only or all parameters.
 
 Mandatory parameters are defined as parameters that don't implement the `defaultValues` property.
+
+## Implementation
 
 ```powershell
 # New-ParameterFile.ps1
