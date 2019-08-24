@@ -7,20 +7,15 @@ image: "/img/EaB4Ml7C7fE.jpeg"
 share-img: "/img/EaB4Ml7C7fE.jpeg"
 ---
 
-# Code
-
-Repository for all code and scripts on this blog
-
 ## Table of Contents
 
-- [Code](#code)
-  - [Table of Contents](#table-of-contents)
-  - [Test Infrastructure as Code](#test-infrastructure-as-code)
-  - [Getting Started](#getting-started)
-  - [Files](#files)
-  - [Code of Conduct](#code-of-conduct)
-  - [Contact](#contact)
-    - [Generate File Inventory](#generate-file-inventory)
+- [Table of Contents](#table-of-contents)
+- [Test Infrastructure as Code](#test-infrastructure-as-code)
+- [Getting Started](#getting-started)
+- [Files](#files)
+- [Code of Conduct](#code-of-conduct)
+- [Contact](#contact)
+  - [Generate File Inventory](#generate-file-inventory)
 
 ## Test Infrastructure as Code
 
@@ -74,5 +69,5 @@ The project sticks to the [code of conduct](https://microsoft.github.io/codeofco
 ### Generate File Inventory
 
 ```powershell
-Get-ChildItem | % { Write-Host ("- [{0}](./{0})" -f $_.Name)  }
+Get-ChildItem -Recurse | % { Write-Host ("- [{0}](./{0})" -f $_.Name)  }
 ```
