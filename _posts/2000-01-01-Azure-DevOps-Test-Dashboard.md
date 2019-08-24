@@ -14,9 +14,7 @@ time: 4
 EVer wondered how to publish test results in Azure DevOps?
 Using the pipelines in Azure DevOps we can create a Test Dashboard to display our results.
 
-## Implementation
-
-![Azure DevOps Logs](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/azuredevops-logs.jpg){: .center-block :}
+## Dashboard
 
 ![Test Results](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/test-results.png){: .center-block :}
 
@@ -43,6 +41,8 @@ if (Test-Path $testScriptsPath) {
 ```
 
 ## Pipeline
+
+![Azure DevOps Logs](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/azuredevops-logs.jpg){: .center-block :}
 
 PowerShell `errorActionPreference: "continue"`
 
