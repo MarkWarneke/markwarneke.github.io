@@ -26,6 +26,8 @@ To address the lack of readability, we can gather a few requirements based on co
 - Check what kind of resources a given ARM template is deploying
 - See the outputs a given template returns
 
+## Implementation
+
 We can use PowerShell to return a list of resources by simply returning the `resources` `type` and `name` of an ARM template.
 
 For demo purposes I am using [azuredeploy.json](/code/azuredeploy.json)
@@ -49,6 +51,8 @@ $json = ConvertFrom-Json $text -ErrorAction Stop
 $json.resources.type
 $json.resources.name
 ```
+
+### String Building the Documentation
 
 Now that we have traverse the list of properties we can use PowerShell to create a string that is similar to [markdown](http://daringfireball.net/projects/markdown/), plain text, or any other markup language.
 In this demo implementation I am going to stick to Markdown.
@@ -193,9 +197,11 @@ _For demo purposes I changed the levle for the heading_
 
 ## Parameters
 
-You can create a ParameterFile generator that will generate a valid Parameter File for you.
-In [Generate Azure Resource Manager Templates Parameter files using PowerShell](/2000-01-01-Generate-Azure-Resource-Manager-Template-File) we did a demo implementation of a Generator.
-A quick way to generate a simple parameter file for documentation purposes could be this one-liner:
+You can use a ParameterFile generator that will generate a valid Parameter File base on a given ARm template for you.
+In [Generate Azure Resource Manager Templates Parameter files using PowerShell](/2000-01-01-Generate-Azure-Resource-Manager-Template-File) you can find an implementation guide.
+
+A quick way to let your users create a parameter file is by given an example.
+To generate a simple parameter structure for documentation purposes this one-liner comes in handy:
 
 ```powershell
 # Create azuredeploy.parameters.json
@@ -203,7 +209,7 @@ $json.parameters | get-member -MemberType NoteProperty | % { [pscustomobject]@{ 
 ```
 
 You can store the output (on Windows) to the clipboard by passing it to the `| clip` function.
-Or add this line to the Readme generator to allow your Readme users to copy paste this blueprint.
+Or add this line to the Readme generator to allow your Readme users to copy paste the blueprint.
 
 ```json
 [
@@ -240,6 +246,8 @@ Or add this line to the Readme generator to allow your Readme users to copy past
 ## Table of Content
 
 - [Automate Documentation](#automate-documentation)
+- [Implementation](#implementation)
+  - [String Building the Documentation](#string-building-the-documentation)
   - [Example Output](#example-output)
     - [Parameters](#parameters)
     - [Resources](#resources)
