@@ -27,13 +27,15 @@ Also the location of the OutputFile should be considered.
 You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` or `$(Build.SourcesDirectory)` of Azure DevOps to save the test file into the root of the agent.
 
 ```powershell
+# Invoke-Pester.ps1
 $testScriptsPath = Join-Path -Path $PSScriptRoot -ChildPath 'Test'
 $testResultsFile = Join-Path -Path $PSScriptRoot -ChildPath 'TestResults.Pester.xml'
 
 if (Test-Path $testScriptsPath) {
     $pester = @{
         Script       = $testScriptsPath
-        OutputFormat = 'NUnitXml'     # Make sure the NUnitXML
+        # Make sure NUnitXML is the output format
+        OutputFormat = 'NUnitXml'         # !!!
         OutputFile   = $testResultsFile
         PassThru     = $true
         ExcludeTag   = 'Incomplete'
@@ -74,24 +76,19 @@ jobs:
         inputs:
           azureSubscription: $(azureSubscription)
           scriptType: "FilePath"
-          scriptPath: $(Build.SourcesDirectory)\test.ps1
+          # The name of the script where the pester test setup is located
+          scriptPath: $(Build.SourcesDirectory)\Invoke-Pester.ps1
           scriptArguments:
           azurePowerShellVersion: "latestVersion"
           errorActionPreference: "continue"
 
       - task: PublishTestResults@2
         inputs:
-          testRunner: "NUnit" # Make sure to use the 'NUnit' test runner
-          testResultsFiles: "**/TestResults.module.xml"
-          testRunTitle: "PS_Win2016_Module"
-        displayName: "Publish Module Test Results"
-        condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')
-
-      - task: PublishTestResults@2
-        inputs:
-          testRunner: "NUnit"
-          testResultsFiles: "**/TestResults.unit.xml"
+          # Make sure to use the 'NUnit' test runner
+          testRunner: "NUnit" # !!!
+          testResultsFiles: "**/TestResults.Pester.xml"
           testRunTitle: "PS_Win2016_Unit"
+          # Make the whole pipeline fail if a test is failed
           failTaskOnFailedTests: true
         displayName: "Publish Unit Test Results"
         condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')
@@ -102,13 +99,14 @@ jobs:
           failIfCoverageEmpty: false
         displayName: "Publish Unit Test Code Coverage"
         condition: and(in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed'), eq(variables['System.PullRequest.IsFork'], false))
-
-      - task: PublishTestResults@2
-        inputs:
-          testRunner: "NUnit"
-          testResultsFiles: "**/TestResults.integration.xml"
-          testRunTitle: "PS_Win2016_Integration"
-          failTaskOnFailedTests: true
-        displayName: "Publish Integration Test Results"
-        condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithI
 ```
+
+## Remarks
+
+## Table of Content
+
+- [Dashboard](#dashboard)
+- [PowerShell Pester Task](#powershell-pester-task)
+- [Pipeline](#pipeline)
+- [Remarks](#remarks)
+- [Table of Content](#table-of-content)
