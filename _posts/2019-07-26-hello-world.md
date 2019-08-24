@@ -34,9 +34,9 @@ This is my first post, how exciting! Please feel free to reach out to my if ther
 I have a list of topics I want to share in the near future, stay tuned!
 
 - [x] [Static code analysis of Azure Resource Manager Templates using pester - Tags: PowerShell, ARM, Pester, Azure](/2019-08-21-static-code-analysis-for-infrastructure-as-code)
-- [] Generate Azure Resource Manager Templates Parameter files using PowerShell - Tags: PowerShell, ARM, Azure
+- [][generate azure resource manager templates parameter files using powershell - tags: powershell, arm, azure](/2000-01-01-Generate-Azure-Resource-Manager-Template-File)
 - [x] [Infrastructure as Code Validation Tests using Pester - Tags: PowerShell, ARM, Pester, Azure](/2019-08-15-acceptance-test-infrastructure-as-code)
-- [] Generate Infrastructure as Code Azure Resource Manager documentation using PowerShell - Tags: PowerShell, ARM, Pester, Markdown, Azure
+- [][generate infrastructure as code azure resource manager documentation using powershell - tags: powershell, arm, pester, markdown, azure](/2000-01-01-Gererate-Infrastructure-As-Code-Documentation)
 - [] PowerShell Az Module Usage on Azure DevOps - Tags: PowerShell, DevOps, Azure
 - [] Azure DevOps Pester Tests and how to publish a Test Dashboard - Tags: PowerShell, DevOps, Pester
 - [] Azure DevOps Nuget Setup for a private PowerShell Gallery - Tags: PowerShell, DevOps
