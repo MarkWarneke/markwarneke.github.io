@@ -58,9 +58,12 @@ Now that we have traverse the list of properties we can use PowerShell to create
 In this demo implementation I am going to stick to Markdown.
 An easy way to get started and learn markdown is the interactive [markdowntutorial](https://www.markdowntutorial.com).
 
-Markdown can be used within [Github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax) to create documentation for your project through [Github Pages](https://pages.github.com/) or within your project.
-Azure DevOps will use Markdown to publish a [Wiki](https://azure.microsoft.com/en-in/services/devops/wiki/).
-Automating the documentation creation into Markdown comes in handy.
+Markdown can be used with [Github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax) to create documentation for your project through [Github Pages](https://pages.github.com/) or as means to document your repository.
+Azure DevOps uses Markdown to publish the content in form of a [Wiki](https://azure.microsoft.com/en-in/services/devops/wiki/).
+Automating the documentation and the creation of Markdown comes in handy.
+
+As Markdown is very light weight we can leverage simple strings to create our documentation.
+To better visualize the parameters, resource and outputs of an ARM template a table might be a feasible option for display.
 
 Get [New-Readme.ps1](/code/New-Readme.ps1)
 
@@ -134,8 +137,7 @@ $StringBuilderOutput
 ```
 
 We can use the strings to out-put these to a file or concat them into a bigger string incorporating more information. For now this is a good baseline to extend on it.
-
-We can output and save this to a file using `Out-File`
+The output can be save to a file using `Out-File`.
 
 ```powershell
 ./New-Readme.ps1 | Out-File Documentation.md
