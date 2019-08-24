@@ -11,7 +11,7 @@ comments: true
 time: 4
 ---
 
-EVer wondered how to publish test results in Azure DevOps?
+Ever wondered how to publish test results in Azure DevOps?
 Using the pipelines in Azure DevOps we can create a Test Dashboard to display our results.
 
 ## Dashboard
