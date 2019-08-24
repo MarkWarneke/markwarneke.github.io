@@ -415,7 +415,7 @@ Describe ".\New-ParameterFile" {
 }
 ```
 
-In order to validate the code I used the example ADLS Gen2 [ARM template](/code/azuredeploy.json).
+In order to validate the code I used the example ADLS Gen2 [azuredeploy.json](/code/azuredeploy.json).
 
 ## Remarks
 
