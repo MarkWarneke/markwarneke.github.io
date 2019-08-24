@@ -1,22 +1,26 @@
 ---
 layout: page
-title: Code
-subtitle: Repository for all code and scripts on this blog
+use-site-title: true
 bigimg:
   - "/img/EaB4Ml7C7fE.jpeg": "https://unsplash.com/photos/EaB4Ml7C7fE"
 image: "/img/EaB4Ml7C7fE.jpeg"
 share-img: "/img/EaB4Ml7C7fE.jpeg"
 ---
 
+# Code
+
+Repository for all code and scripts on this blog
+
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Test Infrastructure as Code](#test-infrastructure-as-code)
-- [Getting Started](#getting-started)
-- [Files](#files)
-- [Code of Conduct](#code-of-conduct)
-- [Contact](#contact)
-  - [Generate File Inventory](#generate-file-inventory)
+- [Code](#code)
+  - [Table of Contents](#table-of-contents)
+  - [Test Infrastructure as Code](#test-infrastructure-as-code)
+  - [Getting Started](#getting-started)
+  - [Files](#files)
+  - [Code of Conduct](#code-of-conduct)
+  - [Contact](#contact)
+    - [Generate File Inventory](#generate-file-inventory)
 
 ## Test Infrastructure as Code
 
