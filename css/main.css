@@ -64,17 +64,15 @@ hr.small {
 }
 
 ::-moz-selection {
-  color: white;
   text-shadow: none;
 
-  background-color: #f8f8f8;
+  background-color: #669bc899;
 }
 
 ::selection {
-  color: white;
   text-shadow: none;
 
-  background-color: #f8f8f8;
+  background-color: #669bc899;
 }
 
 img::selection {

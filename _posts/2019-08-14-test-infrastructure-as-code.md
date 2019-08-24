@@ -3,14 +3,14 @@ layout: post
 title: Test Infrastructure as Code
 subtitle:
 bigimg:
-  - "/img/pyramid.jpg": "https://unsplash.com/photos/I74RH4XeHlA"
-image: "/img/pyramid.jpg"
-share-img: "/img/pyramid.jpg"
+  - "/img/pyramid.jpeg": "https://unsplash.com/photos/I74RH4XeHlA"
+image: "/img/pyramid.jpeg"
+share-img: "/img/pyramid.jpeg"
 gh-repo: MarkWarneke/Az.New
 gh-badge: [star, follow]
 tags: [PowerShell, AzureDevOps]
 comments: true
-time: 16
+time: 10
 ---
 
 Treat Infrastructure as Code development like a software engineering project.
@@ -19,7 +19,7 @@ In this article we are going to look into different practices regarding test imp
 
 {: .box-note}
 **Note** The one fundamental is **Version Control** <br>
-Get familiar with this practice first before thinking about implementing tests!
+Get familiar with this practice first before thinking about implementing tests! [Learn Git](https://learngitbranching.js.org/)
 
 You should embrace [**Behavior Driven Development**](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your **Infrastructure as Code** IaC project.
 These principals will force you into writing tested code.
@@ -69,6 +69,8 @@ By using assertion the test should parse, validate and check for [best practices
 
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
 See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
+
+[Read More](/2019-08-21-static-code-analysis-for-infrastructure-as-code/)
 
 ### Integration Tests
 
@@ -122,6 +124,8 @@ These Tests are written to ensure a requirement is met. You can execute these te
 Acceptance Tests should be written in a way that they can be executed in different stages.
 An acceptance tests should be small enough to validate a specific requirement.
 These kind of tests can be executed during integration, e2e test and especially after a release.
+
+[Read More](/2019-08-15-acceptance-test-infrastructure-as-code/)
 
 ### Smoke Tests
 
@@ -297,6 +301,10 @@ PowerShell linting and best practices validation through [`PSScriptAnalyzerSetti
 There are open source projects working on creating an Abstract Syntax Tree (AST) from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20).
 
 The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-manager-schemas) Files are located on github. A simple way to ensure a JSON file has the correct syntax is validating the JSON against its schema. You can leverage [Get-xAzSchema](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/Public/Get-Schema.ps1) from the [xAz](https://github.com/MarkWarneke/Az.New) Module to obtain a given Resource Schema by Provider Name and leverage PowerShell Core 6 `Test-Json` to validate.
+
+Once resource that is highly valuable is [DevOps at Microsoft](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/). This reference is a must read. One particular interesting read is the [Shift Left to Make Testing Fast and Reliable](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable). This article describes the journey of moving to L01/L1 Tests which are essentially Unit tests.
+
+> We push the accountability to the person who is writing the code. [Test Principles](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable#test-principles)
 
 ## Changelog
 
