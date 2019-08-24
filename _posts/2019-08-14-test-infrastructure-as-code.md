@@ -56,7 +56,7 @@ Hence, you should make sure your unit is thoroughly tested using available metho
 Having an **Azure Resource Manager Template** (ARM Template) as the subject under test we are looking into _testing_ a JSON configuration file.
 I have not yet heard of a Unit Testing framework for configuration files like YAML or JSON; I am only aware of [linter](<https://en.wikipedia.org/wiki/Lint_(software)>) for these file types.
 
-![Test Pyramid](/img/test-iac/psconfeu19_test_iac.jpg){: .center-block :}
+![Test Pyramid](/img/posts/2019-08-14-test-infrastructure-as-code/psconfeu19_test_iac.jpg){: .center-block :}
 
 The Test Pyramid for IaC could look something like this.
 Where the **x-axis** indicates how mature the IaC project is and the **y-axis** indicates the quality of the IaC.
