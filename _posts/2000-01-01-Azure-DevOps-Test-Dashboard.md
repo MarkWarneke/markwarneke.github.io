@@ -24,7 +24,7 @@ If you want to see the full implementation visit [az.new](https://dev.azure.com/
 
 Make sure `Invoke-Pester` get the correct `OutputFormat = NUnitXml` passed.
 Also the location of the OutputFile should be considered.
-You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` of Azure DevOps to locate the test file into the root of the agent.
+You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` or `$(Build.SourcesDirectory)` of Azure DevOps to save the test file into the root of the agent.
 
 ```powershell
 $testScriptsPath = Join-Path -Path $PSScriptRoot -ChildPath 'Test'
@@ -74,7 +74,7 @@ jobs:
       inputs:
         azureSubscription: $(azureSubscription)
         scriptType: "FilePath"
-        scriptPath: $(Build.SourcesDirectory)\$(Module.Name)\test.ps1
+        scriptPath: $(Build.SourcesDirectory)\test.ps1
         scriptArguments:
         azurePowerShellVersion: "latestVersion"
         errorActionPreference: "continue"
