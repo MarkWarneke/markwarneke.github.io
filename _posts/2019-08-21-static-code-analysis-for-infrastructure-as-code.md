@@ -92,6 +92,8 @@ The output should be human readable and easy to understand.
 
 The tests should be reusable and should be applicable to all ARM templates.
 
+Get [azuredeploy.spec.ps1](/code/azuredeploy.spec.ps1)
+
 ```powershell
 #azuredeploy.Tests.ps1
 param (
@@ -214,6 +216,8 @@ Hence we are going to create a new file with the name `azuredeploy.Tests.ps1` wh
 This can of course be merged and adjusted as this approach is very opinionated.
 However using this approach will enable you to extend the checks dynamically by changing or adding more `*.spec.ps1` files.
 
+Get [azuredeploy.Tests.ps1](/code/azuredeploy.Tests.ps1)
+
 ```powershell
 #azuredeploy.Tests.ps1
 param (
@@ -231,7 +235,7 @@ foreach ($Template in $TemplatePath) {
 
     # invoke our former `azuredeploy.Tests.ps1` script with the found template.
     # this could be wrapped into a loop of all *.spec.ps1 files, similar to the ARM template loop.
-    . azuredeploy.spec.ps1 -Path $Path
+    . "$PSScriptRoot/azuredeploy.spec.ps1" -Path $Path
 }
 ```
 
@@ -396,7 +400,10 @@ We are testing the presence of the template, validate that we can read it and co
 Having the JSON file as an object we can query its properties _naively_ for a resource that matches the `type` `Microsoft.Storage/storageAccounts`.
 For readability we are storing the resources configuration in `$resource`.
 
+Get [azuredeploy.adls.spec.ps1](/code/azuredeploy.adls.spec.ps1)
+
 ```powershell
+# azuredeploy.adls.Tests.ps1
 param (
   $Path = (Join-Path $PSScriptRoot "azuredeploy.json")
 )
