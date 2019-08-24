@@ -25,10 +25,10 @@ Specifications could be for instance:
 
 - A naming convention
 - Specified locations or limitations to locations
-- Mandatory RBAC role assignments 
+- Mandatory RBAC role assignments
 - Inbound IPs and ports for NSGs on a subnets
 - Firewall rules applied to a PaaS service
-- Configuration of a database, like RUs 
+- Configuration of a database, like RUs
 - or even configuration of an IaaS service like a Service running in a VM
 
 ### Example Requirements
@@ -109,120 +109,116 @@ This describes how to analyze a given ARM template statically and ensure specifi
 
 #### Example ARM Template
 
-Here is the ARM template we are going to use:
+Here is the ARM template we are going to use [azuredeploy.json](/code/azuredeploy.json).
 
 ```json
 //azuredeploy.json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "resourceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Data Lake Storage Account"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Azure location for deployment"
-            }
-        },
-        "storageAccountSku": {
-            "type": "string",
-            "defaultValue": "Standard_ZRS",
-            "allowedValues": [
-                "Standard_LRS",
-                "Standard_GRS",
-                "Standard_RAGRS",
-                "Standard_ZRS",
-                "Standard_GZRS",
-                "Standard_RAGZRS"
-            ],
-            "metadata": {
-                "description": "Optional. Storage Account Sku Name."
-            }
-        },
-        "storageAccountAccessTier": {
-            "type": "string",
-            "defaultValue": "Hot",
-            "allowedValues": [
-                "Hot",
-                "Cool"
-            ],
-            "metadata": {
-                "description": "Optional. Storage Account Access Tier."
-            }
-        },
-        "networkAcls": {
-            "type": "string",
-            "metadata": {
-                "description": "Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Data Lake Storage Account"
+      }
     },
-    "variables": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Azure location for deployment"
+      }
     },
-    "resources": [
-        {
-            "comments": "Azure Data Lake Gen 2 Storage Account",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[parameters('resourceName')]",
-            "sku": {
-                "name": "[parameters('storageAccountSku')]"
-            },
-            "kind": "StorageV2",
-            "location": "[parameters('location')]",
-            "tags": {},
-            "identity": {
-                "type": "SystemAssigned"
-            },
-            "properties": {
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "isHnsEnabled": true,
-                "networkAcls": "[json(parameters('networkAcls'))]",
-                "accessTier": "[parameters('storageAccountAccessTier')]",
-                "supportsHttpsTrafficOnly": true
-            },
-            "resources": [
-                {
-                    "comments": "Deploy advanced thread protection to storage account",
-                    "type": "providers/advancedThreatProtectionSettings",
-                    "apiVersion": "2017-08-01-preview",
-                    "name": "Microsoft.Security/current",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Storage/storageAccounts/', parameters('resourceName'))]"
-                    ],
-                    "properties": {
-                        "isEnabled": true
-                    }
-                }
-            ]
-        }
-    ],
-    "outputs": {
-        "resourceID": {
-            "type": "string",
-            "value": "[resourceId('Microsoft.DataLakeStore/accounts', parameters('resourceName'))]"
-        },
-        "componentName": {
-            "type": "string",
-            "value": "[parameters('resourceName')]"
-        }
+    "storageAccountSku": {
+      "type": "string",
+      "defaultValue": "Standard_ZRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ],
+      "metadata": {
+        "description": "Optional. Storage Account Sku Name."
+      }
+    },
+    "storageAccountAccessTier": {
+      "type": "string",
+      "defaultValue": "Hot",
+      "allowedValues": ["Hot", "Cool"],
+      "metadata": {
+        "description": "Optional. Storage Account Access Tier."
+      }
+    },
+    "networkAcls": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information."
+      }
     }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "comments": "Azure Data Lake Gen 2 Storage Account",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[parameters('resourceName')]",
+      "sku": {
+        "name": "[parameters('storageAccountSku')]"
+      },
+      "kind": "StorageV2",
+      "location": "[parameters('location')]",
+      "tags": {},
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "encryption": {
+          "services": {
+            "blob": {
+              "enabled": true
+            },
+            "file": {
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "isHnsEnabled": true,
+        "networkAcls": "[json(parameters('networkAcls'))]",
+        "accessTier": "[parameters('storageAccountAccessTier')]",
+        "supportsHttpsTrafficOnly": true
+      },
+      "resources": [
+        {
+          "comments": "Deploy advanced thread protection to storage account",
+          "type": "providers/advancedThreatProtectionSettings",
+          "apiVersion": "2017-08-01-preview",
+          "name": "Microsoft.Security/current",
+          "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts/', parameters('resourceName'))]"
+          ],
+          "properties": {
+            "isEnabled": true
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "resourceID": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.DataLakeStore/accounts', parameters('resourceName'))]"
+    },
+    "componentName": {
+      "type": "string",
+      "value": "[parameters('resourceName')]"
+    }
+  }
 }
 ```
 
@@ -252,7 +248,7 @@ We are storing the file with a `*.spec.ps1` file type.
 As Pester picks up every `*.Tests.ps1` we want the specification itself to not be triggered, as the specification is general and should be reusable.
 Rather we want to loop through a set of resources or subjects under tests that should be tested against the specification.
 
-Hence we are going to create an additional file with the file ending  `*.Tests.ps1`, which will invoke all `*.spec.ps1` with a given name (and resource group name).
+Hence we are going to create an additional file with the file ending `*.Tests.ps1`, which will invoke all `*.spec.ps1` with a given name (and resource group name).
 This can of course be merged and adjusted as this approach is very opinionated.
 However using this approach will enable you to extend the checks dynamically by changing or adding more `*.spec.ps1` files.
 
@@ -322,7 +318,7 @@ Describe "$Name Data Lake Storage Account Generation 2" {
 
     <#
       Check for network firewall:
-        - Enable Azure Services and Logs 
+        - Enable Azure Services and Logs
         - Whitelist certain IP Addresses
         - Enable access to Subnets
     #>
@@ -390,6 +386,7 @@ The test results are displayed in a human readable form so the specification can
 Furthermore the results are human readable and can be share with non-technical people easily.
 
 ## Table of Content
+
 - [Approach](#approach)
 - [Why?](#why)
 - [Implementation](#implementation)

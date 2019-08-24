@@ -86,6 +86,8 @@ Mandatory parameters are defined as parameters that don't implement the `default
 
 ## Implementation
 
+Get the [Code](http://markwarneke.me/code/New-ParameterFile.ps1)
+
 ```powershell
 # New-ParameterFile.ps1
 
@@ -286,6 +288,8 @@ As classes expect to implement the return, when not void, we can assert the func
 
 The end user facing function should be tested thoroughly as this exposes our functionality to the user.
 
+Get the [Code](http://markwarneke.me/code/New-ParameterFile.Tests.ps1)
+
 ```powershell
 # New-ParameterFile.Tests.ps1
 
@@ -411,7 +415,7 @@ Describe ".\New-ParameterFile" {
 }
 ```
 
-In order to validate the code I used the example ADLS Gen2 [ARM template](/Code/azuredeploy.json).
+In order to validate the code I used the example ADLS Gen2 [ARM template](/code/azuredeploy.json).
 
 ## Remarks
 
