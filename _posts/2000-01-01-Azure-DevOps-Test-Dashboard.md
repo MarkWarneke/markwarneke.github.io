@@ -18,6 +18,8 @@ Using the pipelines in Azure DevOps we can create a Test Dashboard to display ou
 
 ![Test Results](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/test-results.png){: .center-block :}
 
+If you want to see the full implementation visit [az.new](https://dev.azure.com/az-new/xAz.New/_build/results?buildId=71&view=ms.vss-test-web.build-test-results-tab)!
+
 Make sure `Invoke-Pester` get the correct `OutputFormat = NUnitXml` passed.
 Also the location of the OutputFile should be considered.
 You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` of Azure DevOps to locate the test file into the root of the agent.
