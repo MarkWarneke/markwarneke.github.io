@@ -53,7 +53,7 @@ PublishTestResults: `failTaskOnFailedTests`
 
 ```yaml
 trigger:
-- master
+  - master
 
 variables:
   azureSubscription: "Mark"
@@ -67,48 +67,48 @@ jobs:
       vmImage: vs2017-win2016
 
     steps:
-    - checkout: self
-      persistCredentials: true
+      - checkout: self
+        persistCredentials: true
 
- - task: AzurePowerShell@4
-      inputs:
-        azureSubscription: $(azureSubscription)
-        scriptType: "FilePath"
-        scriptPath: $(Build.SourcesDirectory)\test.ps1
-        scriptArguments:
-        azurePowerShellVersion: "latestVersion"
-        errorActionPreference: "continue"
+      - task: AzurePowerShell@4
+        inputs:
+          azureSubscription: $(azureSubscription)
+          scriptType: "FilePath"
+          scriptPath: $(Build.SourcesDirectory)\test.ps1
+          scriptArguments:
+          azurePowerShellVersion: "latestVersion"
+          errorActionPreference: "continue"
 
-    - task: PublishTestResults@2
-      inputs:
-        testRunner: 'NUnit'   # Make sure to use the 'NUnit' test runner
-        testResultsFiles: '**/TestResults.module.xml'
-        testRunTitle: 'PS_Win2016_Module'
-      displayName: 'Publish Module Test Results'
-      condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')
+      - task: PublishTestResults@2
+        inputs:
+          testRunner: "NUnit" # Make sure to use the 'NUnit' test runner
+          testResultsFiles: "**/TestResults.module.xml"
+          testRunTitle: "PS_Win2016_Module"
+        displayName: "Publish Module Test Results"
+        condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')
 
-    - task: PublishTestResults@2
-      inputs:
-        testRunner: 'NUnit'
-        testResultsFiles: '**/TestResults.unit.xml'
-        testRunTitle: 'PS_Win2016_Unit'
-        failTaskOnFailedTests: true
-      displayName: 'Publish Unit Test Results'
-      condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')
+      - task: PublishTestResults@2
+        inputs:
+          testRunner: "NUnit"
+          testResultsFiles: "**/TestResults.unit.xml"
+          testRunTitle: "PS_Win2016_Unit"
+          failTaskOnFailedTests: true
+        displayName: "Publish Unit Test Results"
+        condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')
 
-    - task: PublishCodeCoverageResults@1
-      inputs:
-        summaryFileLocation: '**/CodeCoverage.xml'
-        failIfCoverageEmpty: false
-      displayName: 'Publish Unit Test Code Coverage'
-      condition: and(in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed'), eq(variables['System.PullRequest.IsFork'], false))
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          summaryFileLocation: "**/CodeCoverage.xml"
+          failIfCoverageEmpty: false
+        displayName: "Publish Unit Test Code Coverage"
+        condition: and(in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed'), eq(variables['System.PullRequest.IsFork'], false))
 
-    - task: PublishTestResults@2
-      inputs:
-        testRunner: 'NUnit'
-        testResultsFiles: '**/TestResults.integration.xml'
-        testRunTitle: 'PS_Win2016_Integration'
-        failTaskOnFailedTests: true
-      displayName: 'Publish Integration Test Results'
-      condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithI
+      - task: PublishTestResults@2
+        inputs:
+          testRunner: "NUnit"
+          testResultsFiles: "**/TestResults.integration.xml"
+          testRunTitle: "PS_Win2016_Integration"
+          failTaskOnFailedTests: true
+        displayName: "Publish Integration Test Results"
+        condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithI
 ```
