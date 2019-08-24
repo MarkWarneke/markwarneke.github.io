@@ -282,6 +282,8 @@ Using `New-Fixture` command from the `Pester` module the whole script will be do
 After the classes are available in memory we can instantiate the class and execute its functionality.
 As classes expect to implement the return, when not void, we can assert the functionality is executed as expected by asserting the returned value. Also, we can check the inner state by asserting the properties of the object.
 
+![Pester Output](../img/posts/2000-01-01-Test-PowerShell-Classes/pester-output.jpeg){: .center-block :}
+
 The end user facing function should be tested thoroughly as this exposes our functionality to the user.
 
 ```powershell
@@ -410,8 +412,6 @@ Describe ".\New-ParameterFile" {
 ```
 
 In order to validate the code I used the example ADLS Gen2 [ARM template](/Code/azuredeploy.json).
-
-![Pester Output](../img/posts/2000-01-01-Test-PowerShell-Classes/pester-output.jpeg)
 
 ## Remarks
 
