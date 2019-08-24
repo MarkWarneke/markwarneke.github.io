@@ -38,6 +38,6 @@ I have a list of topics I want to share in the near future, stay tuned!
 - [x] [Infrastructure as Code Validation Tests using Pester - Tags: PowerShell, ARM, Pester, Azure](/2019-08-15-acceptance-test-infrastructure-as-code)
 - [][generate infrastructure as code azure resource manager documentation using powershell - tags: powershell, arm, pester, markdown, azure](/2000-01-01-Gererate-Infrastructure-As-Code-Documentation)
 - [] PowerShell Az Module Usage on Azure DevOps - Tags: PowerShell, DevOps, Azure
-- [] Azure DevOps Pester Tests and how to publish a Test Dashboard - Tags: PowerShell, DevOps, Pester
+- [][azure devops pester tests and how to publish a test dashboard - tags: powershell, devops, pester](/2000-01-01-Azure-DevOps-Test-Dashboard)
 - [] Azure DevOps Nuget Setup for a private PowerShell Gallery - Tags: PowerShell, DevOps
 - [] Azure DevOps Docs as Code, Themes and Readme Layout, how to create a good README for the repository - Tags: PowerShell, DevOps, Markdown
