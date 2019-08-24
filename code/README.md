@@ -18,8 +18,8 @@ Get the [Code](https://github.com/MarkWarneke/markwarneke.github.io/tree/master/
 - [Code](#code)
   - [Table of Contents](#table-of-contents)
   - [Test Infrastructure as Code](#test-infrastructure-as-code)
-  - [Getting Started](#getting-started)
-  - [Files](#files)
+    - [Getting Started](#getting-started)
+    - [Files](#files)
   - [Code of Conduct](#code-of-conduct)
   - [Contact](#contact)
     - [Generate File Inventory](#generate-file-inventory)
@@ -28,7 +28,7 @@ Get the [Code](https://github.com/MarkWarneke/markwarneke.github.io/tree/master/
 
 This code repositories contains an `azuredeploy.json` and different scripts to create, run and tests a deployment.
 
-## Getting Started
+### Getting Started
 
 Get the [Code](https://github.com/MarkWarneke/markwarneke.github.io/tree/master/code).
 Run:
@@ -49,7 +49,7 @@ New-AzResourceGroup -Name $Name -Location $Location -Confirm
 New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -Verbose
 ```
 
-## Files
+### Files
 
 - [adls.acceptance.spec.ps1](./adls.acceptance.spec.ps1)
 - [adls.acceptance.Tests.ps1](./adls.acceptance.Tests.ps1)
