@@ -168,10 +168,9 @@ We can output and save this to a file using `Out-File`
 ```
 
 To demonstrate the output I am pasting the generated documentation here.
+_For demo purposes I changed the levle for the heading_
 
 ### Example Output
-
-_For demo purposes I changed the levle for the heading_
 
 #### Parameters
 
