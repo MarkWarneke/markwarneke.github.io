@@ -404,3 +404,15 @@ $AzureDeployPath = "azuredeploy.json"
 New-ParameterFile -Path $AzureDeployPath
 New-ParameterFile -Path $AzureDeployPath -OnlyMandatoryParameter
 ```
+
+## Remarks
+
+## Table of contents
+
+- [Learn Classes](#learn-classes)
+- [Implementation of Parameter File Generator](#implementation-of-parameter-file-generator)
+- [Implementation Considerations](#implementation-considerations)
+- [Implementation](#implementation)
+- [Test PowerShell classes](#test-powershell-classes)
+- [Remarks](#remarks)
+- [Table of contents](#table-of-contents)
