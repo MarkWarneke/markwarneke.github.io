@@ -252,6 +252,8 @@ Hence we are going to create an additional file with the file ending `*.Tests.ps
 This can of course be merged and adjusted as this approach is very opinionated.
 However using this approach will enable you to extend the checks dynamically by changing or adding more `*.spec.ps1` files.
 
+Get [adls.acceptance.spec.ps1](/code/adls.acceptance.spec.ps1)
+
 ```powershell
 # adls.acceptance.spec.ps1
 param (
@@ -352,6 +354,8 @@ We can get all config files by using `Get-ChildItem` on a `Path` that contain th
 Or any other query against the Configuration Database or API to get the configuration or really just the resources name, resource group and/or resource type.
 
 After the config is loaded we iterate through the list and invoke the specification.
+
+Get [adls.acceptance.tests.ps1](/code/adls.acceptance.tests.ps1)
 
 ```powershell
 # adls.acceptance.tests.ps1
