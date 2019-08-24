@@ -234,3 +234,16 @@ Or add this line to the Readme generator to allow your Readme users to copy past
   }
 ]
 ```
+
+## Remarks
+
+## Table of Content
+
+- [Automate Documentation](#automate-documentation)
+  - [Example Output](#example-output)
+    - [Parameters](#parameters)
+    - [Resources](#resources)
+    - [Outputs](#outputs)
+- [Parameters](#parameters-1)
+- [Remarks](#remarks)
+- [Table of Content](#table-of-content)
