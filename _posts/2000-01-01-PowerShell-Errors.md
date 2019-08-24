@@ -23,8 +23,7 @@ $params = $PSBoundParameters
 ### Error
 
 ```powershell
-# PowerShell saves all Errors in $Error Variable
-
+# PowerShell saves all Errors in $Error Variable, clear the Errors in the beginning
 $global:Error.Clear()
 
 $global:ErrorView = "NormalView"
@@ -56,24 +55,24 @@ $Error[0].Exception.StackTrace
 ### Output Error User
 
 ```powershell
-# Will have a nice error message
-$callerErrorActionPreference = $ErrorActionPreference # Save Callers Preference
+# Save Callers Preference
+$callerErrorActionPreference = $ErrorActionPreference
+# ...
 Catch {
+  # Will have a nice error message
   Write-Error -ErrorRecord $_ -ErrorAction $callerErrorActionPreference
 }
 ```
 
-Output Error Dev
+### Output Error Dev
 
 ```powershell
-# Will have all the details in error message
-
-Catch {
-  $ex = $_.Exception | Format-List -Force
+catch {
+  # Log thedetails in error message
+   $_.Exception | Format-List -Force| Out-String | Write-Verbose
 }
 
 # Or throw up, will get details into shell if not handled
-
 Catch {
   Throw
 }
@@ -81,16 +80,18 @@ Catch {
 
 ### ARM Deployment
 
+Trouble shooting ARM templates can be tedious.
+With these few scripts your ARM development will be much smoother and debugging way easier.
+
 ```powershell
 $ResourceGroupName = 'deploymentGroupName'
 
 $correlationId = ((Get-AzureRMLog -ResourceGroupName $ResourceGroupName)[0]).CorrelationId
-
 $logentry = (Get-AzureRMLog -CorrelationId $correlationId -DetailedOutput)
 
+$logentry
 
 
-#$logentry
 
 $rawStatusMessage = $logentry.Properties
 
@@ -103,30 +104,41 @@ $status.error.details.details
 
 #### Pester Test
 
+Leveraging Pester is a good practice.
+There are some tricks to work with Pester a bit smarter.
+
+Store the output into a variable using `-PassThru`.
+No you can query the output and search e.g. for only Failed tests.
+
+Also, if you are within a Pester test the output, especially from exceptions, is suppressed.
+Using a work around you can still get the exception message.
+
 ```powershell
 # Invoke with Output Object
-
 $pester = Invoke-Pester -PassThru
 
 # Get Summary of Pester
 $pester
 
-
 # Display only Failed Tests
 $pester.TestResult | ? { $_.Result -eq 'Failed' }
 
-
 # Pest Test Error Display
-$_.Exception | Format-List * -Force | Out-String|% {Write-Host $_}
+$_.Exception | Format-List * -Force | Out-String | Write-Host
 ```
 
 #### ScriptAnalyzer
+
+Script Analyzer helps you to write good PowerShell code.
 
 ```powershell
  Invoke-ScriptAnalyzer -Path $Path -IncludeDefaultRules
 ```
 
-#### Outputs
+#### Azure Resource Manager Outputs
+
+When dealing with Azure Resource Manager Templates `New-AzResourceGroupDeployment -...` returns a json.
+To get only the outputs a little script is needed to extract the values.
 
 ```powershell
 $return = [PSCusomtOBject]@{}
@@ -138,6 +150,11 @@ $return
 
 #### Log complex Objects
 
+If you want to log a complex object while sticking limiting the output to the Verbose stream.
+You can use `Format-List * -Force` to expand the whole object.
+Pipe it to `Out-String` to create one big string stream and pipe this into `Write-Verbose`.
+Now youy have the whole output in your verbose output.
+
 ```powershell
 # Function is not needed, but makes the idea clear.
 function _log($Object) {
@@ -147,6 +164,22 @@ function _log($Object) {
 
 #### Save Session State
 
+How to save time intensive output state and reuse for debugging (ARM template outputs debugging)
+If you want to troubleshoot a time intensive output and save the state you can leverage `export-clixml`.
+
+After that you can use the state.xml to retrieve the objects and all of their properties.
+
 ```powershell
-$output = Export-Clixml
+# Deploy actual arm template or time intensive task then generates an object to reuse
+$Deploy = New-AzureRmResourceGroupDeployment ....
+
+# save the state by serializing the object to xml
+$Deploy | Export-Clixml $Home\state.xml
+
+
+# load time intensive object from serialized state
+$session = Import-Clixml $home\state.xml
 ```
+
+That will allow you to troubleshoot the output without rerunning the whole script until this point.
+In debug mode you are able to export the output of a script at runtime at a specific place and time, too.
