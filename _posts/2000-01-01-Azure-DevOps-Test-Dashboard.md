@@ -20,11 +20,11 @@ Using the pipelines in Azure DevOps we can create a Test Dashboard to display ou
 
 If you want to see the full implementation visit [az.new](https://dev.azure.com/az-new/xAz.New/_build/results?buildId=71&view=ms.vss-test-web.build-test-results-tab)!
 
+## PowerShell Pester Task
+
 Make sure `Invoke-Pester` get the correct `OutputFormat = NUnitXml` passed.
 Also the location of the OutputFile should be considered.
 You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` of Azure DevOps to locate the test file into the root of the agent.
-
-## PowerShell Pester Test
 
 ```powershell
 $testScriptsPath = Join-Path -Path $PSScriptRoot -ChildPath 'Test'
