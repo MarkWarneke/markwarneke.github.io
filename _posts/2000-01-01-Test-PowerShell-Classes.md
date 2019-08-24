@@ -411,7 +411,7 @@ Describe ".\New-ParameterFile" {
 
 In order to validate the code I used the example ADLS Gen2 [ARM template](/Code/azuredeploy.json).
 
-![Pester Output](../img/posts/2000-01-01-Test-PowerShell-Classes/pester-output.jp2)
+![Pester Output](../img/posts/2000-01-01-Test-PowerShell-Classes/pester-output.jpeg)
 
 ## Remarks
 
