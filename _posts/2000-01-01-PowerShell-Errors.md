@@ -11,16 +11,28 @@ comments: true
 time: 4
 ---
 
-## Snippets
+- [Parameter](#parameter)
+- [Error](#error)
+  - [Prioritize Errors](#prioritize-errors)
+  - [List All Error Members](#list-all-error-members)
+  - [Stack Trace of Error](#stack-trace-of-error)
+  - [Output Error User](#output-error-user)
+  - [Output Error Dev](#output-error-dev)
+- [ARM Deployment](#arm-deployment)
+  - [Azure Resource Manager Outputs](#azure-resource-manager-outputs)
+  - [Log complex Objects](#log-complex-objects)
+  - [Save Session State](#save-session-state)
+- [Pester Test](#pester-test)
+  - [ScriptAnalyzer](#scriptanalyzer)
 
-### Parameter
+## Parameter
 
 ```powershell
 #Get Function Parameters in Script
 $params = $PSBoundParameters
 ```
 
-### Error
+## Error
 
 ```powershell
 # PowerShell saves all Errors in $Error Variable, clear the Errors in the beginning
@@ -29,7 +41,7 @@ $global:Error.Clear()
 $global:ErrorView = "NormalView"
 ```
 
-#### Prioritize Error
+### Prioritize Errors
 
 ```powershell
 $Error |
@@ -38,14 +50,14 @@ Sort-Object -Property Count -Descending |
 Format-Table -Property Count, Name -AutoSize
 ```
 
-#### List All Error Members
+### List All Error Members
 
 ```powershell
 $Error[0] | fl * -Force
 $Error[0].Exception | fl * -Force
 ```
 
-#### Stack Trace of Error
+### Stack Trace of Error
 
 ```powershell
 $Error[0].StackTrace
@@ -59,7 +71,7 @@ $Error[0].Exception.StackTrace
 $callerErrorActionPreference = $ErrorActionPreference
 # ...
 Catch {
-  # Will have a nice error message
+ # Will have a nice error message
   Write-Error -ErrorRecord $_ -ErrorAction $callerErrorActionPreference
 }
 ```
@@ -68,7 +80,7 @@ Catch {
 
 ```powershell
 catch {
-  # Log thedetails in error message
+ # Log thedetails in error message
    $_.Exception | Format-List -Force| Out-String | Write-Verbose
 }
 
@@ -78,7 +90,7 @@ Catch {
 }
 ```
 
-### ARM Deployment
+## ARM Deployment
 
 Trouble shooting ARM templates can be tedious.
 With these few scripts your ARM development will be much smoother and debugging way easier.
@@ -102,7 +114,56 @@ $status.error.details
 $status.error.details.details
 ```
 
-#### Pester Test
+### Azure Resource Manager Outputs
+
+When dealing with Azure Resource Manager Templates `New-AzResourceGroupDeployment -...` returns a json.
+To get only the outputs a little script is needed to extract the values.
+
+```powershell
+$return = [PSCusomtOBject]@{}
+Foreach($output in $Outputs.GetEnumerator()) {
+  $return | Add-Member -MemberType NoteProperty -Name $output.Name -Value $output.Value.Value
+}
+$return
+```
+
+### Log complex Objects
+
+If you want to log a complex object while sticking limiting the output to the Verbose stream.
+You can use `Format-List * -Force` to expand the whole object.
+Pipe it to `Out-String` to create one big string stream and pipe this into `Write-Verbose`.
+Now youy have the whole output in your verbose output.
+
+```powershell
+# Function is not needed, but makes the idea clear.
+function _log($Object) {
+    $Object | format-list * -force | Out-String | Write-Verbose
+}
+```
+
+### Save Session State
+
+How to save time intensive output state and reuse for debugging (ARM template outputs debugging)
+If you want to troubleshoot a time intensive output and save the state you can leverage `export-clixml`.
+
+After that you can use the state.xml to retrieve the objects and all of their properties.
+
+```powershell
+# Deploy actual arm template or time intensive task then generates an object to reuse
+$Deploy = New-AzureRmResourceGroupDeployment ....
+
+# save the state by serializing the object to xml
+$Deploy | Export-Clixml $Home\state.xml
+
+
+# load time intensive object from serialized state
+$session = Import-Clixml $home\state.xml
+```
+
+That will allow you to troubleshoot the output without rerunning the whole script until this point.
+In debug mode you are able to export the output of a script at runtime at a specific place and time, too.
+
+## Pester Test
 
 Leveraging Pester is a good practice.
 There are some tricks to work with Pester a bit smarter.
@@ -127,59 +188,10 @@ $pester.TestResult | ? { $_.Result -eq 'Failed' }
 $_.Exception | Format-List * -Force | Out-String | Write-Host
 ```
 
-#### ScriptAnalyzer
+### ScriptAnalyzer
 
 Script Analyzer helps you to write good PowerShell code.
 
 ```powershell
  Invoke-ScriptAnalyzer -Path $Path -IncludeDefaultRules
 ```
-
-#### Azure Resource Manager Outputs
-
-When dealing with Azure Resource Manager Templates `New-AzResourceGroupDeployment -...` returns a json.
-To get only the outputs a little script is needed to extract the values.
-
-```powershell
-$return = [PSCusomtOBject]@{}
-Foreach($output in $Outputs.GetEnumerator()) {
-  $return | Add-Member -MemberType NoteProperty -Name $output.Name -Value $output.Value.Value
-}
-$return
-```
-
-#### Log complex Objects
-
-If you want to log a complex object while sticking limiting the output to the Verbose stream.
-You can use `Format-List * -Force` to expand the whole object.
-Pipe it to `Out-String` to create one big string stream and pipe this into `Write-Verbose`.
-Now youy have the whole output in your verbose output.
-
-```powershell
-# Function is not needed, but makes the idea clear.
-function _log($Object) {
-    $Object | format-list * -force | Out-String | Write-Verbose
-}
-```
-
-#### Save Session State
-
-How to save time intensive output state and reuse for debugging (ARM template outputs debugging)
-If you want to troubleshoot a time intensive output and save the state you can leverage `export-clixml`.
-
-After that you can use the state.xml to retrieve the objects and all of their properties.
-
-```powershell
-# Deploy actual arm template or time intensive task then generates an object to reuse
-$Deploy = New-AzureRmResourceGroupDeployment ....
-
-# save the state by serializing the object to xml
-$Deploy | Export-Clixml $Home\state.xml
-
-
-# load time intensive object from serialized state
-$session = Import-Clixml $home\state.xml
-```
-
-That will allow you to troubleshoot the output without rerunning the whole script until this point.
-In debug mode you are able to export the output of a script at runtime at a specific place and time, too.
