@@ -15,7 +15,7 @@ Azure Resource Manager templates are complex JSON structures.
 Often people complain about difficultly to read and work with.
 In this post we are going to have a look how we can address these issue.
 
-## Automate Documentation
+## Document Infrastructure As Code
 
 What if we could take a given ARM template and create readable documentation that we can publish in our Wiki?
 PowerShells native ability to work with json files can come in handy to query and filter a json file.
@@ -245,7 +245,7 @@ Or add this line to the Readme generator to allow your Readme users to copy past
 
 ## Table of Content
 
-- [Automate Documentation](#automate-documentation)
+- [Document Infrastructure As Code](#document-infrastructure-as-code)
 - [Implementation](#implementation)
   - [String Building the Documentation](#string-building-the-documentation)
   - [Example Output](#example-output)
