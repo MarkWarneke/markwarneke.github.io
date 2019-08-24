@@ -56,7 +56,11 @@ $json.resources.name
 
 Now that we have traverse the list of properties we can use PowerShell to create a string that is similar to [markdown](http://daringfireball.net/projects/markdown/), plain text, or any other markup language.
 In this demo implementation I am going to stick to Markdown.
-An easy way to get started and learn markdown is the interactive [markdowntutorial](https://www.markdowntutorial.com)
+An easy way to get started and learn markdown is the interactive [markdowntutorial](https://www.markdowntutorial.com).
+
+Markdown can be used within [Github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax) to create documentation for your project through [Github Pages](https://pages.github.com/) or within your project.
+Azure DevOps will use Markdown to publish a [Wiki](https://azure.microsoft.com/en-in/services/devops/wiki/).
+Automating the documentation creation into Markdown comes in handy.
 
 Get [New-Readme.ps1](/code/New-Readme.ps1)
 
