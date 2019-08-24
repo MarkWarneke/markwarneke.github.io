@@ -191,8 +191,46 @@ _For demo purposes I changed the levle for the heading_
 | storageAccountAccessTier | string       | Optional. Storage Account Access Tier.                                                          |
 | storageAccountSku        | string       | Optional. Storage Account Sku Name.                                                             |
 
-```
-# Create azuredeploy.parameters.json
-$json.parameters | get-member -MemberType NoteProperty | % { [pscustomobject]@{  $_.Name = @{ Value = $json.parameters.($_.Name).DefaultValue  } } } | ConvertTo-Json | clip
+## Parameters
 
+You can create a ParameterFile generator that will generate a valid Parameter File for you.
+In [Generate Azure Resource Manager Templates Parameter files using PowerShell](/2000-01-01-Generate-Azure-Resource-Manager-Template-File) we did a demo implementation of a Generator.
+A quick way to generate a simple parameter file for documentation purposes could be this one-liner:
+
+```powershell
+# Create azuredeploy.parameters.json
+$json.parameters | get-member -MemberType NoteProperty | % { [pscustomobject]@{  $_.Name = @{ Value = $json.parameters.($_.Name).DefaultValue  } } } | ConvertTo-Json  #| clip
+```
+
+You can store the output (on Windows) to the clipboard by passing it to the `| clip` function.
+Or add this line to the Readme generator to allow your Readme users to copy paste this blueprint.
+
+```json
+[
+  {
+    "location": {
+      "Value": "[resourceGroup().location]"
+    }
+  },
+  {
+    "networkAcls": {
+      "Value": null
+    }
+  },
+  {
+    "resourceName": {
+      "Value": null
+    }
+  },
+  {
+    "storageAccountAccessTier": {
+      "Value": "Hot"
+    }
+  },
+  {
+    "storageAccountSku": {
+      "Value": "Standard_ZRS"
+    }
+  }
+]
 ```
