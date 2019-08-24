@@ -23,7 +23,7 @@ If you are not yet familiar with the concepts of PowerShell Classes I can highly
     <iframe  src="https://www.youtube.com/embed/hSk-ocD6VP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-## Implementation of Parameter File Generator
+## Parameter File Generator
 
 I was looking for a way to create Azure Resource Manager template parameter files.
 A parameter file typically contains sets of parameters that are consumed together with the Azure Resource Manager Template by the Azure Resource Manager.
@@ -424,7 +424,7 @@ In order to validate the code I used the example ADLS Gen2 [azuredeploy.json](/c
 ## Table of contents
 
 - [Learn Classes](#learn-classes)
-- [Implementation of Parameter File Generator](#implementation-of-parameter-file-generator)
+- [Parameter File Generator](#parameter-file-generator)
 - [Implementation Considerations](#implementation-considerations)
 - [Implementation](#implementation)
 - [Usage](#usage)
