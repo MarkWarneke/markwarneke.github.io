@@ -86,7 +86,7 @@ Mandatory parameters are defined as parameters that don't implement the `default
 
 ## Implementation
 
-Get the [Code](http://markwarneke.me/code/New-ParameterFile.ps1)
+Get the [New-ParameterFile.ps1](/code/New-ParameterFile.ps1)
 
 ```powershell
 # New-ParameterFile.ps1
@@ -114,7 +114,7 @@ class ParameterFile {
 }
 
 <#
-    Parameter File  Factroy
+    Parameter File  Factory
     Abstract the creation of a concrete ParameterFile
     The factory needs to be created based on a template
      A file can be created by calling  `CreateParameterFile`, this function accepts a boolean to include only Mandatory parameters.
@@ -288,7 +288,7 @@ As classes expect to implement the return, when not void, we can assert the func
 
 The end user facing function should be tested thoroughly as this exposes our functionality to the user.
 
-Get the [Code](http://markwarneke.me/code/New-ParameterFile.Tests.ps1)
+Get the [New-ParameterFile.Tests.ps1](/code/New-ParameterFile.Tests.ps1)
 
 ```powershell
 # New-ParameterFile.Tests.ps1
