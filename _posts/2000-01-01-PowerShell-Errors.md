@@ -26,6 +26,8 @@ time: 4
 
 ## Error
 
+Thanks Kirk Munro: [Become a PowerShell Debugging Ninja](https://www.youtube.com/watch?v=zhjU24hbYuI)
+
 ```powershell
 # PowerShell saves all Errors in $Error Variable, clear the Errors in the beginning
 $global:Error.Clear()
