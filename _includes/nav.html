@@ -15,13 +15,13 @@
 
       {%- if site.title-img -%}
       <a class="navbar-brand navbar-brand-logo" href="{{ '' | absolute_url }}"
-        ><img src="{{ site.title-img }}"
+        ><img src="{{ site.title - img }}"
       /></a>
       {%- else -%}
       <a class="navbar-brand" href="{{ '' | absolute_url }}">{{
         site.title
-        {%- if post.title -%}
-        - post.title
+        {%- if page.title -%}
+          page.title
         {%- endif -%}
       }}</a>
       {%- endif -%}
@@ -61,7 +61,11 @@
     <div class="avatar-container">
       <div class="avatar-img-border">
         <a href="{{ '' | absolute_url }}">
-          <img class="avatar-img" src="{{ site.avatar | relative_url }}" alt="Avatar Picture" />
+          <img
+            class="avatar-img"
+            src="{{ site.avatar | relative_url }}"
+            alt="Avatar Picture"
+          />
         </a>
       </div>
     </div>
