@@ -11,4 +11,4 @@ comments: true
 time: 4
 ---
 
-see [/2019-08-22-Integration-Test-infrastructure-as-code]
+see [Post](/2019-08-22-Integration-Test-infrastructure-as-code)

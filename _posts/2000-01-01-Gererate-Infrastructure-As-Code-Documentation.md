@@ -11,4 +11,4 @@ comments: true
 time: 4
 ---
 
-see [./2019-08-26-Gererate-Infrastructure-As-Code-Documentation]
+see [Post](./2019-08-26-Gererate-Infrastructure-As-Code-Documentation)

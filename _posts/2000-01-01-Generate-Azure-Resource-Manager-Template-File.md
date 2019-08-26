@@ -11,4 +11,4 @@ comments: true
 time: 4
 ---
 
-See [./2019-08-26-Generate-Azure-Resource-Manager-Template-File]
+See [Post](./2019-08-26-Generate-Azure-Resource-Manager-Template-File)
