@@ -113,35 +113,56 @@ $status.error.details.details
 
 ```powershell
 function Test-ArmTemplate {
+  <#
+    .SYNOPSIS
+    Test the resource group deployment by getting a detailed error message using the debug output stream
 
-    param
-    (
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullorEmpty()]
-        [object]
-        $TemplateFile,
+    .DESCRIPTION
+    Test the resource group deployment by getting a detailed error message using the debug output stream
+    This should return a more detailed error message for the template then the regular command
 
-        [Parameter(Mandatory = $true)]
-        [ValidateNotNullorEmpty()]
-        [HashTable]
-        $templateParameterObject,
+    .PARAMETER TemplateFile
+    The path to the arm template
 
-        [string]
-        $Name = 'testdeployment'
-    )
+    .PARAMETER templateParameterObject
+    The path to the arm template parameter file
 
-    $debugpreference = "Continue"
+    .EXAMPLE
+    Test-ArmTemplate -TemplateFile $TemplateFile -templateParameterObject $templateParameterObject
+  #>
+  param
+  (
+      [Parameter(Mandatory = $true)]
+      [ValidateNotNullorEmpty()]
+      [object]
+      $TemplateFile,
 
-    $rawResponse = Test-AzResourceGroupDeployment -ResourceGroupName $Name `
-        -TemplateFile $TemplateFile.FullName `
-        -TemplateParameterObject $TemplateParameterObject `
-        -ErrorAction Stop 5>&1
+      [Parameter(Mandatory = $true)]
+      [ValidateNotNullorEmpty()]
+      [HashTable]
+      $templateParameterObject,
 
-    $debugpreference = "SilentlyContinue"
+      [string]
+      $Name = 'testdeployment'
+  )
 
-    $deploymentOutput = ($rawResponse.Item(32) -split 'Body:' | Select-Object -Skip 1 | ConvertFrom-Json).properties
+  $debugpreference = "Continue"
 
-    return $deploymentOutput
+  $Deployment = @{
+    ResourceGroupName = $Name
+    TemplateFile = $TemplateFile.FullName
+    TemplateParameterObject = $TemplateParameterObject
+    ErrorAction = Stop
+  }
+  $rawResponse = Test-AzResourceGroupDeployment @Deployment 5>&1
+
+  $debugpreference = "SilentlyContinue"
+
+  $deploymentOutput = ($rawResponse.Item(32) -split 'Body:' |
+    Select-Object -Skip 1 |
+    ConvertFrom-Json).properties
+
+  return $deploymentOutput
 }
 ```
 
