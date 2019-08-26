@@ -92,8 +92,8 @@ With these few scripts your ARM development will be much smoother and debugging 
 ```powershell
 $ResourceGroupName = 'deploymentGroupName'
 
-$correlationId = ((Get-AzureRMLog -ResourceGroupName $ResourceGroupName)[0]).CorrelationId
-$logentry = (Get-AzureRMLog -CorrelationId $correlationId -DetailedOutput)
+$correlationId = ((Get-AzLog -ResourceGroupName $ResourceGroupName)[0]).CorrelationId
+$logentry = (Get-AzLog -CorrelationId $correlationId -DetailedOutput)
 
 $logentry
 
@@ -144,7 +144,7 @@ After that you can use the state.xml to retrieve the objects and all of their pr
 
 ```powershell
 # Deploy actual arm template or time intensive task then generates an object to reuse
-$Deploy = New-AzureRmResourceGroupDeployment ....
+$Deploy = New-AzResourceGroupDeployment ....
 
 # save the state by serializing the object to xml
 $Deploy | Export-Clixml $Home\state.xml
