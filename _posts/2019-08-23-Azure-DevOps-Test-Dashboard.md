@@ -4,7 +4,7 @@ title: DRAFT Azure DevOps Pester Tests and how to publish a Test Dashboard
 subtitle:
 bigimg:
   - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
+image: "/img/hpjSkU2UYSU.jpeg"
 share-img: "/img/hpjSkU2UYSU.jpeg"
 tags: [AzureDevOps]
 comments: true

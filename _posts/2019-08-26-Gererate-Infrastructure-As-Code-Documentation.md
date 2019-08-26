@@ -4,7 +4,7 @@ title: DRAFT Generate Infrastructure as Code Azure Resource Manager documentatio
 subtitle:
 bigimg:
   - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
+image: "/img/8jNATlZXhgk.jpeg"
 share-img: "/img/8jNATlZXhgk.jpeg"
 tags: [AzureDevOps]
 comments: true
