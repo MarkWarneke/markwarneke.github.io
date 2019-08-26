@@ -18,6 +18,7 @@ time: 3
   - [Output Error User](#output-error-user)
   - [Output Error Dev](#output-error-dev)
 - [ARM Deployment](#arm-deployment)
+  - [Debug Azure Resource Manager Deployment](#debug-azure-resource-manager-deployment)
   - [Azure Resource Manager Outputs](#azure-resource-manager-outputs)
   - [Log complex Objects](#log-complex-objects)
   - [Save Session State](#save-session-state)
@@ -106,6 +107,42 @@ $status = $rawStatusMessage.Content.statusMessage | ConvertFrom-Json
 $status.error.details
 
 $status.error.details.details
+```
+
+### Debug Azure Resource Manager Deployment
+
+```powershell
+function Test-ArmTemplate {
+
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [object]
+        $TemplateFile,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [HashTable]
+        $templateParameterObject,
+
+        [string]
+        $Name = 'testdeployment'
+    )
+
+    $debugpreference = "Continue"
+
+    $rawResponse = Test-AzResourceGroupDeployment -ResourceGroupName $Name `
+        -TemplateFile $TemplateFile.FullName `
+        -TemplateParameterObject $TemplateParameterObject `
+        -ErrorAction Stop 5>&1
+
+    $debugpreference = "SilentlyContinue"
+
+    $deploymentOutput = ($rawResponse.Item(32) -split 'Body:' | Select-Object -Skip 1 | ConvertFrom-Json).properties
+
+    return $deploymentOutput
+}
 ```
 
 ### Azure Resource Manager Outputs
