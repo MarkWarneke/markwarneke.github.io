@@ -101,6 +101,16 @@ jobs:
         condition: and(in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed'), eq(variables['System.PullRequest.IsFork'], false))
 ```
 
+## Considerations
+
+You might want to run multiple pester tests that execute different kind of tests.
+For that I would recommend extending the yaml to have a pester test and a publish test result task per kind.
+This will allow you to not only get the results faster into the UI of Azure DevOps but you can also get a drill down of tests per kind, similar to the screenshot.
+
+Also a good practice is to enable exclusion, the script to execute the pester tests should therefore have a parameter that allows you to exclude certain scripts or even whole tags.
+
+Again, if you want to see this, visit [az.new](https://dev.azure.com/az-new/xAz.New/_build/results?buildId=71&view=ms.vss-test-web.build-test-results-tab) if you want to see the full implementation.
+
 ## Remarks
 
 ## Table of Content
@@ -108,5 +118,6 @@ jobs:
 - [Dashboard](#dashboard)
 - [PowerShell Pester Task](#powershell-pester-task)
 - [Pipeline](#pipeline)
+- [Considerations](#considerations)
 - [Remarks](#remarks)
 - [Table of Content](#table-of-content)
