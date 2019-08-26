@@ -8,7 +8,7 @@ image: "/img/2KJjKrod2RA.jpeg"
 share-img: "/img/2KJjKrod2RA.jpeg"
 tags: [AzureDevOps]
 comments: true
-time: 2
+time: 12
 ---
 
 Introduction to Cloud Automation, Azure DevOps, Infrastructure As Code (IaC), PowerShell, Azure Resource Manager (ARM), Unit-Testing with Pester, CI/CD Pipeline with Azure DevOps and more!
@@ -53,10 +53,6 @@ _Characteristics of Infrastructure as Code:_
 A practice in Infrastructure as Code is to write your definitions in a declarative way versus an imperative way.
 
 You define the state of the infrastructure you want to have and let the system do the work on getting there. In the following sections we will have a look at tools to implement the practice.
-
-- [Version Control](Article/04_Cloud_Automation_Version_Control.md)
-- [Software Testing](Article/05_Cloud_Automation_Software_Testing.md)
-- [Declarative](Article/06_Cloud_Automation_Declarative.md)
 
 ## Conclusion
 
@@ -215,7 +211,7 @@ Changes are committed, and the build process spins up a new server and deploys t
 
 > A fluent interface is a specific form of the builder pattern that creates objects through a method chain that enforces correct configuration of a resource. For example, the entry-point Azure object is created using a fluent interface
 
-```C#
+```c#
 var azure = Azure
     .Configure()
     .Authenticate(credentials)
@@ -252,8 +248,8 @@ var sql = azure.SqlServers.Define(sqlServerName)
 
 You are composing one template into its own template, which makes it smaller and reusable as a referenced templates by leveraging the `Microsoft.Resources/deployments` Provider. Going for a `"master-template"` that specifies every component by its provider like:
 
-```JSON
-# azureDeploy.json
+```json
+// azureDeploy.json
 "resources" : [
     Microsoft.Storage/storageAccounts
     Microsoft.Network/virtualNetworks
@@ -263,8 +259,8 @@ You are composing one template into its own template, which makes it smaller and
 
 To a master template that orchestrates multiple deployments. Each of which are responsible for a certain component of the solution, e.g. `storageAccount`, `virtualNetwork` and `virtualMachine` and a just referenced by the `Microsoft.Resources/deployments` Provider.
 
-```JSON
-# azureDeploy.json
+```json
+// azureDeploy.json
 "resources" : [
     Microsoft.Resources/deployments # storageAccount.json
     Microsoft.Resources/deployments # virtualNetwork.json
@@ -272,22 +268,22 @@ To a master template that orchestrates multiple deployments. Each of which are r
 ]
 ```
 
-```JSON
-# storageAccount.json
+```json
+// storageAccount.json
 "resources" : [
      Microsoft.Storage/storageAccounts
 ]
 ```
 
-```JSON
-# virtualNetwork.json
+```json
+// virtualNetwork.json
 "resources" : [
      Microsoft.Network/virtualNetworks
 ]
 ```
 
-```JSON
-# virtualMachines.json
+```json
+// virtualMachines.json
 "resources" : [
      Microsoft.Compute/virtualMachines
 ]
@@ -297,7 +293,7 @@ To a master template that orchestrates multiple deployments. Each of which are r
 
 Composed templates need to _communicate_ with each other you can use the `outputs` property of the ARM template.
 
-```JSON
+```json
 "outputs" : {
     "key" : {                                   # key of the output, e.g. virtualMachineName
         "type" : "string",                      # type of the value, e.g. string or int
@@ -310,8 +306,8 @@ The master template can use the returned value of the composed template to make 
 
 You can access the outputs within a template by using the `.outputs.key.value` of a reference, where you provide a composed child template as the parameter and the outputs key as the specified key property in the child template outputs property.
 
-```JSON
-# nestedDeploymentvirtualMachine
+```json
+// nestedDeploymentvirtualMachine
 "outputs" : {
     "virtualMachineName" : {
         "type" : "string",
@@ -320,8 +316,8 @@ You can access the outputs within a template by using the `.outputs.key.value` o
 }
 ```
 
-```JSON
-# Master
+```json
+// Master
 "parameters" : {
     "virtualMachineName" : {
         "value" : "[reference(parameter('nestedDeploymentvirtualMachine')).outputs.virtualMachineName.value]"
@@ -331,7 +327,7 @@ You can access the outputs within a template by using the `.outputs.key.value` o
 
 ### Composition Demo
 
-```JSON
+```json
 "resources" : [
     {
         "apiVersion": "[vairables('deploymentApiVersion')]",            # earlier specified apiVersion
@@ -360,7 +356,7 @@ You can access the outputs within a template by using the `.outputs.key.value` o
 
 When using outputs of a nested deployment you should implement the `depensdOn` property within te `Microsoft.Resource/deployments`
 
-```JSON
+```json
 {
     "apiVersion": "[vairables('deploymentApiVersion')]",
     "name" : "[parameters('nestedDeploymentDependendResource')]",
@@ -388,7 +384,7 @@ When using outputs of a nested deployment you should implement the `depensdOn` p
 
 If you want to troubleshoot a time intensive output and save the state you can leverage export-clixml. For ARM templates that would be
 
-```PowerShell
+```powershell
 # Deploy actual arm template or time intensive task then generates an object to reuse
 $Deploy = New-AzureRmResourceGroupDeployment ....
 
@@ -398,7 +394,7 @@ $Deploy | Export-Clixml $Home\state.xml
 
 after that you can use the `state.xml` to retrieve the objects and all of their properties.
 
-```PowerShell
+```powershell
 # load time intensive object from serialized state
 $session = Import-Clixml $home\state.xml
 ```
@@ -408,7 +404,7 @@ In debug mode you are able to export the output of a script at runtime at a spec
 
 ### Map Outputs from an Am Template to a custom object
 
-```PowerShell
+```powershell
 # get enumerator from stored session output
 $enum = $session.GetEnumerator()
 
@@ -428,7 +424,7 @@ $return
 
 An example implementation could look like the following code sample. However
 
-```PowerShell
+```powershell
 function Get-DeploymentOutput {
     <#
         .SYNOPSIS
@@ -489,7 +485,7 @@ function Get-DeploymentOutput {
 
 List if resource is available in region
 
-```PowerShell
+```powershell
 #Requires -Modules @{ ModuleName="Az.Resources"; ModuleVersion="0.3.0" }
 Get-AzResourceProvider |
     Select-Object ProviderNamespace, ResourceTypes |
@@ -498,7 +494,7 @@ Get-AzResourceProvider |
 
 #### Resource Types
 
-```PowerShell
+```powershell
 #Requires -Modules @{ ModuleName="Az.Resources"; ModuleVersion="0.3.0" }
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute |
     Select-Object ResourceTypes, Locations |
@@ -509,7 +505,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute |
 
 `https://management.azure.com/subscriptions/{subscription-id}/providers/{provider-name}?&api-version={api-version}`
 
-```PowerShell
+```powershell
 param ( [Parameter(Mandatory=$true)] $SubscriptionName, $ProviderName = 'Microsoft.Compute',
 $ResourceTypeName = 'virtualMachines')
 
@@ -612,7 +608,7 @@ Global Unique Naming
 
 Install git via [Chocolatey](https://chocolatey.org/).
 
-```PowerShell
+```powershell
 choco install git
 ```
 
