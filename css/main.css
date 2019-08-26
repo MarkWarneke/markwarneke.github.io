@@ -1253,3 +1253,10 @@ article {
 h1 {
   font-size: 1.3em;
 }
+
+:target::before {
+  content: "";
+  display: block;
+  height: 70px; /* fixed header height*/
+  margin: -70px 0 0; /* negative fixed header height */
+}
