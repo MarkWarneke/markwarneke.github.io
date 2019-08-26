@@ -602,7 +602,7 @@ Global Unique Naming
 
 - Find a comprehensive Git introduction on Microsoft docs [Learn Git](https://docs.microsoft.com/en-us/azure/devops/learn/git/what-is-version-control).
 - Inclduing how Microsoft uses Git [How We Use Git at Microsoft](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/use-git-microsoft).
-- If you are working in a team a good branching policy is adviced, find some inspiration on [Adopt a Git branching strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=vsts), also see [Cloud Automation DevOps](07_Cloud_Automation_DevOps.md).
+- If you are working in a team a good branching policy is adviced, find some inspiration on [Adopt a Git branching strategy](https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=vsts).
 
 ### Git Installation
 
