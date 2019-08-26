@@ -3,9 +3,9 @@ layout: post
 title: DRAFT Generate Azure Resource Manager Templates Parameter files using PowerShell
 subtitle: And how to test PowerShell classes
 bigimg:
-  - "/img/draft.jpg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpg"
-share-img: "/img/draft.jpg"
+  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
+image: "/img/draft.jpeg"
+share-img: "/img/draft.jpeg"
 tags: [AzureDevOps, PowerShell]
 comments: true
 time: 7
