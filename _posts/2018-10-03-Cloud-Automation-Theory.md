@@ -31,7 +31,7 @@ So DevOps is about the union of people, process, and technology to enable contin
 
 ## Why Cloud Automation
 
-- Consistency: Standardised provisioning
+- Consistency: Standardized provisioning
 - Accelerating: Rapid deployment and provisioning
 - Reusability: JSON code and pipeline
 - Extensibility: Extensible JSON
@@ -65,7 +65,7 @@ You define the state of the infrastructure you want to have and let the system d
   - save time
   - make fewer manual configuration
   - only allow tested changes
-  - ultimatly you will encounter fewer errors
+  - ultimately you will encounter fewer errors
 - All changes in the infrastructure are accessible in source control.
 - Source control gives great insight in why and what is changed and by whom.
 
@@ -163,7 +163,7 @@ Changes are committed, and the build process spins up a new server and deploys t
 
 - Process Integration (DevOps, ITSM)
 - Less Error Prone (removes human)
-- Unopionoated
+- Unopinionated
 - Flexible
 - Testable
 
@@ -197,8 +197,8 @@ Changes are committed, and the build process spins up a new server and deploys t
 #### Terra Form
 
 - Open Source Project
-- Cross computing envrionment templating language
-- Provision, Update and Delte resources
+- Cross computing environment templating language
+- Provision, Update and Delete resources
 - Authored in HashiCorp Configuration Language (HCL) or JSON
 
 ### Source
@@ -382,11 +382,11 @@ When using outputs of a nested deployment you should implement the `depensdOn` p
 
 ### How to save time intensive output state and reuse for debugging (ARM template outputs debugging)
 
-If you want to troubleshoot a time intensive output and save the state you can leverage export-clixml. For ARM templates that would be
+If you want to troubleshoot a time intensive output and save the state you can leverage `export-clixml`. For ARM templates that would be:
 
 ```powershell
 # Deploy actual arm template or time intensive task then generates an object to reuse
-$Deploy = New-AzureRmResourceGroupDeployment ....
+$Deploy = New-AzResourceGroupDeployment ....
 
 # save the state by serializing the object to xml
 $Deploy | Export-Clixml $Home\state.xml
