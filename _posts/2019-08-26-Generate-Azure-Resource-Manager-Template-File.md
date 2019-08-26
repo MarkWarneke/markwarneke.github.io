@@ -8,7 +8,7 @@ image: "/img/draft.jpg"
 share-img: "/img/draft.jpg"
 tags: [AzureDevOps, PowerShell]
 comments: true
-time: 4
+time: 7
 ---
 
 How do you create a Parameter File for your Azure Resource Manager template deployment?

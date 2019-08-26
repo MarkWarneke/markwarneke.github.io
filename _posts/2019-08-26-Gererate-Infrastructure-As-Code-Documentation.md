@@ -8,7 +8,7 @@ image: "/img/draft.jpg"
 share-img: "/img/draft.jpg"
 tags: [AzureDevOps]
 comments: true
-time: 4
+time: 6
 ---
 
 Azure Resource Manager templates are complex JSON structures.
