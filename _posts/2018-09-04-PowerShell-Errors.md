@@ -1,14 +1,14 @@
 ---
 layout: post
-title: DRAFT Error Handling  and Useful Snippets
+title: Error Handling and Useful Snippets
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
-share-img: "/img/draft.jpeg"
-tags: [draft]
+  - "/img/9SoCnyQmkzI.jpeg": "https://unsplash.com/photos/9SoCnyQmkzI"
+image: "/img/9SoCnyQmkzI.jpeg"
+share-img: "/img/9SoCnyQmkzI.jpeg"
+tags: [PowerShell]
 comments: true
-time: 4
+time: 3
 ---
 
 - [Error](#error)
