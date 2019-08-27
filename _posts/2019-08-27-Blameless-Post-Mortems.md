@@ -44,28 +44,30 @@ Include people to the post mortem who...
 - were affected by the problem
 - are genuinely interested in attending the meeting to learn
 
-## What to dos needs to be done for a Post-Mortem Meeting
+## What ToDos needs to be done for a Post-Mortem Meeting
 
 Engineers should focus on:
 
 > Why did it make sense to me when I took that action?
 
-an work from there.
-
 1. record the timeline of relevant events as they occurred (to best knowledge)
 2. what actions have been taken
 3. at what time
 4. with what effect
-5. which investigation pathes
-6. which resolutions have been considered
+5. which investigation pathes have been considered
+6. which resolutions steps have been taken
 
-reserve enough time for:
+## Post-Mortem Time
 
-- brainstorming
-- deciding countermeasures to implement
-  - prioritized them
-  - assign owner
-  - create implementation timeline
+Reserve enough time to find the root cause.
+Use the 5-why question method to find it.
+Create room to allow brainstorming and to decide on countermeasures to implement.
+
+Counter measures should:
+
+- be prioritized
+- assigned to an owner
+- have an implementation timeline
 
 Doing this demonstrates that continuos improvement of daily work is more important than doing daily work itself.
 
@@ -84,14 +86,14 @@ What should be documented to create a good post-mortem and keep track to foster 
 ### Meeting Details
 
 - Post-Mortem Title
-- Incident Severity
-- Contact Person
 - Post-Mortem Meeting Date
-- Post-Mortem was created By
-- Post-Mortem was facilitated By
+- Post-Mortem Contact Person
+- Post-Mortem created by
+- Post-Mortem facilitated by
 
 ### Incident Description
 
+- Incident Severity
 - What happened (Bullet point list with timestamps)
 - Additional Info (e.g. images, ! no logs, no stack traces)
 - Remediation
@@ -99,12 +101,17 @@ What should be documented to create a good post-mortem and keep track to foster 
 - Short Summary
 - Tags
 
-## Foster Documentation and eas of use
+## Foster documentation and eas of use
 
-Make it easy to document post-mortems (e.g. through tools)
-More people will record and detail the outcomes of post-mortems thatway. I will enable more organizational learning.
+Make it easy to document post-mortems (e.g. through tools). The easier it is, the more people will record and detail the outcomes of post-mortems. It will enable more organizational learning through a joined effort.
 
-## Avoid
+## Things to not do
+
+**Don't Blame!**
+
+**Don't punish!**
+
+**Foster Learning!**
 
 Avoid using “would have” or “could have” in statements.
 Be specific, its not a guessing game.
@@ -129,13 +136,14 @@ After a Post-Mortem we should
 - [Introduction](#introduction)
 - [Environment](#environment)
 - [Whom to invite to a Post-Mortem - Stakeholders](#whom-to-invite-to-a-post-mortem---stakeholders)
-- [What to dos needs to be done for a Post-Mortem Meeting](#what-to-dos-needs-to-be-done-for-a-post-mortem-meeting)
+- [What ToDos needs to be done for a Post-Mortem Meeting](#what-todos-needs-to-be-done-for-a-post-mortem-meeting)
+- [Post-Mortem Time](#post-mortem-time)
 - [Documentation](#documentation)
   - [Incident Timeline](#incident-timeline)
   - [Meeting Details](#meeting-details)
   - [Incident Description](#incident-description)
-- [Foster Documentation and eas of use](#foster-documentation-and-eas-of-use)
-- [Avoid](#avoid)
+- [Foster documentation and eas of use](#foster-documentation-and-eas-of-use)
+- [Things to not do](#things-to-not-do)
 - [Post-Post-Mortem](#post-post-mortem)
 - [Resources](#resources)
 - [Table of content](#table-of-content)
