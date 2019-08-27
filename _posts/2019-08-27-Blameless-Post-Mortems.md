@@ -13,6 +13,8 @@ time: 4
 
 What are you going to do after an incident happen? Find the one to blame...? A better idea is to create an environment where failures are accepted and appreciated. You should create an environment of learning and reinforce that failing fast and learning from mistakes is something to strive for.
 
+These Details are mostly by [the DevOps Handbook](https://www.amazon.de/DevOPS-Handbook-World-Class-Reliability-Organizations/dp/1942788002/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=The+DevOps+Handbook&qid=1566940325&s=gateway&sr=8-1)
+
 ## Introduction
 
 Post-Mortems should help us examine
@@ -31,7 +33,7 @@ Schedule post-mortem as soon as possible after the accident occurs. Links betwee
 - Accept that there is always a discretionary space where humans can decide to take action or not, and that the judgment of those decisions lies in hindsight
 - **Propose countermeasures to prevent a similar accident** from happening in the future and ensure these countermeasures are recorded with a target date and an owner for follow-up
 
-## Stakeholders
+## Whom to invite to a Post-Mortem - Stakeholders
 
 Include people to the post mortem who...
 
@@ -40,28 +42,30 @@ Include people to the post mortem who...
 - responded to the problem
 - diagnosed the problem
 - were affected by the problem
-- is interested in attending the meeting.
+- are genuinely interested in attending the meeting to learn
 
-## Tasks
+## What to dos needs to be done for a Post-Mortem Meeting
 
-Focus on:
+Engineers should focus on:
 
 > Why did it make sense to me when I took that action?
 
 an work from there.
 
 1. record the timeline of relevant events as they occurred (to best knowledge)
-   1. what actions have been taken
-   2. at what time
-   3. with what effect
-   4. which investigation pathes 
-   5. which resolutions have been considered
-2. reserve enough time for
-   1. brainstorming 
-   2. deciding countermeasures to implement
-      1. prioritized them
-      2. assign owner
-      3. create implementation timeline
+2. what actions have been taken
+3. at what time
+4. with what effect
+5. which investigation pathes
+6. which resolutions have been considered
+
+reserve enough time for:
+
+- brainstorming
+- deciding countermeasures to implement
+  - prioritized them
+  - assign owner
+  - create implementation timeline
 
 Doing this demonstrates that continuos improvement of daily work is more important than doing daily work itself.
 
@@ -69,58 +73,67 @@ Doing this demonstrates that continuos improvement of daily work is more importa
 
 What should be documented to create a good post-mortem and keep track to foster learning.
 
-- Post-Mortem Title
+### Incident Timeline
+
 - Incident Start Time
 - Incident End Time
 - Incident Detect Time
-- Additional Times if necessary (e.g. First User Impact, First User Report, Hotfix)
-- Severity
+- Additional Times if necessary
+  - e.g. First User Impact, First User Report, Hotfix
+
+### Meeting Details
+
+- Post-Mortem Title
+- Incident Severity
 - Contact Person
-- Post-Mortem Date
+- Post-Mortem Meeting Date
 - Post-Mortem was created By
 - Post-Mortem was facilitated By
+
+### Incident Description
+
 - What happened (Bullet point list with timestamps)
 - Additional Info (e.g. images, ! no logs, no stack traces)
 - Remediation
-  - Bug Tickets created
-  - Short Summary
+  - Bug Tickets associated
+- Short Summary
 - Tags
 
 ## Foster Documentation and eas of use
 
-- make it easy to document post-mortems (e.g. through tools) 
- - more people will record and detail the outcomes of post-mortems
-  -  that enables more organizational learning
+Make it easy to document post-mortems (e.g. through tools)
+More people will record and detail the outcomes of post-mortems thatway. I will enable more organizational learning.
 
 ## Avoid
 
 Avoid using “would have” or “could have” in statements.
 Be specific, its not a guessing game.
-Instead use terms of the system that actually exists and happend.
+Instead use terms of the system that actually exists and happened.
 What did you do or didn't do that lead to the issue.
 
 ## Post-Post-Mortem
 
 After a Post-Mortem we should
 
-- widely announce the availability of the meeting notes and any associated artifacts
-- place information on a centralized location where the entire organization can access it and learn from the incident
-- encourage others in the organization to read them to increase organizational learning
-- increases the transparency with internal and external customers
-  - which will in turn increases trust
+- **widely announce** the availability of the meeting notes and any associated artifacts
+- place **information on a centralized location** where the entire organization can access it and learn from the incident
+- **encourage others** in the organization to read them to increase organizational learning
+- **increases transparency with internal and external customers**, which will in turn increases trust
 
 ## Resources
 
 [The DevOps Handbook](https://learning.oreilly.com/library/view/the-devops-handbook/9781457191381/DOHB-ch_19.xhtml)
 
-
 ## Table of content
 
 - [Introduction](#introduction)
 - [Environment](#environment)
-- [Stakeholders](#stakeholders)
-- [Tasks](#tasks)
+- [Whom to invite to a Post-Mortem - Stakeholders](#whom-to-invite-to-a-post-mortem---stakeholders)
+- [What to dos needs to be done for a Post-Mortem Meeting](#what-to-dos-needs-to-be-done-for-a-post-mortem-meeting)
 - [Documentation](#documentation)
+  - [Incident Timeline](#incident-timeline)
+  - [Meeting Details](#meeting-details)
+  - [Incident Description](#incident-description)
 - [Foster Documentation and eas of use](#foster-documentation-and-eas-of-use)
 - [Avoid](#avoid)
 - [Post-Post-Mortem](#post-post-mortem)
