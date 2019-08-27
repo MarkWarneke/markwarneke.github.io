@@ -3,9 +3,9 @@ layout: post
 title: DRAFT Blameless Post-Mortems
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
-share-img: "/img/draft.jpeg"
+  - "/img/55QfOLiYqWQ.jpeg": "https://unsplash.com/photos/55QfOLiYqWQ"
+image: "/img/55QfOLiYqWQ.jpeg"
+share-img: "/img/55QfOLiYqWQ.jpeg"
 tags: [draft]
 comments: true
 time: 4
