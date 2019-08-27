@@ -111,12 +111,14 @@ Make it easy to document post-mortems (e.g. through tools). The easier it is, th
 
 **Don't punish!**
 
-**Foster Learning!**
-
 Avoid using “would have” or “could have” in statements.
 Be specific, its not a guessing game.
 Instead use terms of the system that actually exists and happened.
 What did you do or didn't do that lead to the issue.
+
+### Things to do
+
+**Foster Learning!**
 
 ## Post-Post-Mortem
 
@@ -144,6 +146,7 @@ After a Post-Mortem we should
   - [Incident Description](#incident-description)
 - [Foster documentation and eas of use](#foster-documentation-and-eas-of-use)
 - [Things to not do](#things-to-not-do)
+  - [Things to do](#things-to-do)
 - [Post-Post-Mortem](#post-post-mortem)
 - [Resources](#resources)
 - [Table of content](#table-of-content)
