@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DRAFT Blameless Post-Mortems
+title: Blameless Post-Mortems
 subtitle:
 bigimg:
   - "/img/55QfOLiYqWQ.jpeg": "https://unsplash.com/photos/55QfOLiYqWQ"
