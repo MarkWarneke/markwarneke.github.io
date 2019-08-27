@@ -19,17 +19,17 @@ Post-Mortems should help us examine
 
 > mistakes in a way that focuses on the situational aspects of a failure’s mechanism and the decision-making process of individuals proximate to the failure. *by John Allspaw*
 
-Schedule post-mortem as soon as possible after the accident occurs and before memories and the links between cause and effect fade or circumstances change
+Schedule post-mortem as soon as possible after the accident occurs. Links between cause and effect should still be fresh in memory, avoid that these fade or circumstances change.
 
 ## Environment
 
-- Construct a timeline
-- Gather details from multiple perspectives 
-- Ensuring no punishment of people for making mistakes is happening
-- Empower all engineers to improve safety by allowing them to give detailed accounts of their contributions to failures
-- Enable and encourage people who do make mistakes to be the experts who educate the rest of the organization on how not to make them in the future
+- Construct a detailed timeline
+- Gather details from many different perspectives 
+- Ensure **no punishment** of people for making mistakes is happening
+- Empower all engineers to feel safe by allowing them to give detailed accounts of their contributions to failures
+- Enable and **encourage people who do make mistakes to be the experts**, and who educates the rest of the organization on how to not make them again in the future
 - Accept that there is always a discretionary space where humans can decide to take action or not, and that the judgment of those decisions lies in hindsight
-- Propose countermeasures to prevent a similar accident from happening in the future and ensure these countermeasures are recorded with a target date and an owner for follow-up
+- **Propose countermeasures to prevent a similar accident** from happening in the future and ensure these countermeasures are recorded with a target date and an owner for follow-up
 
 ## Stakeholders
 
