@@ -13,7 +13,7 @@ time: 4
 
 What are you going to do after an incident happen? Find the one to blame...? A better idea is to create an environment where failures are accepted and appreciated. You should create an environment of learning and reinforce that failing fast and learning from mistakes is something to strive for.
 
-These Details are mostly by [the DevOps Handbook](https://www.amazon.de/DevOPS-Handbook-World-Class-Reliability-Organizations/dp/1942788002/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=The+DevOps+Handbook&qid=1566940325&s=gateway&sr=8-1)
+The described points are mostly based on [the DevOps Handbook](https://www.amazon.de/DevOPS-Handbook-World-Class-Reliability-Organizations/dp/1942788002/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=The+DevOps+Handbook&qid=1566940325&s=gateway&sr=8-1)
 
 ## Introduction
 
@@ -23,10 +23,10 @@ Post-Mortems should help us examine
 
 Schedule post-mortem as soon as possible after the accident occurs. Links between cause and effect should still be fresh in memory, avoid that these fade or circumstances change.
 
-## Environment
+## Basics of a Post-Mortem
 
-- Construct a detailed timeline
-- Gather details from many different perspectives 
+- Construct a detailed incident timeline
+- Gather details from many different perspectives
 - Ensure **no punishment** of people for making mistakes is happening
 - Empower all engineers to feel safe by allowing them to give detailed accounts of their contributions to failures
 - Enable and **encourage people who do make mistakes to be the experts**, and who educates the rest of the organization on how to not make them again in the future
@@ -57,7 +57,7 @@ Engineers should focus on:
 5. which investigation pathes have been considered
 6. which resolutions steps have been taken
 
-## Post-Mortem Time
+## Post-Mortem Time Schedule
 
 Reserve enough time to find the root cause.
 Use the 5-why question method to find it.
@@ -71,11 +71,13 @@ Counter measures should:
 
 Doing this demonstrates that continuos improvement of daily work is more important than doing daily work itself.
 
-## Documentation
+## Post-Mortem Documentation
 
-What should be documented to create a good post-mortem and keep track to foster learning.
+What should be documented to create a good post-mortem and keep track to foster learning. Create an easy to use environment to document! Three key points to document, timeline, meeting details and incident description. 
 
 ### Incident Timeline
+
+Document when the incident happened and how long it took until the incident was resolved. Also document additional times to be able to measure and create KPIs, e.g. MTTR.
 
 - Incident Start Time
 - Incident End Time
@@ -85,6 +87,8 @@ What should be documented to create a good post-mortem and keep track to foster 
 
 ### Meeting Details
 
+Create basic meeting metadata, like a title, date contact persons etc. 
+
 - Post-Mortem Title
 - Post-Mortem Meeting Date
 - Post-Mortem Contact Person
@@ -92,6 +96,8 @@ What should be documented to create a good post-mortem and keep track to foster 
 - Post-Mortem facilitated by
 
 ### Incident Description
+
+Describe the incident in short and crisp sentences. Avoid long and detailed descriptions. Add time stamps to make the chronological order clear. Avoid attaching log files or stack traces - be precise.
 
 - Incident Severity
 - What happened (Bullet point list with timestamps)
@@ -101,22 +107,22 @@ What should be documented to create a good post-mortem and keep track to foster 
 - Short Summary
 - Tags
 
-## Foster documentation and eas of use
+## Foster documentation and ease of use
 
-Make it easy to document post-mortems (e.g. through tools). The easier it is, the more people will record and detail the outcomes of post-mortems. It will enable more organizational learning through a joined effort.
+Make it easy to document post-mortems.You can use tools or other easy to use system. The easier the system is, the more people will record and detail the outcomes. It will **enable more organizational learning by creating a good knowledge-base**.
 
-## Things to not do
+## Things NOT to do
 
 **Don't Blame!**
 
 **Don't punish!**
 
-Avoid using “would have” or “could have” in statements.
-Be specific, its not a guessing game.
-Instead use terms of the system that actually exists and happened.
+Avoid using *“would have”* or *“could have”* in statements.
+**Be specific**, its not a guessing game or an excuse.
+Use terms of the system that actually exists and happened instead.
 What did you do or didn't do that lead to the issue.
 
-### Things to do
+## Things to do
 
 **Foster Learning!**
 
@@ -129,6 +135,9 @@ After a Post-Mortem we should
 - **encourage others** in the organization to read them to increase organizational learning
 - **increases transparency with internal and external customers**, which will in turn increases trust
 
+- revisit post-mortems from time to time
+- Make sure counter measures are still taking effect and are implemented
+
 ## Resources
 
 [The DevOps Handbook](https://learning.oreilly.com/library/view/the-devops-handbook/9781457191381/DOHB-ch_19.xhtml)
@@ -136,17 +145,17 @@ After a Post-Mortem we should
 ## Table of content
 
 - [Introduction](#introduction)
-- [Environment](#environment)
+- [Basics of a Post-Mortem](#basics-of-a-post-mortem)
 - [Whom to invite to a Post-Mortem - Stakeholders](#whom-to-invite-to-a-post-mortem---stakeholders)
 - [What ToDos needs to be done for a Post-Mortem Meeting](#what-todos-needs-to-be-done-for-a-post-mortem-meeting)
-- [Post-Mortem Time](#post-mortem-time)
-- [Documentation](#documentation)
+- [Post-Mortem Time Schedule](#post-mortem-time-schedule)
+- [Post-Mortem Documentation](#post-mortem-documentation)
   - [Incident Timeline](#incident-timeline)
   - [Meeting Details](#meeting-details)
   - [Incident Description](#incident-description)
-- [Foster documentation and eas of use](#foster-documentation-and-eas-of-use)
-- [Things to not do](#things-to-not-do)
-  - [Things to do](#things-to-do)
+- [Foster documentation and ease of use](#foster-documentation-and-ease-of-use)
+- [Things NOT to do](#things-not-to-do)
+- [Things to do](#things-to-do)
 - [Post-Post-Mortem](#post-post-mortem)
 - [Resources](#resources)
 - [Table of content](#table-of-content)
