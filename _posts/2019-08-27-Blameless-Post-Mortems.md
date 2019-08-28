@@ -164,7 +164,7 @@ After a Post-Mortem we should
 
 ## Description
 
-> Severity: <Secerity>
+> Severity: <Severity>
 
 - 
 
