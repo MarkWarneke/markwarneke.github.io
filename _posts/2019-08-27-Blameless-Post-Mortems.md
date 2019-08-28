@@ -73,7 +73,9 @@ Doing this demonstrates that continuos improvement of daily work is more importa
 
 ## Post-Mortem Documentation
 
-What should be documented to create a good post-mortem and keep track to foster learning. Create an easy to use environment to document! Three key points to document, timeline, meeting details and incident description. 
+What should be documented to create a good post-mortem and keep track to foster learning. Create an easy to use environment to document! Three key points to document, timeline, meeting details and incident description.
+
+See [Template](#Template)
 
 ### Incident Timeline
 
