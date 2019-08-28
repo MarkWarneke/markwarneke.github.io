@@ -218,5 +218,6 @@ After a Post-Mortem we should
 - [Things NOT to do](#things-not-to-do)
 - [Things to do](#things-to-do)
 - [Post-Post-Mortem](#post-post-mortem)
+- [Video](#video)
 - [Resources](#resources)
 - [Table of content](#table-of-content)
