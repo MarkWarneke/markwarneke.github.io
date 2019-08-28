@@ -8,7 +8,7 @@ image: "/img/55QfOLiYqWQ.jpeg"
 share-img: "/img/55QfOLiYqWQ.jpeg"
 tags: [Azure DevOps]
 comments: true
-time: 4
+time: 5
 ---
 
 What are you going to do after an incident happen? Find the one to blame...? A better idea is to create an environment where failures are accepted and appreciated. You should create an environment of learning and reinforce that failing fast and learning from mistakes is something to strive for.
