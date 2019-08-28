@@ -77,6 +77,16 @@ What should be documented to create a good post-mortem and keep track to foster 
 
 See [Template](#template)
 
+### Meeting Details
+
+Document basic meeting metadata, like a title, date contact persons, personas etc.
+
+- Post-Mortem Title
+- Post-Mortem Meeting Date
+- Post-Mortem Contact Person
+- Post-Mortem Created by
+- Post-Mortem Facilitated by
+
 ### Incident Timeline
 
 Document when the incident happened and how long it took until the incident was resolved. Also document additional times to be able to measure and create KPIs, e.g. MTTR.
@@ -86,16 +96,6 @@ Document when the incident happened and how long it took until the incident was 
 - Incident Detect Time
 - Additional Times if necessary
   - e.g. First User Impact, First User Report, Hotfix
-
-### Meeting Details
-
-Create basic meeting metadata, like a title, date contact persons etc. 
-
-- Post-Mortem Title
-- Post-Mortem Meeting Date
-- Post-Mortem Contact Person
-- Post-Mortem created by
-- Post-Mortem facilitated by
 
 ### Incident Description
 
@@ -203,8 +203,8 @@ _(e.g. images, ! no logs, no stack traces)_
 - [What ToDos needs to be done for a Post-Mortem Meeting](#what-todos-needs-to-be-done-for-a-post-mortem-meeting)
 - [Post-Mortem Time Schedule](#post-mortem-time-schedule)
 - [Post-Mortem Documentation](#post-mortem-documentation)
-  - [Incident Timeline](#incident-timeline)
   - [Meeting Details](#meeting-details)
+  - [Incident Timeline](#incident-timeline)
   - [Incident Description](#incident-description)
 - [Foster documentation and ease of use](#foster-documentation-and-ease-of-use)
 - [Things NOT to do](#things-not-to-do)
