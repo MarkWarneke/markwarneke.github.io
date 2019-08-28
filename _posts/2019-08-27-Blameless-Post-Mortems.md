@@ -75,7 +75,7 @@ Doing this demonstrates that continuos improvement of daily work is more importa
 
 What should be documented to create a good post-mortem and keep track to foster learning. Create an easy to use environment to document! Three key points to document, timeline, meeting details and incident description.
 
-See [Template](#Template)
+See [Template](#template)
 
 ### Incident Timeline
 
@@ -158,7 +158,6 @@ After a Post-Mortem we should
 | ----------- | ----- |
 | Start Time  |       |
 | End Time    |       |
-| Detect Time |       |
 | Detect Time |       |
 | Additional  |       |
 
