@@ -138,6 +138,58 @@ After a Post-Mortem we should
 - revisit post-mortems from time to time
 - Make sure counter measures are still taking effect and are implemented
 
+## Template
+
+```markdown
+# <Title>
+
+| Meeting        | Value          |
+| -------------- | -------------- |
+| Date           | <Meeting Date> |
+| Contact        | <Name>         |
+| Created by     | <Name>         |
+| Facilitated by | <Name>         |
+
+## Timeline
+
+| Incident    | Value |
+| ----------- | ----- |
+| Start Time  |       |
+| End Time    |       |
+| Detect Time |       |
+| Detect Time |       |
+| Additional  |       |
+
+## Description
+
+> Severity: <Secerity>
+
+- 
+
+
+## What happened 
+_(Bullet point list with timestamps)_
+
+-
+
+## Additional Info 
+_(e.g. images, ! no logs, no stack traces)_
+
+-
+
+## Remediation
+-
+
+## Bug Tickets
+
+<Ticket Nr/Link>
+
+## Short Summary
+
+## Tags
+```
+
+
 ## Resources
 
 [The DevOps Handbook](https://learning.oreilly.com/library/view/the-devops-handbook/9781457191381/DOHB-ch_19.xhtml)
@@ -157,5 +209,6 @@ After a Post-Mortem we should
 - [Things NOT to do](#things-not-to-do)
 - [Things to do](#things-to-do)
 - [Post-Post-Mortem](#post-post-mortem)
+- [Template](#template)
 - [Resources](#resources)
 - [Table of content](#table-of-content)
