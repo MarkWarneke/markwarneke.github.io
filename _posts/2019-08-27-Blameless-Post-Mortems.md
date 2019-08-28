@@ -193,7 +193,10 @@ After a Post-Mortem we should
   
 ## Video
 [Morgue: Helping Better Understand Events by Building a Post Mortem Tool - Bethany Macri](https://vimeo.com/77206751)
-<iframe src="https://player.vimeo.com/video/77206751" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+<div class="video-container">
+  <iframe src="https://player.vimeo.com/video/77206751" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 
 ## Resources
 
