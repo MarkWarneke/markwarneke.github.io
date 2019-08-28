@@ -109,36 +109,6 @@ Describe the incident in short and crisp sentences. Avoid long and detailed desc
 - Short Summary
 - Tags
 
-## Foster documentation and ease of use
-
-Make it easy to document post-mortems.You can use tools or other easy to use system. The easier the system is, the more people will record and detail the outcomes. It will **enable more organizational learning by creating a good knowledge-base**.
-
-## Things NOT to do
-
-**Don't Blame!**
-
-**Don't punish!**
-
-Avoid using *“would have”* or *“could have”* in statements.
-**Be specific**, its not a guessing game or an excuse.
-Use terms of the system that actually exists and happened instead.
-What did you do or didn't do that lead to the issue.
-
-## Things to do
-
-**Foster Learning!**
-
-## Post-Post-Mortem
-
-After a Post-Mortem we should
-
-- **widely announce** the availability of the meeting notes and any associated artifacts
-- place **information on a centralized location** where the entire organization can access it and learn from the incident
-- **encourage others** in the organization to read them to increase organizational learning
-- **increases transparency with internal and external customers**, which will in turn increases trust
-
-- revisit post-mortems from time to time
-- Make sure counter measures are still taking effect and are implemented
 
 ## Template
 
@@ -190,6 +160,36 @@ _(e.g. images, ! no logs, no stack traces)_
 ## Tags
 ```
 
+## Foster documentation and ease of use
+
+Make it easy to document post-mortems.You can use tools or other easy to use system. The easier the system is, the more people will record and detail the outcomes. It will **enable more organizational learning by creating a good knowledge-base**.
+
+## Things NOT to do
+
+**Don't Blame!**
+
+**Don't punish!**
+
+Avoid using *“would have”* or *“could have”* in statements.
+**Be specific**, its not a guessing game or an excuse.
+Use terms of the system that actually exists and happened instead.
+What did you do or didn't do that lead to the issue.
+
+## Things to do
+
+**Foster Learning!**
+
+## Post-Post-Mortem
+
+After a Post-Mortem we should
+
+- **widely announce** the availability of the meeting notes and any associated artifacts
+- place **information on a centralized location** where the entire organization can access it and learn from the incident
+- **encourage others** in the organization to read them to increase organizational learning
+- **increases transparency with internal and external customers**, which will in turn increases trust
+
+- revisit post-mortems from time to time
+- Make sure counter measures are still taking effect and are implemented
 
 ## Resources
 
@@ -206,10 +206,10 @@ _(e.g. images, ! no logs, no stack traces)_
   - [Meeting Details](#meeting-details)
   - [Incident Timeline](#incident-timeline)
   - [Incident Description](#incident-description)
+- [Template](#template)
 - [Foster documentation and ease of use](#foster-documentation-and-ease-of-use)
 - [Things NOT to do](#things-not-to-do)
 - [Things to do](#things-to-do)
 - [Post-Post-Mortem](#post-post-mortem)
-- [Template](#template)
 - [Resources](#resources)
 - [Table of content](#table-of-content)
