@@ -78,7 +78,7 @@ A parameter file could contain all, none, a subset or only the _mandatory_ param
 My idea is, having multiple different options for ParameterFiles the ParameterObject could be used as the base class and concrete implementations could inherit it's properties.
 
 The `ParameterFileGenerator` is created based on a given template.
-It exposes the builder method `CreateParameterFile` that creates a parameter file json string based on the specification passed.
+It exposes the builder method `GenerateParameterFile` that creates a parameter file json string based on the specification passed.
 In this implementation you can specify to create a file with _mandatory_ parameters only or all parameters.
 
 Mandatory parameters are defined as parameters that don't implement the `defaultValues` property.
@@ -116,7 +116,7 @@ class ParameterFile {
     Parameter File  Generator
     Abstract the creation of a concrete ParameterFile
     The generator needs to be created based on a template
-     A file can be created by calling  `CreateParameterFile`, this function accepts a boolean to include only Mandatory parameters.
+     A file can be created by calling  `GenerateParameterFile`, this function accepts a boolean to include only Mandatory parameters.
 #>
 class ParameterFileGenerator {
 
@@ -171,10 +171,10 @@ class ParameterFileGenerator {
 
     <#
         The generator should expose this method to create a parameter file.
-        A file can be created by calling  `CreateParameterFile`
+        A file can be created by calling  `GenerateParameterFile`
         This function accepts a boolean to include only Mandatory parameters.
     #>
-    [ParameterFile] CreateParameterFile([boolean] $OnlyMandatoryParameter) {
+    [ParameterFile] GenerateParameterFile([boolean] $OnlyMandatoryParameter) {
         if ($OnlyMandatoryParameter) {
             return [ParameterFile]::new($this.MandatoryParameter)
         }
@@ -209,7 +209,7 @@ function New-ParameterFile {
     process {
         # Instanciate the ParameterFileGenerator and uses the public function to create a file
         # The object is converted to Json as this is expected
-        [ParameterFileGenerator]::new($Path).CreateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
+        [ParameterFileGenerator]::new($Path).GenerateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
 
          # Could be abstract further by using | out-file
     }
@@ -349,7 +349,7 @@ Describe "Class ParameterFileGenerator" {
     }
 
     it "should create ParameterFile" {
-        $ParameterFile = [ParameterFileGenerator]::new("$here\azuredeploy.json").CreateParameterFile($false)
+        $ParameterFile = [ParameterFileGenerator]::new("$here\azuredeploy.json").GenerateParameterFile($false)
         $ParameterFile.GetType() | Should -Be "ParameterFile"
         $ParameterFile | Should -Not -BeNullOrEmpty
     }

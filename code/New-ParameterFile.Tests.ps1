@@ -108,7 +108,7 @@ Describe "Class ParameterFactory" {
     }
     
     it "should create ParameterFile" {
-        $ParameterFile = [ParameterFileGenerator]::new("$here\azuredeploy.json").CreateParameterFile($false)
+        $ParameterFile = [ParameterFileGenerator]::new("$here\azuredeploy.json").GenerateParameterFile($false)
         $ParameterFile.GetType() | Should -Be "ParameterFile"
         $ParameterFile | Should -Not -BeNullOrEmpty
     }

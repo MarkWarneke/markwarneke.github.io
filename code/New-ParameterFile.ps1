@@ -68,7 +68,7 @@ class ParameterFileGenerator {
         }
     }
     
-    [ParameterFile] CreateParameterFile([boolean] $OnlyMandatoryParameter) {
+    [ParameterFile] GenerateParameterFile([boolean] $OnlyMandatoryParameter) {
         if ($OnlyMandatoryParameter) {
             return [ParameterFile]::new($this.MandatoryParameter) 
         }
@@ -148,7 +148,7 @@ function New-ParameterFile {
     }
     
     process {
-        [ParameterFileGenerator]::new($Path).CreateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
+        [ParameterFileGenerator]::new($Path).GenerateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
 
     }
     
