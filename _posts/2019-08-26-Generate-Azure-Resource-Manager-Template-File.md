@@ -77,11 +77,8 @@ The hashtables key is the parameter name, this converts nicely into the expected
 A parameter file could contain all, none, a subset or only the _mandatory_ parameters specified in the ARM template.
 My idea is, having multiple different options for ParameterFiles the ParameterObject could be used as the base class and concrete implementations could inherit it's properties.
 
-The creation of a specific file is abstracted into a Factory.
-A factory is concerned with the creation of objects so the user is not having to specify the exact class of the object that will be created, see [Wiki](https://en.wikipedia.org/wiki/Factory_method_pattern).
-
-The factory `ParameterFileFactory` is created based on a given template.
-It exposes the factory method `CreateParameterFile` that creates a parameter file json string based on the specification passed.
+The `ParameterFileGenerator` is created based on a given template.
+It exposes the builder method `CreateParameterFile` that creates a parameter file json string based on the specification passed.
 In this implementation you can specify to create a file with _mandatory_ parameters only or all parameters.
 
 Mandatory parameters are defined as parameters that don't implement the `defaultValues` property.
@@ -116,19 +113,19 @@ class ParameterFile {
 }
 
 <#
-    Parameter File  Factory
+    Parameter File  Generator
     Abstract the creation of a concrete ParameterFile
-    The factory needs to be created based on a template
+    The generator needs to be created based on a template
      A file can be created by calling  `CreateParameterFile`, this function accepts a boolean to include only Mandatory parameters.
 #>
-class ParameterFileFactory {
+class ParameterFileGenerator {
 
     $Template
     $Parameter
     $MandatoryParameter
 
     # Accepts the tempalte
-    ParameterFileFactory ($Path) {
+    ParameterFileGenerator ($Path) {
         $this.Template = $this._loadTemplate($Path)
         $this.Parameter = $this._getParameter($this.Template)
         $this.MandatoryParameter = $this._getMandatoryParameterByParameter($this.Parameter)
@@ -173,7 +170,7 @@ class ParameterFileFactory {
     }
 
     <#
-        The factory should expose this method to create a parameter file.
+        The generator should expose this method to create a parameter file.
         A file can be created by calling  `CreateParameterFile`
         This function accepts a boolean to include only Mandatory parameters.
     #>
@@ -210,9 +207,9 @@ function New-ParameterFile {
         [switch] $OnlyMandatoryParameter
     )
     process {
-        # Instanciate the Factory and uses the public function to create a file
+        # Instanciate the ParameterFileGenerator and uses the public function to create a file
         # The object is converted to Json as this is expected
-        [ParameterFileFactory]::new($Path).CreateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
+        [ParameterFileGenerator]::new($Path).CreateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
 
          # Could be abstract further by using | out-file
     }
@@ -331,28 +328,28 @@ Describe "Class ParameterFile" {
 }
 
 
-Describe "Class ParameterFactory" {
+Describe "Class ParameterFileGenerator" {
 
-    it "should create a ParameterFactory object" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").GetType() | Should -Be "ParameterFileFactory"
+    it "should create a ParameterFileGenerator object" {
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").GetType() | Should -Be "ParameterFileFactory"
     }
 
     it "should have template" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").template | Should -Not -BeNullOrEmpty
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").template | Should -Not -BeNullOrEmpty
     }
 
     it "should have Parameter" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").Parameter | Should -Not -BeNullOrEmpty
-        [ParameterFileFactory]::new("$here\azuredeploy.json").Parameter.Count | Should -BeGreaterOrEqual 5
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").Parameter | Should -Not -BeNullOrEmpty
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").Parameter.Count | Should -BeGreaterOrEqual 5
     }
 
     it "should have MandatoryParameter" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").MandatoryParameter | Should -Not -BeNullOrEmpty
-        [ParameterFileFactory]::new("$here\azuredeploy.json").MandatoryParameter.Count | Should -Be 2
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").MandatoryParameter | Should -Not -BeNullOrEmpty
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").MandatoryParameter.Count | Should -Be 2
     }
 
     it "should create ParameterFile" {
-        $ParameterFile = [ParameterFileFactory]::new("$here\azuredeploy.json").CreateParameterFile($false)
+        $ParameterFile = [ParameterFileGenerator]::new("$here\azuredeploy.json").CreateParameterFile($false)
         $ParameterFile.GetType() | Should -Be "ParameterFile"
         $ParameterFile | Should -Not -BeNullOrEmpty
     }
