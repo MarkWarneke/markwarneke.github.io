@@ -21,13 +21,13 @@ class ParameterFile {
     }
 }
 
-class ParameterFileFactory {
+class ParameterFileGenerator {
     
     $Template
     $Parameter
     $MandatoryParameter
     
-    ParameterFileFactory ($Path) {
+    ParameterFileGenerator ($Path) {
         $this.Template = $this._loadTemplate($Path)
         $this.Parameter = $this._getParameter($this.Template)
         $this.MandatoryParameter = $this._getMandatoryParameterByParameter($this.Parameter)
@@ -148,7 +148,7 @@ function New-ParameterFile {
     }
     
     process {
-        [ParameterFileFactory]::new($Path).CreateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
+        [ParameterFileGenerator]::new($Path).CreateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
 
     }
     

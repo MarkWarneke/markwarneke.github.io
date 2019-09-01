@@ -90,25 +90,25 @@ Describe "Class ParameterFile" {
 Describe "Class ParameterFactory" {
     
     it "should create a ParameterFactory object" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").GetType() | Should -Be "ParameterFileFactory"
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").GetType() | Should -Be "ParameterFileGenerator"
     }
     
     it "should have template" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").template | Should -Not -BeNullOrEmpty
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").template | Should -Not -BeNullOrEmpty
     }
     
     it "should have Parameter" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").Parameter | Should -Not -BeNullOrEmpty
-        [ParameterFileFactory]::new("$here\azuredeploy.json").Parameter.Count | Should -BeGreaterOrEqual 5
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").Parameter | Should -Not -BeNullOrEmpty
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").Parameter.Count | Should -BeGreaterOrEqual 5
     }
     
     it "should have MandatoryParameter" {
-        [ParameterFileFactory]::new("$here\azuredeploy.json").MandatoryParameter | Should -Not -BeNullOrEmpty
-        [ParameterFileFactory]::new("$here\azuredeploy.json").MandatoryParameter.Count | Should -Be 2
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").MandatoryParameter | Should -Not -BeNullOrEmpty
+        [ParameterFileGenerator]::new("$here\azuredeploy.json").MandatoryParameter.Count | Should -Be 2
     }
     
     it "should create ParameterFile" {
-        $ParameterFile = [ParameterFileFactory]::new("$here\azuredeploy.json").CreateParameterFile($false)
+        $ParameterFile = [ParameterFileGenerator]::new("$here\azuredeploy.json").CreateParameterFile($false)
         $ParameterFile.GetType() | Should -Be "ParameterFile"
         $ParameterFile | Should -Not -BeNullOrEmpty
     }
