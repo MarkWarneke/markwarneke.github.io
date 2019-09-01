@@ -1288,8 +1288,5 @@ only screen and (max-width: 1500px) {
     white-space: nowrap;
     margin-left: -150px;
   }
-  td:nth-of-type(1):before { content: "Option"; }
-  td:nth-of-type(2):before { content: "Description"; }
-  td:nth-of-type(3):before { content: "Type"; }
-  td:nth-of-type(4):before { content: "Default";}
+
 }
