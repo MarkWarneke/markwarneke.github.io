@@ -770,6 +770,7 @@ footer .footer-links a {
 
 .pager {
   margin: 10px 0 0;
+  padding-top: 10px;
 }
 
 .pager.blog-pager {
@@ -786,7 +787,7 @@ footer .footer-links a {
 
 table {
   padding: 0;
-  overflow-x:auto
+  overflow-x: auto
 }
 
 table tr {
@@ -1258,17 +1259,27 @@ h1 {
 :target::before {
   content: "";
   display: block;
-  height: 70px; /* fixed header height*/
-  margin: -70px 0 0; /* negative fixed header height */
+  height: 70px;
+  /* fixed header height*/
+  margin: -70px 0 0;
+  /* negative fixed header height */
 }
 
-@media
-only screen and (max-width: 1500px) {
-  table, thead, tbody, th, td, tr {
+@media only screen and (max-width: 1500px) {
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
     display: block;
   }
-  
-  tr { border: 1px solid #ccc; }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
   td {
     border: none;
     border-bottom: 1px solid #eee;
@@ -1276,6 +1287,7 @@ only screen and (max-width: 1500px) {
     padding-left: 200px;
     margin-left: 150px;
   }
+
   td:before {
     position: absolute;
     top: 12px;
@@ -1286,4 +1298,9 @@ only screen and (max-width: 1500px) {
     margin-left: -150px;
   }
 
+}
+
+.removePadding {
+  padding-right: 0px;
+  padding-left: 0px;
 }
