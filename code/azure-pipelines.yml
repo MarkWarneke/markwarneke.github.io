@@ -1,0 +1,21 @@
+steps:
+  - task: AzurePowerShell@4
+    inputs:
+      azureSubscription: $(azureSubscription)
+      scriptType: "FilePath"
+      # The name of the script where the pester test setup is located
+      scriptPath: $(Build.SourcesDirectory)\Invoke-Pester.ps1
+      scriptArguments: -OutputFormat 'NUnitXml' -OutputFile 'TestResults.Pester.xml' -PassThru'
+      azurePowerShellVersion: "latestVersion"
+      errorActionPreference: "continue"
+
+  - task: PublishTestResults@2
+    inputs:
+      # Make sure to use the 'NUnit' test runner
+      testRunner: "NUnit" # !!!
+      testResultsFiles: "**/TestResults.Pester.xml"
+      testRunTitle: "PS_Win2016_Unit"
+      # Make the whole pipeline fail if a test is failed
+      failTaskOnFailedTests: true
+    displayName: "Publish Unit Test Results"
+    condition: in(variables['Agent.JobStatus'], 'Succeeded', 'SucceededWithIssues', 'Failed')

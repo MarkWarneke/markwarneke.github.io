@@ -26,7 +26,7 @@ else {
     $adls = Get-AzStorageAccount -Name $resource.Name -ResourceGroupName $resource.ResourceGroupName
 }
 
-Describe "$Name Data Lake Storage Account Generation 2" {
+Describe "Azure Data Lake Generation 2 Resource Manager Resource Acceptance" -Tags Acceptance {
 
     <# Mandatory requirement of ADLS Gen 2 are:
      - Resource Type is Microsoft.Storage/storageAccounts, as we know we are looking for this it is obsolete to check

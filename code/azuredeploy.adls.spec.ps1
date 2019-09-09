@@ -14,7 +14,7 @@ $json = ConvertFrom-Json $text -ErrorAction Stop
 # Might need to be adjusted based on the actual resource manager template
 $resource = $json.resources | Where-Object -Property "type" -eq "Microsoft.Storage/storageAccounts"
 
-Describe "Azure Data Lake Generation 2 Resource Manager Template" {
+Describe "Azure Data Lake Generation 2 Resource Manager Template Unit" -Tags Unit {
 
     # Mandatory requirement of ADLS Gen 2 are:
     # - Resource Type is Microsoft.Storage/storageAccounts

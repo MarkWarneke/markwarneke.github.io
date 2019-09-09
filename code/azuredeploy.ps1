@@ -27,7 +27,6 @@ param (
     # Azure Location of ResourceGroup
     [Parameter(Mandatory)]
     [Alas("Name")]
-    [string] 
     [string] $Location
 )
 $TemplateFile = "$PSScriptRoot\azuredeploy.json"
@@ -38,6 +37,11 @@ New-ParameterFile | Out-File $TemplateParameterFile
 $TemplateParameterObject = @{
     resourceName = ("mark{0}" -f (Get-Date -format FileDateTime))
 }
-
-New-AzResourceGroup -ResourceGroupName $ResourceGroupName -Location $Location
-New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -TemplateParameterObject $TemplateParameterObject -Verbose
+if ($PSCmdlet.ShouldProcess("ResourceGroupName $ResourceGroupName deployment of", "TemplateFile $TemplateFile ")) {
+	New-AzResourceGroup -ResourceGroupName $ResourceGroupName -Location $Location
+	New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -TemplateParameterObject $TemplateParameterObject -Verbose
+} else {
+	New-AzResourceGroup -ResourceGroupName $ResourceGroupName -Location $Location -WhatIf
+	New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -TemplateParameterObject $TemplateParameterObject -Verbose -WhatIf
+	Test-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParameterFile -TemplateParameterObject $TemplateParameterObject -Verbose
+}
