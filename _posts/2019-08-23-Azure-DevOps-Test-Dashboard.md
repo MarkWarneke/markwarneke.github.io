@@ -3,7 +3,7 @@ layout: post
 title: DRAFT Azure DevOps Pester Tests and how to publish a Test Dashboard
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
+  - "/img/hpjSkU2UYSU.jpeg": "https://unsplash.com/photos/hpjSkU2UYSU"
 image: "/img/hpjSkU2UYSU.jpeg"
 share-img: "/img/hpjSkU2UYSU.jpeg"
 tags: [AzureDevOps]
@@ -11,25 +11,51 @@ comments: true
 time: 2
 ---
 
-Ever wondered how to publish test results in Azure DevOps?
-Using the pipelines in Azure DevOps we can create a Test Dashboard to display our results.
+When [shifting-left](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable) it is important to visualize and share the impact of changes directly to team members.
+So have you ever wondered how you could publish your test results?
+Using a specific pipeline task in Azure DevOps we can create a Test Dashboard to display and share our results. We can even create bug tickets directly from our overview!
 
 ## Dashboard
+
+The Dashboard in Azure DevOps can look something like this:
 
 ![Test Results](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/test-results.png){: .center-block :}
 
 If you want to see the full implementation visit [az.new](https://dev.azure.com/az-new/xAz.New/_build/results?buildId=71&view=ms.vss-test-web.build-test-results-tab)!
 
+In the top we can see a summary of all tests cases, the amount of passed, failed and other test cases. Also we can see the runtime and pass percentage. This also accounts to past test runs, so we can see if we are passing or failing more tests per run.
+
+In order to create this dashboard we are going to write a small PowerShell script that will publish our tests results first locally as a XML file and use Azure DevOps task to publish these results in order to create the dashboard accessible within Azure DevOps.
+
+If you follow along on my article series [Test Infrastructure  as Code](https://markwarneke.me/2019-08-14-test-infrastructure-as-code/) we are going to publish each step of the pyramid to immediately see at which stage the tests failed.
+
 ## PowerShell Pester Task
 
+First we need to test our solution, for that we can use either the implemented Azure DevOps Task [Pester Test Runner Build Task](https://marketplace.visualstudio.com/items?itemName=richardfennellBM.BM-VSTS-PesterRunner-Task) by Black Marble, or come up with our own implementation. 
+
+As I like to have the possibility to execute my pipeline locally, have the full flexibility and control of my pipeline I will opt for the implementation using PowerShell.
+We are going to use `Invoke-Pester` and pass different parameters to publish a new test result file for each stage of tests.
+
 Make sure `Invoke-Pester` get the correct `OutputFormat = NUnitXml` passed.
-Also the location of the OutputFile should be considered.
-You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` or `$(Build.SourcesDirectory)` of Azure DevOps to save the test file into the root of the agent.
+NUnitXml is the format of the test result output file, this needs to be set to be able to publish the test result using the Azure DevOps `PublishTestResults` task.
+Also the location of the OutputFile should be considered. In many cases you can opt for well known Azure DevOps locations which are stored in predefined variables.
+You can use the [predefined variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) of Azure DevOps `$ENV:System_DefaultWorkingDirectory` or `$(Build.SourcesDirectory)` of Azure DevOps to save the test file into the root folder of the agent.
+
+The full PowerShell task implementation can look like this:
 
 ```powershell
 # Invoke-Pester.ps1
+
+param(
+  $TestResultsPath = $PSScriptRoot # or choose $ENV:System_DefaultWorkingDirectory
+)
+
+# Execute all tests that are located in the folder 'Test' relative to the stored file.
+# You can put this script in your root folder of the source files and adjust the ChildPath accordingly.
 $testScriptsPath = Join-Path -Path $PSScriptRoot -ChildPath 'Test'
-$testResultsFile = Join-Path -Path $PSScriptRoot -ChildPath 'TestResults.Pester.xml'
+# Create the test results file relative to the script file with the name 'TestResults.Pester.xml'
+# The Path can be adjusted and set e.g. to a predefined variable
+$testResultsFile = Join-Path -Path $TestResultsPath -ChildPath 'TestResults.Pester.xml'
 
 if (Test-Path $testScriptsPath) {
     $pester = @{
@@ -37,21 +63,27 @@ if (Test-Path $testScriptsPath) {
         # Make sure NUnitXML is the output format
         OutputFormat = 'NUnitXml'         # !!!
         OutputFile   = $testResultsFile
-        PassThru     = $true
+        PassThru     = $true # PassThru will allow us to get the output the invoke-pester as an object
         ExcludeTag   = 'Incomplete'
     }
-    $null = Invoke-Pester @pester
+    $result = Invoke-Pester @pester
 }
 ```
 
 ## Pipeline
 
+When executing the pipeline the view could look like this.
+
 ![Azure DevOps Logs](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/azuredevops-logs.jpg){: .center-block :}
 
-PowerShell `errorActionPreference: "continue"`
+The pipeline will execute a PowerShell task - called **AzurePowerShell** and run three times the Publish Test Result functionality.
+Once for Module Tests, once for Unit Tests and once for Integration tests.
+Only if these tasks are successful the pipeline is going to copy the files and publish the build artefact.
 
-testRunner: 'NUnit'
-PublishTestResults: `failTaskOnFailedTests`
+Make sure to set the PowerShell `errorActionPreference: "continue"` in order to continue on any error.
+The `testRunner: 'NUnit'` needs to be set to NUnit and we want to fail the pipeline if we find a failed tests in our test results, so the publish task needs to be set to `PublishTestResults: 'failTaskOnFailedTests'`.
+
+The complete YAML for the pipeline can look like this:
 
 ```yaml
 trigger:
