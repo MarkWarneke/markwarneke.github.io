@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DRAFT Azure DevOps Pester Tests and how to publish a Test Dashboard
+title: Publish Azure DevOps Pester Tests using a build in Test-Dashboard
 subtitle:
 bigimg:
   - "/img/hpjSkU2UYSU.jpeg": "https://unsplash.com/photos/hpjSkU2UYSU"
