@@ -31,7 +31,7 @@ If you follow along on my article series [Test Infrastructure  as Code](https://
 
 ## PowerShell Pester Task
 
-First we need to test our solution, for that we can use either the implemented Azure DevOps Task [Pester Test Runner Build Task](https://marketplace.visualstudio.com/items?itemName=richardfennellBM.BM-VSTS-PesterRunner-Task) by Black Marble, or come up with our own implementation. 
+First we need to run our pester tests, for that we can either use the Azure DevOps [Pester Test Runner Build Task](https://marketplace.visualstudio.com/items?itemName=richardfennellBM.BM-VSTS-PesterRunner-Task) by Black Marble, or we can come up with our own implementation.
 
 As I like to have the possibility to execute my pipeline locally, have the full flexibility and control of my pipeline I will opt for the implementation using PowerShell.
 We are going to use `Invoke-Pester` and pass different parameters to publish a new test result file for each stage of tests.
