@@ -25,7 +25,7 @@ If you want to see the full implementation visit [az.new](https://dev.azure.com/
 
 In the top we can see a summary of all tests cases, the amount of passed, failed and other test cases. Also we can see the runtime and pass percentage. This also accounts to past test runs, so we can see if we are passing or failing more tests per run.
 
-In order to create this dashboard we are going to write a small PowerShell script that will publish our tests results first locally as a XML file and use Azure DevOps task to publish these results in order to create the dashboard accessible within Azure DevOps.
+In order to create this dashboard we are going to write a small PowerShell script that will publish our tests results first locally as a XML file and use Azure DevOps task to pickup the XML and publish the results, that will create the dashboard accessible within Azure DevOps.
 
 If you follow along on my article series [Test Infrastructure  as Code](https://markwarneke.me/2019-08-14-test-infrastructure-as-code/) we are going to publish each step of the pyramid to immediately see at which stage the tests failed.
 
