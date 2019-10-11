@@ -33,7 +33,7 @@ If you follow along on my article series [Test Infrastructure  as Code](https://
 
 First we need to run our pester tests, for that we can either use the Azure DevOps [Pester Test Runner Build Task](https://marketplace.visualstudio.com/items?itemName=richardfennellBM.BM-VSTS-PesterRunner-Task) by Black Marble, or we can come up with our own implementation.
 
-As I like to have the possibility to execute my pipeline locally, have the full flexibility and control of my pipeline I will opt for the implementation using PowerShell.
+As I like to have the possibility to execute my pipeline locally and have the full flexibility and control of my pipeline I will opt for the implementation using PowerShell.
 We are going to use `Invoke-Pester` and pass different parameters to publish a new test result file for each stage of tests.
 
 Make sure `Invoke-Pester` get the correct `OutputFormat = NUnitXml` passed.
@@ -77,7 +77,7 @@ When executing the pipeline the view could look like this.
 ![Azure DevOps Logs](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/azuredevops-logs.jpg){: .center-block :}
 
 The pipeline will execute a PowerShell task - called **AzurePowerShell** and run three times the Publish Test Result functionality.
-Once for Module Tests, once for Unit Tests and once for Integration tests.
+Once for the Module specific Tests, once for the Unit Tests and once for the Integration tests.
 Only if these tasks are successful the pipeline is going to copy the files and publish the build artefact.
 
 Make sure to set the PowerShell `errorActionPreference: "continue"` in order to continue on any error.
