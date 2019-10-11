@@ -50,7 +50,7 @@ param(
   $TestResultsPath = $PSScriptRoot # or choose $ENV:System_DefaultWorkingDirectory
 )
 
-# Execute all tests that are located in the folder 'Test' relative to the stored file.
+# Execute all tests that are located in the folder 'Test' relative to the script file.
 # You can put this script in your root folder of the source files and adjust the ChildPath accordingly.
 $testScriptsPath = Join-Path -Path $PSScriptRoot -ChildPath 'Test'
 # Create the test results file relative to the script file with the name 'TestResults.Pester.xml'
@@ -58,7 +58,7 @@ $testScriptsPath = Join-Path -Path $PSScriptRoot -ChildPath 'Test'
 $testResultsFile = Join-Path -Path $TestResultsPath -ChildPath 'TestResults.Pester.xml'
 
 if (Test-Path $testScriptsPath) {
-    $pester = @{
+    $pester = @{pr
         Script       = $testScriptsPath
         # Make sure NUnitXML is the output format
         OutputFormat = 'NUnitXml'         # !!!
@@ -77,7 +77,7 @@ When executing the pipeline the view could look like this.
 ![Azure DevOps Logs](/img/posts/2000-01-01-Azure-DevOps-Test-Dashboard/azuredevops-logs.jpg){: .center-block :}
 
 The pipeline will execute a PowerShell task - called **AzurePowerShell** and run three times the Publish Test Result functionality.
-Once for the Module specific Tests, once for the Unit Tests and once for the Integration tests.
+Once for the Module specific tests, once for the Unit tests and once for the Integration tests.
 Only if these tasks are successful the pipeline is going to copy the files and publish the build artefact.
 
 Make sure to set the PowerShell `errorActionPreference: "continue"` in order to continue on any error.
