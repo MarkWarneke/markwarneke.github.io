@@ -118,6 +118,8 @@ jobs:
         inputs:
           # Make sure to use the 'NUnit' test runner
           testRunner: "NUnit" # !!!
+          # Make sure the file name matches the file name you specified in the Invoke-Pester.ps1 script.
+          # A possibility is to add this as a parameter to the script
           testResultsFiles: "**/TestResults.Pester.xml"
           testRunTitle: "PS_Win2016_Unit"
           # Make the whole pipeline fail if a test is failed
@@ -137,11 +139,14 @@ jobs:
 
 You might want to run multiple pester tests that execute different kind of tests.
 For that I would recommend extending the yaml to have a pester test and a publish test result task per kind.
-This will allow you to not only get the results faster into the UI of Azure DevOps but you can also get a drill down of tests per kind, similar to the screenshot.
+Or extend the `Invoke-Pester.ps1` script to add multiple steps. Another way would be to create the script flexible by allowing more input parameters e.g. what files to test, tags to include or exclude and  how to name the output file, etc.
 
-Also a good practice is to enable exclusion, the script to execute the pester tests should therefore have a parameter that allows you to exclude certain scripts or even whole tags.
+Invoking the dynamic script with different parameters will allow DevOps to display the results faster in the UI, you can also parallelize the execution of different test stages.
+Publishing different results with different names gives you the option to drill down into groups of tests per kind, see the bottom of Test-Dashboard screenshot.
 
-Again, if you want to see this, visit [az.new](https://dev.azure.com/az-new/xAz.New/_build/results?buildId=71&view=ms.vss-test-web.build-test-results-tab) if you want to see the full implementation.
+A good practice is also to enable exclusions, the script to execute the pester tests should therefore have a parameter that allows you to exclude certain scripts or even whole tags.
+
+If you want to see the full implementation, visit [az.new](https://dev.azure.com/az-new/xAz.New/_build/results?buildId=71&view=ms.vss-test-web.build-test-results-tab).
 
 ## Remarks
 
