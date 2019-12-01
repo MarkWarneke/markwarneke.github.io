@@ -17,21 +17,14 @@ Furthermore we are looking into testing and validating your PowerShell Classes i
 
 ## Learn Classes
 
-If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEu [Video: Learn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg)
-
-<div class="video-container">
-    <iframe  src="https://www.youtube.com/embed/hSk-ocD6VP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEU 2019 [Video: Learn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg) go to [Video](#Video)
 
 ## Parameter File Generator
 
 I was looking for a way to create Azure Resource Manager template parameter files.
-A parameter file typically contains sets of parameters that are consumed together with the Azure Resource Manager Template by the Azure Resource Manager.
+A parameter file contains sets of parameters that are used together with the Azure Resource Manager Template. However, a TemplateFile can specify parameters with a `defaultValue`, which is used for the deployment.
 
-The [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.5.0) only needs two inputs, `-ResourceGroupName` and `-TemplateFile`.
-A TemplateFile can specify parameters with a `defaultValue`, which is used for the deployment.
-
-To overwrite default values you typically see the `-TemplateParameterFile` specified too.
+The [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.5.0) can be executed with two parameters, e.g. `-ResourceGroupName` and `-TemplateFile`. Additionally you can overwrite default values by passing `-TemplateParameterFile` and a parameter file.
 
 ```powershell
 $Deployment = @{
@@ -42,7 +35,7 @@ $Deployment = @{
 New-AzResourceGroupDeployment @Deployment
 ```
 
-You can also add dynamic parameters to the deployment by using `-TemplateParameterObject`.
+Also you cann add dynamic parameters to the deployment by using `-TemplateParameterObject`.
 This object will set the parameters dynamically at deployment time.
 Object passed to the function will override parameters set in `-TemplateParameterFile` and `defaultValue`s.
 
@@ -58,34 +51,34 @@ $Deployment = @{
     ResourceGroupName = "MyResourceGroup"
     TemplateFile = (Join-Path $PSScriptRoot "azuredeploy.json").FullName
     TemplateParameterFile = (Join-Path $PSScriptRoot "azuredeploy.parameters.json").FullName
-    TemplateParameterObject = $Object # Will override dublicates in TemplateParamterFile
+    # Will override duplicates in TemplateParamterFile
+    TemplateParameterObject = $Object
 }
 New-AzResourceGroupDeployment @Deployment
 ```
 
 ## Implementation Considerations
 
-With all that being said, not all parameters specified in an ARM template are really necessary.
-For these requirements I figured I needed some kind of flexibility and extensibility and opted for a class first code approach.
+With all that being said, we can consider not all parameters specified in an ARM template are needed for parameter file generation.
+To implement these requirements the code needed some flexibility and extensibility, so I opted for a class first code approach.
 
-I created a Plain PowerShell Object based on the schema of the [Azure Resource Manager Parameter template file](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-parameter-files). (I did not implement the reference feature yet).
+I created a Plain PowerShell Object based on the schema of the [Azure Resource Manager Parameter template file](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-parameter-files). (The reference feature is not implemented to reduce complexity).
 
-The `ParamterObject` class therefor has the properties `schema`, `contenVersion` and `parameters`.
-As the file expects to have the parameters name as a key I opted for a hashtable for each parameter.
-The hashtables key is the parameter name, this converts nicely into the expected json when using `ConverTo-Json`.
+The `ParamterObject` class therefor implements the properties `schema`, `contenVersion` and `parameters`.
+As the file expects to have the parameters name as a key a PowerShell hashtable for each parameter is used.
+The hashtables key is the parameter name, this implementation converts nicely into the expected json when using `ConverTo-Json`.
 
-A parameter file could contain all, none, a subset or only the _mandatory_ parameters specified in the ARM template.
-My idea is, having multiple different options for ParameterFiles the ParameterObject could be used as the base class and concrete implementations could inherit it's properties.
+A parameter file could contain all, none, a subset or only the _mandatory_ parameters specified in a given ARM template.
+Having multiple different options for ParameterFiles the ParameterObject could be used as the abstract base class and concrete implementations could inherit the properties.
 
-The `ParameterFileGenerator` is created based on a given template.
-It exposes the builder method `GenerateParameterFile` that creates a parameter file json string based on the specification passed.
-In this implementation you can specify to create a file with _mandatory_ parameters only or all parameters.
+The `ParameterFileGenerator` takes a given template and exposes the builder method `GenerateParameterFile`. The method will create a parameter file string as json based on the template passed.
+In this implementation you can specify to create a file with _mandatory_ parameters only or all parameters by specifying a flag.
 
-Mandatory parameters are defined as parameters that don't implement the `defaultValues` property.
+Mandatory parameters are defined as parameters that do not implement the `defaultValues` property in the given ARM template.
 
 ## Implementation
 
-Get the [New-ParameterFile.ps1](/code/New-ParameterFile.ps1)
+Get the file here: [New-ParameterFile.ps1](/code/New-ParameterFile.ps1)
 
 ```powershell
 # New-ParameterFile.ps1
@@ -124,7 +117,7 @@ class ParameterFileGenerator {
     $Parameter
     $MandatoryParameter
 
-    # Accepts the tempalte
+    # Accepts the template
     ParameterFileGenerator ($Path) {
         $this.Template = $this._loadTemplate($Path)
         $this.Parameter = $this._getParameter($this.Template)
@@ -189,10 +182,10 @@ class ParameterFileGenerator {
 function New-ParameterFile {
     <#
     .SYNOPSIS
-    Creats a parameter file json based on a given ARM tempalte
+    Creates a parameter file json based on a given ARM template
 
     .DESCRIPTION
-    Creats a parameter file json based on a given ARM tempalte
+    Creates a parameter file json based on a given ARM template
 
     .PARAMETER Path
     Path to the ARM template, by default searches the script path for a "azuredeploy.json" file
@@ -207,7 +200,7 @@ function New-ParameterFile {
         [switch] $OnlyMandatoryParameter
     )
     process {
-        # Instanciate the ParameterFileGenerator and uses the public function to create a file
+        # Instantiate the ParameterFileGenerator and uses the public function to create a file
         # The object is converted to Json as this is expected
         [ParameterFileGenerator]::new($Path).GenerateParameterFile($OnlyMandatoryParameter) | ConvertTo-Json
 
@@ -223,7 +216,6 @@ The usage is pretty straight forward.
 
 ```powershell
 # Functionality needs to dot source
-# Sould be placed into a module
 . .\New-ParameterFile.ps1
 
 New-ParameterFile
@@ -283,9 +275,9 @@ Using `New-Fixture` command from the `Pester` module the whole script will be do
 After the classes are available in memory we can instantiate the class and execute its functionality.
 As classes expect to implement the return, when not void, we can assert the functionality is executed as expected by asserting the returned value. Also, we can check the inner state by asserting the properties of the object.
 
-![Pester Output](../img/posts/2000-01-01-Test-PowerShell-Classes/pester-output.jpeg){: .center-block :}
+![Pester Output](../img/posts/2019-08-26-Generate-Azure-Resource-Manager-Template-File/pester-output.jpeg){: .center-block :}
 
-The end user facing function should be tested thoroughly as this exposes our functionality to the user.
+The end user facing function should be tested thoroughly.
 
 Get the [New-ParameterFile.Tests.ps1](/code/New-ParameterFile.Tests.ps1)
 
@@ -415,6 +407,12 @@ Describe ".\New-ParameterFile" {
 ```
 
 In order to validate the code I used the example ADLS Gen2 [azuredeploy.json](/code/azuredeploy.json).
+
+## Video
+
+<div class="video-container">
+    <iframe  src="https://www.youtube.com/embed/hSk-ocD6VP4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Remarks
 
