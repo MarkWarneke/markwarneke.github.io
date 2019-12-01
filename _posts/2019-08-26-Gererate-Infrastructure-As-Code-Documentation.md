@@ -203,7 +203,7 @@ _For demo purposes I changed the levle for the heading_
 ## Parameters
 
 You can use a ParameterFile generator that will generate a valid Parameter File base on a given ARm template for you.
-In [Generate Azure Resource Manager Templates Parameter files using PowerShell](/2000-01-01-Generate-Azure-Resource-Manager-Template-File) you can find an implementation guide.
+In [Generate Azure Resource Manager Templates Parameter files using PowerShell](/2019-08-26-Generate-Azure-Resource-Manager-Template-File) you can find an implementation guide.
 
 A quick way to let your users create a parameter file is by given an example.
 To generate a simple parameter structure for documentation purposes this one-liner comes in handy:
