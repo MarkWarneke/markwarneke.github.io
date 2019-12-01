@@ -17,7 +17,7 @@ Furthermore we are looking into testing and validating your PowerShell Classes i
 
 ## Learn Classes
 
-If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEU 2019 [Video: Learn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg) go to [Video](#Video)
+If you are not yet familiar with the concepts of PowerShell Classes I can highly recommend the PSConfEU 2019 [Video: Learn Classes with Class {}](https://www.youtube.com/watch?v=hSk-ocD6VP4&t=1s) from [@Stephanevg](https://twitter.com/Stephanevg) go to [Video](#video)
 
 ## Parameter File Generator
 
