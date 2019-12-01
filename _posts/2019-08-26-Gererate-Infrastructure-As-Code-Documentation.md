@@ -1,9 +1,9 @@
 ---
 layout: post
-title: DRAFT Generate Infrastructure as Code Azure Resource Manager documentation using PowerShell
+title: Generate Infrastructure as Code Azure Resource Manager documentation using PowerShell
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
+  - "/img/7jNATlZXhgk.jpeg": "https://unsplash.com/photos/7jNATlZXhgk"
 image: "/img/7jNATlZXhgk.jpeg"
 share-img: "/img/7jNATlZXhgk.jpeg"
 tags: [AzureDevOps]
@@ -12,7 +12,9 @@ time: 6
 ---
 
 Azure Resource Manager templates are complex JSON structures.
-Often people complain about difficultly to read and work with.
+The main complaint about these templates is the difficultly to read and work with.
+The language service shipped with VSCode supports comments and a better syntax highlighting.
+However, to get a quick idea of the templates content a readable documentation is needed.
 In this post we are going to have a look how we can address these issue.
 
 ## Document Infrastructure As Code
@@ -136,8 +138,8 @@ $StringBuilderOutput
 
 ```
 
-We can use the strings to out-put these to a file or concat them into a bigger string incorporating more information. For now this is a good baseline to extend on it.
-The output can be save to a file using `Out-File`.
+We can use the strings to output into a file or concat them into a bigger string incorporating more information. For now this is a good baseline to extend on it.
+The output can be saved to a file using `Out-File`.
 
 ```powershell
 ./New-Readme.ps1 | Out-File Documentation.md
@@ -169,8 +171,7 @@ The output can be save to a file using `Out-File`.
 
 ```
 
-To demonstrate the output I am pasting the generated documentation here.
-_For demo purposes I changed the levle for the heading_
+To demonstrate the output the generated documentation is displayed below.
 
 ### Example Output
 
