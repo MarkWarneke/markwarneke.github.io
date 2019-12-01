@@ -21,7 +21,35 @@ If you are not yet familiar with the concepts of PowerShell Classes I can highly
 
 ## Parameter File Generator
 
-I was looking for a way to create Azure Resource Manager template parameter files.
+I was looking for a way to create Azure Resource Manager template parameter files based on a given ARM template that can be used like this:
+
+```powershell
+New-ParameterFile
+<#
+{
+  "schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contenVersion": "1.0.0.0",
+  "parameters": {
+    "networkAcls": {
+      "value": "Prompt"
+    },
+    "storageAccountAccessTier": {
+      "value": "Prompt"
+    },
+    "storageAccountSku": {
+      "value": "Prompt"
+    },
+    "location": {
+      "value": "Prompt"
+    },
+    "resourceName": {
+      "value": "Prompt"
+    }
+  }
+}
+#>
+```
+
 A parameter file contains sets of parameters that are used together with the Azure Resource Manager Template. However, a TemplateFile can specify parameters with a `defaultValue`, which is used for the deployment.
 
 The [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.5.0) can be executed with two parameters, e.g. `-ResourceGroupName` and `-TemplateFile`. Additionally you can overwrite default values by passing `-TemplateParameterFile` and a parameter file.
