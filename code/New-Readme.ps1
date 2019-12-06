@@ -17,15 +17,15 @@ $json = ConvertFrom-Json $text -ErrorAction Stop
 # Create Strings
 $resourceHeader = "| Resource Type | Resource Name |  Resource Comment |"
 $resourceHeaderDivider = "| --- | --- | --- |"
-$resourceRow = "| {0}| {1} | {2} |"
+$resourceRow = "| {0} | {1} | {2} |"
 
 $parameterHeader = "| Parameter Name | Parameter Type |Parameter Description | Parameter DefaultValue |"
 $parameterHeaderDivider = "| --- | --- | --- | --- |"
-$parameterRow = "| {0}| {1} | {2} | {3} |"
+$parameterRow = "| {0} | {1} | {2} | {3} |"
 
 $outputHeader = "| Output Name | Output Value | Output Type |"
 $outputHeaderDivider = "| --- | --- | --- |"
-$outputRow = "| {0}| {1} | {2} |"
+$outputRow = "| {0} | {1} | {2} |"
 
 # Create a Parameter List Table
 $StringBuilderParameter = @()
