@@ -46,7 +46,7 @@ $StringBuilderOutput = @()
 $StringBuilderOutput += $outputHeader
 $StringBuilderOutput += $outputHeaderDivider
 
-$StringBuilderOutput += $json.parameters | get-member -MemberType NoteProperty | % { $outputRow -f $_.Name , $json.parameters.($_.Name).type , $json.parameters.($_.Name).metadata.description, $json.parameters.($_.Name).defaultValue  }
+$StringBuilderOutput += $json.outputs | get-member -MemberType NoteProperty | % { $outputRow -f $_.Name , $json.outputs.($_.Name).type , $json.outputs.($_.Name).metadata.description, $json.outputs.($_.Name).defaultValue  }
 
 # output
 
@@ -71,7 +71,7 @@ $StringBuilderResource
 <#
 | Resource Type | Resource Name |  Resource Comment |
 | --- | --- | --- |
- | Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
+| Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
 #>
 
 Write-Output ""# Empty Line
@@ -82,9 +82,9 @@ $StringBuilderOutput
 <#
 | Resource Name | Resource Type | Resource Comment |
 | --- | --- | --- |
- | location| string | Azure location for deployment | [resourceGroup().location] |
- | networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |  |
- | resourceName| string | Name of the Data Lake Storage Account |  |
- | storageAccountAccessTier| string | Optional. Storage Account Access Tier. | Hot |
- | storageAccountSku| string | Optional. Storage Account Sku Name. | Standard_ZRS |
+| location| string | Azure location for deployment | [resourceGroup().location] |
+| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |  |
+| resourceName| string | Name of the Data Lake Storage Account |  |
+| storageAccountAccessTier| string | Optional. Storage Account Access Tier. | Hot |
+| storageAccountSku| string | Optional. Storage Account Sku Name. | Standard_ZRS |
 #>
