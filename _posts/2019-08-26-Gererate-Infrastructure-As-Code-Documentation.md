@@ -103,7 +103,7 @@ $StringBuilderOutput = @()
 $StringBuilderOutput += $outputHeader
 $StringBuilderOutput += $outputHeaderDivider
 
-$StringBuilderOutput += $json.parameters | get-member -MemberType NoteProperty | % { $outputRow -f $_.Name , $json.parameters.($_.Name).type , $json.parameters.($_.Name).metadata.description, $json.parameters.($_.Name).defaultValue  }
+$StringBuilderOutput += $json.outputs | get-member -MemberType NoteProperty | % { $outputRow -f $_.Name , $json.parameters.($_.Name).type , $json.parameters.($_.Name).metadata.description, $json.parameters.($_.Name).defaultValue  }
 
 # output
 
