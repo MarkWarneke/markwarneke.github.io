@@ -127,13 +127,10 @@ $StringBuilderParameter
 
 $StringBuilderOutput
 <#
-| Output Name | Output Value | Output Type |
-| --- | --- | --- |
-| location| string | Azure location for deployment |
-| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |
-| resourceName| string | Name of the Data Lake Storage Account |
-| storageAccountAccessTier| string | Optional. Storage Account Access Tier. |
-| storageAccountSku| string | Optional. Storage Account Sku Name. |
+| Output Name   | Output Value | Output Type |
+| ------------- | ------------ | ----------- |
+| componentName | string       |             |
+| resourceID    | string       |             |
 #>
 
 ```
@@ -161,13 +158,10 @@ The output can be saved to a file using `Out-File`.
 
 ## Outputs
 
-| Output Name | Output Value | Output Type |
-| --- | --- | --- |
-| location| string | Azure location for deployment |
-| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |
-| resourceName| string | Name of the Data Lake Storage Account |
-| storageAccountAccessTier| string | Optional. Storage Account Access Tier. |
-| storageAccountSku| string | Optional. Storage Account Sku Name. |
+| Output Name   | Output Value | Output Type |
+| ------------- | ------------ | ----------- |
+| componentName | string       |             |
+| resourceID    | string       |             |
 
 ```
 
