@@ -34,15 +34,42 @@
             <a href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
             {%- endfor -%} {%- endfor %}
           </div>
-
-          {% else %}
         </li>
-
+        {% else %}
         <li>
           <a href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
-
-          {%- endif -%} {%- endfor -%}
-
+        </li>
+        {%- endif -%} {%- endfor -%}
+        <li>
+          <a
+            href="https://markwarneke.typeform.com/to/ul7UH3"
+            data-mode="drawer_right"
+            target="_blank"
+            >Contact
+          </a>
+          <script>
+            (function() {
+              var qs,
+                js,
+                q,
+                s,
+                d = document,
+                gi = d.getElementById,
+                ce = d.createElement,
+                gt = d.getElementsByTagName,
+                id = "typef_orm_share",
+                b = "https://embed.typeform.com/";
+              if (!gi.call(d, id)) {
+                js = ce.call(d, "script");
+                js.id = id;
+                js.src = b + "embed.js";
+                q = gt.call(d, "script")[0];
+                q.parentNode.insertBefore(js, q);
+              }
+            })();
+          </script>
+        </li>
+        <li>
           <a
             href="https://twitter.com/MarkWarneke"
             title="Twitter"
