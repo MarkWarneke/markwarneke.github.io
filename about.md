@@ -6,7 +6,7 @@ bigimg: /img/contact.jpg
 subtitle: Hi, I'm Mark Warneke and welcome to my page
 ---
 
-# Focus
+# Focus Areas
 
 - IT & Cloud Consulting
 - Web Engineering
@@ -18,6 +18,7 @@ subtitle: Hi, I'm Mark Warneke and welcome to my page
 - Consultant [@Microsoft](https://microsoft.com)
   - DevOps Engineer
   - Cloud Consulting and Engineering
+  - Cloud Native Architectures
   - Automation
 - Developer [@Eve](https://starteve.ai)
   - Web Engineer
@@ -27,10 +28,10 @@ subtitle: Hi, I'm Mark Warneke and welcome to my page
 
 ## History
 
-- IT Service Manager @Porsch
+- IT Service Manager @Porsche
 - Software Engineer @Ratiodata
 - Web Engineer @Vectron System
-- Management Assistent @ETe-Datentechnik
+- Management Assistant @ETe-Datentechnik
 
 ## Education
 
