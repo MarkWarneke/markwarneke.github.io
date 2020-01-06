@@ -18,9 +18,9 @@
         ><img src="{{ site.title-img }}"
       /></a>
       {%- else -%}
-      <a class="navbar-brand" href="{{ '' | absolute_url }}">{{
-        site.title
-      }}</a>
+      <a class="navbar-brand" href="{{ '' | absolute_url }}"
+        >{{ site.title }}</a
+      >
       {%- endif -%}
     </div>
 
@@ -34,23 +34,27 @@
             <a href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
             {%- endfor -%} {%- endfor %}
           </div>
+
+          {% else %}
         </li>
-        {% else %}
+
         <li>
           <a href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
+
+          {%- endif -%} {%- endfor -%}
+
+          <a
+            href="https://twitter.com/MarkWarneke"
+            title="Twitter"
+            class="navbar-social"
+          >
+            <span class="fa-stack fa-lg" aria-hidden="true">
+              <i class="fa  fa-stack-2x"></i>
+              <i class="fa fa-twitter fa-stack-1x navbar-social-icon"></i>
+            </span>
+            <span class="sr-only">Twitter</span>
+          </a>
         </li>
-        {%- endif -%} {%- endfor -%}
-        <a
-          href="https://twitter.com/MarkWarneke"
-          title="Twitter"
-          class="navbar-social"
-        >
-          <span class="fa-stack fa-lg" aria-hidden="true">
-            <i class="fa  fa-stack-2x"></i>
-            <i class="fa fa-twitter fa-stack-1x navbar-social-icon"></i>
-          </span>
-          <span class="sr-only">Twitter</span>
-        </a>
       </ul>
     </div>
 
