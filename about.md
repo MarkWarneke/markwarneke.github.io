@@ -28,17 +28,17 @@ subtitle: Hi, I'm Mark Warneke and welcome to my page
 
 ## Certification
 
-- [Acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges)
+[Acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges)
 
-[Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
-[Microsoft Certified: Azure Solutions Architect Expert](/img/cert/azure-solutions-architect-expert-600x600.png)
-[](/img/cert/azure-devops-engineer-expert-600x600.png)
-[Microsoft Certified: Azure Security Engineer Associate](/img/cert/azure-security-engineer-associate600x600.png)
-[Microsoft Certified: Azure Developer Associate](/img/cert/azure-developer-associate-600x600.png)
-[Microsoft Certified: Azure Administrator Associate](/img/cert/azure-administrator-associate.png)
-[Microsoft Certified: Azure Fundamentals](/img/cert/azure-fundamentals-600x600.png)
-[MCSA: Cloud Platform](/img/cert/MCSA-Cloud-Platform-2018.png)
-[MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
+![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
+![Microsoft Certified: Azure Solutions Architect Expert](/img/cert/azure-solutions-architect-expert-600x600.png)
+![Microsoft Certified: Azure DevOps Engineer Expert](/img/cert/azure-devops-engineer-expert-600x600.png)
+![Microsoft Certified: Azure Security Engineer Associate](/img/cert/azure-security-engineer-associate600x600.png)
+![Microsoft Certified: Azure Developer Associate](/img/cert/azure-developer-associate-600x600.png)
+![Microsoft Certified: Azure Administrator Associate](/img/cert/azure-administrator-associate.png)
+![Microsoft Certified: Azure Fundamentals](/img/cert/azure-fundamentals-600x600.png)
+![MCSA: Cloud Platform](/img/cert/MCSA-Cloud-Platform-2018.png)
+![MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
 
 ## History
 
