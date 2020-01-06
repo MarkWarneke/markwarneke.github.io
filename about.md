@@ -6,7 +6,7 @@ bigimg: /img/contact.jpeg
 subtitle: Hi, I'm Mark Warneke and welcome to my page
 ---
 
-# Focus Areas
+## Focus Areas
 
 - IT & Cloud Consulting
 - Web Engineering
