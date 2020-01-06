@@ -26,6 +26,12 @@ subtitle: Hi, I'm Mark Warneke and welcome to my page
   - Backend: dotnet core, signalR
 - Host [@PowerShell UserGroup Munich](https://github.com/GPSUG)
 
+## Certification
+
+- [Acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges)
+
+- ![Azure Administrator](/img/cert/azure-administrator-associate.png)
+
 ## History
 
 - IT Service Manager @Porsche
