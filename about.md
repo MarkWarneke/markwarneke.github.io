@@ -2,7 +2,7 @@
 layout: page
 title: About
 use-site-title: true
-bigimg: /img/contact.jpg
+bigimg: /img/contact.jpeg
 subtitle: Hi, I'm Mark Warneke and welcome to my page
 ---
 
