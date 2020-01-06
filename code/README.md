@@ -20,9 +20,8 @@ Get the [Code](https://github.com/MarkWarneke/markwarneke.github.io/tree/master/
   - [Test Infrastructure as Code](#test-infrastructure-as-code)
     - [Getting Started](#getting-started)
     - [Files](#files)
-  - [Code of Conduct](#code-of-conduct)
-  - [Contact](#contact)
-    - [Generate File Inventory](#generate-file-inventory)
+- [Code of Conduct](#code-of-conduct)
+- [Contact](#contact)
 
 ## Test Infrastructure as Code
 
@@ -68,13 +67,13 @@ New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile
 - [New-Readme.ps1](./New-Readme.ps1)
 - [README.md](./README.md)
 
-## Code of Conduct
+# Code of Conduct
 
 This is a personal repository by [markwarneke](https://github.com/markwarneke).
 Microsoft is **NOT** maintaining this repository.
 The project sticks to the [code of conduct](https://microsoft.github.io/codeofconduct/)
 
-## Contact
+# Contact
 
 - [twitter MarkWarneke](https://twitter.com/MarkWarneke)
 - [mail](mailto:mark.warneke@microsoft.com)
