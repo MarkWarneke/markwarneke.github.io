@@ -53,6 +53,7 @@ New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile
 
 - [adls.acceptance.spec.ps1](./adls.acceptance.spec.ps1)
 - [adls.acceptance.Tests.ps1](./adls.acceptance.Tests.ps1)
+- [azure-pipelines.yml](./azure-pipelines.yml)
 - [azuredeploy.adls.spec.ps1](./azuredeploy.adls.spec.ps1)
 - [azuredeploy.json](./azuredeploy.json)
 - [azuredeploy.ps1](./azuredeploy.ps1)
@@ -60,9 +61,11 @@ New-AzResourceGroupDeployment -TemplateFile $TemplateFile -TemplateParameterFile
 - [azuredeploy.Tests.ps1](./azuredeploy.Tests.ps1)
 - [Get-Acl.ps1](./Get-Acl.ps1)
 - [Get-Acl.Tests.ps1](./Get-Acl.Tests.ps1)
+- [Integration.Tests.ps1](./Integration.Tests.ps1)
 - [LICENSE](./LICENSE)
 - [New-ParameterFile.ps1](./New-ParameterFile.ps1)
 - [New-ParameterFile.Tests.ps1](./New-ParameterFile.Tests.ps1)
+- [New-Readme.ps1](./New-Readme.ps1)
 - [README.md](./README.md)
 
 ## Code of Conduct
@@ -76,7 +79,7 @@ The project sticks to the [code of conduct](https://microsoft.github.io/codeofco
 - [twitter MarkWarneke](https://twitter.com/MarkWarneke)
 - [mail](mailto:mark.warneke@microsoft.com)
 
-### Generate File Inventory
+# Generate File Inventory
 
 ```powershell
 Get-ChildItem -Recurse | % { Write-Host ("- [{0}](./{0})" -f $_.Name)  }
