@@ -35,6 +35,7 @@ subtitle: Hi, I'm Mark Warneke and welcome to my page
 ![Microsoft Certified: Azure Security Engineer Associate](/img/cert/azure-security-engineer-associate600x600.png)
 ![Microsoft Certified: Azure Developer Associate](/img/cert/azure-developer-associate-600x600.png)
 ![Microsoft Certified: Azure Administrator Associate](/img/cert/azure-administrator-associate.png)
+
 ![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
 ![MCSA: Cloud Platform](/img/cert/MCSA-Cloud-Platform-2018.png)
 ![MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
