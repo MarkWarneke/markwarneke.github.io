@@ -1,3 +1,10 @@
+---
+layout: page
+title: Files
+use-site-title: true
+---
+
+
 # Files
 
 - [DevOps Phoenix.pdf](./DevOps_Phoenix.pdf)
