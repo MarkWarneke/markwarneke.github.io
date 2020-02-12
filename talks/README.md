@@ -1,7 +1,11 @@
 ---
 layout: page
-title: Talks
+title: Talks & Conferences
 use-site-title: true
+bigimg:
+  - "/img/F2KRf_QfCqw.jpeg": "https://unsplash.com/photos/F2KRf_QfCqw"
+image: "/img/F2KRf_QfCqw.jpeg"
+share-img: "/img/F2KRf_QfCqw.jpeg"
 ---
 
 This is a collection of talks and presentation I did throughout the years.
