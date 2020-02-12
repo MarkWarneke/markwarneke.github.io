@@ -4,9 +4,6 @@ title: Files
 use-site-title: true
 ---
 
-
-# Files
-
 - [DevOps Phoenix.pdf](./DevOps_Phoenix.pdf)
 - [PowerShell_Advanced_Functions.pdf](./PowerShell_Advanced_Functions.pdf)
 - [PowerShell_Continuous_Delivery.pdf](./PowerShell_Continuous_Delivery.pdf)
