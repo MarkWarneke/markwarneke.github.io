@@ -13,6 +13,8 @@ subtitle: Hi, I'm Mark Warneke and welcome to my page
 - Software development & automation
 - Business Intelligence
 
+See [Talks & Conferences](/talks) for slides and links to further resources.
+
 ## Quote
 
 > "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination."
