@@ -36,17 +36,24 @@ _The Mythical Man-Month: Essays on Software Engineering_
 
 ## Certification
 
-![Microsoft Certified: Azure Solutions Architect Expert](/img/cert/azure-solutions-architect-expert-600x600.png)
-![Microsoft Certified: Azure DevOps Engineer Expert](/img/cert/azure-devops-engineer-expert-600x600.png)
+![Microsoft Certified: Power Platform Fundamentals](/img/cert/power-platform-fundamentals-600x600.png)
+![Microsoft Certified: Dynamics 365 Fundamentals](/img/cert/dynamics365-fundamentals-600x600.png)
+![Microsoft Certified: Microsoft 365 Fundamentals](/img/cert/microsoft365-fundamentals-600x600.png)
+![Microsoft Certified: Azure Fundamentals](/img/cert/azure-fundamentals-600x600.png)
+
+![Microsoft Certified: Azure AI Engineer Associate](/img/cert/azure-ai-engineer-600x600.png)
 ![Microsoft Certified: Azure Security Engineer Associate](/img/cert/azure-security-engineer-associate600x600.png)
 ![Microsoft Certified: Azure Developer Associate](/img/cert/azure-developer-associate-600x600.png)
 ![Microsoft Certified: Azure Administrator Associate](/img/cert/azure-administrator-associate.png)
 
-![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
+![Microsoft Certified: Azure Solutions Architect Expert](/img/cert/azure-solutions-architect-expert-600x600.png)
+![Microsoft Certified: Azure DevOps Engineer Expert](/img/cert/azure-devops-engineer-expert-600x600.png)
+
 ![MCSA: Cloud Platform](/img/cert/MCSA-Cloud-Platform-2018.png)
 ![MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
+![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
 
-[Acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges)
+[acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges)
 
 ## History
 
