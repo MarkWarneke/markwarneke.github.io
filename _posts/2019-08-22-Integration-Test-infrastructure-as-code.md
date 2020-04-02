@@ -25,7 +25,7 @@ That means: Use the developed ARM template for a deployment **at least** once! A
 
 Why are integration tests needed?
 
-> ".. when using a general purpose programming language, you are able to do unit testing. You are able to isolate some part of your code from the rest of the outside world and test just that code. (...). With (...) infrasturcute as code tool(s), you don't have that. Because the whole purpose of (...)  infrastructe as code is to talk to the outside world. Its meant to make an API call to (...) Azure (...). You can't really have a unit, because if you remove the outside world there is nothing left. So pretty much all of your tests (...) are inherently going to be integration test."
+> ".. when using a general purpose programming language, you are able to do unit testing. You are able to isolate some part of your code from the rest of the outside world and test just that code. (...). **With (...) infrasturcute as code tool(s), you don't have that. Because the whole purpose of (...)  infrastructe as code is to talk to the outside world.** Its meant to make an API call to (...) Azure (...). You can't really have a unit, because if you remove the outside world there is nothing left. **So pretty much all of your tests (...) are inherently going to be integration test.**"
 [Yevgeniy Brikman, Co-Founder of Gruntworks on "How to Build Reusable, Composable, Battle tested Terraform Modules" Youtube (28:16)](https://youtu.be/LVgP63BkhKQ?t=1696). 
 
 ## Implementation
