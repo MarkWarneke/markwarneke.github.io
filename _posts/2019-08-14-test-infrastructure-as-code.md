@@ -94,6 +94,8 @@ It should be done at least once within the test suite
 The same applies for any post configuration or DSC.
 You want to make sure the configuration got actually applied.
 
+[Read More](/2019-08-22-Integration-Test-infrastructure-as-code/)
+
 ### End-To-End Testing
 
 We also found that a dummy deployment **End-to-End Testing** (e2e) will help to find missing requirements, missing dependencies and deployment issues.
@@ -140,6 +142,8 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been create to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is inspired on the code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the Developer workflow on generating code, it is less error prone and implement code consistency.
 
+[Read More](/2019-08-26-Generate-Azure-Resource-Manager-Template-File/)
+
 ## Review & Pull-Requests
 
 A good practice is to have regular **peer reviews** and rely on **pull-requests** to apply changes to the code base.
@@ -172,6 +176,11 @@ This kind of test will result in costs if the resources are not cleaned up perio
 I would recommend **Preview-Artifacts**. these Artifacts can be leverage to use this kind of Release-Pipeline testing.
 These artifacts are not yet officially published and might have a Beta or Preview indicator.
 These Artifact should only be used for demo or testing purposes.
+
+
+The results of the test phase should be provided to the developer as quickly as possible to reduce the time to wait for feedback. CI/CD tools often allow you to create dashboards and summaries of the tests. Make use of this visible feedback to ensure the IaC is always possible to be deployed.
+
+[Read more](/2019-08-23-Azure-DevOps-Test-Dashboard/)
 
 ## Continuous Integration & Continuous Deployment
 

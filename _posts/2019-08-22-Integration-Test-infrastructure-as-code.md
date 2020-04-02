@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DRAFT Infrastructure As Code Integration Test
+title: Integration Tests for Infrastructure As Code
 subtitle:
 bigimg:
   - "/img/p-rN-n6Miag.jpeg": "https://unsplash.com/photos/p-rN-n6Miag"
@@ -8,10 +8,11 @@ image: "/img/p-rN-n6Miag.jpeg"
 share-img: "/img/p-rN-n6Miag.jpeg"
 tags: [PowerShell, AzureDevOps]
 comments: true
-time: 4
+time: 8
 ---
 
-we found that you can only safely say an Azure Resource Manager (ARM) template is valid and deployable if you have deployed it once.
+We found that you can only safely say an Azure Resource Manager (ARM) template is valid and deployable if you have deployed it once.
+
 The `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not getting validated. In this blog post we are exploring how to write effective integration tests.
 
 The general guidance for developing ARM templates is: Let the Azure Resource Manager Engine expand, validate and _deploy_ the template with all its necessary dependencies and parameters once. Check that it deploys without erros and run acceptance tests on the deployed resources.
@@ -19,8 +20,12 @@ The general guidance for developing ARM templates is: Let the Azure Resource Man
 That means: Use the ARM template for a deploy **at least** once!
 This might be refereed to a system or **Integration Test**. 
 
+## Introduction
+
+Why are integration tests needed?
+
 > ".. when using a general purpose programming language, you are able to do unit testing. You are able to isolate some part of your code from the rest of the outside world and test just that code. (...). With (...) infrasturcute as code tool(s), you don't have that. Because the whole purpose of (...)  infrastructe as code is to talk to the outside world. Its meant to make an API call to (...) Azure (...). You can't really have a unit, because if you remove the outside world there is nothing left. So pretty much all of your tests (...) are inherently going to be integration test."
-[Yevgeniy Brikman, Co-Founder of Gruntworks explains this test setup nicely, in "How to Build Reusable, Composable, Battle tested Terraform Modules":28:16](https://youtu.be/LVgP63BkhKQ?t=1696). 
+[Yevgeniy Brikman, Co-Founder of Gruntworks on "How to Build Reusable, Composable, Battle tested Terraform Modules" Youtube (28:16)](https://youtu.be/LVgP63BkhKQ?t=1696). 
 
 ## Implementation
 
@@ -40,91 +45,109 @@ The ResourceGroup will be delete after the tests is successful, to make sure no 
 Depending on the setup one could also switch the implementation around. 
 Sometimes you need to keep a deployment for post configuration, so you would destroy the infrastructure and the `BeforeAll` block first and then create a fresh deployment - while the `AfterAll` maybe just stops the VM from running.
 
-The cleanup part can simply by done by removing the whole ResourceGroup e.g. by invoking `Get-AzResourceGroup -Name $ResourceGroupName | Remove-AzResourceGroup -Force -AsJob`.
+The cleanup part can simply by done by removing the whole ResourceGroup by invoking `Get-AzResourceGroup -Name $ResourceGroupName | Remove-AzResourceGroup -Force -AsJob`.
 The `-AsJob` will start a PowerShell job in the background so the thread is not blocked and can execute the next tests right away.
 
-```powershell
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "", Justification = "Variables are used inside Pester blocks.")]
-param(
-    [string[]]$TestValueFiles
-)
 
-# Get test configuration from scripts location
-if ($PSBoundParameters.Keys -notcontains 'TestValueFiles') {
-    $TestValueFiles = (Get-Childitem -Path $PSScriptRoot -Include "config.*.json" -Recurse).FullName
+ ## Integration Test Structure
+ 
+The basic strucutre of the integration test looks something like this.
+In the `BeforeAll` the infrastructure is prepared by creating a uniqe ResourceGrou.
+
+```powershell
+# integration.Tests.ps1 
+Describe "Azure Data Lake Generation 2 Resource Manager Integration" -Tags Integration {
+    BeforeAll {
+        # Create test environment
+        Write-Host "Creating test environment $ResourceGroupName, cleanup..."
+        # Create a unique ResourceGroup 
+        # 'unique' string base on the date
+        # e.g. 20190824T1830434620Z
+        # file date time universal format ~ 20 characters
+        $ResourceGroupName = 'TT-' + (Get-Date -Format FileDateTimeUniversal)
+        Get-AzResourceGroup -Name $ResourceGroupName -ErrorAction SilentlyContinue | 
+                Remove-AzResourceGroup -Force
+        # Get a unique name for the resource too, 
+        # Some Azure Resources have a limitation of 24 characters
+        # consider 20 for the unique ResouceGroup.
+        $ResourceName = 'pre-' + $ResourceGroupName.ToLower()
+        # Setup the environment
+        $null = New-AzResourceGroup -Name $ResourceGroupName -Location 'WestEurope'
+    } 
+
+# ...
+```
+
+The test is beeing executed simply like a regular PowerShell Pester test. Including all options for assertion and testing.
+
+One could add a `try {} catch {}` block around the `New-AzResourceGroupDeployment` to assert that the deployment is succesful and not throwing errors.
+
+A static tempalte parameter file `$templateParameterFile` is used to provide default configuration. The default configuration could  contain the resource settings like the size of the vm or an exsisting network that is used for testing.
+
+The dynamically created unique name is passed as a dynamic parameter to the tempalte deployment.
+> Alternatively, you can use the template parameters that are dynamically added to the command when you specify a template. To use dynamic parameters, type them at the command prompt, or type a minus sign (-) to indicate a parameter and use the Tab key to cycle through available parameters. [Source](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-3.7.0)
+
+We can also leverage [Acceptance Tests](./2019-08-15-acceptance-test-infrastructure-as-code.md) to ensure our deployment has the correct properties provisioned.
+
+```powershell
+# integration.Tests.ps1  
+# ...
+
+$Deployment = @{
+    ResourceGroupName     = $ResourceGroupName  
+    TemplateFile          = $templateFile 
+    TemplateParameterFile = $templateParameterFile
 }
 
+# Deploy Resource
+# Run the deployment of the template
+New-AzResourceGroupDeployment @Deployment -name $ResourceName #Notice that we expect the ARM template to have a parameter called name that is dynamically passed here
 
-Foreach ($TestValueFile in $TestValueFiles) {
+# Run Acceptance Test
+. $PSScriptRoot/acceptance.spec.ps1 -ResourceName $ResourceName -ResourceGroupName $ResourceGroupName
 
-    $Env:TestValueFile = $TestValueFile
-    $TestValues = Get-Content $TestValueFile | ConvertFrom-Json
+# ... 
+```
 
-    Describe "New-Component function integration tests" -Tags Integration, Build {
+After the test is executed. The ResourceGroup gets simply removed leveraging the `AfterAll` ScriptBlock of Pester.
 
-        BeforeAll {
-            # Create test environment
+```powershell
+# integration.Tests.ps1  
+# ...
 
-            # We create a unique ResourceGroup by getting a `unique` string base on the date 20190824T1830434620Z, the file date time universal has 20 characters
-            $ResourceGroupName = 'TT-' + (Get-Date -Format FileDateTimeUniversal)
-            Write-Host "Creating test environment $ResourceGroupName, cleanup..."
-            Get-AzResourceGroup -Name $ResourceGroupName -ErrorAction SilentlyContinue | Remove-AzResourceGroup -Force
-
-            # Get a unique name for the resource too, some Azure Resources have a limitation of 24 characters, consider 20 for the unique string.
-            $ResourceName = 'pre-' + $ResourceGroupName.ToLower()
-            $null = New-AzResourceGroup -Name $ResourceGroupName -Location 'WestEurope'
-        }
-
-        AfterAll {
-            # Remove test environment after test
-            Write-Host "Removing test environment $ResourceGroupName..."
-            Get-AzResourceGroup -Name $ResourceGroupName | Remove-AzResourceGroup -Force -AsJob
-        }
-
-        $Exception = $null
-        try {
-            $InputObject = @{
-                ResourceName      = $ResourceName
-                ResourceGroupName = $ResourceGroupName
-                Location          = $TestValues.Location
-            }
-
-            $deployment = New-xAzCosmosDeployment @InputObject -Verbose
-
-            # Query for the resource after the deployment
-            # $resource = Get-AzResource -Name $ResourceName -ResourceGroupName $ResourceGroupName
-            # or run any Get-Az* Command
-        }
-        catch {
-            # See LogError function below
-            LogError($_, $ResourceGroup)
-        }
-
-        # if an exception is thrown consider digging into the error
-        It "should not throw" {
-            $Exception | should be $null
-        }
-
-        # Add assertions similar to the acceptance tests
-        it "should have... " {
-            $deployment.ResourceName | Should Be $ResourceName
-        }
-    }
+    AfterAll {
+        # Remove test environment after test
+        Write-Host "Removing test environment $ResourceGroupName..."
+        Get-AzResourceGroup -Name $ResourceGroupName | 
+                Remove-AzResourceGroup -Force -AsJob
+    }
+   
 }
 ```
 
 ## Considerations
 
-Deploying the solution will take time, but actually asserting on the deployed resource is very beneficial.
-This might be a controversial point and I would love to have a conversation on this topic, as some people think of this step as redundant and obsolete.
-However we found it worthwhile having as it ensures the template is actually deployable.
-The integration test and therefore complete deployment is only needed on a change to the ARM template itself.
+Deploying the solution will take time.
+The test can also be flaky sometimes, as they depend on the outside world that sometimes can not be controlled by us. 
+
+asserting on the deployed resource is very beneficial, as it **proves** the deployability of the template. It can also be used in nightly builds and automation. 
+
+The tests can be executed automatically, as they clean up after the test. So that we can make sure a template **stays valid** throughout the time. API changes, and changes in the deployment can be detected immediatly.
+
+This approach might be controversial, as some opinions think of this step as redundant and obsolete, because the template is only developed  to be deployed. However, there are certain benefits to having an integration test.
+
+- The test ensures the template is actually deployable. Running in automation the test can prove it every time, e.g. Nightly Builds.
+- The integration test and therefore complete deployment is only needed on a change to the ARM template itself. On changes the feedback is immediatly presented to the developer if the changes broke the template.
+- The template can be shared including the test and static configuration file. Much like a [Happy Path](https://en.wikipedia.org/wiki/Happy_path), the test documents how to use the template.
+- Building modules. A tempalte can be considered a building block, similar to a library function that has a [Single Responsibility](https://de.wikipedia.org/wiki/Single-Responsibility-Prinzip). It should be ensured that this functionallty works with a test.
 
 ### Getting the error message and deployment logs
 
-If the deployment fails you need to make sure the error message is printed.
-Sometimes the errors of the New-AzResourceGroupDeployment are not sufficient.
-Using the following script we can dig deeper into the issue by querying and getting the AzLogs.
+If the deployment fails the logs and error message should be persitet to troubleshoot the failing test. 
+
+Sometimes the errors returned from the `New-AzResourceGroupDeployment` are not sufficient to find the error.
+
+Using the following script the error can be investigated, by digging deeper into the issue using and querying the Azure Logs using `Get-AzLog`.
 
 ```powershell
 function LogError($Exception, $ResourceGroupName) {
@@ -155,22 +178,15 @@ function LogError($Exception, $ResourceGroupName) {
 
 ## Imperative Integration Testing
 
-If you have additional **imperative** scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
-You don't want to test the implementation of commands like `Get-AzResource`, but test wether your logic of execution and written custom code is doing what is expected.
-Assert if your mocks are called and validate your code flow.
+If you have additional **imperative** scripts like post configuration, custom script extension and DSC. I would emphasize to first unit tests these scripts and Mock any Az calls.
 
-However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the API is mandatory to assert that the code is correct.
-It should be done at least once within the test suite
+As the goal of the test is not to test the implementation of the provided commands like `Get-AzResource`, but to test wether the logic and flow of execution of the custom code is doing what is expected.
+
+Assert your mocks and validate if functionsa are called as expected. Only after the unit is tested write an integration test to validate against the outside world.
+
+As these scripts will communicate with the Azure REST API and might depend on resouces, as well as mandatory parameters an actual call to the API is sometimes need to assert that the code is correctly running.
+
+An integration test of imperative scripts should be done at least once within the infrastructure as code test suite.
+
 The same applies for any post configuration or DSC.
-You want to make sure the configuration got actually applied.
-
-## Remarks
-
-## Table of Content
-
-- [Implementation](#implementation)
-- [Considerations](#considerations)
-  - [Getting the error message and deployment logs](#getting-the-error-message-and-deployment-logs)
-- [Imperative Integration Testing](#imperative-integration-testing)
-- [Remarks](#remarks)
-- [Table of Content](#table-of-content)
+You want to make sure that also the configuration got actually applied. 
