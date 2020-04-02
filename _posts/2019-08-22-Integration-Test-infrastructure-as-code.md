@@ -12,13 +12,12 @@ time: 8
 ---
 
 We found that you can only safely say an Azure Resource Manager (ARM) template is valid and deployable if you have deployed it once.
-
-The `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not getting validated. In this blog post we are exploring how to write effective integration tests.
+In this blog post we are exploring how to write effective integration tests.
 
 The general guidance for developing ARM templates is: Let the Azure Resource Manager Engine expand, validate and _deploy_ the template with all its necessary dependencies and parameters once. Check that it deploys without erros and run acceptance tests on the deployed resources.
+As `Test-AzResourceManagerDeployment` is not leveraging the Azure Resource Manager Engine fully, complex templates are not getting validated using only this function.
 
-That means: Use the ARM template for a deploy **at least** once!
-This might be refereed to a system or **Integration Test**. 
+That means: Use the developed ARM template for a deployment **at least** once! And make sure it stays deployable...
 
 ## Introduction
 
