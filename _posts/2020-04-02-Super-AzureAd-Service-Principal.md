@@ -3,9 +3,9 @@ layout: post
 title: Super Service Principal
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
-share-img: "/img/draft.jpeg"
+  - "/img/2zUWGeg8DTw.jpeg": "https://unsplash.com/photos/2zUWGeg8DTw"
+image: "/img/2zUWGeg8DTw.jpeg"
+share-img: "/img/2zUWGeg8DTw.jpeg"
 tags: [Azure]
 comments: true
 time: 
