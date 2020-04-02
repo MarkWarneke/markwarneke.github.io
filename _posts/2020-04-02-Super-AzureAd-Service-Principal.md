@@ -21,9 +21,9 @@ What is a service principal object? A service principal object is used
 
 For more information see [application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
 
-## Create a super service principal
+## Create a Super Service Principal
 
-In order to get started we can [create an Azure service principal with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). It can either be a tenant level account (non rbac, no Azure subscription assigned) or a `create-for-rbac` service principal. The steps to create an application registration and create a service principal object can be found below:
+In order to get started we can [create an Azure service principal with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). It can either be a tenant level account (non RBAC, no Azure subscription assigned) or a `create-for-rbac` service principal. The steps to create an application registration and create a service principal object can be found below:
 
 
 > Notice, when creating the service principal a password will be generated! Make sure to store this password in a secure way. The password can not be retriev afterwards. The only option to use the service principal is to create a new secret.
