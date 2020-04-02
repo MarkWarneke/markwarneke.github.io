@@ -214,7 +214,7 @@ An integration test of imperative scripts should be done at least once within th
 The same applies for any post configuration or DSC.
 You want to make sure that also the configuration got actually applied.
 
-## Tips
+## Final thoughts and tips
 
 Make sure the tests are actually cleaning up.
 Having a naming convention ensures test resource can be easily identified.
