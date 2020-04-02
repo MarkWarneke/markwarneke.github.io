@@ -1,12 +1,12 @@
 ---
 layout: post
-title: DRAFT AzureDevOps managing multiple repositories using PowerShell
+title: AzureDevOps managing multiple repositories using PowerShell
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
-share-img: "/img/draft.jpeg"
-tags: [draft]
+  - "/img/contact.jpeg"
+image: "/img/contact.jpeg"
+share-img: "/img/contact.jpeg"
+tags: [AzureDevOps, PowerShell]
 comments: true
 time: 4
 ---
@@ -41,10 +41,12 @@ function Clone-Repositories {
 
     process {
         foreach ($repo in $RepositoryList) {
+
             $repoUrl = '{0}{1}' -f $url, $repo
             Write-Verbose $repoUrl
 
             $gitClone = 'git clone {0}' -f $repoUrl
+
             Write-Verbose $gitClone
             if (Get-ChildItem -Path $repo -ErrorAction SilentlyContinue) {
                 Write-Verbose 'Repository already exists'
