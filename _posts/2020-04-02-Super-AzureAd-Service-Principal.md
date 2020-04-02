@@ -11,11 +11,11 @@ comments: true
 time: 
 ---
 
-have you ever tried to automate the creation of an Azure application registration or service principal object? In this blog post we are going to explore how to automate the creation of AzureAD objects using a *Super Service Principal*. The serivce principal will be allowed you to create other service principals inside of Azure AD.
+have you ever tried to automate the creation of an Azure application registration or service principal object? In this blog post we are going to explore how to automate the creation of AzureAD objects using a *Super Service Principal*. The serivce principal will be allowed to create other service principals inside of Azure AD.
 
 # Introduction
 
-What is a service principal object? A Service principal object is used
+What is a service principal object? A service principal object is used
 
 > to access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This is true for both users (user principal) and applications (service principal). [docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
 
@@ -23,7 +23,7 @@ For more information see [application and service principal objects in Azure Act
 
 ## Create a super service principal
 
-In order to get started quickly we can [create an Azure service principal with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Or we can create a tenant level account (non rbac, no subscription assigned). The steps to create an application registration and create a service principal object can be found below:
+In order to get started we can [create an Azure service principal with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). It can either be a tenant level account (non rbac, no Azure subscription assigned) or a `create-for-rbac` service principal. The steps to create an application registration and create a service principal object can be found below:
 
 
 > Notice, when creating the service principal a password is generated, make sure to store this password securly as you are not going to be able to retriev it. The only option get to the secret will be to reset the password. Also (!), consider the output when running in automation, e.g. a pipline. Make sure to deal with the secret output accordingly.
@@ -31,13 +31,13 @@ In order to get started quickly we can [create an Azure service principal with t
 
 ```bash
 # Select a name
-$app_name=MarkWarneke
+appName=MySuperServicePrincipal
 
 # Create an app
-az ad app create --display-name $app_name
+az ad app create --display-name $appName --query appId -o tsv
 
 # Create a service principal using the returned app id
-az ad sp create --id $appId 
+az ad sp create --id $appId
 ```
 
 If you get the error message `"Insufficient privileges to complete the operation."`. Doublecheck AzureAD ([aad.portal.azure.com](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)) settings whether **App registrations** (Users can register applicaitons) is set to `Yes`. 
@@ -148,8 +148,8 @@ az login --service-principal -u $appId -p $passowrd --tenant $tenant
 az account show
 
 # Create a new application
-$app_name_2=AppCreatedBySuperServicePrincipal
-az ad app create --display-name $app_name_2
+appName2=AppCreatedBySuperServicePrincipal
+az ad app create --display-name $appName2
 ```
 
 You should get the detailes of the application returned. If you see `Insufficient privileges to complete the operation.` make sure that the role and permissieeons are set correctly and that the changes have been propagated in Azure AD. In large Azure AD tenants the propagation might take some time.
