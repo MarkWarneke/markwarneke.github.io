@@ -3,13 +3,16 @@ layout: post
 title: VSCode Loves PowerShell
 subtitle:
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
-share-img: "/img/draft.jpeg"
-tags: [draft]
+  - "/img/Agx5_TLsIf4.jpeg": "https://unsplash.com/photos/Agx5_TLsIf4"
+image: "/img/Agx5_TLsIf4.jpeg"
+share-img: "/img/Agx5_TLsIf4.jpeg"
+tags: [PowerShell]
 comments: true
 time: 5
 ---
+
+Sharing some VSCode settings and little helpers to interact with PowerShell and Azure Resource Manager templates.
+
 
 ## Settings
 
@@ -38,6 +41,8 @@ time: 5
   "powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1"
 }
 ```
+
+To enable script analyzer for target PowerShell versions add this file and link it using `"powershell.scriptAnalysis.settingsPath": "./PSScriptAnalyzerSettings.psd1"` in the `.vscode/settings.json`
 
 ```powershell
 # PSScriptAnalyzerSettings.psd1
@@ -145,6 +150,8 @@ CodeCoverage.xml
 ```
 
 ## Common Resource Helper
+
+The DSC community has a great `CommonResourceHelper` module that can be used to develop advanced IaC modules.
 
 ```powershell
 ## https://github.com/PowerShell/SqlServerDsc/blob/dev/DSCResources/CommonResourceHelper.psm1
