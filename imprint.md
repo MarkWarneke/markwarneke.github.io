@@ -62,6 +62,6 @@ Sie können die Erfassung durch Google Analytics verhindern, indem Sie auf folge
 
 ## Images by
 
-See all [img](https://markwarneke.me\img\README)
+See all [img](https://markwarneke.me\img\)
 
 if not stated otherwise images by [unsplash](https://unsplash.com)
