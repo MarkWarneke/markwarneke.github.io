@@ -11,7 +11,7 @@ comments: true
 time: 
 ---
 
-have you ever tried to automate the creation of an Azure application registration or service principal object? In this blog post we are going to explore how to automate the creation of AzureAD objects using a *Super Service Principal*. The serivce principal will be allowed to create other service principals inside of Azure AD.
+have you ever tried to automate the creation of an Azure application registration or service principal object? In this blog post we are going to explore how to automate the creation of AzureAD objects using a *Super Service Principal*. The serivce principal will be able to create other Azure AD service principals.
 
 # Introduction
 
