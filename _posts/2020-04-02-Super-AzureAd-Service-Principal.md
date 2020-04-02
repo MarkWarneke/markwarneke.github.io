@@ -8,10 +8,10 @@ image: "/img/2zUWGeg8DTw.jpeg"
 share-img: "/img/2zUWGeg8DTw.jpeg"
 tags: [Azure]
 comments: true
-time: 
+time: 10
 ---
 
-have you ever tried to automate the creation of an Azure application registration or service principal object? In this blog post we are going to explore how to automate the creation of Azure AD objects using a *Super Service Principal*. The service principal will be able to create other Azure AD service principals.
+Have you ever tried to automate the creation of an Azure application registration or service principal object? In this blog post we are going to explore how to automate the creation of Azure AD objects using a *Super Service Principal*. The service principal will be able to create other Azure AD service principals.
 
 ## Introduction
 

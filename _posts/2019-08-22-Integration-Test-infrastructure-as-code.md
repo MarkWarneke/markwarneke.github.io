@@ -6,29 +6,42 @@ bigimg:
   - "/img/p-rN-n6Miag.jpeg": "https://unsplash.com/photos/p-rN-n6Miag"
 image: "/img/p-rN-n6Miag.jpeg"
 share-img: "/img/p-rN-n6Miag.jpeg"
-tags: [draft]
+tags: [PowerShell, AzureDevOps]
 comments: true
 time: 4
 ---
 
-We found in our project that you can only safely say _an ARM template is valid and deployable if you deployed it once_.
-As `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not validated.
-The general guidance therefore is: Let the Azure Resource Manager Engine expand, validate and _execute_ the template with all its necessary dependencies and parameters. That means, use the ARM template for a deploy at least once.
-This might be refereed to a System or **Integration Test**.
+we found that you can only safely say an Azure Resource Manager (ARM) template is valid and deployable if you have deployed it once.
+The `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not getting validated. In this blog post we are exploring how to write effective integration tests.
+
+The general guidance for developing ARM templates is: Let the Azure Resource Manager Engine expand, validate and _deploy_ the template with all its necessary dependencies and parameters once. Check that it deploys without erros and run acceptance tests on the deployed resources.
+
+That means: Use the ARM template for a deploy **at least** once!
+This might be refereed to a system or **Integration Test**. 
+
+> ".. when using a general purpose programming language, you are able to do unit testing. You are able to isolate some part of your code from the rest of the outside world and test just that code. (...). With (...) infrasturcute as code tool(s), you don't have that. Because the whole purpose of (...)  infrastructe as code is to talk to the outside world. Its meant to make an API call to (...) Azure (...). You can't really have a unit, because if you remove the outside world there is nothing left. So pretty much all of your tests (...) are inherently going to be integration test."
+[Yevgeniy Brikman, Co-Founder of Gruntworks explains this test setup nicely, in "How to Build Reusable, Composable, Battle tested Terraform Modules":28:16](https://youtu.be/LVgP63BkhKQ?t=1696). 
 
 ## Implementation
 
-We want to create Pester tests that leverage the `BeforeAll` and `AfterAll` functionality.
-The idea is, that the integration tests creates a test environment for a set of assertions.
-Inside the BeforeAll block of Pester we are going to create a unique ResourceGroup that is used for a deployment.
-This ResourceGroup gets a unique name. `$ResourceGroupName = 'TT-' + (Get-Date -Format FileDateTimeUniversal)`
-The ResourceGroup will be delete after the tests is successful.
-Error messages and logs can be tracked and put to the logs.
+We want to create a tests that leverage execution logic thats lets us define a **before-test-block** to setup our infastructure and an **after-test-block** to tear it down after the test runt automatically.
 
-Depending on your setup you can switch the implementing around, sometimes you need to keep a deployment for post configuration.
-Therefore the cleanup should be in `BeforeAll`, rather then after the test.
-Cleanup will be done simply by invoking `Get-AzResourceGroup -Name $ResourceGroupName | Remove-AzResourceGroup -Force -AsJob`.
-The `-AsJob` will start a PowerShell job in the background so the thread is not blocked and can execute the next tests.
+A PowerShell Pester test gives you the ScriptBlock sections `BeforeAll` and `AfterAll`.
+The idea is, that the integration tests creates a test environment based on a given ARM template and runs a set of assertions on that provioned infrastructure.
+
+When the provisoning fails, we know immediatly our tempalte is broken or that the cloud provider is currently not availble. 
+
+Inside the `BeforeAll`block of Pester we are need to create a unique ResourceGroup that is only used for test deployments. One could also leverage specific `tags` on resources to identify automated test deployments.
+
+For the ResourceGroup we can generate a unique name with PowerShell, e.g. based on the current date: `$ResourceGroupName = 'TT-' + (Get-Date -Format FileDateTimeUniversal)`. Possibel alternatives are `New-Guid` or `Get-Random`.
+
+The ResourceGroup will be delete after the tests is successful, to make sure no Azure resource artefacts are left provisioned in Azure. Error messages and deployment logs can be retrieved from Azure and stored as error logs after the deployment to investigate failing tests and unsuccesful deployments.
+
+Depending on the setup one could also switch the implementation around. 
+Sometimes you need to keep a deployment for post configuration, so you would destroy the infrastructure and the `BeforeAll` block first and then create a fresh deployment - while the `AfterAll` maybe just stops the VM from running.
+
+The cleanup part can simply by done by removing the whole ResourceGroup e.g. by invoking `Get-AzResourceGroup -Name $ResourceGroupName | Remove-AzResourceGroup -Force -AsJob`.
+The `-AsJob` will start a PowerShell job in the background so the thread is not blocked and can execute the next tests right away.
 
 ```powershell
 [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "", Justification = "Variables are used inside Pester blocks.")]
