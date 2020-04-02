@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Super Service Principal
-subtitle:
+subtitle: Use a service principal to creat service principals
 bigimg:
   - "/img/2zUWGeg8DTw.jpeg": "https://unsplash.com/photos/2zUWGeg8DTw"
 image: "/img/2zUWGeg8DTw.jpeg"
@@ -97,6 +97,7 @@ The  permissions we are interested in granting are listed below. Review the foll
 | Application.ReadWrite.All     | Allows the calling app to create, and manage (read, update, update application secrets and delete) applications and service principals without a signed-in user. Does not allow management of consent grants or application assignments to users or groups.                                                                                                                      | Yes                    |
 | Application.ReadWrite.OwnedBy | Allows the calling app to create other applications and service principals, and fully manage those applications and service principals (read, update, update application secrets and delete), without a signed-in user. It cannot update any applications that it is not an owner of. Does not allow management of consent grants or application assignments to users or groups. | Yes                    |
 
+
 You can retrieve all permissions ids for the `Microsoft Graph` API by running a PowerShell command from the Azure AD module, thanks [Marco Scheel](https://marcoscheel.de/post/186138885112/app-permissions-f%C3%BCr-microsoft-graph-calls) see:
 
 ```powershell
@@ -104,10 +105,12 @@ You can retrieve all permissions ids for the `Microsoft Graph` API by running a 
 Install-Module AzureAD
 
 # Retrieve Microsoft Graph API permissions list
-(Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles | Select Id, Value | Sort-Object Value
+Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles |
+  Select Id, Value |
+  Sort-Object Value
 ```
 
-It returns a list of permissions Ids and Values. The whole list can be found as a download  [markwarneke.me/application_permissions.json](https://markwarneke.me/application_permissions.json). In particular we are interested in the [Application resource permissions](https://docs.microsoft.com/en-us/graph/permissions-reference#application-resource-permissions). The Id and Value look like this:
+It returns a list of permissions Ids and Values. The whole list can be found as a download [markwarneke.me/application_permissions.json](https://markwarneke.me/application_permissions.json). In particular we are interested in the [Application resource permissions](https://docs.microsoft.com/en-us/graph/permissions-reference#application-resource-permissions). The Id and Value look like this:
  
 ```json
 [
@@ -123,7 +126,7 @@ It returns a list of permissions Ids and Values. The whole list can be found as 
 ```
 
 Up to this point the service principal is only request to be granted permissions to these APIs.
-Some `API permissions` need admin consent, which means a high privileged Azure AD account needs to "approve" the requested permissions. 
+Some `API permissions` need admin consent, which means a high privileged Azure AD account needs to "approve" the requested permissions.
 
 As we want to make changes in the Azure AD an admin has to acknowledge and consent to this. The `OwnedBy` permission is more restrictive and limits the changes to *owned* applications only.
 
@@ -133,15 +136,15 @@ You can find a list of permissions and whether admin consent is needed in the [M
 
 A high privileged role is for instance the `Application Administrator` Azure AD role, see [administrator role permissions in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Make sure to have a user principal with at least this role to grant admin consent on the requested permission (Global Administrator would work too).
 
-> [The Application Adminsitrator] ... also grants the ability to consent to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph API. [docs](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+> [The Application Adminsitrator] ... also grants the ability to consent to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph API. [Source](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
 If your user principal happens to be at least the Azure AD `Application Administrator` role you can hit `Grant admin consent for <tenant>`. Otherwise request the consent from from your Administrator. Feel free to forward this blog post to your administrator to explain your intent; that is why I created this blog post in the first place.
 
 ## Using a Super Service Principal to create other Service Principals
 
-After the role  `Application developer` is assigned to the *Super Service Principal*, and the Application permissions for the API `Microsoft Graph` and `Azure Active Directory Graph` are granted we can try to use the super service principal to create other Azure AD objects.
+After the role  `Application developer` is assigned to the *Super Service Principal*, and the application permissions for the API `Microsoft Graph` and `Azure Active Directory Graph` are granted we can try to use the super service principal to create other Azure AD objects.
 
-To validate that the *Super Service Principle* is working, log-in using the previously created service principal and try to create a new Azure AD application. The `az login --service-principal` is used log-in this time instead of just `az login`. See [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+To validate that the *Super Service Principle* is working, log-in using the previously created service principal and try to create a new Azure AD application. The `az login --service-principal` is used to log-in this time instead of just `az login`. See [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ```bash
 # Login as the super service principal
@@ -206,7 +209,10 @@ Validate that the *Super Service Principal* API permission has been assignment c
 az ad app permission list --id $appId
 ```
 
-The output should look like this, the  `resourceAppId` is the associated [API](#api-permissions), e.g. `Microsfot Graph`. And the `id` is the [Application permission](#application-permissions), e.g. `Application.ReadWrite.OwnedBy`.
+The output should look like this.
+
+- The  `resourceAppId` is the associated [API](#api-permissions), e.g. `Microsfot Graph`. 
+- the `id` is the [Application permission](#application-permissions), e.g. `Application.ReadWrite.OwnedBy`.
 
 ```json
 [
@@ -239,7 +245,7 @@ The output should look like this, the  `resourceAppId` is the associated [API](#
 
 ### Test
 
-Login using the new service principal
+Login using the new service principal. Notice the `--allow-no-subscriptions` because we set up a tenant level account and not assign a subscription.
 
 ```bash
 # Login using the super service principal
@@ -251,7 +257,7 @@ az ad app create --display-name "testmark2"
 
 ## Considerations
 
-Make sure these steps are taken deliberately. Allowing a service account to modify Azure AD has potential risks associated to it. E.g. accidental / deliberate deletion of Application registrations. Creation of malicious application associated to the Azure AD tenant etc.
+Make sure these steps are taken deliberately. Allowing a service account to modify Azure AD has potential risks associated to it. E.g. accidental / deliberate deletion of application registrations. Creation of malicious application associated to the Azure AD tenant etc.
 
 Consider the *Super Service Principal* as a high privileged account and secure the secrets and access to it accordingly, see [improving security by protecting elevated-privilege accounts at Microsoft](https://www.microsoft.com/en-us/itshowcase/improving-security-by-protecting-elevated-privilege-accounts-at-microsoft) and [securing privileged access for hybrid and cloud deployments in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
