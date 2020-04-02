@@ -49,14 +49,14 @@ Using the `Application developer` role for the next steps will require an additi
 
 If "User can register apps" is set to `No`. Make sure to also assign the role `Application developer` to the newly created service principal. Furthermore, the service principal needs to be granted explicit permissions on the API `Microsoft Graph` and `Azure Active Directory Graph` (more on that later, see [API Permissions](#api-permissions)).
 
-### Located the service principal
+### Locate the service principal
 
 Visit [aad.portal.azure.com](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and go to `Azure Active Directory` >
  `App Registrations`.
  
 ![Azure Active Directory admin center](../img/posts/2020-04-02-Super-AzureAd-Service-Principal/Azure_Active_Directory_admin_center.jpg)
  
- Located the created service principal by searching `All applications` and navigate to `API Permissions`
+ Locate the created service principal by searching `All applications` and navigate to `API Permissions`
  
  ![Azure Active Directory admin center App registrations](../img/posts/2020-04-02-Super-AzureAd-Service-Principal/Azure_Active_Directory_admin_center_App_registrations.jpg)
 
