@@ -66,7 +66,7 @@ Visit [aad.portal.azure.com](https://aad.portal.azure.com/#blade/Microsoft_AAD_I
  
 ### API Permissions
 
-The permissions to create Azure AD objects are associated to two APIs. For each API the permissions correct permission needs to be granted (see [Application Permissions](#application-permissions)). You can search for API in the `Request API permissions` > `APIs my organization uses` - e.g. to reverse search the name for the API ID (see json output in [wrap it up](#wrap-it-up)).
+The permissions to create Azure AD objects are associated to two APIs. For each API the correct permissions need to be granted (see [Application Permissions](#application-permissions)). You can search for APIs in the `Request API permissions` > `APIs my organization uses` - e.g. to reverse search the name for the API ID (see json output in [wrap it up](#wrap-it-up)).
 
 To create Azure AD objects the needed APIs are:
 
@@ -90,7 +90,7 @@ You can find the Windows Azure Active Directory API in the bottom of the list `S
 
 ![Azure Active Directory admin center App registrations Add permissions APIs](../img/posts/2020-04-02-Super-AzureAd-Service-Principal/Azure_Active_Directory_admin_center_App_registrations_Add_permissions_Application_permissions_API.jpg)
 
-The  permissions we are interested in granting are listed below. Review the following table for a detailed description on the differences between `all` or `OwnedBy`. Depending on the granularity you want select to choose `all` or `OwnedBy`. Both permissions can be used for a *Super Service Principal*.
+The  permissions we are interested in granting are listed below. Review the following table for a detailed description on the differences between `All` or `OwnedBy`. Depending on the granularity you want select to choose `All` or `OwnedBy`. Both permissions can be used for a *Super Service Principal*.
 
 | Permission                    | Description                                                                                                                                                                                                                                                                                                                                                                      | Admin Consent Required |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
