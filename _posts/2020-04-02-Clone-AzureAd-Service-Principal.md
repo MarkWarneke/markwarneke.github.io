@@ -261,6 +261,33 @@ az login --service-principal -u $appId -p $pw --tenant $tenantId  --allow-no-sub
 az ad app create --display-name "testmark2"
 ```
 
+## Limitation
+
+There is a maximum number of service principals a principal can created, for more information see [Azure AD service limits and restrictions](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-service-limits-restrictions)
+
+> The Application Developer role grants the ability, but the total number of created objects is limited to 250 to prevent hitting the directory-wide object quota. [Source](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-quickstart-app-registration-limits).
+
+{: .box-error}
+Code: Directory_QuotaExceeded
+Message: The directory object quota limit for the Principal has been exceeded. Please aks you administrator to increase the quaote limit or delete objects to reduce the used quota.
+
+To work around this limitations multiple *Clone Service Principals* can be used.
+The *Clone Service Principal* can also be assigned the `Application Administrator` role, as this role has higher quota.
+A work around is also to transfer the ownership of the newly created application registrations to delegate service principals to work around the limit.
+
+Cleanup of created service principals, consider that there is a soft delete of application registrations. It can take up to 30 days to remove an Azure AD object.
+
+To see the amount of Azure AD objects use:
+
+```powershell
+$objectId=0000000 # ObjectId of the clone service principal or user principal
+
+Connect-AzureAD
+
+# Get the azure ad created objects ALL including soft deleted
+Get-AzureADUserCreatedObject -ObjectId $objectId -All $true | measure
+```
+
 ## Considerations
 
 Make sure these steps are taken deliberately by creating a [thread model](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling).

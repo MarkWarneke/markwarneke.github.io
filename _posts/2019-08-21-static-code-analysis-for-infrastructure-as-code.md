@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unit Test for Infrastructure as code
+title: Unit Tests for Infrastructure as code
 subtitle: Static code Analysis of Azure Resource Manager Templates using Pester
 bigimg: /img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpeg
 image: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpeg"
