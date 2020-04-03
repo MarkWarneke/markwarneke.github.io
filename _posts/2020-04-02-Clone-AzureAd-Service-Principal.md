@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Clone Service Principal
-subtitle: Use a service principal to creat service principals
+subtitle: Use a service principal to create service principals
 bigimg:
   - "/img/2zUWGeg8DTw.jpeg": "https://unsplash.com/photos/2zUWGeg8DTw"
 image: "/img/2zUWGeg8DTw.jpeg"
