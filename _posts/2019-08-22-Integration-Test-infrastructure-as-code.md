@@ -36,11 +36,13 @@ We want to create tests that leverage a life-cycle execution logic. We want to d
 
 PowerShell Pester tests allows us to define a ScriptBlock section for `BeforeAll`,  `AfterAll`,  [BeforeEach and AfterEach](https://github.com/pester/Pester/wiki/BeforeEach-and-AfterEach).
 
-These ScriptBlocks can be used to prepare a test environment based on a given ARM template and execute a set of tests to assert that provisioned resource is valid. After the ScriptBlock should clean up and remove provisioned resources.
+These ScriptBlocks can be used to prepare a test environment. Next a set of tests to assert that the provisioned resource is valid can be executed. After test the ScriptBlock should clean up and remove provisioned resources.
 
-If the provisioning fails, the test should fail. Making sure we know that the template is either broken or the provisioning at the cloud provider is currently not available. 
+If the provisioning fails, the test should fail. Making sure we know that the template is either broken or the provisioning at the cloud provider is currently not possible.
 
-The feedback loop for seeing the impact of changes is much quicker and the transparency of the deployability of IaC modules is built. We get confidence in the modules and know that deployments are possible at all times.
+The feedback loop for seeing the impact of changes is much quicker.
+The transparency for the deployability of IaC modules can be created.
+Developers get confidence in that the IaC can be deployed at all times.
 
 ## Implementation
 
