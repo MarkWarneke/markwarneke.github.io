@@ -43,11 +43,11 @@ If you get the error message `"Insufficient privileges to complete the operation
 
 If this setting is set to **`No`** you need to make sure your current user has at least the `Application developer` Azure AD role, for more information about Azure AD roles visit [roles and administrators](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 
-> Application developer: Users in this role will continue to be able to register app registrations even if the Global Admin has turned off the tenant level switch for "Users can register apps".
+> **Application developer**: Users in this role will continue to be able to register app registrations even if the Global Admin has turned off the tenant level switch for "Users can register apps".
 
-Using the `Application developer` role for the next steps will require an additional admin to consent to the following mandatory changes to the service principal. Make sure you have an account with `Application administrator` role available in order to create a Clone Service Principal (more on that later, see [Application Permissions](#application-permissions)).
+Using the `Application developer` role for the next steps will require an additional admin to consent to the following mandatory changes to the service principal permissions. Make sure user with `Application administrator` role is available in order to create the *Clone Service Principal* in [Application Permissions](#application-permissions)).
 
-If "User can register apps" is set to `No`. Make sure to also assign the role `Application developer` to the newly created service principal. Furthermore, the service principal needs to be granted explicit permissions on the API `Microsoft Graph` and `Azure Active Directory Graph` (more on that later, see [API Permissions](#api-permissions)).
+If "User can register apps" is set to `No`. Make sure to also assign the role `Application developer` to the newly created service principal. Furthermore, the service principal needs to be granted explicit permissions on the API `Microsoft Graph` and `Azure Active Directory Graph` (see [API Permissions](#api-permissions)).
 
 ### Locate the service principal
 
@@ -66,7 +66,7 @@ Select `Add permissions`. You can search for APIs in the tab `APIs my organizati
 
 ### API Permissions
 
-The permissions to create Azure AD objects are associated to two APIs. For each API the correct permissions need to be granted (see [Application Permissions](#application-permissions)). You can search for APIs in the `Request API permissions` > `APIs my organization uses` - e.g. to reverse search the name for the API ID (see json output in [wrap it up](#wrap-it-up)).
+The permissions to create Azure AD objects are associated to two APIs. For each API the correct permissions need to be granted (see [Application Permissions](#application-permissions)). You can search for APIs in the `Request API permissions` > `APIs my organization uses`. You can use this form to reverse search the name for given API ID too (see json output in [wrap it up](#wrap-it-up)).
 
 To create Azure AD objects the needed APIs are:
 
@@ -134,13 +134,13 @@ A high privileged role is for instance the `Application Administrator` Azure AD 
 
 > [The Application Adminsitrator] ... also grants the ability to consent to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph API. [Source](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-If your user principal happens to be at least the Azure AD `Application Administrator` role you can hit `Grant admin consent for <tenant>`. Otherwise request the consent from from your Administrator. Feel free to forward this blog post to your administrator to explain your intent; that is why I created this blog post in the first place.
+If your user principal happens to be at least the Azure AD `Application Administrator` role you can hit `Grant admin consent for <tenant>`. Otherwise request the consent from from your administrator. Feel free to forward this blog post to your administrator to explain your intent; that is why I created this blog post in the first place.
 
 ## Using a Clone Service Principal to create other Service Principals
 
-After the role  `Application developer` is assigned to the *Clone Service Principal*, and the application permissions for the API `Microsoft Graph` and `Azure Active Directory Graph` are granted we can try to use the Clone Service Principal to create other Azure AD objects.
+After the role  `Application developer` is assigned to the *Clone Service Principal*, and the application permissions for the API `Microsoft Graph` and `Azure Active Directory Graph` are granted we can try to use the *Clone Service Principal* to create other Azure AD objects.
 
-To validate that the *Clone Service Principal* is working, log-in using the previously created service principal and try to create a new Azure AD application. The `az login --service-principal` is used to log-in this time instead of just `az login`. See [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+To validate that the *Clone Service Principal* is working, log-in using the previously created service principal and try to create a new Azure AD application. The `az login --service-principal` is used to [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ```bash
 # Login as the Clone Service Principal
@@ -154,11 +154,13 @@ appName2=AppCreatedByCloneServicePrincipal
 az ad app create --display-name $appName2
 ```
 
-You should get the details of the application returned. If you see `Insufficient privileges to complete the operation` make sure that the role and permissions are set correctly and that the changes have been propagated in Azure AD. In large Azure AD tenants, the propagation might take some time.
+You should get the details of the application returned.
+
+If an error is returned for `Insufficient privileges to complete the operation` make sure that the role and permissions are set correctly. Checkthat the changes have been propagated in Azure AD. In large Azure AD tenants, the propagation might take some time.
 
 ## Wrap it up
 
-To create a *Clone Service Principal* you can run the following steps. Make sure the authenticated user has at least the `Application Administrator` Azure AD role.
+To create a *Clone Service Principal* you can run the following automation steps. Make sure the authenticated user executing the steps has at least the `Application Administrator` Azure AD role - as this role is needed for the last step to grant permissions.
 
 ```bash
 # Make sure we are connected using a user principal that has Azure AD Admin permissions.
@@ -241,7 +243,7 @@ The output should look like this.
 
 ### Test
 
-Login using the new service principal. Notice the `--allow-no-subscriptions` because we set up a tenant level account and not assign a subscription.
+Login using the new service principal. Notice the `--allow-no-subscriptions` is used because we set up a **tenant level account**, the account has Azure subscription assigned and operats only on the Azure AD & Microsoft Graph APIs.
 
 ```bash
 # Login using the Clone Service Principal
@@ -253,8 +255,16 @@ az ad app create --display-name "testmark2"
 
 ## Considerations
 
-Make sure these steps are taken deliberately. Allowing a service account to modify Azure AD has potential risks associated to it. E.g. accidental / deliberate deletion of application registrations. Creation of malicious application associated to the Azure AD tenant etc.
+Make sure these steps are taken deliberately by creating a [thread model](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling).
 
-Consider the *Clone Service Principal* as a high privileged account and secure the secrets and access to it accordingly, see [improving security by protecting elevated-privilege accounts at Microsoft](https://www.microsoft.com/en-us/itshowcase/improving-security-by-protecting-elevated-privilege-accounts-at-microsoft) and [securing privileged access for hybrid and cloud deployments in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
+Allowing a service account to modify Azure AD objects has potential risks, here are some to consider:
+
+- accidental deletion of Azure AD objects like application registrations.
+- deliberate deletion of Azure AD objects by a rogue admin.
+- creation of malicious application associated to the  Azure AD tenant.
 
 Make sure the secrets for the *Clone Service Principal* are stored secured e.g. [store credential in Azure Key Vault](https://docs.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault) and make sure the secrets are rotated frequently.
+
+Monitor the [sign-in activity reports in the Azure Active Directory portal](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-sign-ins) of the **Clone Service Principal** or consider creating alerts similar to [Role security > emergancy accounts](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access#monitor-sign-in-and-audit-logs) for unexpected sign-ins.
+
+Consider the *Clone Service Principal* as a high privileged account and secure the secrets and access to it accordingly, see [improving security by protecting elevated-privilege accounts at Microsoft](https://www.microsoft.com/en-us/itshowcase/improving-security-by-protecting-elevated-privilege-accounts-at-microsoft) and [securing privileged access for hybrid and cloud deployments in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
