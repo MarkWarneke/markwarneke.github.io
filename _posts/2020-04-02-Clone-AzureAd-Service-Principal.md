@@ -31,8 +31,9 @@ A use case for a *Clone Service Principal* is the automated creation of applicat
 
 In order to get started we can [create an Azure service principal with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). It can either be a **tenant level account** (non RBAC, no Azure subscription assigned) or a `create-for-rbac` service principal. The steps to create an application registration and create a service principal object can be found below:
 
-> Notice, when creating the service principal, a password will be generated! Make sure to store this password in a secure way. The password cannot be retrieved afterwards again.
-> Also (!), consider that **the password will be in the output**! Make sure when running the creation in automation to deal with the secret accordingly.
+{: .box-warning}
+**Note:** when creating the service principal, a password will be generated!
+Consider that **the password will be in the output**! Make sure when running the creation in automation to deal with the secret accordingly, see [Considerations](#considerations).
 
 ```bash
 # Select a name
