@@ -251,7 +251,7 @@ The output should look like this:
 
 ### Test
 
-Login using the new service principal. Notice the `--allow-no-subscriptions` is used because we set up a **tenant level account**, the account has Azure subscription assigned and operats only on the Azure AD & Microsoft Graph APIs.
+Login using the new service principal. Notice the `--allow-no-subscriptions` is used because we set up a **tenant level account**, the account has no Azure subscription assigned and only operats on the tenant level Azure AD & Microsoft Graph APIs.
 
 ```bash
 # Login using the Clone Service Principal
