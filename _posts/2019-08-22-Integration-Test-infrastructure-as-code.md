@@ -32,7 +32,7 @@ Why are integration tests for Infrastructure as Code needed?
 > ".. when using a general-purpose programming language, you are able to do unit testing. You are able to isolate some parts of your code from the rest of the outside world and test just that code. (...). **With (...) infrastructure as code tool(s), you don't have that. Because the whole purpose of (...)  infrastructure as code is to talk to the outside world.** Its meant to make an API call to (...) Azure (...). You can't really have a unit, because if you remove the outside world there is nothing left. **So pretty much all of your tests (...) are inherently going to be integration test.**"  
 > [Yevgeniy Brikman, Co-Founder of Gruntworks on "How to Build Reusable, Composable, Battle-tested Terraform Modules" Youtube (28:16)](https://youtu.be/LVgP63BkhKQ?t=1696).
 
-We want to create tests that leverage a life-cycle execution logic. We want to define a **before-test" code block to set up our infrastructure and an **after-test** code block to tear down the resources created after the test executed.
+We want to create tests that leverage a life-cycle execution logic. We want to define a **before-test** code block to set up our infrastructure and an **after-test** code block to tear down the resources created after the test executed.
 
 PowerShell Pester tests allows us to define a ScriptBlock section for `BeforeAll`,  `AfterAll`,  [BeforeEach and AfterEach](https://github.com/pester/Pester/wiki/BeforeEach-and-AfterEach)
 
