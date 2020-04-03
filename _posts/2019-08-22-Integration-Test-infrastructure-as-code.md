@@ -11,19 +11,22 @@ comments: true
 time: 8
 ---
 
-We found that you can only safely say an Azure Resource Manager (ARM) template is valid and deployable if you have deployed it once.
-In this blog post we are exploring how to write effective integration tests.
+how can you tell that an Azure Resource Manager template is valid and deployable?
+We found that you can only safely say a template is tested if you have deployed it once.
+In this blog post we are exploring how to write integration tests for Infrastrucutre as Code.
 
-The general guidance for developing ARM templates is: Let the Azure Resource Manager Engine expand, validate and _deploy_ the template with all its necessary dependencies and parameters once.
+The general guidance for developing Azure Resource Manager (ARM) templates is to let the ARM Engine expand, validate and _deploy_ the template with all necessary dependencies and parameters. The engine is a taking care of validating input, orchestreting deploymets and combining dependencies, there are a lot of outside factors that needs to be considered.
 
-Check that the deployment can be executed without erros and validate the deployed resource using acceptance tests.
-As `Test-AzResourceManagerDeployment` is not leveraging the Azure Resource Manager Engine fully, complex templates are not getting validated and the state of the deployability of a template is uncertain.
+The goal is to validate that the deployment can be executed without erros and to make sure the deployed resource is matching acceptance criteria.
 
-That means: Use the developed ARM template for a deployment **at least** once! And make sure it stays deployable...
+`Test-AzResourceManagerDeployment` is not leveraging the ARM Engine fully. The commandlet is only ensuring the schema validaty of the template. Complex templates hwoever are not getting validated. The deployability of an ARM template is not validated using this cmdlet.
+
+My recommendation: Use the ARM template for a test deployment **at least once**!
+Make sure the template stays deployable by testing the deployment on a regualr basis...
 
 ## Introduction
 
-Why are integration tests needed?
+Why are integration tests for Infrastructure as Code needed?
 
 > ".. when using a general purpose programming language, you are able to do unit testing. You are able to isolate some part of your code from the rest of the outside world and test just that code. (...). **With (...) infrasturcute as code tool(s), you don't have that. Because the whole purpose of (...)  infrastructe as code is to talk to the outside world.** Its meant to make an API call to (...) Azure (...). You can't really have a unit, because if you remove the outside world there is nothing left. **So pretty much all of your tests (...) are inherently going to be integration test.**"  
 > [Yevgeniy Brikman, Co-Founder of Gruntworks on "How to Build Reusable, Composable, Battle tested Terraform Modules" Youtube (28:16)](https://youtu.be/LVgP63BkhKQ?t=1696).
