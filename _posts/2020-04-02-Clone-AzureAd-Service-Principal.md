@@ -25,7 +25,7 @@ Why is a **Clone Service Principal** needed? This type of serivce principal is n
 
 As speciall permissions are needed for a service principal to talk to the Azure AD APIs the blog posts tries to shed some light on how to create a least privileg service principal to create other service principals.
 
-A use case for a **Clone Service Principal** is the automated creation of application registrations and service principals in a CI/CD pipelines for cloud native applcation. In deployment scripts for web application. And the automated creation of landings zones for internal customers.
+A use case for a *Clone Service Principal* is the automated creation of application registrations and service principals in a CI/CD pipelines for cloud native applcation. In deployment scripts for web application. And the automated creation of landings zones for internal customers.
 
 ## Create a Clone Service Principal
 
