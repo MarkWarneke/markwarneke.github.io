@@ -33,7 +33,7 @@ In order to get started we can [create an Azure service principal with the Azure
 
 {: .box-warning}
 **Note:** when creating the service principal, a password will be generated!
-Consider that **the password will be in the output**! Make sure when running the creation in automation to deal with the secret accordingly, see [Considerations](#considerations).
+Consider that **the password will be in the output**! Make sure when running the creation in automation to deal with the secret accordingly, see [considerations](#considerations).
 
 ```bash
 # Select a name
@@ -50,7 +50,8 @@ If you get the error message `"Insufficient privileges to complete the operation
 
 If this setting is set to **`No`** you need to make sure your current user has at least the `Application developer` Azure AD role, for more information about Azure AD roles visit [roles and administrators](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 
-> **Application developer**: Users in this role will continue to be able to register app registrations even if the Global Admin has turned off the tenant level switch for "Users can register apps".
+{: .box-note}
+**Application developer:** Users in this role will continue to be able to register app registrations even if the Global Admin has turned off the tenant level switch for "Users can register apps".
 
 Using the `Application developer` role for the next steps will require an additional admin to consent to the following mandatory changes to the service principal permissions. Make sure user with `Application administrator` role is available in order to create the *Clone Service Principal* in [Application Permissions](#application-permissions)).
 
