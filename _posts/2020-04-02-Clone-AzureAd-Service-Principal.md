@@ -53,7 +53,7 @@ If this setting is set to **`No`** you need to make sure your current user has a
 {: .box-note}
 **Application developer:** Users in this role will continue to be able to register app registrations even if the Global Admin has turned off the tenant level switch for "Users can register apps".
 
-Using the `Application developer` role for the next steps will require an additional admin to consent to the following mandatory changes to the service principal permissions. Make sure user with `Application administrator` role is available in order to create the *Clone Service Principal* in [Application Permissions](#application-permissions)).
+Using the `Application developer` role for the next steps will require an additional admin to consent to the following mandatory changes to the service principal permissions. Make sure user with `Application administrator` role is available in order to create the *Clone Service Principal* in [Application Permissions](#application-permissions).
 
 If "User can register apps" is set to `No`. Make sure to also assign the role `Application developer` to the newly created service principal. Furthermore, the service principal needs to be granted explicit permissions on the API `Microsoft Graph` and `Azure Active Directory Graph` (see [API Permissions](#api-permissions)).
 
