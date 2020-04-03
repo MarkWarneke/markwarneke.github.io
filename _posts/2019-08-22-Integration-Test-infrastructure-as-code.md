@@ -34,7 +34,7 @@ Why are integration tests for Infrastructure as Code needed?
 
 We want to create tests that leverage a life-cycle execution logic. We want to define a **before-test** code block to set up our infrastructure and an **after-test** code block to tear down the resources created after the test executed.
 
-PowerShell Pester tests allows us to define a ScriptBlock section for `BeforeAll`,  `AfterAll`,  [BeforeEach and AfterEach](https://github.com/pester/Pester/wiki/BeforeEach-and-AfterEach)
+PowerShell Pester tests allows us to define a ScriptBlock section for `BeforeAll`,  `AfterAll`,  [BeforeEach and AfterEach](https://github.com/pester/Pester/wiki/BeforeEach-and-AfterEach).
 
 These ScriptBlocks can be used to prepare a test environment based on a given ARM template and execute a set of tests to assert that provisioned resource is valid. After the ScriptBlock should clean up and remove provisioned resources.
 
