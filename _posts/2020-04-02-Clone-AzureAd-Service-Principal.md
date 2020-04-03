@@ -209,16 +209,13 @@ az ad app permission grant --id $appId --api $API_Windows_Azure_Active_Directory
 az ad app permission admin-consent --id $appId
 ```
 
-Validate that the *Clone Service Principal* API permission has been assignment correctly, run:
+Validate that the *Clone Service Principal* API permission has been assigned correctly, run:
 
 ```bash
 az ad app permission list --id $appId
 ```
 
-The output should look like this.
-
-- The  `resourceAppId` is the associated [API](#api-permissions), e.g. `Microsfot Graph`. 
-- the `id` is the [Application permission](#application-permissions), e.g. `Application.ReadWrite.OwnedBy`.
+The output should look like this:
 
 ```json
 [
@@ -248,6 +245,9 @@ The output should look like this.
   }
 ]
 ```
+
+- The  `resourceAppId` is the associated [API](#api-permissions), e.g. `Microsfot Graph`. 
+- the `id` is the [Application permission](#application-permissions), e.g. `Application.ReadWrite.OwnedBy`.
 
 ### Test
 
