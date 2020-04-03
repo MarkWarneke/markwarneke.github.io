@@ -11,7 +11,7 @@ comments: true
 time: 8
 ---
 
-how can you tell that an Azure Resource Manager template is valid and deployable?
+How can you tell that an Azure Resource Manager template is valid and deployable?
 We found that you can only safely say a template is tested if you have deployed it once.
 In this blog post we are exploring how to write integration tests for Infrastrucutre as Code.
 
