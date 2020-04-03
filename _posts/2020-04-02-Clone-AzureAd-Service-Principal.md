@@ -30,7 +30,7 @@ In order to get started we can [create an Azure service principal with the Azure
 
 ```bash
 # Select a name
-appName=MyCloneServicePrincipal
+appName=CloneServicePrincipal
 
 # Create an app and return only appId
 appId=(az ad app create --display-name $appName --query appId -o tsv)
@@ -166,7 +166,7 @@ az logout
 az login
 
 # Name of the Clone Service Principal
-appName="MyCloneServicePrincipal"
+appName="CloneServicePrincipal"
 
 # Retrieve the teannt it
 tenantId=$(az account show --query tenantId -o tsv)
