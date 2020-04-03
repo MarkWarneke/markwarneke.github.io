@@ -19,7 +19,13 @@ What is a service principal object? A service principal object is used
 
 > to access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This is true for both users (user principal) and applications (service principal). [Source](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
 
-For more information see [application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
+For more information see [application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals).
+
+Why is a **Clone Service Principal** needed? This type of serivce principal is needed if you want to automate the creation of Azure AD objects and decouples a dedicated *user principal* from the process of creating Azure AD objects. 
+
+As speciall permissions are needed for a service principal to talk to the Azure AD APIs the blog posts tries to shed some light on how to create a least privileg service principal to create other service principals.
+
+A use case for a **Clone Service Principal** is the automated creation of application registrations and service principals in a CI/CD pipelines for cloud native applcation. In deployment scripts for web application. And the automated creation of landings zones for internal customers.
 
 ## Create a Clone Service Principal
 
@@ -266,5 +272,7 @@ Allowing a service account to modify Azure AD objects has potential risks, here 
 Make sure the secrets for the *Clone Service Principal* are stored secured e.g. [store credential in Azure Key Vault](https://docs.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault) and make sure the secrets are rotated frequently.
 
 Monitor the [sign-in activity reports in the Azure Active Directory portal](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-sign-ins) of the **Clone Service Principal** or consider creating alerts similar to [Role security > emergancy accounts](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access#monitor-sign-in-and-audit-logs) for unexpected sign-ins.
+
+Create [Azure AD Identiy Governance](https://docs.microsoft.com/en-us/azure/active-directory/governance/identity-governance-overview) by making monitoring the created application of the **Clone Service Principal**. Make sure applications are active and used, recycle application periodically.
 
 Consider the *Clone Service Principal* as a high privileged account and secure the secrets and access to it accordingly, see [improving security by protecting elevated-privilege accounts at Microsoft](https://www.microsoft.com/en-us/itshowcase/improving-security-by-protecting-elevated-privilege-accounts-at-microsoft) and [securing privileged access for hybrid and cloud deployments in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
