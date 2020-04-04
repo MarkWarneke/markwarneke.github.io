@@ -144,6 +144,13 @@ defaults:
     values:
       layout: "page"
       show-avatar: true
+  - scope:
+      path: "dev"
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
 
 # Use tags index page and make tags on each post clickable
 link-tags: true
