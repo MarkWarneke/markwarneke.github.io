@@ -5,7 +5,19 @@ meta-title: "Azure, Automation, Cloud Consulting, DevOps"
 meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
 ---
 
-<h1>Test4</h1>
+<style>
+  @media only screen and (min-width: 768px) {
+    .card-columns {
+        column-count: 2;
+        column-gap: normal;
+    }
+  }
+  .card {
+      margin-bottom: 25px;
+      display: inline-block; 
+      width: 100%; 
+  }
+</style>
 <div class="card-columns">
   {% for post in site.posts %}
     {% if post.tags contains 'draft' %} 
@@ -20,12 +32,6 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
       {% endif %}
       
       <div class="card-body">
-        <p class="card-text">
-          <small class="text-muted">
-            {{ post.date | date: "%-d %B %Y" }}
-            <span> - {{ post.time }} MIN READ </span>
-          </small>
-        </p>
         <a href="{{ post.url | relative_url }}">
           <h1 class="card-title">{{ post.title }}</h1>
           {% if post.subtitle %}
@@ -38,14 +44,21 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
             post.excerpt
               | strip_html
               | xml_escape
-              | truncatewords: site.excerpt_length
           }}
           {% assign excerpt_word_count = post.excerpt | number_of_words %} 
           {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
-          <a href="{{ post.url | relative_url }}" class="post-read-more">
-            Read&nbsp;More
-          </a>
           {% endif %}
+        </p>
+        <p class="card-text">
+          <small class="text-muted">
+            <a href="{{ post.url | relative_url }}" class="post-read-more">
+              Read&nbsp;More
+            </a>
+            <span>  
+              &bull; {{ post.date | date: "%-d %B %Y" }}
+            </span>
+            <span> &bull; {{ post.time }} MIN READ </span>
+          </small>
         </p>
       </div>
     </div>
