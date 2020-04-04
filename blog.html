@@ -39,7 +39,7 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
           {% endif %}
         </a>
         
-        <p class="card-text">
+        <p class="card-text" style="text-align: justify;">
           {{
             post.excerpt
               | strip_html
@@ -49,7 +49,7 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
           {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
           {% endif %}
         </p>
-        <p class="card-text">
+        <p class="card-text text-center">
           <small class="text-muted">
             <a href="{{ post.url | relative_url }}" class="post-read-more">
               Read&nbsp;More
