@@ -20,7 +20,7 @@ url: "https://markwarneke.me"
 
 # List of links in the navigation bar
 navbar-links:
-  Posts: "/"
+  Blog: "blog"
   About: "about"
   Code: "code/README"
   Talks: "talks"
