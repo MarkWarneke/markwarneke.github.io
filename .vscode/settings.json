@@ -5,7 +5,5 @@
   "files.trimFinalNewlines": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
-  "files.hotExit": "onExit",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true
+  "files.hotExit": "onExit"
 }
