@@ -63,12 +63,12 @@ $Deployment = @{
 New-AzResourceGroupDeployment @Deployment
 ```
 
-Also you cann add dynamic parameters to the deployment by using `-TemplateParameterObject`.
-This object will set the parameters dynamically at deployment time.
-Object passed to the function will override parameters set in `-TemplateParameterFile` and `defaultValue`.
+Also you cann add dynamic parameters to the deployment.
+This object will set the parameters dynamically at execution time.
+Object passed to the function will add dynamic parameters to the deployment.
 
 ```powershell
-# Object will set the Parameter1 value to $Value
+# Object will set the Parameter1 value to $Value using dynamic created parameter
 # This object will override the Parameter1 Value if it is set in TemplateParameterFile too.
 
 $Object = @{
@@ -80,9 +80,8 @@ $Deployment = @{
     TemplateFile = (Join-Path $PSScriptRoot "azuredeploy.json").FullName
     TemplateParameterFile = (Join-Path $PSScriptRoot "azuredeploy.parameters.json").FullName
     # Will override duplicates in TemplateParamterFile
-    TemplateParameterObject = $Object
 }
-New-AzResourceGroupDeployment @Deployment
+New-AzResourceGroupDeployment @Deployment @Object
 ```
 
 ## Implementation Considerations
