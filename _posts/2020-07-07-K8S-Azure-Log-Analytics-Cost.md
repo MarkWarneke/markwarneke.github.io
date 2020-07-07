@@ -18,7 +18,7 @@ If you wonder about the usage and estimated costs of your Azure Kubernetes (AKS)
 
 ![Azure Log Analytics Usage and estimated costs 80%](../img/posts/2020-07-07-K8S-Azure-Log-Analytics-Cost/01_usageAndCost.jpg)
 
-Drilling into the `LogManagement` category, we can see that **AzureDiagnostics** is the biggest category using
+Drilling into the `LogManagement` category, we can see that **AzureDiagnostics** is the biggest driver.
 
 ```sql
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
