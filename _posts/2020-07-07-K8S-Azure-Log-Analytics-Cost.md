@@ -29,7 +29,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ![Azure Log Analytics bar chart AzureDiagnostics](../img/posts/2020-07-07-K8S-Azure-Log-Analytics-Cost/02_barchart_AzureDiagnostics.jpg)
 
-Using the follow Kusto query we can see that AzureDiagnostics has 10GB of BillableDataGB vs 2GB for Perf Data.
+Using the follow Kusto query we can see that AzureDiagnostics has more then 15GB of BillableDataGB vs 2GB for Perf Data.
 
 ```sql
 Usage 
