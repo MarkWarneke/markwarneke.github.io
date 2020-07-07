@@ -2,9 +2,9 @@
 layout: post
 title: Investigate Azure Kubernetes Log Analytics Cost Drivers
 bigimg:
-  - "/img/_ko52yOzjTQ.jpeg": "https://unsplash.com/photos/_ko52yOzjTQ"
-image: "/img/_ko52yOzjTQ.jpeg"
-share-img: "/img/_ko52yOzjTQ.jpeg"
+  - "/img/ko52yOzjTQ.jpeg": "https://unsplash.com/photos/_ko52yOzjTQ"
+image: "/img/ko52yOzjTQ.jpeg"
+share-img: "/img/ko52yOzjTQ.jpeg"
 tags: [Azure, K8S]
 comments: true
 time: 3
