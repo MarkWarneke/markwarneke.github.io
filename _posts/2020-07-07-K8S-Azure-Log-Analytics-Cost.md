@@ -10,7 +10,7 @@ comments: true
 time: 3
 ---
 
-If you wonder about the usage and estimated costs of you Azure Kubernetes (AKS) service, or the log analytics cost seem to be extremely high. Or, the data retained is a huge amount that accumulates a lot of monitoring costs. This blog post will help investigate the cost drivers and help identify the source.
+If you wonder about the usage and estimated costs of you Azure Kubernetes (AKS) service log analytics cost or the cost for monitoring  data retained and data collected seem to be extremely high this blog post will help investigate the cost drivers and help identify the source.
 
 ## Identify Categories
 
