@@ -70,22 +70,6 @@ The logs contain the apiVersion **audit.k8s.io/v1**. Looking into the configured
 
 Based on the logs we can create a PieChart that prints the data used per namespace in order to investigate what kind of logs are driving the biggest amount of data generated. (Thanks [@Vishwanath](https://medium.com/@visnara) for the query)
 
-```sql
-let startTime = ago(1h);
-let containerLogs = ContainerLog
-| where TimeGenerated > startTime
-| where _IsBillable == true
-| summarize BillableDataMBytes = sum(_BilledSize)/ (1000. * 1000.) by LogEntrySource, ContainerID;
-let kpi = KubePodInventory
-| where TimeGenerated > startTime
-| distinct ContainerID, Namespace;
-containerLogs
-| join kpi on $left.ContainerID == $right.ContainerID
-| extend sourceNamespace = strcat(LogEntrySource, "/", Namespace)
-| summarize MB=sum(BillableDataMBytes) by sourceNamespace
-| render piechart
-```
-
 {% gist 711aa112750878843ba2f02399b4ef8a %}
 
 ![Azure Log Analytics pie chart source name space](../img/posts/2020-07-07-K8S-Azure-Log-Analytics-Cost/04_piechart_sourceNameSpace.jpg)
