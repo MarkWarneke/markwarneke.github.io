@@ -69,6 +69,8 @@ To better visualize the parameters, resource and outputs of an ARM template a ta
 
 Get [New-Readme.ps1](/code/New-Readme.ps1)
 
+{% gist 03e1ad7c6d70d1c26d09758c48f0dc47 %}
+
 ```powershell
 # New-Readme.ps1
 
