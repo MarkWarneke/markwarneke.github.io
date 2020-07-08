@@ -109,7 +109,6 @@ Describe the incident in short and crisp sentences. Avoid long and detailed desc
 - Short Summary
 - Tags
 
-
 ## Template
 
 {% gist f39bd3b452b88364fe58274951a493d1 %}

@@ -67,75 +67,7 @@ Automating the documentation and the creation of Markdown comes in handy.
 As Markdown is very light weight we can leverage simple strings to create our documentation.
 To better visualize the parameters, resource and outputs of an ARM template a table might be a feasible option for display.
 
-Get [New-Readme.ps1](/code/New-Readme.ps1)
-
 {% gist 03e1ad7c6d70d1c26d09758c48f0dc47 %}
-
-```powershell
-# New-Readme.ps1
-
-# Create a Parameter List Table
-parameterHeader = "| Parameter Name | Parameter Type |Parameter Description | Parameter DefaultValue |"
-$parameterHeaderDivider = "| --- | --- | --- | --- | "
-$parameterRow = " | {0}| {1} | {2} | {3} |"
-
-$StringBuilderParameter = @()
-$StringBuilderParameter += $parameterHeader
-$StringBuilderParameter += $parameterHeaderDivider
-
-$StringBuilderParameter += $json.parameters | get-member -MemberType NoteProperty | % { $parameterRow -f $_.Name , $json.parameters.($_.Name).type , $json.parameters.($_.Name).metadata.description, $json.parameters.($_.Name).defaultValue  }
-
-# Create a Resource List Table
-$resourceHeader = "| Resource Name | Resource Type | Resource Comment |"
-$resourceHeaderDivider = "| --- | --- | --- | "
-$resourceRow = " | {0}| {1} | {2} | "
-
-$StringBuilderResource = @()
-$StringBuilderResource += $resourceHeader
-$StringBuilderResource += $resourceHeaderDivider
-
-$StringBuilderResource += $json.resources | % { $row -f $_.Name, $_.Type, $_.Comments }
-
-# Create an Output List Table
-$outputHeader = "| Output Name | Output Value | Output Type |"
-$outputHeaderDivider = "| --- | --- | --- |  "
-$outputRow = " | {0}| {1} | {2} | "
-
-$StringBuilderOutput = @()
-$StringBuilderOutput += $outputHeader
-$StringBuilderOutput += $outputHeaderDivider
-
-$StringBuilderOutput += $json.outputs | get-member -MemberType NoteProperty | % { $outputRow -f $_.Name , $json.parameters.($_.Name).type , $json.parameters.($_.Name).metadata.description, $json.parameters.($_.Name).defaultValue  }
-
-# output
-
-$StringBuilderResource
-<#
-| Resource Type | Resource Name |  Resource Comment |
-| --- | --- | --- |
- | Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
-#>
-
-$StringBuilderParameter
-<#
-| Parameter Name | Parameter Type |Parameter Description | Parameter DefaultValue |
-| --- | --- | --- | --- |
-| location| string | Azure location for deployment | [resourceGroup().location] |
-| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |  |
-| resourceName| string | Name of the Data Lake Storage Account |  |
-| storageAccountAccessTier| string | Optional. Storage Account Access Tier. | Hot |
-| storageAccountSku| string | Optional. Storage Account Sku Name. | Standard_ZRS |
-#>
-
-$StringBuilderOutput
-<#
-| Output Name   | Output Value | Output Type |
-| ------------- | ------------ | ----------- |
-| componentName | string       |             |
-| resourceID    | string       |             |
-#>
-
-```
 
 We can use the strings to output into a file or concat them into a bigger string incorporating more information. For now this is a good baseline to extend on it.
 The output can be saved to a file using `Out-File`.

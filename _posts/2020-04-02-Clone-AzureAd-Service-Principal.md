@@ -170,44 +170,7 @@ If an error is returned for `Insufficient privileges to complete the operation` 
 
 To create a *Clone Service Principal* you can run the following automation steps. Make sure the authenticated user executing the steps has at least the `Application Administrator` Azure AD role - as this role is needed for the last step to grant permissions.
 
-```bash
-# Make sure we are connected using a user principal that has Azure AD Admin permissions.
-az logout
-az login
-
-# Name of the Clone Service Principal
-appName="CloneServicePrincipal"
-
-# Retrieve the teannt it
-tenantId=$(az account show --query tenantId -o tsv)
-
-# Create the Clone Service Principal
-appId=$(az ad app create --display-name $appName --query appId -o tsv)
-sp=$(az ad sp create --id $appId)
-
-# Microsoft Graph API 
-API_Microsoft_Graph="00000003-0000-0000-c000-000000000000"
-# Application.ReadWrite.OwnedBy
-PERMISSION_MG_Application_ReadWrite_OwnedBy="18a4783c-866b-4cc7-a460-3d5e5662c884"
-
-# Azure Active Directory Graph API
-API_Windows_Azure_Active_Directory="00000002-0000-0000-c000-000000000000"
-# Application.ReadWrite.OwnedBy
-PERMISSION_AAD_Application_ReadWrite_OwnedBy="824c81eb-e3f8-4ee6-8f6d-de7f50d565b7"
-
-# Request Microsoft Graph API Application.ReadWrite.OwnedBy Permissions
-az ad app permission add --id $appId --api $API_Microsoft_Graph --api-permissions $PERMISSION_MG_Application_ReadWrite_OwnedBy=Role
-
-az ad app permission grant --id $appId --api $API_Microsoft_Graph --scope $PERMISSION_MG_Application_ReadWrite_OwnedBy
-
-# Request Azure Active Directory Graph API Application.ReadWrite.OwnedBy Permissions
-az ad app permission add --id $appId --api $API_Windows_Azure_Active_Directory --api-permissions $PERMISSION_AAD_Application_ReadWrite_OwnedBy=Role
-
-az ad app permission grant --id $appId --api $API_Windows_Azure_Active_Directory --scope $PERMISSION_AAD_Application_ReadWrite_OwnedBy
-
-# Grant Application & Delegated permissions through admin-consent
-az ad app permission admin-consent --id $appId
-```
+{% gist 3c7887d2ec57bb10729aa43b36764b25 %}
 
 Validate that the *Clone Service Principal* API permission has been assigned correctly, run:
 
