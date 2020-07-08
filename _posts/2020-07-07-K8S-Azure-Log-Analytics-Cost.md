@@ -86,6 +86,8 @@ containerLogs
 | render piechart
 ```
 
+{% gist 711aa112750878843ba2f02399b4ef8a %}
+
 ![Azure Log Analytics pie chart source name space](../img/posts/2020-07-07-K8S-Azure-Log-Analytics-Cost/04_piechart_sourceNameSpace.jpg)
 
 Based on the chart we can see that a lot of data is generated in the stderr and stdout of the namespaces. Now we can look into the application in the particular namespace to determine what kind of logs are being generated.
