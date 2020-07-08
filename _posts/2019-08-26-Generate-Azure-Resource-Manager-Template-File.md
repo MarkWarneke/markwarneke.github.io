@@ -107,6 +107,8 @@ Mandatory parameters are defined as parameters that do not implement the `defaul
 
 Get the file here: [New-ParameterFile.ps1](/code/New-ParameterFile.ps1)
 
+{% gist cc94530da91a8b44f61294793abf6c25 %}
+
 ```powershell
 # New-ParameterFile.ps1
 
@@ -451,5 +453,6 @@ In order to validate the code I used the example ADLS Gen2 [azuredeploy.json](/c
 - [Implementation](#implementation)
 - [Usage](#usage)
 - [Test PowerShell classes](#test-powershell-classes)
+- [Video](#video)
 - [Remarks](#remarks)
 - [Table of contents](#table-of-contents)
