@@ -78,9 +78,9 @@ Based on the chart we can see that a lot of data is generated in the stderr and 
 
 ## Reducing Cost
 
-A quick fix is to turn of the diagnostics settings of the Kubernetes Service, disabling the diagnostics will not generate any further data. The data already generated will continue to be charged based on the Data Retention.
+A quick fix is to turn of the diagnostics settings of the Kubernetes Service, disabling the diagnostics will not generate any further data. The data already generated will continue to be charged based on data retention.
 
-We can tweak the applications log level or fix any error that is generate the stderr logs. A container in a constant crash loop can generate huge amount of data if not dealt with.
+We can tweak the applications log level or fix any error that is generate the stderr logs. A container in a constant crash loop can generate a huge amount of data if not dealt with.
 
 Use Azure Monitors Insights for Containers overview to identify any unhealthy clusters quickly.
 

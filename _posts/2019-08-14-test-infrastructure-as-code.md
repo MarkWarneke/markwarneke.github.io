@@ -15,7 +15,7 @@ time: 10
 
 Treat Infrastructure as Code development like a software engineering project.
 Implement existing software development practices into your infrastructure development.
-In this article we are going to look into different practices regarding test implementation in an Infrastructure as Code project.
+In this article, we are going to look into different practices regarding test implementation in an Infrastructure as Code project.
 
 You should embrace [**Behavior Driven Development**](https://en.wikipedia.org/wiki/Behavior-driven_development) to work on your **Infrastructure as Code** IaC project.
 These principals will force you into writing tested code.
@@ -32,7 +32,7 @@ However, when talking about Infrastructure Development there are slight differen
 </div>
 
 During the PowerShell Conference EU 2019 I had the opportunity to talk about Infrastructure as Code testing and what we learned in a large scale IaC and automation project.
-I covered a few fundamentals on IaC, unfortunately the Fridays session had some technical problems and hasn't been recorded.
+I covered a few fundamentals on IaC, unfortunately, the session on Friday had some technical problems and hasn't been recorded.
 
 The talk is addressing the following key topics:
 
@@ -73,13 +73,13 @@ See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Mo
 We found in our project that you can only safely say _an ARM template is valid and deployable if you deployed it once_.
 
 As `Test-AzResourceManagerDeployment` is not invoking the Azure Resource Manager Engine, complex templates are not validated.
-The general guidance therefore is: Let the Azure Resource Manager Engine expand, validate and _execute_ the template with all its necessary dependencies and parameters. That means, use the ARM template for a deploy at least once.
-This might be refereed to a System or **Integration Test**.
+The general guidance is: Let the Azure Resource Manager Engine expand, validate, and _execute_ the template with all its necessary dependencies and parameters. That means, use the ARM template for a deploy at least once.
+This might refer to a System or **Integration Test**.
 
-Deploying the solution will take time, but actually asserting on the deployed resource is very beneficial.
+Deploying the solution will take time, but asserting on the deployed resource is very beneficial.
 This might be a controversial point and I would love to have a conversation on this topic, as some people think of this step as redundant and obsolete.
-However we found it worthwhile having as it ensures the template is actually deployable.
-The integration test and therefore complete deployment is only needed on a change to the ARM template itself.
+However, we found it worthwhile having as it ensures the template is deployable.
+The integration test and therefore complete deployments are only needed on a change to the ARM template itself.
 
 If you have additional **imperative** scripts like post configuration, custom script extension, DSC, you want to test I would emphasize to unit tests these scripts and Mock any Az native calls.
 You don't want to test the implementation of commands like `Get-AzResource`, but test wether your logic of execution and written custom code is doing what is expected.
@@ -87,31 +87,31 @@ Assert if your mocks are called and validate your code flow.
 
 However, as these scripts communicate with the Azure REST API and might rely on dependencies and mandatory parameters an actual call to the API is mandatory to assert that the code is correct.
 It should be done at least once within the test suite
-The same applies for any post configuration or DSC.
-You want to make sure the configuration got actually applied.
+The same applies to any post configuration or DSC.
+You want to make sure the configuration got applied.
 
 [Read More](/2019-08-22-Integration-Test-infrastructure-as-code/)
 
 ### End-To-End Testing
 
-We also found that a dummy deployment **End-to-End Testing** (e2e) will help to find missing requirements, missing dependencies and deployment issues.
+We also found that a dummy deployment **End-to-End Testing** (e2e) will help to find missing requirements, missing dependencies, and deployment issues.
 Again, a controversial topic as this testing approach is similar to Integration Tests and therefore in a way redundant.
 A combination of both is probably a good approach depending on the resource.
 
-Having an **Engineering-Pipeline**, that is a Release-Pipeline into a standalone subscription, is also worthwhile having.
-You really want to test if your configuration (ARM Template) is valid and stays valid and can be redeployed [**idempotent**](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#idempotence) over and over again.
-The Engineering-Pipeline is also usable for feature and experimental development.
+Having an **Engineering-Pipeline**, a Release-Pipeline into a standalone subscription, is also worthwhile having.
+You want to test if your configuration (ARM Template) is valid and stays valid and can be redeployed [**idempotent**](http://markwarneke.me/Cloud-Automation-101/Article/01_Cloud_Automation_Theory.html#idempotence) over and over again.
+The Engineering-Pipeline is also usable for a feature and experimental development.
 
-An **Engineering Subscription** is a subscription that has no or limited access to any other subscription or on premises and should not reflect any customer environment or contain _any_ data.
+An **Engineering Subscription** is a subscription that has no or limited access to any other subscription or on-premises and should not reflect any customer environment or contain _any_ data.
 If the engineering subscription is compromised an attacker should not be able to identify the company or user.
-Also the naming should not indicate in any way the company or brand.
+Also, the naming should not indicate in any way the company or brand.
 
 ### Tests across Azure regions
 
-Additionally a good test should validate different input parameters.
+Additionally, a good test should validate different input parameters.
 Having a deployment to _multiple different Azure Regions_ can save time when troubleshooting a deployment issue to a new region.
-Some Azure Services are only available (or in Preview) in certain Azure Data centers.
-Keeping this in mind: All tests should considers different Parameter combination and Azure.
+Some Azure Services are only available (or in Preview) in certain Azure Data-Centers.
+Keeping this in mind: All tests should consider different parameter combinations.
 
 ### Acceptance Tests
 
@@ -120,14 +120,14 @@ Using a test method called **Acceptance Test** of **Validation Tests** can save 
 These Tests are written to ensure a requirement is met. You can execute these tests on a given resource and validate if a specified configuration was applied.
 
 Acceptance Tests should be written in a way that they can be executed in different stages.
-An acceptance tests should be small enough to validate a specific requirement.
-These kind of tests can be executed during integration, e2e test and especially after a release.
+Acceptance Tests should be small enough to validate a specific requirement.
+These kind of tests can be executed during integration, e2e tests and especially after a release.
 
 [Read More](/2019-08-15-acceptance-test-infrastructure-as-code/)
 
 ### Smoke Tests
 
-Using the specification defined in form of a acceptance tests.
+Using the specification defined in a form of a Acceptance Tests.
 Multiple tests cases can be used combined for exploration testing or **smoke testing** on previously deployed resources.
 
 That is, querying for existing Azure resources and checking the properties against certain requirements or specifications, which are implemented as acceptance tests.
@@ -136,7 +136,7 @@ Using smoke tests against Azure resources will ensure general requirements of re
 
 ## Code generator
 
-Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been create to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is inspired on the code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the Developer workflow on generating code, it is less error prone and implement code consistency.
+Using a code generator to bootstrap you project saves time and implements best practices right from the start. The [Az.New](https://github.com/MarkWarneke/Az.New/) module has been created to demonstrate an example code generator for IaC project. The module will create a folder structure and a basic set of tests for the project. It is inspired by the code generator [yo](https://yeoman.io/) that was initially created for web projects. [Ruby on Rails](https://guides.rubyonrails.org/generators.html) and [Angular](https://angular.io/cli/generate) for example base the developer workflow on generating code, it is less error-prone and implements code consistency.
 
 [Read More](/2019-08-26-Generate-Azure-Resource-Manager-Template-File/)
 
@@ -144,14 +144,14 @@ Using a code generator to bootstrap you project saves time and implements best p
 
 A good practice is to have regular **peer reviews** and rely on **pull-requests** to apply changes to the code base.
 
-A **branching policy** prevents the immediate change to a given branch. It is a must to implement a branching policy when using IaC. The branching policy should enforce a required reviewer and foster the peer review concept. The review is therefore enforced on each change to the code base. The four eyes principle increases Code Quality tremendously and helps knowledge sharing.
+A **branching policy** prevents the immediate change to a given branch. It is a must to implement a branching policy when using IaC. The branching policy should enforce a required reviewer and foster the peer review concept. The review is therefore enforced on each change to the code base. The four-eyes principle increases Code Quality tremendously and helps knowledge sharing.
 
-The branching policy can also enforce the assignment of tickets like change request, features or bugs. The policy can also associated a build pipeline. This pipeline will pre-merge the requested changes and execute the pipeline on the pre merged code. The tests are thus executed before the actual change is done to the code base.
+The branching policy can also enforce the assignment of tickets like change requests, features, or bugs. The policy can also associated a build pipeline. This pipeline will pre-merge the requested changes and execute the pipeline on the pre merged code. The tests are thus executed before the actual change is done to the code base.
 
 ## Tests Phases
 
 Unit and Integration tests could be grouped into the **build phase**.
-While Validation, Acceptance and e2e Tests could be group to the **release phase**.
+While Validation, Acceptance, and e2e Tests could be grouped to the **release phase**.
 User Acceptance Test and Smoke Tests are done after a particular release.
 
 Some resource deployments can take hours, e.g. VNet Gateways (~25mins).
@@ -159,8 +159,8 @@ Having an integration test inside the build-phase might wast precious build time
 You might only want to leverage e2e tests for Azure Resources that take a long time to deploy.
 The right testing approach should be considered resource by resource.
 
-I would recommend to rely solely on e2e tests inside a release pipeline if you are able to keep the resources provisioned.
-The build phase will therefore limit the tests to the static analysis and linting of the ARM template.
+I would recommend to relying solely on e2e tests inside a release pipeline if you are able to keep the resources provisioned.
+The build phase will therefore, limit the tests to the static analysis and linting of the ARM template.
 While the actual deployment happens the first time in the release phase.
 You can also limit it to only deploy on approval.
 
@@ -171,7 +171,7 @@ This kind of test will result in costs if the resources are not cleaned up perio
 
 I would recommend **Preview-Artifacts**. these Artifacts can be leverage to use this kind of Release-Pipeline testing.
 These artifacts are not yet officially published and might have a Beta or Preview indicator.
-These Artifact should only be used for demo or testing purposes.
+These artifacts should only be used for demo or testing purposes.
 
 
 The results of the test phase should be provided to the developer as quickly as possible to reduce the time to wait for feedback. CI/CD tools often allow you to create dashboards and summaries of the tests. Make use of this visible feedback to ensure the IaC is always possible to be deployed.
@@ -181,11 +181,11 @@ The results of the test phase should be provided to the developer as quickly as 
 ## Continuous Integration & Continuous Deployment
 
 The result of a build phase, if successful, should always create some kind of **Artifact**.
-Similar to a compiler but for a IaC configuration file.
+Similar to a compiler but for an IaC configuration file.
 Only after an actual deployment and the validation of the requirements on the deployed Azure Resource took place an artifact could be considered build, it is also known as **Continuous Integration**.
 Only then the build Artifact, in this context the ARM template, is valid.
 An Artifact will have a dedicated traceable version number and should contain release information and a change log.
-Other teams can subscribe and get notification on new Artifact versions.
+Other teams can subscribe and get notifications on new Artifact versions.
 
 The created Artifact is used to release and deploy to the first environment - **Continuous Delivery**, usually a Development (Dev) or Beta environment.
 You can use a dedicated Azure subscription or a naming convention inside a resource group.
@@ -202,14 +202,14 @@ Continuous Deployment should be the end goal of every Infrastructure as Code pro
 There are two views one could have on testing we refer to these as the **InnerLoop** and **OuterLoop**.
 The _InnerLoop_ is the view of the Developer.
 
-The requirements of a Developer are usually: quick feedback, quick execution and a smooth workflow.
+The requirements of a Developer are usually: quick feedback, quick execution, and a smooth workflow.
 
 Tools like linting integrate easily into the workflow of a developer.
 A good practice to have for the InnerLoop are convention and consistent formating.
 Consistent code styles and formats prevent errors and increase productivity.
 [@RobinManuelT](https://twitter.com/robinmanuelt) create a great blog post describing his setup to [enforce a consistent Coding Style across projects and programming languages](https://pumpingco.de/blog/enforcing-a-consistent-coding-style-across-projects-and-programming-languages/).
 Creating Code generators will not only save time but also increase consistency throughout the code base. An example can be found in the [Az.New](https://aka.ms/Az.New) module.
-There are also multiple VSCode Extension that generate chunk of codes while developing.
+There are also multiple VSCode Extension that generate chunks of codes while developing.
 VSCode Snippets can be used to implement custom code completion.
 
 The developer needs to be able to work independently and execute tests locally, so she is able to test the code before check-in.
@@ -217,8 +217,8 @@ To rely solely on a release pipeline is not recommended, as the pipeline could b
 
 ### VSCode Setup
 
-Visual Studio Code is the go to editor when developing Azure Resource Manager templates.
-Its extensibility and configurations makes it a powerful editor of choice.
+Visual Studio Code is the go-to editor when developing Azure Resource Manager templates.
+Its extensibility and configurations, makes it a powerful editor of choice.
 
 ```json
 //.vscode/extensions.json
@@ -248,7 +248,7 @@ Its extensibility and configurations makes it a powerful editor of choice.
 }
 ```
 
-easy code styles could be enforced by using a `.vscode/settings.json` in the root of a vscode session.
+easy code styles could be enforced by using a `.vscode/settings.json` in the root of a VScode session.
 
 ```json
 // .vscode/settings.json
@@ -303,11 +303,11 @@ PowerShell linting and best practices validation through [`PSScriptAnalyzerSetti
 
 ## Remarks
 
-There are open source projects working on creating an Abstract Syntax Tree (AST) from an ARM template, this could be a huge game changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20).
+There are open-source projects that work on creating an Abstract Syntax Tree (AST) from an ARM template, this could be a huge game-changer [Twitter: Chris Gardner](https://twitter.com/HalbaradKenafin/status/1158411375481434113?s=20).
 
-The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-manager-schemas) Files are located on github. A simple way to ensure a JSON file has the correct syntax is validating the JSON against its schema. You can leverage [Get-xAzSchema](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/Public/Get-Schema.ps1) from the [xAz](https://github.com/MarkWarneke/Az.New) Module to obtain a given Resource Schema by Provider Name and leverage PowerShell Core 6 `Test-Json` to validate.
+The [Azure Resource Manager Schema](https://github.com/Azure/azure-resource-manager-schemas) Files are located on GitHub. A simple way to ensure a JSON file has the correct syntax is to validate the JSON against its schema. You can leverage [Get-xAzSchema](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/Public/Get-Schema.ps1) from the [xAz](https://github.com/MarkWarneke/Az.New) Module to obtain a given Resource Schema by Provider Name and leverage PowerShell Core 6 `Test-Json` to validate.
 
-Once resource that is highly valuable is [DevOps at Microsoft](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/). This reference is a must read. One particular interesting read is the [Shift Left to Make Testing Fast and Reliable](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable). This article describes the journey of moving to L01/L1 Tests which are essentially Unit tests.
+Once resource that is highly valuable is [DevOps at Microsoft](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/). This reference is a must-read. One particular interesting read is the [Shift Left to Make Testing Fast and Reliable](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable). This article describes the journey of moving to L01/L1 Tests which are essentially Unit tests.
 
 > We push the accountability to the person who is writing the code. [Test Principles](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/shift-left-make-testing-fast-reliable#test-principles)
 

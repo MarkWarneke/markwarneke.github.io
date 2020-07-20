@@ -5,5 +5,20 @@
   "files.trimFinalNewlines": true,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
-  "files.hotExit": "onExit"
+  "files.hotExit": "onExit",
+  "grammarly.overrides": [
+    {
+      "files": [
+        "**/_posts/2020-07-07-K8S-Azure-Log-Analytics-Cost.md"
+      ],
+      "config": {
+        "audience": "knowledgeable",
+        "dialect": "american",
+        "domain": "technical",
+        "emotions": [],
+        "goals": [],
+        "emotion": "mild"
+      }
+    }
+  ]
 }
