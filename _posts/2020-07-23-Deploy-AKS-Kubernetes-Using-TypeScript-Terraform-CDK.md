@@ -15,14 +15,19 @@ HashiCorp recently announced [CDK for Terraform: Enabling Python and TypeScript 
 
 CDK currently consists of a new CLI and a library for defining Terraform resources using TypeScript or Python in order to generates Terraform configuration files that can be used to provisioning resources.
 
-CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
-
 In this blog-post I will dive into the CDK leveraging the existing Azure providers in order to create an Azure Kubernetes Service (AKS) using TypeScript.
 The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarneke/cdk-typescript-azurerm-k8s).
 
 ## Cloud Development Kit (CDK) for Terraform on Azure
 
 The CDK for Terraform compliments the exiting Terraform ecosystem, based on JSON and HCL.
+
+CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
+
+**TLDR** the main benefits I see using CDK:
+- [compiler](#compiler) (strongly typed programming language)
+- [debugger](#debugger) (improved Developer Inner-Loop)
+- [extensibility](#linter) (using linter, libraries and packages)
 
 ![CDK Overview](https://www.datocms-assets.com/2885/1594922228-cdk-providers.png?fit=max&fm=png&q=80&w=2000)
 
