@@ -144,7 +144,7 @@ The interface describes the properties of the configuration. Leveraging a code e
 
 We can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
 
-We can also use intellisense to suggest and displays missing variables. For instance the minimum config looks like this:
+We can also use intellisense to suggest and displays missing variables. For instance the mandatory config for `KubernetesClusterConfig` looks like this:
 
 ```typescript
 const k8sconfig: KubernetesClusterConfig = {
