@@ -149,7 +149,7 @@ The editor can be used to autocomplete e.g. using shift space, to display additi
 
 ![Code Suggestion](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/suggestion.png)
 
-> Caveat: a Terraform Azure Kubernetes Cluster typically can be provisioned using a `serviceprincipal` or `identity`. They are mutually exclusive and one of them has to be defined, using the current `KubernetesClusterConfig` only the `servicePrincipal` property is mandatory and thus `identiy` can not be used`
+> Caveat: a Terraform Azure Kubernetes Cluster typically can be provisioned using a `servicePrincipal` or `identity`. They are mutually exclusive and one of them has to be defined, using the current `KubernetesClusterConfig` only the `servicePrincipal` property is mandatory and thus `identity` can not be used`
 
 ## Leverage Environment Variables
 
@@ -171,7 +171,10 @@ export AZ_SP_CLIENT_SECRET=''
 
 ## Generate Terraform
 
-The CDK is used to generate a Terraform file. The process of generating a IaC file is called synthesizing. The cli can be used to run `cdktf synth`. This will create a `cdktf.out` directory. In the directory we can review the create Terraform file `./cdktf.out/cdk.tf.json`.
+The CDK is used to generate a Terraform file. The process of generating an IaC file is called synthesizing.
+The cli can be used to run `cdktf synth`.
+This will create a `cdktf.out` directory.
+In the directory, we can review the create Terraform file `./cdktf.out/cdk.tf.json`.
 
 The full CDK AKS implementation looks like this:
 
@@ -181,7 +184,8 @@ The full CDK AKS implementation looks like this:
 
 Exploring the `cdk.tf.json` file we can see the familiar Terraform structure. All resources are present including the values & the previously set values of the environment variables e.g. the service principal id and secret.
 
-> Secrets are visible here. Make sure to use appropriate measusre to prevent leaking them. Like Azure Key Vault e.g. [`azure_key_vault_secret`](https://www.terraform.io/docs/providers/azurerm/r/key_vault_secret.html) to store and retrieve secrets securely. Checking-In the output of the synth step should be prevented, e.g. through a `.gitignore` file.
+> Secrets are visible here. Make sure to use appropriate measures to prevent leaking them. Like Azure Key Vault e.g. [`azure_key_vault_secret`](https://www.terraform.io/docs/providers/azurerm/r/key_vault_secret.html) to store and retrieve secrets securely. Checking-In the output of the synth step should be prevented, e.g. through a `.gitignore` file.
+
 We can run `cdktf diff` similar to `terraform diff` to display the changes to be made before applying them. We can also explore the terraform state in the root folder `terraform.tfstate`. The state can be configured e.g. in a remote backend following the docs for [Terraform Remote Backend](https://github.com/hashicorp/terraform-cdk/blob/master/docs/working-with-cdk-for-terraform/remote-backend.md)
 
 ## Get it Running
@@ -243,7 +247,7 @@ Troubleshooting the assignment of variables, understanding complex loops and con
 
 ## Tests
 
-Complex templates can be broken into small reusable pieces. A complex Terraform deployment can be constructed dynamically. Multiple modules can be composed using loops and conditions. The amount of configuration code can be reduced significantly. Unit tests can be applied to ensure generated template are correct and consistent.
+Complex templates can be broken into small reusable pieces. A complex Terraform deployment can be constructed dynamically. Multiple modules can be composed using loops and conditions. The amount of configuration code can be reduced significantly. Unit tests can be applied to ensure that the generated templates are correct and consistent.
 
 ## Outlook
 
