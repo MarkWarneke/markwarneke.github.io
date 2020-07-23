@@ -182,7 +182,6 @@ The full CDK AKS implementation looks like this:
 Exploring the `cdk.tf.json` file we can see the familiar Terraform structure. All resources are present including the values & the previously set values of the environment variables e.g. the service principal id and secret.
 
 > Secrets are visible here. Make sure to use appropriate measusre to prevent leaking them. Like Azure Key Vault e.g. [`azure_key_vault_secret`](https://www.terraform.io/docs/providers/azurerm/r/key_vault_secret.html) to store and retrieve secrets securely. Checking-In the output of the synth step should be prevented, e.g. through a `.gitignore` file.
-
 We can run `cdktf diff` similar to `terraform diff` to display the changes to be made before applying them. We can also explore the terraform state in the root folder `terraform.tfstate`. The state can be configured e.g. in a remote backend following the docs for [Terraform Remote Backend](https://github.com/hashicorp/terraform-cdk/blob/master/docs/working-with-cdk-for-terraform/remote-backend.md)
 
 ## Get it Running
@@ -204,7 +203,7 @@ cdktf diff
 # Run terraform apply using the generated deployment file
 cdktf deploy
 
-# Destory the deployment using
+# Destroy the deployment using
 cdktf destroy
 ```
 
