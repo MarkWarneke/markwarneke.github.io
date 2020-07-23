@@ -209,11 +209,11 @@ The full CDK AKS implementation looks like this:
 
 {% gist f73322389850416de0bc4dc29e01ef8f %}
 
-`cdktf synth` can also be run with `-o` to specify the output file or using `-json` to just print the created Terraform file to the console. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/). Terraform work with both `hcl` (`.tf`) and `json` (`.json`) files.
+`cdktf synth` can also be run with `-o` to specify the output file or using `-json` to just print the created Terraform file to the console. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/). Terraform works with both `hcl` (`.tf`) and `json` (`.json`) files.
 
 Exploring the `cdk.tf.json` file we can see the familiar Terraform structure. All resources are present including the values & the previously set values of the environment variables e.g. the service principal id and secret.
 
-> Secrets are visible here. Make sure to use appropriate measures to prevent leaking them. Like Azure Key Vault e.g. [`azure_key_vault_secret`](https://www.terraform.io/docs/providers/azurerm/r/key_vault_secret.html) to store and retrieve secrets securely. Checking-In the output of the synth step should be prevented, e.g. through a `.gitignore` file.
+> Secrets are visible here. Make sure to use appropriate measures to prevent leaking them. Use Azure Key Vault [`azure_key_vault_secret`](https://www.terraform.io/docs/providers/azurerm/r/key_vault_secret.html) to store and retrieve secrets securely. Checking-In the output of the synth step should be prevented, e.g. through a `.gitignore` file.
 
 We can run `cdktf diff` similar to `terraform diff` to display the changes to be made before applying them. We can also explore the terraform state in the root folder `terraform.tfstate`. The state can be configured e.g. in a remote backend following the docs for [Terraform Remote Backend](https://github.com/hashicorp/terraform-cdk/blob/master/docs/working-with-cdk-for-terraform/remote-backend.md)
 
