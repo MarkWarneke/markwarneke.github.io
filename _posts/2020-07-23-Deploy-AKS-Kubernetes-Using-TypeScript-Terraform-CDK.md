@@ -76,7 +76,7 @@ You are looking for the exported class: `export class KubernetesCluster extends 
 
 ![KubernetesCluster TerraformResource](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/KubernetesCluster.png)
 
-In order to use the Kubernetes TerraformResource you have to add it to `main.ts`. First add the classes as a dependency to you imports using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`.
+In order to use the Kubernetes `TerraformResource` declare the class in `main.ts`. First add the dependency to the imports using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`.
 
 The `main.ts` could look somewhat like this:
 
@@ -168,6 +168,10 @@ export AZ_SP_CLIENT_SECRET=''
 ## Generate Terraform
 
 The CDK is used to generate a Terraform file. The process of generating a IaC file is called synthesizing. The cli can be used to run `cdktf synth`. This will create a `cdktf.out` directory. In the directory we can review the create Terraform file `./cdktf.out/cdk.tf.json`.
+
+The full CDK AKS implementation looks like this:
+
+{% gist f73322389850416de0bc4dc29e01ef8f % }
 
 `cdktf synth` can also be run with `-o` to specify the output or using `-json` to just display the created Terraform file. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/).
 
