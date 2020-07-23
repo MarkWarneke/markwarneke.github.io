@@ -147,7 +147,7 @@ The editor can be used to autocomplete e.g. using shift space, to display additi
 
 ![Code Suggestion](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/suggestion.png)
 
-> Caveat: a Terraform Azure Kubernetes Cluster typically can be provisioned using a `serviceprincipal` or `identity`, they are mutually exclusive and one of them has to be defined, using the current `KubernetesClusterConfig` the `servicePrincipal` property is mandatory.
+> Caveat: a Terraform Azure Kubernetes Cluster typically can be provisioned using a `serviceprincipal` or `identity`. They are mutually exclusive and one of them has to be defined, using the current `KubernetesClusterConfig` only the `servicePrincipal` property is mandatory and thus `identiy` can not be used`
 
 ## Leverage Environment Variables
 
