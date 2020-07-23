@@ -4,12 +4,12 @@ layout: post
 title: Deploy Azure Kubernetes Service (AKS) using TypeScript
 subtitle: leveraging Cloud Development Kit (CDK) for Terraform
 bigimg:
-  - "/img/ko52yOzjTQ.jpeg": "https://unsplash.com/photos/_ko52yOzjTQ"
-image: "/img/ko52yOzjTQ.jpeg"
-share-img: "/img/ko52yOzjTQ.jpeg"
+  - "/img/KE0nC858MQ.jpeg": "https://unsplash.com/photos/KE0nC8-58MQ"
+image: "/img/KE0nC858MQ.jpeg"
+share-img: "/img/KE0nC858MQ.jpeg"
 tags: [Azure, K8S]
 comments: true
-time: 3
+time: 7
 ---
 
 HashiCorp recently announced [CDK for Terraform: Enabling Python & TypeScript Support](https://www.hashicorp.com/blog/cdk-for-terraform-enabling-python-and-typescript-support/) - _CDK_ stands for **Cloud Development Kit**, CDK enables Cloud Engineers to define their Infrastructure as Code (IaC) using programming languages like TypeScript or Python.
@@ -108,7 +108,7 @@ In this example the `scope` is set to `this`, the `id` should be a unique name l
 The `KubernetesClusterConfig` is an interface that describes the `TerraformMetaArguments` for a Kubernetes cluster.
 
 ```typescript
-export interface KubernetesClusterConfig extends TerraformMetaArguments 
+export interface KubernetesClusterConfig extends TerraformMetaArguments
 ```
 
 The interface describes the properties of the configuration. Leveraging a code editor like VSCode  shift clicking `KubernetesClusterKubeConfig` will reveal the implementation. Now we can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
