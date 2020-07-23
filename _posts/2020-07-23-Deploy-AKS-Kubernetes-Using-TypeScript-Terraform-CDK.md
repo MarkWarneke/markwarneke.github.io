@@ -20,7 +20,7 @@ CDK is currently implemented in Node and can be installed using `npm install -g 
 In this blog-post I will dive into the CDK leveraging the existing Azure providers in order to create an Azure Kubernetes Service (AKS) using TypeScript.
 The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarneke/cdk-typescript-azurerm-k8s).
 
-# Cloud Development Kit (CDK) for Terraform on Azure
+## Cloud Development Kit (CDK) for Terraform on Azure
 
 The CDK for Terraform compliments the exiting Terraform ecosystem, based on JSON and HCL.
 
@@ -68,7 +68,7 @@ To follow along add `"azurerm@~> 2.0.0"` to the `cdkf.json`. Then run `cdktf get
 Make sure to log-in to Azure using the az cli `az login`.
 The interactive `cdktf` similar to `terraform` will use the current Azure context by default.
 
-# Deploy Kubernetes on Azure using TypeScript
+## Deploy Kubernetes on Azure using TypeScript
 
 After the providers have been fetched the provider can be explored in `.gen/providers/azurerm`. You can find all available resources definition here, Kubernetes can be found using `ls ./.gen/providers/azurerm | grep "Kubernetes"`.
 
@@ -113,7 +113,7 @@ app.synth();
 
 In this example the `scope` is set to the current stack using `this`, the `id` is similar to the resource name in terraform and should be a unique name. The `config` is an implementation of `TerraformMetaArguments`, lets see how to use the `KubernetesClusterConfig`.
 
-## Define the KubernetesClusterConfig
+### Define the KubernetesClusterConfig
 
 The `KubernetesClusterConfig` is an interface that describes the `TerraformMetaArguments` for a Kubernetes cluster.
 
@@ -151,7 +151,7 @@ The editor can be used to autocomplete e.g. using shift space, to display additi
 
 > Caveat: a Terraform Azure Kubernetes Cluster typically can be provisioned using a `servicePrincipal` or `identity`. They are mutually exclusive and one of them has to be defined, using the current `KubernetesClusterConfig` only the `servicePrincipal` property is mandatory and thus `identity` can not be used`
 
-## Leverage Environment Variables
+### Leverage Environment Variables
 
 Environment variables can be used to inject variables to a CDK implementation. In Node you can use `process.env` e.g. `process.env.AZ_SP_CLIENT_ID` and `process.env.AZ_SP_CLIENT_SECRET`.
 
@@ -169,7 +169,7 @@ export AZ_SP_CLIENT_ID=''
 export AZ_SP_CLIENT_SECRET=''
 ```
 
-## Generate Terraform
+### Generate Terraform
 
 The CDK is used to generate a Terraform file. The process of generating an IaC file is called synthesizing.
 The cli can be used to run `cdktf synth`.
@@ -188,7 +188,7 @@ Exploring the `cdk.tf.json` file we can see the familiar Terraform structure. Al
 
 We can run `cdktf diff` similar to `terraform diff` to display the changes to be made before applying them. We can also explore the terraform state in the root folder `terraform.tfstate`. The state can be configured e.g. in a remote backend following the docs for [Terraform Remote Backend](https://github.com/hashicorp/terraform-cdk/blob/master/docs/working-with-cdk-for-terraform/remote-backend.md)
 
-## Get it Running
+### Get it Running
 
 ```bash
 # Login to Azure, in order to set the local terraform context
@@ -217,25 +217,25 @@ Go to `cdktf.out` and run `terraform validate`, `terraform plan` and `terraform 
 
 We can leverage CDK to abstract the deployment file creation to a higher-level programming language without investing too much into refactoring existing tools and pipelines and without losing any of the benefits of IaC configuration files.
 
-# Lookout
+## Lookout
 
 Because a programming language is used we can leverage a couple of tools that have been missing to the IaC development lifecycle.
 
-## Compiler
+### Compiler
 
 The use of the strongly typed TypeScript language as an intermediary can be used to catch configuration errors early by using the TypeScript compiler in the developer's inner-loop. Running `tsc` in the root folder will display any TypeScript errors immediately. 
 
 Missing mandatory variable or wrong assignments are for the past.
 
-## Linter
+### Linter
 
 Tools like `tslint` can be used to run statical code-analysis and ensure inconsistencies and errors are caught early. Running `tslint -c tslint.json main.ts` will display any violation of the configured rules. Linters can also be used to unify a codebase, this is especially interesting with multiple contributors to the same code.
 
-## Libraries and Tools
+### Libraries and Tools
 
 Tools and libraries like [`hcl2json`](https://www.npmjs.com/package/hcl2json) or `json2hcl` can be used to extend and add on top of the CDK.
 
-## Debuggers
+### Debuggers
 
 Furthermore, because a programming language is used we can attach debuggers to our development workflow.
 
@@ -245,11 +245,11 @@ Furthermore, because a programming language is used we can attach debuggers to o
 
 Troubleshooting the assignment of variables, understanding complex loops and conditions as well as resolving dependency trees are way easier to resolve by leveraging a debugger. Resolving errors should be less tedious because existing and battle-tested software-development tools can finally be used.
 
-## Tests
+### Tests
 
 Complex templates can be broken into small reusable pieces. A complex Terraform deployment can be constructed dynamically. Multiple modules can be composed using loops and conditions. The amount of configuration code can be reduced significantly. Unit tests can be applied to ensure that the generated templates are correct and consistent.
 
-## Outlook
+### Outlook
 
 The combination of parameterized Terraform modules and the usage of the CDK can abstract deployments into simple to use services, like command-line tools, shared APIs and web services. These services create reproducible IaC based on configuration data that can even be stored in databases.
 
