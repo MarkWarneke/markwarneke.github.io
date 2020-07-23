@@ -38,13 +38,13 @@ Commands:
   cdktf get [OPTIONS]      Generate CDK Constructs for Terraform providers and modules.
   cdktf init [OPTIONS]     Create a new cdktf project from a template.
   cdktf login              Retrieves an API token to connect to Terraform Cloud.
-  cdktf synth [OPTIONS]    Synthesizes Terraform code for the given app in a directory.                                                                                   [aliases: synthesize]
+  cdktf synth [OPTIONS]    Synthesizes Terraform code for the given app in a directory. [aliases: synthesize]
 
 Options:
-  --version          Show version number                                                                                                                                              [boolean]
+  --version          Show version number [boolean]
   --disable-logging  Dont write log files. Supported using the env CDKTF_DISABLE_LOGGING.                                                                             [boolean] [default: true]
-  --log-level        Which log level should be written. Only supported via setting the env CDKTF_LOG_LEVEL                                                                             [string]
-  -h, --help         Show help                                                                                                                                                        [boolean]
+  --log-level        Which log level should be written. Only supported via setting the env CDKTF_LOG_LEVEL [string]
+  -h, --help         Show help [boolean]
 
 Options can be specified via environment variables with the "CDKTF_" prefix (e.g. "CDKTF_OUTPUT")
 ```
@@ -57,7 +57,7 @@ The output is a bunch of files, including the known `main` (in this case `main.t
 {
   "language": "typescript",
   "app": "npm run --silent compile && node main.js",
-  "terraformProviders": [ "azurerm@~> 2.0.0" ]
+  "terraformProviders": ["azurerm@~> 2.0.0"]
 }
 ```
 
@@ -83,29 +83,29 @@ In order to use the Kubernetes `TerraformResource` declare the class in `main.ts
 The `main.ts` could look somewhat like this:
 
 ```typescript
-import { Construct } from 'constructs';
-import { App, TerraformStack, TerraformOutput } from 'cdktf';
-import { AzurermProvider, KubernetesCluster } from './.gen/providers/azurerm'
+import { Construct } from "constructs";
+import { App, TerraformStack, TerraformOutput } from "cdktf";
+import { AzurermProvider, KubernetesCluster } from "./.gen/providers/azurerm";
 
 class K8SStack extends TerraformStack {
-   constructor(scope: Construct, name: string) {
+  constructor(scope: Construct, name: string) {
     super(scope, name);
 
     // Register the AzureRmProvider, make sure to import its
-    const provider = new AzurermProvider(this, 'AzureRm', {
-      features: [{}]
-    })
-    
+    const provider = new AzurermProvider(this, "AzureRm", {
+      features: [{}],
+    });
+
     // ...
 
-    new KubernetesCluster(this, 'k8scluster', {
+    new KubernetesCluster(this, "k8scluster", {
       // ... KubernetesClusterConfig
-    })
+    });
   }
 }
 
 const app = new App();
-const k8tstack = new K8SStack(app, 'typescript-azurerm-k8s');
+const k8tstack = new K8SStack(app, "typescript-azurerm-k8s");
 app.synth();
 ```
 
@@ -121,7 +121,7 @@ The `KubernetesClusterConfig` is an interface that describes the `TerraformMetaA
 export interface KubernetesClusterConfig extends TerraformMetaArguments
 ```
 
-The interface describes the properties of the configuration. Leveraging a code editor like VSCode  shift-clicking `KubernetesClusterKubeConfig` will reveal the implementation.
+The interface describes the properties of the configuration. Leveraging a code editor like VSCode shift-clicking `KubernetesClusterKubeConfig` will reveal the implementation.
 
 We can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
 
@@ -129,21 +129,21 @@ We can also use intellisense to suggest and displays missing variables. For inst
 
 ```typescript
 const k8sconfig: KubernetesClusterConfig = {
-      dnsPrefix: AKS_DNS_PREFIX,
-      location: LOCATION,
-      name: AKS_NAME,
-      resourceGroupName: rg.name,
-      servicePrincipal: [ident],
-      defaultNodePool: [pool],
-      dependsOn: [rg]
-    };
+  dnsPrefix: AKS_DNS_PREFIX,
+  location: LOCATION,
+  name: AKS_NAME,
+  resourceGroupName: rg.name,
+  servicePrincipal: [ident],
+  defaultNodePool: [pool],
+  dependsOn: [rg],
+};
 ```
 
 We can double-check the official terraform provider docs for a Kubernetes cluster [terraform.io/azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html) and see that the config values are matching the mandatory parameter of the argument reference.
 
 Suppose we missed a mandatory property the TypeScript compiler will throw an error and indicate early that an attribute has been missed. This is a major benefit of the strongly typed programming language TypeScript over a loose configuration file.
 
-To create a config element use `let NAME: Type = {}`. The TypeScript object can then be extended based on conditions with additional properties, just like any TypeScript object. 
+To create a config element use `let NAME: Type = {}`. The TypeScript object can then be extended based on conditions with additional properties, just like any TypeScript object.
 
 The editor can be used to autocomplete e.g. using shift space, to display additional properties of the given object.
 
@@ -158,8 +158,8 @@ Environment variables can be used to inject variables to a CDK implementation. I
 ```typescript
 const ident: KubernetesClusterServicePrincipal = {
   clientId: process.env.AZ_SP_CLIENT_ID as string,
-  clientSecret: process.env.AZ_SP_CLIENT_SECRET as string
-}
+  clientSecret: process.env.AZ_SP_CLIENT_SECRET as string,
+};
 ```
 
 This allows us to change configuration between deployments without changing the code based on [the Twelve-Factor App](https://12factor.net/) App. The environment variables can be set using
@@ -180,7 +180,7 @@ The full CDK AKS implementation looks like this:
 
 {% gist f73322389850416de0bc4dc29e01ef8f %}
 
-`cdktf synth` can also be run with `-o` to specify the output file or using `-json` to just print the created Terraform file to the console. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/). Terraform work with both `hcl`  (`.tf`) and `json` (`.json`) files.
+`cdktf synth` can also be run with `-o` to specify the output file or using `-json` to just print the created Terraform file to the console. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/). Terraform work with both `hcl` (`.tf`) and `json` (`.json`) files.
 
 Exploring the `cdk.tf.json` file we can see the familiar Terraform structure. All resources are present including the values & the previously set values of the environment variables e.g. the service principal id and secret.
 
@@ -223,7 +223,7 @@ Because a programming language is used we can leverage a couple of tools that ha
 
 ### Compiler
 
-The use of the strongly typed TypeScript language as an intermediary can be used to catch configuration errors early by using the TypeScript compiler in the developer's inner-loop. Running `tsc` in the root folder will display any TypeScript errors immediately. 
+The use of the strongly typed TypeScript language as an intermediary can be used to catch configuration errors early by using the TypeScript compiler in the developer's inner-loop. Running `tsc` in the root folder will display any TypeScript errors immediately.
 
 Missing mandatory variable or wrong assignments are for the past.
 
