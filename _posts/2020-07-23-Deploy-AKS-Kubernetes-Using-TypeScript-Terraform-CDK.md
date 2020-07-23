@@ -3,9 +3,9 @@ layout: post
 title: Deploy Azure Kubernetes Service (AKS) using TypeScript
 subtitle: leveraging Cloud Development Kit (CDK) for Terraform
 bigimg:
-  - "/img/KE0nC858MQ.jpeg": "https://unsplash.com/photos/KE0nC8-58MQ"
-image: "/img/KE0nC858MQ.jpeg"
-share-img: "/img/KE0nC858MQ.jpeg"
+  - "/img/taiuG8CPKAQ.jpeg": "https://unsplash.com/photos/taiuG8CPKAQ"
+image: "/img/taiuG8CPKAQ.jpeg"
+share-img: "/img/taiuG8CPKAQ.jpeg"
 tags: [Azure, K8S]
 comments: true
 time: 7
