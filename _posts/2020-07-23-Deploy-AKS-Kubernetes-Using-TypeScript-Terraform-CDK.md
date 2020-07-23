@@ -234,6 +234,8 @@ Tools and libraries like [`hcl2json`](https://www.npmjs.com/package/hcl2json) or
 
 Furthermore, because a programming language is used we can attach debuggers to our development workflow.
 
+![Debugger](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/debugger.png)
+
 Troubleshooting the assignment of variables, understanding complex loops and conditions as well as resolving dependency trees are way easier to resolve by leveraging a debugger. Resolving errors should be less tedious because existing and battle-tested software-development tools can finally be used.
 
 ## Tests
