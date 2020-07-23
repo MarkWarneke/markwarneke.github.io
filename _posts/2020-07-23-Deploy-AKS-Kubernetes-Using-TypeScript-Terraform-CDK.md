@@ -201,11 +201,14 @@ cdktf diff
 
 # Run terraform apply using the generated deployment file
 cdktf deploy
+
+# Destory the deployment using
+cdktf destroy
 ```
 
-As the CDK currently is used to generate a Terraform deployment file we can also apply the file using the terraform-cli.
+As the CDK is used to generate Terraform deployment files, we can use output with familiar Terraform-CLI commands.
 
-Go to `cdktf.out` and run `terraform validate`, `terraform plan` and `terraform apply`, this is the magic behind [synthesizing Terraform Configuration using CDK for Terraform CLI](https://github.com/hashicorp/terraform-cdk/blob/master/docs/working-with-cdk-for-terraform/synthesizing-config.md). This tooling generates valid terraform code that can be easily added to existing IaC projects.  Previously created pipelines can still be used to deploy infrastructure as we are used to with terraform.
+Go to `cdktf.out` and run `terraform validate`, `terraform plan` and `terraform apply`, this is the magic behind [synthesizing Terraform Configuration using CDK for Terraform CLI](https://github.com/hashicorp/terraform-cdk/blob/master/docs/working-with-cdk-for-terraform/synthesizing-config.md). This tooling generates valid Terraform code that can be easily added to existing IaC projects. Previously created pipelines can still be used to deploy infrastructure as we are used to with terraform.
 
 We can leverage CDK to abstract the deployment file creation to a higher-level programming language without investing too much and losing any of the benefits.
 
