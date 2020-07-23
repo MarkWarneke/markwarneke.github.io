@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Deploy Azure Kubernetes Service (AKS) using TypeScript
