@@ -55,9 +55,24 @@ Options:
 Options can be specified via environment variables with the "CDKTF_" prefix (e.g. "CDKTF_OUTPUT")
 ```
 
-To get started create a new folder and run `cdktf init --template="typescript"`, this will generate a blueprint TypeScript file structure.
+To get started create a new folder and run `cdktf init --template="typescript"`, this will generate a blueprint TypeScript file structure and download the required dependencies.
 
-The output is a bunch of files, including the known `main` (in this case `main.ts` instead of `main.tf`) and the CDK configuration file `cdktf.json`. Lets add the `azurerm` provider to the file.
+```bash
+-rw-r--r--   1 markmitk markmitk   131 Jul 23 17:27 cdktf.json # CDK configuration, including provider
+drwxr-xr-x   3 markmitk markmitk  4096 Jul 23 17:27 .gen # packages to be used in TypeScript
+-rw-r--r--   1 markmitk markmitk    69 Jul 23 17:27 .gitignore # prepared gitignore to not check in generated files
+-rw-r--r--   1 markmitk markmitk  1129 Jul 23 17:27 help
+-rw-r--r--   1 markmitk markmitk    11 Jul 23 17:27 main.d.ts
+-rw-r--r--   1 markmitk markmitk  1285 Jul 23 17:27 main.js
+-rw-r--r--   1 markmitk markmitk   296 Jul 23 17:27 main.ts # MAIN file, similar to main.tf
+drwxr-xr-x 162 markmitk markmitk  4096 Jul 23 17:27 node_modules
+-rw-r--r--   1 markmitk markmitk   647 Jul 23 17:27 package.json
+-rw-r--r--   1 markmitk markmitk 68478 Jul 23 17:27 package-lock.json
+drwxr-xr-x   3 markmitk markmitk  4096 Jul 23 17:27 .terraform  # terraform config
+-rw-r--r--   1 markmitk markmitk   716 Jul 23 17:27 tsconfig.json
+```
+
+The output is a bunch of files, including the known `main` (in this case `main.ts` instead of `main.tf`) and the CDK configuration file `cdktf.json`. Lets add the Azure provider to the cdktf configuration file.
 
 ```json
 {
@@ -67,9 +82,9 @@ The output is a bunch of files, including the known `main` (in this case `main.t
 }
 ```
 
-The [`terraformProviders`](https://www.terraform.io/docs/providers/) can be explored in the registry e.g. [`azurerm`](https://registry.terraform.io/providers/hashicorp/azurerm/latest)
+The [`terraformProviders`](https://www.terraform.io/docs/providers/) can be explored in the registry e.g. [`azurerm`](https://registry.terraform.io/providers/hashicorp/azurerm/latest). Add `"azurerm@~> 2.0.0"` to the `cdkf.json` and run `cdktf get` in order to install the Azure provider.
 
-To follow along add `"azurerm@~> 2.0.0"` to the `cdkf.json`. Then run `cdktf get` in order to install the Azure provider.
+All available providers and resources are downloaded into `./.gen/providers/`
 
 Make sure to log-in to Azure using the az cli `az login`.
 The interactive `cdktf` similar to `terraform` will use the current Azure context by default.
