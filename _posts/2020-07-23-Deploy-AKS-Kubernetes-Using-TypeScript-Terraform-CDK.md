@@ -117,7 +117,7 @@ The `KubernetesClusterConfig` is an interface that describes the `TerraformMetaA
 export interface KubernetesClusterConfig extends TerraformMetaArguments
 ```
 
-The interface describes the properties of the configuration. Leveraging a code editor like VSCode  shift clicking `KubernetesClusterKubeConfig` will reveal the implementation.
+The interface describes the properties of the configuration. Leveraging a code editor like VSCode  shift-clicking `KubernetesClusterKubeConfig` will reveal the implementation.
 
 We can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
 
