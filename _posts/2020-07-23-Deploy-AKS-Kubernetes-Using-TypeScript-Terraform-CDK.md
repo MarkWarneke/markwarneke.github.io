@@ -144,7 +144,7 @@ The interface describes the properties of the configuration. Leveraging a code e
 
 We can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
 
-We can also use intellisense to suggest and displays missing variables. For instance the mandatory config for `KubernetesClusterConfig` looks like this:
+We can also use intellisense to suggest and displays missing variables. The mandatory config for a `KubernetesClusterConfig` looks like this:
 
 ```typescript
 const k8sconfig: KubernetesClusterConfig = {
@@ -157,6 +157,8 @@ const k8sconfig: KubernetesClusterConfig = {
   dependsOn: [rg],
 };
 ```
+
+Notice that we are referencing variabales here and not hard-coded strings. The `resourceGroupName` for instance is referencing the property of a previously defined ResourceGroup `rg`, etc. For reference see the whole implementation in [generate terraform](#generate-terraform).
 
 We can double-check the official terraform provider docs for a Kubernetes cluster [terraform.io/azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html) and see that the config values are matching the mandatory parameter of the argument reference.
 
