@@ -13,9 +13,11 @@ time: 7
 
 HashiCorp recently announced [CDK for Terraform: Enabling Python and TypeScript Support](https://www.hashicorp.com/blog/cdk-for-terraform-enabling-python-and-typescript-support/) - _CDK_ stands for **Cloud Development Kit**, CDK enables Cloud Engineers to define their Infrastructure as Code (IaC) using programming languages like TypeScript or Python.
 
-CDK currently consists of a new CLI and a library for defining Terrform resources using TypeScript or Python in order to generates Terraform configuration files that can be used to provisioning resources. CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
+CDK currently consists of a new CLI and a library for defining Terraform resources using TypeScript or Python in order to generates Terraform configuration files that can be used to provisioning resources.
 
-In this blog post I will dive into the CDK leveraging the existing Azure providers in order to create an Azure Kuberenetes Service (AKS) using TypeScript.
+CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
+
+In this blog-post I will dive into the CDK leveraging the existing Azure providers in order to create an Azure Kubernetes Service (AKS) using TypeScript.
 The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarneke/cdk-typescript-azurerm-k8s).
 
 # Cloud Development Kit (CDK) for Terraform on Azure
@@ -68,7 +70,7 @@ The interactive `cdktf` similar to `terraform` will use the current Azure contex
 
 # Deploy Kubernetes on Azure using TypeScript
 
-After the providers have been fetched the provider can be explored in `.gen/providers/azurem`. You can find all available resources definition here, kubernetes can be found using `ls ./.gen/providers/azurerm | grep "kubernetes"`.
+After the providers have been fetched the provider can be explored in `.gen/providers/azurerm`. You can find all available resources definition here, Kubernetes can be found using `ls ./.gen/providers/azurerm | grep "Kubernetes"`.
 
 Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To see the implementation display `kubernetes-cluster.ts` using `less ./.gen/providers/azurerm/kubernetes-cluster.ts` or browse the file in your editor.
 
