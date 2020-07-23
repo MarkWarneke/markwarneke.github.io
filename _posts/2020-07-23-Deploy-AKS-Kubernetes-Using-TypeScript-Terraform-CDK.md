@@ -141,7 +141,9 @@ We can double-check the official terraform provider docs for a Kubernetes cluste
 
 Suppose we missed a mandatory property the TypeScript compiler will throw an error and indicate early that an attribute has been missed. This is a major benefit of the strongly typed programming language TypeScript over a loose configuration file.
 
-To create a config element use `let NAME: Type = {}`. The TypeScript object can then be extended based on conditions with additional properties, just like any TypeScript object. The editor can be used to autocomplete e.g. using shift space, to display additional properties of the given object.
+To create a config element use `let NAME: Type = {}`. The TypeScript object can then be extended based on conditions with additional properties, just like any TypeScript object. 
+
+The editor can be used to autocomplete e.g. using shift space, to display additional properties of the given object.
 
 ![Code Suggestion](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/suggestion.png)
 
