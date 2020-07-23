@@ -11,18 +11,20 @@ comments: true
 time: 7
 ---
 
-HashiCorp recently announced [CDK for Terraform: Enabling Python & TypeScript Support](https://www.hashicorp.com/blog/cdk-for-terraform-enabling-python-and-typescript-support/) - _CDK_ stands for **Cloud Development Kit**, CDK enables Cloud Engineers to define their Infrastructure as Code (IaC) using programming languages like TypeScript or Python.
+HashiCorp recently announced [CDK for Terraform: Enabling Python and TypeScript Support](https://www.hashicorp.com/blog/cdk-for-terraform-enabling-python-and-typescript-support/) - _CDK_ stands for **Cloud Development Kit**, CDK enables Cloud Engineers to define their Infrastructure as Code (IaC) using programming languages like TypeScript or Python.
 
-CDK currently consists of a new CLI and a library for defining Terrform resources in order to generates Terraform configuration that can be used to provisioning resources with Terraform. CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
-
-![CDK Overview](https://www.datocms-assets.com/2885/1594922228-cdk-providers.png?fit=max&fm=png&q=80&w=2000)
+CDK currently consists of a new CLI and a library for defining Terrform resources using TypeScript or Python in order to generates Terraform configuration files that can be used to provisioning resources. CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
 
 In this blog post I will dive into the CDK leveraging the existing Azure providers in order to create an Azure Kuberenetes Service (AKS) using TypeScript.
 The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarneke/cdk-typescript-azurerm-k8s).
 
 # Cloud Development Kit (CDK) for Terraform on Azure
 
-Exploring the [`cdktf`](https://github.com/hashicorp/terraform-cdk/blob/master/docs/cli-commands.md) cli commands.
+The CDK for Terraform compliments the exiting Terraform ecosystem, based on JSON and HCL.
+
+![CDK Overview](https://www.datocms-assets.com/2885/1594922228-cdk-providers.png?fit=max&fm=png&q=80&w=2000)
+
+Lets explor the [`cdktf`](https://github.com/hashicorp/terraform-cdk/blob/master/docs/cli-commands.md) cli commands.
 
 ```shell
 cdktf [command]
@@ -46,7 +48,8 @@ Options can be specified via environment variables with the "CDKTF_" prefix (e.g
 ```
 
 To get started create a new folder and run `cdktf init --template="typescript"`, this will generate a blueprint TypeScript file structure.
-Explore the CDK configuration `cat cdktf.json`.
+
+The output is a bunch of files, including the known `main` (in this case `main.ts` instead of `main.tf`) and the CDK configuration file `cdktf.json`. Lets add the `azurerm` provider to the file.
 
 ```json
 {
@@ -65,11 +68,15 @@ The interactive `cdktf` similar to `terraform` will use the current Azure contex
 
 # Deploy Kubernetes on Azure using TypeScript
 
-After the providers have been fetched the provider can be explored in `.gen/providers/azurem`, here you can find the Kubernetes resources using `ls ./.gen/providers/azurerm | grep "kubernetes"`. The `TerraformResource` implementation `KubernetesCluster` can be explored to see the implementation less `less ./.gen/providers/azurerm/kubernetes-cluster.ts` look for `export class KubernetesCluster extends TerraformResource`.
+After the providers have been fetched the provider can be explored in `.gen/providers/azurem`. You can find all available resources definition here, kubernetes can be found using `ls ./.gen/providers/azurerm | grep "kubernetes"`. 
+
+Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To see the implementation display `kubernetes-cluster.ts` using `less ./.gen/providers/azurerm/kubernetes-cluster.ts` or brows the file in you editor. You are looking for the exported class: `export class KubernetesCluster extends TerraformResource`.
 
 ![KubernetesCluster TerraformResource](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/KubernetesCluster.png))
 
-In `main.ts` you have to add the classes using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`.
+In order to use the Kubernetes TerraformResource you have to add it to `main.ts`. First add the classes as a dependency to you imports using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`. 
+
+The `main.ts` could look somewhat like this:
 
 ```typescript
 import { Construct } from 'constructs';
@@ -98,9 +105,9 @@ const k8tstack = new K8SStack(app, 'typescript-azurerm-k8s');
 app.synth();
 ```
 
-`TerraformResource` usually accepts a `scope`, `id` and a `config` the config is named after the resource, so for Kubernetes we are looking for the `KubernetesClusterConfig`.
+`TerraformResource` accepts a `scope`, `id` and a `config`. The config is depending on the resource to be provisioned and the class name is based on the resource add `Config` to the end. For Kubernetes we are looking for the `KubernetesClusterConfig`.
 
-In this example the `scope` is set to `this`, the `id` should be a unique name like in Terraform and the `config` is a `TerraformMetaArguments`.
+In this example the `scope` is set to the current stack using `this`, the `id` is similar to the resource name in terraform and should be a unique name. The `config` is an implementation of `TerraformMetaArguments`, lets see how to use the `KubernetesClusterConfig`.
 
 ## Define the KubernetesClusterConfig
 
@@ -110,7 +117,9 @@ The `KubernetesClusterConfig` is an interface that describes the `TerraformMetaA
 export interface KubernetesClusterConfig extends TerraformMetaArguments
 ```
 
-The interface describes the properties of the configuration. Leveraging a code editor like VSCode  shift clicking `KubernetesClusterKubeConfig` will reveal the implementation. Now we can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
+The interface describes the properties of the configuration. Leveraging a code editor like VSCode  shift clicking `KubernetesClusterKubeConfig` will reveal the implementation.
+
+We can see which properties of the configuration are mandatory and which are optional. Optional properties are postfixed with a question-mark `?`, e.g. `readonly apiServerAuthorizedIpRanges?: string[];`.
 
 We can also use intellisense to suggest and displays missing variables. For instance the minimum config looks like this:
 
@@ -128,7 +137,9 @@ const k8sconfig: KubernetesClusterConfig = {
 
 We can double-check the official terraform provider docs for a Kubernetes cluster [terraform.io/azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html) and see that the config values are matching the mandatory parameter of the argument reference.
 
-To create a config element use `let NAME: Type = {}`. The TypeScript object can than be extended based on conditions with additional properties. Editors autocomplete can be used e.g. with shift space to display additional properties of the given object.
+Suppose we missed a mandatory property the TypeScript compiler will throw an error and indicate early that an attribute has been missed. This is a major benefit of the strongly typed programming language TypeScript over a loose configuration file.
+
+To create a config element use `let NAME: Type = {}`. The TypeScript object can then be extended based on conditions with additional properties, just like any TypeScript object. The editor can be used to autocomplete e.g. using shift space, to display additional properties of the given object.
 
 ![Code Suggestion](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/suggestion.png)
 
@@ -136,8 +147,7 @@ To create a config element use `let NAME: Type = {}`. The TypeScript object can 
 
 ## Leverage Environment Variables
 
-Environment variables can be used to inject variables to a CDK implementation. In Node you can use `process.env` e.g. `process.env.AZ_SP_CLIENT_ID` and `process.env.AZ_SP_CLIENT_SECRET`. 
-
+Environment variables can be used to inject variables to a CDK implementation. In Node you can use `process.env` e.g. `process.env.AZ_SP_CLIENT_ID` and `process.env.AZ_SP_CLIENT_SECRET`.
 
 ```typescript
 const ident: KubernetesClusterServicePrincipal = {
