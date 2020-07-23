@@ -128,7 +128,7 @@ const k8tstack = new K8SStack(app, "typescript-azurerm-k8s");
 app.synth();
 ```
 
-`TerraformResource` accepts a `scope`, `id` and a `config`. The config is depending on the resource to be provisioned and the class name is based on the resource add `Config` to the end. For Kubernetes we are looking for the `KubernetesClusterConfig`.
+`TerraformResource` accepts a `scope`, `id` and a `config`. The config is depending on the resource to be provisioned and the class name is based on the resource followed by `Config`. For Kubernetes we thus are looking for  `KubernetesClusterConfig`.
 
 In this example the `scope` is set to the current stack using `this`, the `id` is similar to the resource name in terraform and should be a unique name. The `config` is an implementation of `TerraformMetaArguments`, lets see how to use the `KubernetesClusterConfig`.
 
