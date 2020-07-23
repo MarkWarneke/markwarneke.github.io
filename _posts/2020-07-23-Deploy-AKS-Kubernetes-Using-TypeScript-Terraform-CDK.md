@@ -20,13 +20,11 @@ The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarn
 
 ## Cloud Development Kit (CDK) for Terraform on Azure
 
-The CDK for Terraform compliments the exiting Terraform ecosystem, based on JSON and HCL.
+**TLDR**: The CDK for Terraform compliments the exiting Terraform ecosystem. The CDK adds the capabilities to
 
-**TLDR** the main benefits I see using CDK:
-
-- [compiler](#compiler) (strongly typed programming language)
-- [debugger](#debugger) (improved developer inner-loop)
-- [extensibility](#linter) (using linter, libraries and packages)
+- [compile](#compiler) (strongly typed programming language)
+- [debug](#debugger) (improved developer inner-loop)
+- [extend](#linter) (using linter, libraries and packages)
 
 CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [getting started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
 
