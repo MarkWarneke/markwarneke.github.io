@@ -246,8 +246,8 @@ Complex templates can be broken into small reusable pieces. A complex Terraform 
 
 ## Outlook
 
-The combination of parameterized Terraform modules and the usage of the CDK can abstract deployments into simple to use services, like command-line tools shared APIs. These services create reproducible IaC based on configuration data that can even be stored in database.
+The combination of parameterized Terraform modules and the usage of the CDK can abstract deployments into simple to use services, like command-line tools, shared APIs and web services. These services create reproducible IaC based on configuration data that can even be stored in databases.
 
-Custom validation and enforcing naming-convention thorough custom code can be used in order to scale and mature IaC projects further.
+Custom validation and enforcing naming-convention thorough custom code can be used to scale and mature IaC projects further.
 
 The flexibility of a full programming language meets the idempotent and declarative nature of IaC.
