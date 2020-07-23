@@ -70,7 +70,7 @@ The interactive `cdktf` similar to `terraform` will use the current Azure contex
 
 After the providers have been fetched the provider can be explored in `.gen/providers/azurem`. You can find all available resources definition here, kubernetes can be found using `ls ./.gen/providers/azurerm | grep "kubernetes"`. 
 
-Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To see the implementation display `kubernetes-cluster.ts` using `less ./.gen/providers/azurerm/kubernetes-cluster.ts` or brows the file in you editor. You are looking for the exported class: `export class KubernetesCluster extends TerraformResource`.
+Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To see the implementation display `kubernetes-cluster.ts` using `less ./.gen/providers/azurerm/kubernetes-cluster.ts` or brows the file in your editor. You are looking for the exported class: `export class KubernetesCluster extends TerraformResource`.
 
 ![KubernetesCluster TerraformResource](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/KubernetesCluster.png))
 
