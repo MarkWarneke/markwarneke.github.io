@@ -74,9 +74,9 @@ Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To s
 
 You are looking for the exported class: `export class KubernetesCluster extends TerraformResource`.
 
-![KubernetesCluster TerraformResource](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/KubernetesCluster.png))
+![KubernetesCluster TerraformResource](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/KubernetesCluster.png)
 
-In order to use the Kubernetes TerraformResource you have to add it to `main.ts`. First add the classes as a dependency to you imports using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`. 
+In order to use the Kubernetes TerraformResource you have to add it to `main.ts`. First add the classes as a dependency to you imports using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`.
 
 The `main.ts` could look somewhat like this:
 
