@@ -22,12 +22,12 @@ The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarn
 
 The CDK for Terraform compliments the exiting Terraform ecosystem, based on JSON and HCL.
 
-CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [Getting Started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
-
 **TLDR** the main benefits I see using CDK:
 - [compiler](#compiler) (strongly typed programming language)
-- [debugger](#debugger) (improved Developer Inner-Loop)
+- [debugger](#debugger) (improved developer inner-loop)
 - [extensibility](#linter) (using linter, libraries and packages)
+
+CDK is currently implemented in Node and can be installed using `npm install -g cdktf-cli` see [getting started](https://github.com/hashicorp/terraform-cdk#getting-started) on the official repo.
 
 ![CDK Overview](https://www.datocms-assets.com/2885/1594922228-cdk-providers.png?fit=max&fm=png&q=80&w=2000)
 
