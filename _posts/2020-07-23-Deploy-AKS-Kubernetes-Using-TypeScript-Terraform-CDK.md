@@ -175,7 +175,7 @@ The full CDK AKS implementation looks like this:
 
 {% gist f73322389850416de0bc4dc29e01ef8f %}
 
-`cdktf synth` can also be run with `-o` to specify the output or using `-json` to just display the created Terraform file. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/).
+`cdktf synth` can also be run with `-o` to specify the output file or using `-json` to just print the created Terraform file to the console. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/).
 
 Exploring the `cdk.tf.json` file we can see the familiar Terraform structure, including the values & the previously set environment variables e.g. the service principal id and secret.
 
