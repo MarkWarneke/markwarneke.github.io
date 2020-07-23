@@ -248,7 +248,7 @@ We can leverage CDK to abstract the deployment file creation to a higher-level p
 
 ## Lookout
 
-Because a programming language is used we can leverage a couple of tools that have been missing to the IaC development lifecycle.
+Because a higher-level programming language is used we can leverage a couple of tools that have been missing to the IaC development lifecycle.
 
 ### Compiler
 
@@ -282,7 +282,7 @@ Complex templates can be broken into small reusable pieces. A complex Terraform 
 
 The combination of parameterized Terraform modules and the usage of the CDK can abstract deployments into simple to use services, like command-line tools, shared APIs and web services. These services create reproducible IaC based on configuration data that can even be stored in databases.
 
-Custom validation and enforcing naming-convention thorough custom code can be used to scale and mature IaC projects further.
+Custom validation and enforcing naming-convention through custom code can be used to scale and mature IaC projects further.
 
 The flexibility of a full programming language meets the idempotent and declarative nature of IaC.
 
