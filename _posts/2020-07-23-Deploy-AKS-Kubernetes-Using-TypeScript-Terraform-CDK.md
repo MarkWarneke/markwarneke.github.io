@@ -189,6 +189,10 @@ We can run `cdktf diff` similar to `terraform diff` to display the changes to be
 # Login to Azure, in order to set the local terraform context
 az login
 
+# Export the "not so" secret environment variables
+export AZ_SP_CLIENT_ID=''
+export AZ_SP_CLIENT_SECRET=''
+
 # Generate the terraform deployment file
 cdktf synth
 
