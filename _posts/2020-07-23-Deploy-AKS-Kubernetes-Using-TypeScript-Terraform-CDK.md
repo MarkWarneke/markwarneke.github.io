@@ -218,23 +218,27 @@ Because a programming language is used we can leverage a couple of tools that ha
 
 ## Compiler
 
-The use of TypeScript as an intermediary can be leverage to catch configuration errors early compiler  in the developer's inner-loop. Running `tsc` in the root folder will display any TypeScript errors immediately, like missing mandatory variable or wrong assignments. 
+The use of the strongly typed TypeScript language as an intermediary can be used to catch configuration errors early by using the TypeScript compiler in the developer's inner-loop. Running `tsc` in the root folder will display any TypeScript errors immediately. 
+
+Missing mandatory variable or wrong assignments are for the past.
 
 ## Linter
 
-Tools like `tslint` can be used to staticlly test the code and ensure the inconsistent and errors are caught early. Running `tslint -c tslint.json main.ts` will display any violation to the tslint rules. Linters can also be used to unify a code base when multiple developers are writing code.
+Tools like `tslint` can be used to run statical code-analysis and ensure inconsistencies and errors are caught early. Running `tslint -c tslint.json main.ts` will display any violation of the configured rules. Linters can also be used to unify a codebase, this is especially interesting with multiple contributors to the same code.
 
 ## Libraries and Tools
 
-Tools like [`hcl2json`](https://www.npmjs.com/package/hcl2json) or `json2hcl` can be used to extend and add on top of the CDK.
+Tools and libraries like [`hcl2json`](https://www.npmjs.com/package/hcl2json) or `json2hcl` can be used to extend and add on top of the CDK.
 
 ## Debuggers
 
-Furthermore, because a programming language is used we can attach debuggers to our development workflow. Troubleshooting the assignment of variables, understanding complex loops and conditions as well as resolving dependency trees are way easier to resolve by leveraging a debugger. Resolving errors should be less tedious because existing software-development tools can finally be used.
+Furthermore, because a programming language is used we can attach debuggers to our development workflow.
+
+Troubleshooting the assignment of variables, understanding complex loops and conditions as well as resolving dependency trees are way easier to resolve by leveraging a debugger. Resolving errors should be less tedious because existing and battle-tested software-development tools can finally be used.
 
 ## Tests
 
-Complex templates can be broken into small reusable pieces. A complex terraform deployment can be constructed dynamically. Multiple modules can be composed using loops and conditions. The amount of configuration code can be reduced and unit tests can be applied to ensure the generated template is correct.
+Complex templates can be broken into small reusable pieces. A complex Terraform deployment can be constructed dynamically. Multiple modules can be composed using loops and conditions. The amount of configuration code can be reduced significantly. Unit tests can be applied to ensure generated template are correct and consistent.
 
 ## Outlook
 
