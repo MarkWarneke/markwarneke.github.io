@@ -19,6 +19,26 @@
         "goals": [],
         "emotion": "mild"
       }
+    },
+    {
+      "files": [
+        "**/_posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK.md"
+      ],
+      "config": {
+        "audience": "expert",
+        "dialect": "american",
+        "domain": "technical",
+        "emotions": [
+          "confident",
+          "joyful",
+          "analytical"
+        ],
+        "goals": [
+          "inform",
+          "describe"
+        ],
+        "emotion": "mild"
+      }
     }
   ]
 }
