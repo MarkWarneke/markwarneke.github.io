@@ -158,11 +158,19 @@ const k8sconfig: KubernetesClusterConfig = {
 };
 ```
 
-Notice that we are referencing variabales here and not hard-coded strings. The `resourceGroupName` for instance is referencing the property of a previously defined ResourceGroup `rg`, etc. For reference see the whole implementation in [generate terraform](#generate-terraform).
+Notice that we are referencing variables here and not hard-coded strings. The `resourceGroupName` for instance is referencing the property of a previously defined ResourceGroup `rg`, etc. For reference see the whole implementation in [generate terraform](#generate-terraform).
 
 We can double-check the official terraform provider docs for a Kubernetes cluster [terraform.io/azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html) and see that the config values are matching the mandatory parameter of the argument reference.
 
-Suppose we missed a mandatory property the TypeScript compiler will throw an error and indicate early that an attribute has been missed. This is a major benefit of the strongly typed programming language TypeScript over a loose configuration file.
+Suppose we missed a mandatory property! The TypeScript compiler will throw an error and indicate early that an attribute has been missed. This is a major benefit of the strongly typed programming language TypeScript over a loose configuration file.
+
+```bash
+# tsc
+
+main.ts:36:18 - error TS2304: Cannot find name 'AKS_DNS_PREFIX'.
+
+36       dnsPrefix: AKS_DNS_PREFIX,
+```
 
 To create a config element use `let NAME: Type = {}`. The TypeScript object can then be extended based on conditions with additional properties, just like any TypeScript object.
 
@@ -277,3 +285,5 @@ The combination of parameterized Terraform modules and the usage of the CDK can 
 Custom validation and enforcing naming-convention thorough custom code can be used to scale and mature IaC projects further.
 
 The flexibility of a full programming language meets the idempotent and declarative nature of IaC.
+
+The code can be found [github.com/MarkWarneke/cdk-typescript-azurerm-k8s](https://github.com/MarkWarneke/cdk-typescript-azurerm-k8s).
