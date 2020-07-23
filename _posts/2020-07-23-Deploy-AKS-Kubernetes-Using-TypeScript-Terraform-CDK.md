@@ -23,6 +23,7 @@ The code can be found on my [github.com/MarkWarneke](https://github.com/MarkWarn
 The CDK for Terraform compliments the exiting Terraform ecosystem, based on JSON and HCL.
 
 **TLDR** the main benefits I see using CDK:
+
 - [compiler](#compiler) (strongly typed programming language)
 - [debugger](#debugger) (improved developer inner-loop)
 - [extensibility](#linter) (using linter, libraries and packages)
