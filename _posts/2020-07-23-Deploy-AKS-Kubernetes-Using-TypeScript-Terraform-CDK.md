@@ -173,7 +173,7 @@ The CDK is used to generate a Terraform file. The process of generating a IaC fi
 
 The full CDK AKS implementation looks like this:
 
-{% gist f73322389850416de0bc4dc29e01ef8f % }
+{% gist f73322389850416de0bc4dc29e01ef8f %}
 
 `cdktf synth` can also be run with `-o` to specify the output or using `-json` to just display the created Terraform file. The `cdktf` generates `json` because it is not necessary to be [human-readable](https://www.hashicorp.com/blog/terraform-0-12-reliable-json-syntax/).
 
