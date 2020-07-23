@@ -236,6 +236,8 @@ Furthermore, because a programming language is used we can attach debuggers to o
 
 ![Debugger](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/debugger.png)
 
+(In VSCode open `main.ts` > Run the debugger with `F5` > Select Environment `Node.js`)
+
 Troubleshooting the assignment of variables, understanding complex loops and conditions as well as resolving dependency trees are way easier to resolve by leveraging a debugger. Resolving errors should be less tedious because existing and battle-tested software-development tools can finally be used.
 
 ## Tests
