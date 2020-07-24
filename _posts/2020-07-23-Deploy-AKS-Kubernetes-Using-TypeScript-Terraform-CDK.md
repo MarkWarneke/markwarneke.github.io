@@ -30,7 +30,7 @@ CDK is currently implemented in Node and can be installed using `npm install -g 
 
 ![CDK Overview](https://www.datocms-assets.com/2885/1594922228-cdk-providers.png?fit=max&fm=png&q=80&w=2000)
 
-Lets explor the [`cdktf`](https://github.com/hashicorp/terraform-cdk/blob/master/docs/cli-commands.md) cli commands.
+Lets explore the [`cdktf`](https://github.com/hashicorp/terraform-cdk/blob/master/docs/cli-commands.md) cli commands.
 
 ```shell
 cdktf [command]
