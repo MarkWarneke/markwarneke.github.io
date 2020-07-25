@@ -89,15 +89,28 @@ The interactive `cdktf` similar to `terraform` will use the current Azure contex
 
 ## Deploy Kubernetes on Azure using TypeScript
 
-After the providers have been fetched the provider can be explored in `.gen/providers/azurerm`. You can find all available resources definition here, Kubernetes can be found using `ls ./.gen/providers/azurerm | grep "Kubernetes"`.
+After the providers have been fetched the provider can be explored in `.gen/providers/azurerm`. You can find all available resources definition here, Kubernetes can be found using 
 
-Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To see the implementation display `kubernetes-cluster.ts` using `less ./.gen/providers/azurerm/kubernetes-cluster.ts` or browse the file in your editor.
+```bash
+ls ./.gen/providers/azurerm | grep "Kubernetes"
+```
+
+Lets look at the `TerraformResource` implementation of `KubernetesCluster`. To see the implementation display `kubernetes-cluster.ts` using `less` or browse the file in your editor.
+
+```bash
+less ./.gen/providers/azurerm/kubernetes-cluster.ts
+```` 
+
 
 You are looking for the exported class: `export class KubernetesCluster extends TerraformResource`.
 
 ![KubernetesCluster TerraformResource](../img/posts/2020-07-23-Deploy-AKS-Kubernetes-Using-TypeScript-Terraform-CDK/KubernetesCluster.png)
 
-In order to use the Kubernetes `TerraformResource` declare the class in `main.ts`. First add the dependency to the imports using `import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'`.
+In order to use the Kubernetes `TerraformResource` declare the class in `main.ts`. First add the dependency to the imports using:
+
+```typescript
+import { AzurermProvider, KubernetesCluster} from './.gen/providers/azurerm'
+```
 
 The `main.ts` could look somewhat like this:
 
