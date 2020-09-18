@@ -6,10 +6,10 @@ layout: base
   {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": "{% page.title %}",
-    "image": ["{% page.bigimg %}"],
-    "datePublished": "{{ page.date  | date_to_xmlschema }}",
-    "dateModified": "{{ page.date  | date_to_xmlschema }}"
+    "headline": {{ page.title | jsonify }},
+    "datePublished": {{ page.date  | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.last_modified_at | default: page.date  | date_to_xmlschema | jsonify}},
+    "image": ["{{ site.url }}{{ post.image | relative_url }}"]
   }
 </script>
 
