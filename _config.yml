@@ -21,8 +21,6 @@ url: "https://markwarneke.me"
 # List of links in the navigation bar
 navbar-links:
   Blog: "blog"
-  About: "about"
-  Code: "code/README"
   Talks: "talks"
   
 # Image to show in the navigation bar - image must be a square (width = height)
