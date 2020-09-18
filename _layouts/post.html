@@ -9,7 +9,7 @@ layout: base
     "headline": {{ page.title | jsonify }},
     "datePublished": {{ page.date  | date_to_xmlschema | jsonify }},
     "dateModified": {{ page.last_modified_at | default: page.date  | date_to_xmlschema | jsonify}},
-    "image": ["{{ site.url }}{{ post.image | relative_url }}"]
+    "image": ["{{ site.url }}{{ page.image | relative_url }}"]
   }
 </script>
 
