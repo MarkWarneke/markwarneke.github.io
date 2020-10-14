@@ -60,16 +60,18 @@ module "log_analytics" {
 
 # Testing Terraform Modules
 
-We can use [terratest](https://terratest.gruntwork.io/docs/) to run integration tests with Terraform.
-Inside of the Terraform module create a folder named `test`, and add the files `test.vars`, `provider.tf`, and `generic_test.go`.
+We can use [Terratest](https://terratest.gruntwork.io/docs/) to run integration tests with Terraform.
+Inside of repository for the Terraform module create a folder named `test`, and add the files:
 
-To get up and running you need to specify a test environment. 
-Using [environment variables in Terraform](https://www.terraform.io/docs/commands/environment-variables.html) allows to specify the the necessary [backend configuration](https://www.terraform.io/docs/backends/index.html). 
+- `test.vars`,
+- `provider.tf`, and
+- `generic_test.go`.
+
+To get up and running you need to specify the backend test environment.
+Using [environment variables in Terraform](https://www.terraform.io/docs/commands/environment-variables.html) allows us to specify the the necessary [backend configuration](https://www.terraform.io/docs/backends/index.html) in an `.env` file. This is also very handy for testing across multiple backend and for instance staging environments.
 
 A good practice is to run tests in a dedicated test resource group, e.g. `resource_group_name = "playground-test-resources"`.
-The test resources should also be tagged as such, using the terraform tags argument: `tags = { test = true }`, see [Test Values](#test-values). Tagging the resources and using a dedicated test resource group is recommended for identification and cleanup purposes.
-
-Per test we have to change the values in [test.vars](#test-values) to match the test environment.
+The test resources should also be tagged as such, using the terraform tags argument: `tags = { test = true }`, see [Test Values](#test-values). Tagging the resources and using a dedicated test resource group is recommended for identification and cleanup purposes. When a test fails or the pipeline crashes the provisioned resources can easily be found and removed.
 
 ```bash
 # Source necessary TF environment variables
@@ -88,14 +90,13 @@ go test -timeout 30m
 
 ### Test Process
 
-- Creates a random name that is used for testing
-- Create terraform options, e.g. references a static `test.vars`
+1. Creates a random name that is used for testing
+2. Create terraform options, e.g. references a static `test.vars`
   - options are similar to the terraform command line arguments, see:
   - `plan -input=false -lock=false -var name=t7943 -var-file ./test/test.vars -lock=false`
-- Moves `provider.tf` into the module (`../`)
-- Runs terraform plan & terraform apply
-- Moves `provider.tf` back
-
+3. Moves `provider.tf` into the module (`../`)
+4. Runs terraform plan & terraform apply
+5. Moves `provider.tf` back
 
 ### Generic Test
 
@@ -112,11 +113,15 @@ provider "azurerm" {
 #### Test Values
 
 Create a `test.vars` file that contains all the dynamic variables needed to deploy the Terraform module.
+Per module and test we have to change the values in [test.vars](#test-values) to match the test environment.
+Using a dedicated file for configuration allows us to reuse as much code as possible, while having a reproducible test input present.
+
+We can even create multiple `test.vars` that get tested in a loop to check for specific configuration inputs, like different regions or sizes.
 
 ```hcl
-resource_group_name                    = "playground-test-resources"
-location                               = "WestEurope"
-subnet_id                              = "/subscriptions/$SUBSCRIPTION_NAME/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME"
+resource_group_name = "playground-test-resources"
+location            = "WestEurope"
+
 tags = {
   test = true
 }
@@ -124,7 +129,8 @@ tags = {
 
 #### Test File
 
-Create a terratest test file, e.g. `generic_test.go` and paste the following content.
+Create a Terratest test file, e.g. `generic_test.go` and paste the following content.
+
 The test will assume that it is located in a  `test` folder, and the module under test is located in the parent.
 The file expects a `test.vars` and `provider.tf` to be present in the same directory.
 
