@@ -8,25 +8,25 @@ image: "/img/draft.jpeg"
 share-img: "/img/draft.jpeg"
 tags: [Draft, Azure, Terraform]
 comments: true
-time: 2
+time: 5
 ---
 
 How to use Terratest to test Infrastructure as Code Terraform modules on Azure.
-A good practice is to use Terraform module as a collection of Terraform resources that serves a specific purpose.
-In this blog post we are going to look into how we can leverage a generic Terratest for all Azure based Terraform modules.
+A good practice is to use the Terraform module as a collection of Terraform resources that serves a specific purpose.
+In this blog post, we are going to look into how we can leverage a generic Terratest for all Azure-based Terraform modules.
 
 A module can even be a composition of multiple child modules.
-In order to create a reusable Terraform module we are first going to look into a typical Terraform module structure.
+To create a reusable Terraform module, we are first going to look into a typical Terraform module structure.
 
 # What is a Terraform module?
 
-While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started enterprise organization typically require a _private_ registry. The private registry should ensure full control and consistency across the source code. The private registry is a good practice, so that enterprise organizations can create a common place for reusable Terraform modules, that can be shared across the organization.
+While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started enterprise organizations typically require a _private_ registry. The private registry should ensure full control and consistency across the source code. The private registry is a good practice so that enterprise organizations can create a common place for reusable Terraform modules, that can be shared across the organization.
 
-The easiest way to achieve this, is to provide a Github or Azure DevOps release artifact.
+The easiest way to achieve this is to provide a Github or Azure DevOps release artifact.
 Using tags (and releases) we can version our release of the module easily. The [Azure Cloud Adoption Framework landing zones for Terraform](https://github.com/Azure/caf-terraform-landingzones) uses a similar approach for versioning modules e.g. [Deploys Azure Monitor Log Analytics](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0).
-I expect that the CI/CD system has access to the source-control system, fetching the releases should therefore be not be a problem.
+I expect that the CI/CD system has access to the source-control system, fetching the releases should therefore not be a problem.
 
-Modules should be organized in separate dedicated repositories inside of the source control system, in order to achieve a good release strategy, based on tags or releases that contain changelog information. The Terraform `source` argument can then be used to reference a git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module).
+Modules should be organized in separate dedicated repositories inside of the source control system, to achieve a good release strategy, based on tags or releases that contain changelog information. The Terraform `source` argument can then be used to reference a git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module).
 
 Terraform files are typically grouped into modules. A basic module structure looks like this:
 
@@ -39,7 +39,7 @@ test/         # Contents of this blog post
 docs/         # Further documentation for the module if needed
 ```
 
-Notice, that the common `provider.tf` is missing. The provider is needed for initializing the module. However, the purpose of the module is to make it reusable and composable with different provider version. We are going to cover how to use and test a module using a generic `provider.tf` later.
+Notice, that the common `provider.tf` is missing. The provider is needed for initializing the module. However, the purpose of the module is to make it reusable and composable with different provider versions. We are going to cover how to use and test a module using a generic `provider.tf` later.
 
 ## Usage of a Terraform module
 
@@ -68,7 +68,7 @@ Inside of repository for the Terraform module create a folder named `test`, and 
 - `generic_test.go`.
 
 To get up and running you need to specify the backend test environment.
-Using [environment variables in Terraform](https://www.terraform.io/docs/commands/environment-variables.html) allows us to specify the the necessary [backend configuration](https://www.terraform.io/docs/backends/index.html) in an `.env` file. This is also very handy for testing across multiple backend and for instance staging environments.
+Using [environment variables in Terraform](https://www.terraform.io/docs/commands/environment-variables.html) allows us to specify the the necessary [backend configuration](https://www.terraform.io/docs/backends/index.html) in an `.env` file. This is also very handy for testing across multiple backends and staging environments.
 
 A good practice is to run tests in a dedicated test resource group, e.g. `resource_group_name = "playground-test-resources"`.
 The test resources should also be tagged as such, using the terraform tags argument: `tags = { test = true }`, see [Test Values](#test-values). Tagging the resources and using a dedicated test resource group is recommended for identification and cleanup purposes. When a test fails or the pipeline crashes the provisioned resources can easily be found and removed.
@@ -100,7 +100,7 @@ go test -timeout 30m
 
 ### Generic Test
 
-Create a `provider.tf` file that contains the minimum Terraform provider version that should be tested. This file will be moved during test in order to execute the module.
+Create a `provider.tf` file that contains the minimum Terraform provider version that should be tested. This file will be moved during the test in order to execute the module.
 
 ```hcl
 # Local provider for testing
@@ -113,8 +113,8 @@ provider "azurerm" {
 #### Test Values
 
 Create a `test.vars` file that contains all the dynamic variables needed to deploy the Terraform module.
-Per module and test we have to change the values in [test.vars](#test-values) to match the test environment.
-Using a dedicated file for configuration allows us to reuse as much code as possible, while having a reproducible test input present.
+Per module and test, we have to change the values in [test.vars](#test-values) to match the test environment.
+Using a dedicated file for configuration allows us to reuse as much code as possible while having a reproducible test input present.
 
 We can even create multiple `test.vars` that get tested in a loop to check for specific configuration inputs, like different regions or sizes.
 
