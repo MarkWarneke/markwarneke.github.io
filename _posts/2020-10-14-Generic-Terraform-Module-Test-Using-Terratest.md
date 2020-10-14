@@ -145,9 +145,15 @@ The file expects a `test.vars` and `provider.tf` to be present in the same direc
 In order to reuse the test, the test will create a unique name `expectedName := fmt.Sprintf("t%d", rand.Intn(9999))` based on a random number. The `name` variable will then be mapped to the Terraform variables using:
 
 ```go
+// generic_test.go
+
+// ...
+
 Vars: map[string]interface{}{
   "name": expectedName,
 },
+
+// ...
 ```
 
 Thus, make sure that the name of the Azure resource is mapped to a Terraform variable called `name`.
