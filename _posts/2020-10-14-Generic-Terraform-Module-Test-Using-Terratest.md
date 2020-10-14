@@ -95,7 +95,7 @@ go test -timeout 30m
   - options are similar to the terraform command line arguments, see:
   - `plan -input=false -lock=false -var name=t7943 -var-file ./test/test.vars -lock=false`
 3. Moves `provider.tf` into the module (`../`)
-4. Runs terraform plan & terraform apply
+4. Run `terraform plan` & `terraform apply`
 5. Moves `provider.tf` back
 
 ### Generic Test
