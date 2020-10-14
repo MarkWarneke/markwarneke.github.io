@@ -24,26 +24,28 @@ While leveraging open-source modules from the [Terraform registry](https://regis
 
 The easiest way to achieve this, is to provide a Github or Azure DevOps release artifact.
 Using tags (and releases) we can version our release of the module easily. The [Azure Cloud Adoption Framework landing zones for Terraform](https://github.com/Azure/caf-terraform-landingzones) uses a similar approach for versioning modules e.g. [Deploys Azure Monitor Log Analytics](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0).
-I expect that the CI/CD system has access to the source-control system, fetching the releases should therefore not be a problem.
-Modules should be organized in separate repositories inside of the source control system in order to achieve a stable release strategy based on tags or releases. The Terraform `source` argument can be used to reference a git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module).
+I expect that the CI/CD system has access to the source-control system, fetching the releases should therefore be not be a problem.
+
+Modules should be organized in separate dedicated repositories inside of the source control system, in order to achieve a good release strategy, based on tags or releases that contain changelog information. The Terraform `source` argument can then be used to reference a git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module).
 
 Terraform files are typically grouped into modules. A basic module structure looks like this:
 
-```tf
-README.md
-main.tf
-values.tf
-output.tf
-test/
-docs/
+```bash
+README.md     # Documentation and usage explanation, typically generated using https://github.com/terraform-docs/terraform-docs
+main.tf       # Collection of Terraform resources, Resources should be split into separate files
+variables.tf  # 'Input' Parameter of the Terraform module  
+output.tf     # 'Output' Parameter of the Terraform module
+test/         # Contents of this blog post
+docs/         # Further documentation for the module if needed
 ```
 
-Notice, that `provider.tf` needed for initializing the module is missing. This is on purpose to make the module reusable for different provider version. We are going to cover how to use and test a module using a generic `provider.tf` later.
+Notice, that the common `provider.tf` is missing. The provider is needed for initializing the module. However, the purpose of the module is to make it reusable and composable with different provider version. We are going to cover how to use and test a module using a generic `provider.tf` later.
 
 ## Usage of a Terraform module
 
 Once a Terraform module is released, we can leverage the module using the `source` argument.
 
+```hcl
 module "log_analytics" {
   source = "git::https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0"
 
@@ -54,6 +56,7 @@ module "log_analytics" {
     location                          = var.location
     tags                              = var.tags
 }
+```
 
 # Testing Terraform Modules
 
