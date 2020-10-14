@@ -6,7 +6,7 @@ bigimg:
   - "/img/RNjbcPAsol8.jpg": "https://unsplash.com/photos/RNjbcPAsol8"
 image: "/img/RNjbcPAsol8.jpg"
 share-img: "/img/RNjbcPAsol8.jpg"
-tags: [Draft, Azure, Terraform]
+tags: [Azure]
 comments: true
 time: 5
 ---
