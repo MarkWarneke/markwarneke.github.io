@@ -78,21 +78,6 @@ The test resources should also be tagged as such, using the terraform tags argum
 
 Tagging the resources and using a dedicated test resource group is recommended for identification and cleanup purposes. When a test fails or the pipeline crashes the provisioned resources can easily be found and removed.
 
-```bash
-# Source necessary TF environment variables
-docker run --env-file .env -it -v ${PWD}:"/source" -w "/source" aztfmod/rover
-
-cd $SUT
-
-cd test
-
-# Setup go module
-go mod init 'github.com/aztfmod'
-
-# Make sure to set an appropriate timeout
-go test -timeout 30m
-```
-
 ### Test Process
 
 1. Creates a random name that is used for testing
@@ -118,10 +103,10 @@ provider "azurerm" {
 #### Test Values
 
 Create a `test.vars` file that contains all the dynamic variables needed to deploy the Terraform module.
-Per module and test, we have to change the values in [test.vars](#test-values) to match the test environment.
-Using a dedicated file for configuration allows us to reuse as much code as possible while having a reproducible test input present.
+Per module and test, we have to change the values in [test.vars](#test-values) to match the subject under test (SUT).
 
-We can even create multiple `test.vars` that get tested in a loop to check for specific configuration inputs, like different regions or sizes.
+Using a dedicated file for the test configuration allows us to reuse as much code as possible while having a reproducible test input present.
+We can even create multiple `test.vars` that get tested in a loop to check for different configuration inputs. Leveraging this, we can test different variables like regions or sizes in one test run.
 
 ```hcl
 resource_group_name = "playground-test-resources"
@@ -135,8 +120,8 @@ tags = {
 #### Test File
 
 Create a Terratest test file, e.g. `generic_test.go` and paste the following content.
+The test will assume that it is located in a  `test` folder, and the SUT is located in the parent.
 
-The test will assume that it is located in a  `test` folder, and the module under test is located in the parent.
 The file expects a `test.vars` and `provider.tf` to be present in the same directory.
 
 {% gist 53fa4645049a16584615c59632a1493c %}
