@@ -144,3 +144,14 @@ comment out `terraform.InitAndApply` to only run the plan for debugging.
 // This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 terraform.InitAndApply(t, terraformOptions)
 ```
+
+##### gitignore
+
+```txt
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+crash.log
+go.sum
+go.mod
+```
