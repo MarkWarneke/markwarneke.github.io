@@ -125,11 +125,27 @@ The test will assume that it is located in a  `test` folder, and the SUT is loca
 
 The file expects a `test.vars` and `provider.tf` to be present in the same directory.
 
+In order to reuse the test, the test will create a unique name `expectedName := fmt.Sprintf("t%d", rand.Intn(9999))` based on a random number. The `name` variable will then be mapped to the Terraform variables using:
+
+```go
+Vars: map[string]interface{}{
+  "name": expectedName,
+},
+```
+
+Thus, make sure that the name of the Azure resource is mapped to a Terraform variable called `name`.
+As most Terraform providers are using `name`, it is a good practice to adapt this convention for modules, too.
+
 {% gist 53fa4645049a16584615c59632a1493c %}
+
+This is a very generic test, that will ensure the Terraform module is plan- and apply-able. In order to validate that properties are deployed as expected a more specific test should be created.
+You can leverage go's programming language to attach specific test cases to this generic test if needed.
+
+The generic test can be reused across Terraform modules, the only requirement is to stick to a convention, e.g. the `name` variable. Havening a generic test is in most of the cases better than havening none at all. We can always exchange the generic test with a more sophisticated test case later.
 
 ##### Debugging
 
-comment out `terraform.InitAndApply` to only run the plan for debugging.
+During development or when a test cases fails you can just comment out `terraform.InitAndApply` to only run the plan for debugging, without applying the Terraform module. This is useful if the test case should not be executed because of a long runtime or for troubleshooting configurations.
 
 ```go
 // This will run `terraform init` and `terraform apply` and fail the test if there are any errors
