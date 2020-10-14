@@ -17,7 +17,7 @@ A Terraform module is a collection of Terraform resources that serves a specific
 A module can even be a composition of multiple child modules.
 In order to create a reusable Terraform module we are first going to look into a typical Terraform module structure.
 
-# Terraform module
+# What is a Terraform module?
 
 While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started. In enterprise organization I typically see the need for a _private_ registry. So that enterprise organizations can create a common place for reusable Terraform modules.
 
@@ -69,7 +69,7 @@ Per test we have to change the values in [test.vars](#test-values) to match the 
 
 ```bash
 # Source necessary TF environment variables
-docker run --env-file .env -it -v ${PWD}:"/source" -w "/source" allianz-cli
+docker run --env-file .env -it -v ${PWD}:"/source" -w "/source" aztfmod/rover
 
 cd $SUT
 
@@ -105,7 +105,7 @@ provider "azurerm" {
 }
 ```
 
-### Test Values
+#### Test Values
 
 Create a `test.vars` file that contains all the dynamic variables needed to deploy the Terraform module.
 
@@ -118,7 +118,7 @@ tags = {
 }
 ```
 
-### Test File
+#### Test File
 
 Create a terratest test file, e.g. `generic_test.go` and paste the following content.
 The test will assume that it is located in a  `test` folder, and the module under test is located in the parent.
@@ -177,7 +177,7 @@ func TestTerraformVmWithGpuModule(t *testing.T) {
 }
 ```
 
-#### Debugging
+##### Debugging
 
 comment out `terraform.InitAndApply` to only run the plan for debugging.
 
