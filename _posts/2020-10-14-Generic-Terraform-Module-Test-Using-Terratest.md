@@ -142,10 +142,13 @@ The test will assume that it is located in a  `test` folder, and the SUT is loca
 
 The file expects a `test.vars` and `provider.tf` to be present in the same directory.
 
-In order to reuse the test, the test will create a unique name `expectedName := fmt.Sprintf("t%d", rand.Intn(9999))` based on a random number. The `name` variable will then be mapped to the Terraform variables using:
+In order to reuse the test, the test will create a unique name based on a random number. 
+The `name` variable will then be mapped to the Terraform variables using:
 
 ```go
 // generic_test.go
+
+expectedName := fmt.Sprintf("t%d", rand.Intn(9999))
 
 // ...
 
@@ -163,6 +166,9 @@ As most Terraform providers are using `name`, it is a good practice to adapt thi
 
 This is a very generic test, that will ensure the Terraform module is plan- and apply-able. In order to validate that properties are deployed as expected a more specific test should be created.
 You can leverage go's programming language to attach specific test cases to this generic test if needed.
+
+{: .box-warning}
+**Note:** Make sure the Terraform module uses `var.name` as the resource name, make sure `test.vars` contains the test specific variables, `provider.tf` has the correct provider version configured, and `generic_test.go` is in the folder `test`.
 
 The generic test can be reused across Terraform modules, the only requirement is to stick to a convention, e.g. the `name` variable. Havening a generic test is in most of the cases better than havening none at all. We can always exchange the generic test with a more sophisticated test case later.
 
