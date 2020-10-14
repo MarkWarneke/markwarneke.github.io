@@ -83,11 +83,11 @@ Tagging the resources and using a dedicated test resource group is recommended f
 
 1. Creates a random name that is used for testing
 2. Create terraform options, e.g. references a static `test.vars`
-  - options are similar to the terraform command line arguments, see:
-  - `plan -input=false -lock=false -var name=t7943 -var-file ./test/test.vars -lock=false`
+  - options are similar to the terraform command line arguments like `plan -input=false -lock=false -var name=t7943 -var-file ./test/test.vars -lock=false`
 3. Moves `provider.tf` into the module (`../`)
 4. Run `terraform plan` & `terraform apply`
-5. Moves `provider.tf` back
+5. Run `terraform destroy`
+6. Move `provider.tf` back
 
 ### Generic Test
 
