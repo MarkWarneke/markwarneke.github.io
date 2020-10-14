@@ -168,7 +168,7 @@ This is a very generic test, that will ensure the Terraform module is plan- and 
 You can leverage go's programming language to attach specific test cases to this generic test if needed.
 
 {: .box-warning}
-**Note:** Make sure the Terraform module uses `var.name` as the resource name, make sure `test.vars` contains the test specific variables, `provider.tf` has the correct provider version configured, and `generic_test.go` is in the folder `test`.
+**Note:** Make sure the Terraform module uses `var.name` as the resource name, make sure `test.vars` contains the test specific variables, `provider.tf` has the correct provider version configured, and all files including `generic_test.go` is in the folder `test`.
 
 The generic test can be reused across Terraform modules, the only requirement is to stick to a convention, e.g. the `name` variable. Havening a generic test is in most of the cases better than havening none at all. We can always exchange the generic test with a more sophisticated test case later.
 
