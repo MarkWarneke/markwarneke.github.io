@@ -3,9 +3,9 @@ layout: post
 title: Testing reusable Terraform Modules
 subtitle: leveraging Gruntworks Terratest
 bigimg:
-  - "/img/draft.jpeg": "https://unsplash.com/photos/wE37SqLAO9M"
-image: "/img/draft.jpeg"
-share-img: "/img/draft.jpeg"
+  - "/img/RNjbcPAsol8.jpg": "https://unsplash.com/photos/RNjbcPAsol8"
+image: "/img/RNjbcPAsol8.jpg"
+share-img: "/img/RNjbcPAsol8.jpg"
 tags: [Draft, Azure, Terraform]
 comments: true
 time: 5
