@@ -106,7 +106,7 @@ provider "azurerm" {
 Create a `test.vars` file that contains all the dynamic variables needed to deploy the Terraform module.
 Per module and test, we have to change the values in [test.vars](#test-values) to match the subject under test (SUT).
 
-Using a dedicated file for the test configuration allows us to reuse as much code as possible while having a reproducible test input present.
+Using a dedicated file for the test configuration allows us to reuse as much code as possible, while using a reproducible test input.
 We can even create multiple `test.vars` that get tested in a loop to check for different configuration inputs. Leveraging this, we can test different variables like regions or sizes in one test run.
 
 ```hcl
