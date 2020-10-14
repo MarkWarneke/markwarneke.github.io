@@ -30,7 +30,7 @@ I expect that the CI/CD system has access to the source-control system, fetching
 Modules should be organized in separate dedicated repositories inside of the source control system.
 A dedicate repository ensures a good release strategy.
 Based on releases or tags that contain changelog information a module can safely be published.
-The Terraform `source` argument can then be used to reference a specific git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module), e.g. a certain release version of a module (even specific commits can be referenced).
+The Terraform `source` argument can then be used to reference a specific git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module), e.g. a certain release version of a module or even specific commits.
 
 Terraform files are typically grouped into modules. A basic module structure looks like this:
 
