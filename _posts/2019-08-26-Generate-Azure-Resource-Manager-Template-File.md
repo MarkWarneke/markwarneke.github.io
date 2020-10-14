@@ -6,7 +6,7 @@ bigimg:
   - "/img/ibPi5YS7QMM.jpeg": "https://unsplash.com/photos/ibPi5YS7QMM"
 image: "/img/ibPi5YS7QMM.jpeg"
 share-img: "/img/ibPi5YS7QMM.jpeg"
-tags: [AzureDevOps, PowerShell]
+tags: [Azure, PowerShell]
 comments: true
 time: 7
 ---

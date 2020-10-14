@@ -7,7 +7,7 @@ image: "/img/work.jpeg"
 share-img: "/img/work.jpeg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [follow]
-tags: [PowerShell, AzureDevOps]
+tags: [PowerShell, Azure]
 comments: true
 time: 8
 ---

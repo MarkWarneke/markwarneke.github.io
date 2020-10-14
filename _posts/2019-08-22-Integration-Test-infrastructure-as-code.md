@@ -6,7 +6,7 @@ bigimg:
   - "/img/p-rN-n6Miag.jpeg": "https://unsplash.com/photos/p-rN-n6Miag"
 image: "/img/p-rN-n6Miag.jpeg"
 share-img: "/img/p-rN-n6Miag.jpeg"
-tags: [PowerShell, AzureDevOps]
+tags: [PowerShell, Azure]
 comments: true
 time: 8
 ---

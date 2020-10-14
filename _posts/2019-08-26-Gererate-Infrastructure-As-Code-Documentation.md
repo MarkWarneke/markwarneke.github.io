@@ -6,7 +6,7 @@ bigimg:
   - "/img/7jNATlZXhgk.jpeg": "https://unsplash.com/photos/7jNATlZXhgk"
 image: "/img/7jNATlZXhgk.jpeg"
 share-img: "/img/7jNATlZXhgk.jpeg"
-tags: [AzureDevOps]
+tags: [Azure]
 comments: true
 time: 6
 ---
@@ -76,19 +76,19 @@ The output can be saved to a file using `Out-File`.
 ./New-Readme.ps1 | Out-File Documentation.md
 
 ## Parameters
-| Parameter Name | Parameter Type |Parameter Description | Parameter DefaultValue |
-| --- | --- | --- | --- |
-| location| string | Azure location for deployment | [resourceGroup().location] |
-| networkAcls| string | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |  |
-| resourceName| string | Name of the Data Lake Storage Account |  |
-| storageAccountAccessTier| string | Optional. Storage Account Access Tier. | Hot |
-| storageAccountSku| string | Optional. Storage Account Sku Name. | Standard_ZRS |
+| Parameter Name           | Parameter Type | Parameter Description                                                                           | Parameter DefaultValue     |
+| ------------------------ | -------------- | ----------------------------------------------------------------------------------------------- | -------------------------- |
+| location                 | string         | Azure location for deployment                                                                   | [resourceGroup().location] |
+| networkAcls              | string         | Optional. Networks ACLs Object, this value contains IPs to whitelist and/or Subnet information. |                            |
+| resourceName             | string         | Name of the Data Lake Storage Account                                                           |                            |
+| storageAccountAccessTier | string         | Optional. Storage Account Access Tier.                                                          | Hot                        |
+| storageAccountSku        | string         | Optional. Storage Account Sku Name.                                                             | Standard_ZRS               |
 
 ## Resources
 
-| Resource Type | Resource Name |  Resource Comment |
-| --- | --- | --- |
-| Microsoft.Storage/storageAccounts| [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
+| Resource Type                     | Resource Name                | Resource Comment                      |
+| --------------------------------- | ---------------------------- | ------------------------------------- |
+| Microsoft.Storage/storageAccounts | [parameters('resourceName')] | Azure Data Lake Gen 2 Storage Account |
 
 ## Outputs
 

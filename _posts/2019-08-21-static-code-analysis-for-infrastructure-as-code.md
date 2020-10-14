@@ -7,7 +7,7 @@ image: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/st
 share-img: "/img/posts/2019-12-30-Static-Code-Analysis-for-Infrastructure-as-Code/static-pester-test.jpeg"
 gh-repo: MarkWarneke/Az.Test
 gh-badge: [star, follow]
-tags: [PowerShell, AzureDevOps]
+tags: [PowerShell, Azure]
 comments: true
 time: 12
 published: true
