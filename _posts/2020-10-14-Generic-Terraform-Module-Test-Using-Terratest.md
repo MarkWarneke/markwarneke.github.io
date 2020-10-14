@@ -37,7 +37,7 @@ Terraform files are typically grouped into modules. A basic module structure loo
 ```bash
 # terraform_module/
 
-README.md     # Documentation and usage explanation, typically generated using https://github.com/terraform-docs/terraform-docs
+README.md     # Documentation, typically generated using https://github.com/terraform-docs/terraform-docs
 main.tf       # Collection of Terraform resources, Resources should be split into separate files
 variables.tf  # 'Input' Parameter of the Terraform module  
 output.tf     # 'Output' Parameter of the Terraform module
