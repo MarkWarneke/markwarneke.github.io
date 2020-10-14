@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Testing reusable Terraform Modules
-subtitle: leveraging Gruntworks Terratest
+title: Create reusable Terraform Modules
+subtitle: with Tests leveraging Gruntworks Terratest
 bigimg:
   - "/img/RNjbcPAsol8.jpg": "https://unsplash.com/photos/RNjbcPAsol8"
 image: "/img/RNjbcPAsol8.jpg"
