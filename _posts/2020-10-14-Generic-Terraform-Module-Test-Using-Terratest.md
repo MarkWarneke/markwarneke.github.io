@@ -174,12 +174,16 @@ The generic test can be reused across Terraform modules, the only requirement is
 
 ##### Debugging
 
-During development or when a test cases fails you can just comment out `terraform.InitAndApply` to only run the plan for debugging, without applying the Terraform module. This is useful if the test case should not be executed because of a long runtime or for troubleshooting configurations.
+During development or when a test cases fails you can just comment out `terraform.InitAndApply`. 
 
 ```go
 // This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 terraform.InitAndApply(t, terraformOptions)
 ```
+
+This will only run terraform plan, instead of trying to apply. This is useful for debugging, without changing the resources provisioned by Terraform. This is also very useful when a given test has a long runtime or for troubleshooting configuration changes quickly.
+
+A timeout based on a long deployment time can be addressed by adding the timeout property to the Terragrunt test invocation.
 
 ##### gitignore
 
