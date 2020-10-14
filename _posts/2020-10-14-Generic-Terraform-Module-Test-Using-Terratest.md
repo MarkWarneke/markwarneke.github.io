@@ -74,7 +74,9 @@ To get up and running you need to specify the backend test environment.
 Using [environment variables in Terraform](https://www.terraform.io/docs/commands/environment-variables.html) allows us to specify the the necessary [backend configuration](https://www.terraform.io/docs/backends/index.html) in an `.env` file. This is also very handy for testing across multiple backends and staging environments.
 
 A good practice is to run tests in a dedicated test resource group, e.g. `resource_group_name = "playground-test-resources"`.
-The test resources should also be tagged as such, using the terraform tags argument: `tags = { test = true }`, see [Test Values](#test-values). Tagging the resources and using a dedicated test resource group is recommended for identification and cleanup purposes. When a test fails or the pipeline crashes the provisioned resources can easily be found and removed.
+The test resources should also be tagged as such, using the terraform tags argument: `tags = { test = true }`, see [Test Values](#test-values). 
+
+Tagging the resources and using a dedicated test resource group is recommended for identification and cleanup purposes. When a test fails or the pipeline crashes the provisioned resources can easily be found and removed.
 
 ```bash
 # Source necessary TF environment variables
