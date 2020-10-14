@@ -170,7 +170,7 @@ You can leverage go's programming language to attach specific test cases to this
 {: .box-warning}
 **Note:** Make sure the Terraform module uses `var.name` as the resource name, make sure `test.vars` contains the test specific variables, `provider.tf` has the correct provider version configured, and all files including `generic_test.go` is in the folder `test`.
 
-The generic test can be reused across Terraform modules, the only requirement is to stick to a convention, e.g. the `name` variable. Havening a generic test is in most of the cases better than havening none at all. We can always exchange the generic test with a more sophisticated test case later.
+The generic test can be reused across Terraform modules, the only requirement is to stick to a convention, e.g. the `name` variable. Havening a generic test is in most cases better than havening none. We can always exchange the generic test with a more sophisticated test case later.
 
 ##### Debugging
 
