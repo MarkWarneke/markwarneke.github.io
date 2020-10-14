@@ -64,7 +64,7 @@ module "log_analytics" {
 # Testing Terraform Modules
 
 We can use [Terratest](https://terratest.gruntwork.io/docs/) to run integration tests with Terraform.
-Inside of the repository for the Terraform module create a folder named `test`, and add the files:
+Inside of the repository for the Terraform module create a folder named `test`; add the following files:
 
 - `test.vars`,
 - `provider.tf`, and
