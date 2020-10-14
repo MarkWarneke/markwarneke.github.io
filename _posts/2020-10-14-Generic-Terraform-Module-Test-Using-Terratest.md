@@ -35,6 +35,8 @@ The Terraform `source` argument can then be used to reference a specific git end
 Terraform files are typically grouped into modules. A basic module structure looks like this:
 
 ```bash
+# terraform_module/
+
 README.md     # Documentation and usage explanation, typically generated using https://github.com/terraform-docs/terraform-docs
 main.tf       # Collection of Terraform resources, Resources should be split into separate files
 variables.tf  # 'Input' Parameter of the Terraform module  
@@ -43,13 +45,15 @@ test/         # Contents of this blog post
 docs/         # Further documentation for the module if needed
 ```
 
-Notice, that the common `provider.tf` is missing. The provider is needed for initializing the module. However, the purpose of the module is to make it reusable and composable with different provider versions. We are going to cover how to use and test a module using a generic `provider.tf` later.
+Notice, that the common `provider.tf` is missing. Learn more about why in [generic test provider.tf](#generic-test).
 
 ## Usage of a Terraform module
 
 Once a Terraform module is released, we can leverage the module using the `source` argument.
 
 ```hcl
+# main.tf
+
 module "log_analytics" {
   source = "git::https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0"
 
@@ -94,12 +98,23 @@ Tagging the resources and using a dedicated test resource group is recommended f
 Create a `provider.tf` file that contains the minimum Terraform provider version that should be tested. This file will be moved during the test in order to execute the module.
 
 ```hcl
+# provider.tf
+
 # Local provider for testing
 provider "azurerm" {
   version = "=2.3.0"
   features {}
 }
 ```
+
+The provider is mandatory for initializing the module.
+It is used to ensure parameters, features and breaking-changes are versioned and accessible through a specific version. Most of the time (🤡) providers are back-compatible, we should ensure to test the provider version based on our users requirements.
+
+We want to create reusable, composable and compatible Terraform modules.
+Also, we want to ensure that the consumer of our module can provide a specific provider version for their needs.
+The purpose of the Terraform module is to make it reusable and composable with different provider versions.
+
+We thus want to make sure we tested the module using a a specific `provider.tf` version, or test with multiple different versions in one go. Inside of the release notes a hint to the tested provider version might be a good addition.
 
 #### Test Values
 
@@ -110,6 +125,8 @@ Using a dedicated file for the test configuration allows us to reuse as much cod
 We can even create multiple `test.vars` that get tested in a loop to check for different configuration inputs. Leveraging this, we can test different variables like regions or sizes in one test run.
 
 ```hcl
+# test.vars
+
 resource_group_name = "playground-test-resources"
 location            = "WestEurope"
 
