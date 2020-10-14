@@ -108,7 +108,7 @@ provider "azurerm" {
 ```
 
 The provider is mandatory for initializing the module.
-It is used to ensure parameters, features and breaking-changes are versioned and accessible through a specific version. Most of the time (🤡) providers are back-compatible, we should ensure to test the provider version based on our users requirements.
+It is used to ensure parameters and features are versioned and accessible through a specific version, while protection from breaking-changes that might impact existing configurations. Most of the time (🤡) providers are back-compatible, we should ensure to test the provider version based on our users requirements.
 
 We want to create reusable, composable and compatible Terraform modules.
 Also, we want to ensure that the consumer of our module can provide a specific provider version for their needs.
