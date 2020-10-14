@@ -20,7 +20,8 @@ To create a reusable Terraform module, we are first going to look into a typical
 
 # What is a Terraform module?
 
-While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started enterprise organizations typically require a _private_ registry. The private registry should ensure full control and consistency across the source code. The private registry is a good practice so that enterprise organizations can create a common place for reusable Terraform modules, that can be shared across the organization.
+While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started.
+However, enterprise organizations typically require a _private_ registry. The private registry should ensure full control and consistency across the source code. The private registry is a good practice so that enterprise organizations can create a common place for reusable Terraform modules, that can be shared across the organization.
 
 The easiest way to achieve this is to provide a Github or Azure DevOps release artifact.
 Using tags (and releases) we can version our release of the module easily. The [Azure Cloud Adoption Framework landing zones for Terraform](https://github.com/Azure/caf-terraform-landingzones) uses a similar approach for versioning modules e.g. [CAF: Azure Monitor Log Analytics](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0).
