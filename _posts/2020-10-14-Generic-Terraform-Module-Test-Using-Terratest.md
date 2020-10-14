@@ -11,9 +11,10 @@ comments: true
 time: 2
 ---
 
-Use Terratest to execute your real IaC tools like Terraform to deploy real infrastructure into Azure.
-In this blog post we are going to look into how we leverage Terratest to have a generic test for Terraform modules.
+Use Terratest to test your IaC Terraform modules on Azure.
+In this blog post we are going to look into how we leverage a generic Terratest for Terraform modules.
 A Terraform module is a collection of Terraform resources that serves a specific purpose.
+
 A module can even be a composition of multiple child modules.
 In order to create a reusable Terraform module we are first going to look into a typical Terraform module structure.
 
