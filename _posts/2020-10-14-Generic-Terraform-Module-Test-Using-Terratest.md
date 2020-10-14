@@ -11,9 +11,9 @@ comments: true
 time: 2
 ---
 
-Use Terratest to test your IaC Terraform modules on Azure.
-In this blog post we are going to look into how we leverage a generic Terratest for Terraform modules.
-A Terraform module is a collection of Terraform resources that serves a specific purpose.
+How to use Terratest to test Infrastructure as Code Terraform modules on Azure.
+A good practice is to use Terraform module as a collection of Terraform resources that serves a specific purpose.
+In this blog post we are going to look into how we can leverage a generic Terratest for all Azure based Terraform modules.
 
 A module can even be a composition of multiple child modules.
 In order to create a reusable Terraform module we are first going to look into a typical Terraform module structure.
