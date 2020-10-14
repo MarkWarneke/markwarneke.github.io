@@ -20,10 +20,10 @@ In order to create a reusable Terraform module we are first going to look into a
 
 # What is a Terraform module?
 
-While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started. In enterprise organization I typically see the need for a _private_ registry. So that enterprise organizations can create a common place for reusable Terraform modules.
+While leveraging open-source modules from the [Terraform registry](https://registry.terraform.io/) is a good practice and a quick way to get started enterprise organization typically require a _private_ registry. The private registry should ensure full control and consistency across the source code. The private registry is a good practice, so that enterprise organizations can create a common place for reusable Terraform modules, that can be shared across the organization.
 
 The easiest way to achieve this, is to provide a Github or Azure DevOps release artifact.
-Using tags (and releases) we can version our release of the module easily. The [Azure Cloud Adoption Framework landing zones for Terraform](https://github.com/Azure/caf-terraform-landingzones)uses a similar approach for versioning modules e.g. [Deploys Azure Monitor Log Analytics](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0).
+Using tags (and releases) we can version our release of the module easily. The [Azure Cloud Adoption Framework landing zones for Terraform](https://github.com/Azure/caf-terraform-landingzones) uses a similar approach for versioning modules e.g. [Deploys Azure Monitor Log Analytics](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0).
 I expect that the CI/CD system has access to the source-control system, fetching the releases should therefore not be a problem.
 Modules should be organized in separate repositories inside of the source control system in order to achieve a stable release strategy based on tags or releases. The Terraform `source` argument can be used to reference a git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module).
 
@@ -125,58 +125,7 @@ Create a terratest test file, e.g. `generic_test.go` and paste the following con
 The test will assume that it is located in a  `test` folder, and the module under test is located in the parent.
 The file expects a `test.vars` and `provider.tf` to be present in the same directory.
 
-```go
-package test
-import (
-	"fmt"
-	"log"
-	"math/rand"
-	"os"
-	"strings"
-	"testing"
-	"github.com/gruntwork-io/terratest/modules/terraform"
-)
-/**
-	Creates a random name that is used for testing
-	Create terraform options (similar to the terraform command line arguments), references a static test.vars, that contains the configuration for the test
-	Moves provider.tf into the module (../)
-	Runs terraform plan & terraform apply
-	Moves provider.tf back
-**/
-func moveFile(oldLocation, newLocation string) {
-	err := os.Rename(oldLocation, newLocation)
-	if err != nil {
-		log.Panic(err)
-	}
-}
-func TestTerraformVmWithGpuModule(t *testing.T) {
-	terraformDir := "../"
-	originalLocation := "provider.tf"
-	underTestLocation := strings.Join([]string{terraformDir, originalLocation}, "")
-	expectedName := fmt.Sprintf("t%d", rand.Intn(9999))
-	terraformOptions := &terraform.Options{
-		// The path to where our Terraform code is located
-		TerraformDir: terraformDir,
-		VarFiles: []string{"./test/test.vars"},
-		// Variables to pass to our Terraform code using -var options
-		Vars: map[string]interface{}{
-			"name": expectedName,
-		},
-		// Disable colors in Terraform commands so its easier to parse stdout/stderr
-		NoColor: false,
-	}
-	// Remove provider at the end to test folder
-	defer moveFile(underTestLocation, originalLocation)
-	// At the end of the test, run `terraform destroy` to clean up any resources that were created
-	defer terraform.Destroy(t, terraformOptions)
-	// Move provider.tf to the terraformDir
-	moveFile(originalLocation, underTestLocation)
-	// For debugging
-	terraform.InitAndPlan(t, terraformOptions)
-	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	terraform.InitAndApply(t, terraformOptions)
-}
-```
+{% gist 53fa4645049a16584615c59632a1493c %}
 
 ##### Debugging
 
