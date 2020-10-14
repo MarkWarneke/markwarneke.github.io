@@ -26,7 +26,10 @@ The easiest way to achieve this is to provide a Github or Azure DevOps release a
 Using tags (and releases) we can version our release of the module easily. The [Azure Cloud Adoption Framework landing zones for Terraform](https://github.com/Azure/caf-terraform-landingzones) uses a similar approach for versioning modules e.g. [CAF: Azure Monitor Log Analytics](https://github.com/aztfmod/terraform-azurerm-caf-log-analytics/tree/v2.3.0).
 I expect that the CI/CD system has access to the source-control system, fetching the releases should therefore not be a problem.
 
-Modules should be organized in separate dedicated repositories inside of the source control system, to achieve a good release strategy, based on tags or releases that contain changelog information. The Terraform `source` argument can then be used to reference a git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module).
+Modules should be organized in separate dedicated repositories inside of the source control system.
+A dedicate repository ensures a good release strategy.
+Based on releases or tags that contain changelog information a module can safely be published.
+The Terraform `source` argument can then be used to reference a specific git endpoint, see [usage of a Terraform module](#usage-of-a-terraform-module), e.g. a certain release version of a module (even specific commits can be referenced).
 
 Terraform files are typically grouped into modules. A basic module structure looks like this:
 
