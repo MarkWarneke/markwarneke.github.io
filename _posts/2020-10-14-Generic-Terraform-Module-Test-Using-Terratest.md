@@ -3,9 +3,9 @@ layout: post
 title: Create reusable Terraform Modules
 subtitle: with Tests leveraging Gruntworks Terratest
 bigimg:
-  - "/img/RNjbcPAsol8.jpg": "https://unsplash.com/photos/RNjbcPAsol8"
-image: "/img/RNjbcPAsol8.jpg"
-share-img: "/img/RNjbcPAsol8.jpg"
+  - "/img/RNjbcPAsol8.jpeg": "https://unsplash.com/photos/RNjbcPAsol8"
+image: "/img/RNjbcPAsol8.jpeg"
+share-img: "/img/RNjbcPAsol8.jpeg"
 tags: [Azure]
 comments: true
 time: 5
