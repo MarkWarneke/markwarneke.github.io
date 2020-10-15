@@ -15,5 +15,5 @@ foreach ($Image in $Images) {
     $extension = [IO.Path]::GetExtension($images[0]) 
     $newImage = $image.Name -replace $extension , $newExtension
     
-    magick $Image -quality 85 -strip -resize $size $newImage
+    convert $Image -quality 85 -strip -resize $size $newImage
 }
