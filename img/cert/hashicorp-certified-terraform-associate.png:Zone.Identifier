@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://www.youracclaim.com/
+HostUrl=https://acclaim-production-app.s3.amazonaws.com/uploads/baked_badge_image/image/30a10f8c-9472-4612-bb3e-b666a2858c8e/hashicorp-certified-terraform-associate.png?response-content-disposition=attachment&X-Amz-Expires=86400&X-Amz-Date=20201021T140335Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJLA3MEMCDJNPNG2Q%2F20201021%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=1c71a57ce8306301d864bceda4b82345cf90855b3209ba4f0b08c73d56937fd8
