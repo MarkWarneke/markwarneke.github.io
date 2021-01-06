@@ -52,7 +52,7 @@ Hence, you should make sure your unit is thoroughly tested using available metho
 Having an **Azure Resource Manager Template** (ARM Template) as the subject under test we are looking into _testing_ a JSON configuration file.
 I have not yet heard of a Unit Testing framework for configuration files like YAML or JSON; I am only aware of [linter](<https://en.wikipedia.org/wiki/Lint_(software)>) for these file types.
 
-![Test Pyramid](/img/posts/2019-08-14-test-infrastructure-as-code/psconfeu19_test_iac.jpg){: .center-block :}
+![Test Pyramid](../img/posts/2019-08-14-test-infrastructure-as-code/psconfeu19_test_iac.jpg){: .center-block :}
 
 The Test Pyramid for IaC could look something like this.
 Where the **x-axis** indicates how mature the IaC project is and the **y-axis** indicates the quality of the IaC.
@@ -64,7 +64,7 @@ I personally refer to a **unit tests** for ARM templates as asserted **static co
 By using assertion the test should parse, validate and check for [best practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-best-practices) within the given configuration file (ARM template).
 
 As we are not compiling or building a software product we can not rely on any compilers to throw errors on syntactical issues.
-See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/vnext/Modules/SQLDatabase/2.0/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
+See VDC codeblocks [module.tests.ps1](https://github.com/Azure/vdc/blob/master/Modules/SQLDatabase/Tests/module.tests.ps1) tests and Az.Test [azuredeploy.Tests.ps1](https://github.com/MarkWarneke/Az.New/blob/master/xAz.New/static/src/test/azuredeploytests.ps1) for different implementations of unit tests for ARM templates.
 
 [Read More](/2019-08-21-static-code-analysis-for-infrastructure-as-code/)
 

@@ -9,16 +9,12 @@ Website of Mark Warneke [markwarneke.me](https://markwarneke.me/)
 
 ## Links
 
-- [markdown.md](.\markdown.md)
-- [img](.\img\README)
-- [code](.\code\README)
+- [code](.\code\README.md)
 - [about](.\about.md)
 - [imprint](.\imprint.md)
 - [tags](.\tags.html)
 
 ## Theme by
-
-See [Jekyll](.\jekyll.md)
 
 [beautiful-jekyll](https://deanattali.com/beautiful-jekyll/)
 
@@ -29,5 +25,3 @@ See [Jekyll](.\jekyll.md)
 ## Images by
 
 if not stated otherwise images by https://unsplash.com/
-
-See all [img](https://markwarneke.me\img\README)
