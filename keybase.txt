@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/markwarneke
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://markwarneke.me
+  * I am markwarneke (https://keybase.io/markwarneke) on keybase.
+  * I have a public key ASBpqyqPjT5rTKbbLuPFf3WkSqUChgYIUzhgSuB6ArxiIQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120bf9f6c8f8e0e296b10f2b14b681331cb2c96a4c7e8b78543701c1501b7a274800a",
+      "host": "keybase.io",
+      "kid": "012069ab2a8f8d3e6b4ca6db2ee3c57f75a44aa5028606085338604ae07a02bc62210a",
+      "uid": "3eba7b1faa3877595d3926b93f627e19",
+      "username": "markwarneke"
+    },
+    "merkle_root": {
+      "ctime": 1609929315,
+      "hash": "0ba195a526563761e1cd19da25a604feb869fb0f0124856c6aafbe2ba4be1eead70540c9fff6b6ca1c1307f245181dcfce9006aa337ee9559de1c6eb9d8a1837",
+      "hash_meta": "42b485a3b650a6f0b2d522aaf11396a6b9faa6e342379c6de6fccd61a81cb08a",
+      "seqno": 18609913
+    },
+    "service": {
+      "entropy": "3xnezNM0CfBGI4dyTt1/Se4S",
+      "hostname": "markwarneke.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1609929335,
+  "expire_in": 504576000,
+  "prev": "6ae828eadcb062d19eb08ed68b955756161124959058f291498d4cd211537bdb",
+  "seqno": 11,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgaasqj40+a0ym2y7jxX91pEqlAoYGCFM4YErgegK8YiEKp3BheWxvYWTESpcCC8Qgaugo6tywYtGesI7Wi5VXVhYRJJWQWPKRSY1M0hFTe9vEIFPv+wy98ndjI1P9qg2rwRxKHUeUbdWNo94WLEi+srZpAgHCo3NpZ8RArCw9NmonhDWYy56p/I2voox3/H4mnc2zKO0E0fG5Kk0UrPRAX5OjufkP2pR4xWG9t3VYSb4oTL5+fnZRL7Y9D6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBa+IuGs7zagSoI3cT7QEm8CHfw9Z72z01WVNY4BrVNuo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/markwarneke
+
+==================================================================
