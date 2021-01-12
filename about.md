@@ -12,7 +12,7 @@ subtitle: I'm Mark Warneke
 
 ## About
 
-My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. And now, I am running my own business while working as a Consultant for Microsoft. 
+My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. And now, I am running my own business while working as a Consultant for Microsoft.
 
 My values are having an open-mindset and treating others with respect. And my approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
 
@@ -31,7 +31,8 @@ Some of the stuff I present during community events can be found on my website [
 ### Founding of [MMMint.ai](https://mmmint.ai)
 
 In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
-The name is an acronym of the founders' first names. The int is short for intelligence, which is a reference to our data-driven machine-learning solutions.  MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
+
+The name is an acronym of the founders first names. The int is short for intelligence, which is a reference to our data-driven machine-learning solutions.  MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
 
 The goal of the company is to enable and create research-based solutions. We focus and leverage an academic approach while using the results to create products.
 We bring data-driven solutions to small- and medium-sized businesses. My vision is to work closely with companies to create domain-specific products based on data that has been previously untapped.
