@@ -86,7 +86,7 @@ At the time I was always looking to apply my theoretical knowledge and since the
 
 During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/). Which allowed me to get some exposure to smaller IT projects. The club offered a variety of seminars including a six sigma certification which I gladly used.
 
-I graduated and conducted my bachelor thesis at Porsche.
+I graduated and conducted my bachelor thesis [@Porsche](https://www.porsche.com/).
 At Porsche, I wrote about the IT service management process of the digital production planning systems. At this time I focused on the classic change management processes described in ITIL (Information Technology Infrastructure Library). The agile way of working and the DevOps movement was something I have not been exposed to and thus was not aware of. Looking back I value learning about ITIL - it gives me a different perspective on where companies are coming from and what mindset these companies might perceive.
 
 #### Working Student
