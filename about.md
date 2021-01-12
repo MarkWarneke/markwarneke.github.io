@@ -12,27 +12,42 @@ subtitle: I'm Mark Warneke
 
 ## About
 
-My career started as an account manager apprenticeship and developed into a software engineer role. Personally, I value and treat others with an open-mindset. My approach is very engaging, value-driven, and methodical. I enjoy working in a high paced and autonomous environment that focuses on solutions.  
+My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. My values are having an open-mindset and treating others with respect. And my approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
 
-In 2020 I started to work as a volunteer teacher at [ReDI-school](https://www.redi-school.org/). ReDI School teaches technology to break down barriers and connect the digital leaders of tomorrow. Specifically, I am teaching Python introduction courses to young professionals. 
+### Volunteer
 
-I enjoy sharing, collaborating and teaching, as well as contributing to the success of others - this is something I picked up while working for Microsoft. I enjoy public speaking and I value contributing and continuous-improvement, which is why I work on numerous inner source projects going on at Microsoft. My debut as a conference speaker was in 2019 at the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s) where I introduced a test-driven development approach for Infrastructure as Code. Some of the stuff I present during community events can be found [here](/talks.html). 
+In 2020 I started to work as a volunteer teacher for the [ReDI-school](https://www.redi-school.org/). ReDI School teaches technology to break down barriers and connect the digital leaders of tomorrow. Specifically, I taught a Python introduction course to professional newcomers.
 
+### Community
+
+I enjoy collaborating, sharing, and contributing to the success of others - this is something I picked up working for Microsoft.
+
+Public speaking is a way to challenge and humble myself. My debut as a conference speaker was in 2019. I was fortunate enough to talk about a Big Data Platform implementation we have been working on to Microsoft colleagues at the internal Microsoft Ready conference. Later that year, I was invited to speak at the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s) about a test-driven development approach for Infrastructure as Code.
+
+Some of the stuff I present during community events can be found on my website [here](/talks.html).
 
 ### Founding of [MMMint.ai](https://mmmint.ai)
-In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai). The goal is to bring data-driven solutions to small- and medium-sized businesses. My idea is to work closely with these companies to create products that can compete in an increasingly global and software-driven market. I hope that these efforts will teach me lessons that don't require size and available capital, unlike the lessons I learn working for Microsoft.
 
+In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
+The name is an acronym of the founders' first names. The int is short for intelligence, which is a reference to our data-driven machine-learning solutions.  MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
+
+The goal of the company is to enable and create research-based solutions. We focus and leverage an academic approach while using the results to create products.
+We bring data-driven solutions to small- and medium-sized businesses. My vision is to work closely with companies to create domain-specific products based on data that has been previously untapped.
+We are competing in an increasingly global and software-driven market.
+
+I value the learnings of starting a company and taking care of commitments the most. Starting from scratch allows me to see things from a different perspective.
 ### Consulting [@Microsoft](https://microsoft.com)
 
-At Microsoft, I was leading multiple large scale Big Data and Analytics Platform projects as a consultant. The goal of these projects was to enable customers in the financial services industry to rapidly develop and release scalable distributed big data applications.
+At Microsoft, I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly developing and releasing scalable distributed applications.
 
-These applications typically leveraged cloud-native, open-source solutions that are implemented on Microsoft's Cloud Azure. I was responsible for the whole software development lifecycle (SDLC), starting with the functional and technical analysis, design, implementation, test, deployment, release, and operations of different solutions areas, spanning application development, DevOps, security, as well as data engineering, and AI services.
+These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for and leading the whole software development lifecycle (SDLC). Starting with the functional and technical analysis, design, implementation, test, deployment, release, and operations of different solutions areas. Areas like application development, DevOps, security, data engineering, and demonstrating AI services for customer use-cases.
 
-During the time I was a speaker and a trainer evangelizing and advocating about the latest trends at Meetups, workshops, hackathons, and conferences. Frequent topics included: Cloud-Native, Infrastructure as Code, and DevOps. I was fortunate to be able to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG).
+I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.  I am an active maintainer and top contributor to open- and inner-source projects, like the DevOps Dojo.
+The DevOps Dojo started as an internal movement to make software development and implementation projects more efficient, which is now offered as [a public learning experience on the Microsoft docs]((https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
 
-I am an active maintainer and top contributor to numerous open- and inner-source projects, like the [DevOps Dojo](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/). The Dojo started as an internal movement to make software development and implementation projects more efficient, which is now offered as a learning experience to customers outside of Microsoft.
+During Microsoft, I engaged as a speaker and a trainer. Evangelizing and advocating about the latest trends at Meetups, hackathons, and conferences. Frequent topics included: Cloud-Native, Infrastructure as Code, and DevOps. I was fortunate to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG) starting in 2017 right after joining Microsoft.
 
-During the time I was able to collect numerous certifications, that you can find on my [acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges).
+Microsoft allowed me to dig into the latest technologies. I was able to achieve numerous certifications. You can find my badges on [acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges).
 
 ![Microsoft Certified: Power Platform Fundamentals](/img/cert/power-platform-fundamentals-600x600.png)
 ![Microsoft Certified: Dynamics 365 Fundamentals](/img/cert/dynamics365-fundamentals-600x600.png)
@@ -48,26 +63,46 @@ During the time I was able to collect numerous certifications, that you can find
 ![MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
 ![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
 
-### Developing [@Eve](https://starteve.ai)
+### Self-employment
 
-At Eve I got the opportunity to work on an accessibility product that recognizes speech to generates automated live captions. Eve can augment humans, by proposing live captions that can be reviewed and corrected by humans for usage at conferences. The idea is to enable and make conferences more accessible by providing live captions and live translation. Users can read the captions on external monitors or even on their phone, using their preference for language, text size, and display setting.
+In 2019 I started to moonlight as a self-employed Software Engineer. My idea was to get some hands-on software development experience.
 
-Eve allowed me to develop further as a software engineer, always pushing for the most innovative and suitable solutions. We adopted cloud-native technologies like a micro-services architecture on Kubernetes, web-sockets, feature-flags, and continuous deployment. The product EVE allowed me to learn how to develop a product in a small team, to innovate, and to bring features to end-users as quickly as possible, while keeping the services available and resilient. 
+ [@Eve](https://starteve.ai) I got the opportunity to work on an accessibility product that recognizes speech to generates automated live captions. Eve augments humans. By proposing the transcript humans can review and correct the AI's suggestions. The idea is to enable and make conferences more accessible and inclusive by providing live captions and translation. Users can read the captions on large external monitors or even on their phones. Everything is configurable to the attendee's needs and preferences - from language settings to text size, and visual representation.
 
-### History
+Eve allowed me to develop further as a software engineer, always pushing for the most innovative and suitable solutions. We adopted many cloud-native technologies. A micro-services architecture on Kubernetes, web-sockets, feature-flags, and a full continuous deployment experience.
 
-My career started as a Management Assistant at [ETe-Datentechnik](http://www.ete-datentechnik.com/) a small networking company from my hometown. I soon became the only account manager for the company at the age of just 18. My responsibility grew to be certified in the main technologies that we offered, including Cisco and IBM. My job was not only to consult and sell to exiting customer but to acquire new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a multi-week server & storage project with IBM from a cold-call. After this experience, I moved on to university.
+The engagement at EVE taught me how to develop a product in a small team. And how to do it truly agile. How to innovate and how to bring features to end-users as quickly as possible - while keeping the services available and resilient.
 
 #### B.Sc. Business Informatics
 
-During university [@the University of Applied Science Münster](https://en.fh-muenster.de), I fell in love with software development. I chose to specialize in Web & Software Engineering. As well as Business Intelligence, which included seminars on machine learning and artificial intelligence. 
+During university [@the University of Applied Science Münster](https://en.fh-muenster.de), I fell in love with software engineering. I chose to specialize in Web & Software Engineering and I took courses in business intelligence, machine learning,  and artificial intelligence.
 
-At the time I was always looking to apply my knowledge and since the second semester, I started working as a working student for different companies, including [Vectron Systems](https://www.vectron-systems.com/) as a web developer. During my studies, I also took some smaller projects as a consultant for [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/), a student consultancy. I graduated and conducted my bachelor thesis at Porsche, writing about the service management of the digital production planning systems. At this time I was not aware of the DevOps movement and studied a lot about service management with ITIL.
+At the time I was always looking to apply my theoretical knowledge and since the second semester, I started working as a working student for different companies. [Vectron Systems](https://www.vectron-systems.com/) allowed me to apply my knowledge as a web developer.
 
-#### Working Student [@Ratiodata](https://www.ratiodata.de/)
+During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/). Which allowed me to get some exposure to smaller IT projects. The club offered a variety of seminars including a six sigma certification which I gladly used.
 
-During my studies, I was working as a developer for Ratiodata's Scan2bank21 application - an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks. My role was to lead the whole SDLC from requirements engineering, prototyping, automated testing, and even the training of new developers. I was building and later owning the release & certification process of the applications that was conducted by Ricoh.
+I graduated and conducted my bachelor thesis at Porsche.
+At Porsche, I wrote about the IT service management process of the digital production planning systems. At this time I focused on the classic change management processes described in ITIL (Information Technology Infrastructure Library). The agile way of working and the DevOps movement was something I have not been exposed to and thus was not aware of. Looking back I value learning about ITIL - it gives me a different perspective on where companies are coming from and what mindset these companies might perceive.
 
-Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions. This involved optimizing internal work and information processes within banks by digitizing documents and making them more easily accessible.
+#### Working Student
 
-Technological challenges have been designing a lightweight yet efficient Java application for multiple specific hardware systems, including multiple display sizes and low computing power (similar to 1st Gen iPhone), that needed to be able to process and transform high loads of image data using vendor-specific operating system and libraries.
+During my studies, I was lastly working as a software engineer for Ratiodata.
+
+[@Ratiodata](https://www.ratiodata.de/) I was developing the Scan2bank21 application - an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks.
+My job included the whole SDLC from requirements engineering, prototyping, automated testing, and even the training of new developers.
+At this time I learned about why version control matters, how to automate the building of artifacts (packaging JAR files with ANT), and releasing packaged software.
+
+Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions. This involved optimizing internal work and information processes within banks by digitizing documents and getting them more easily accessible.
+
+Technological challenges have been designing a lightweight yet efficient Java application. The software was designed and written for multiple specific hardware systems, including multiple form factor display sizes and running with low computing power.
+The application needed to process and transform image data using the vendor-specific operating systems and some open-source libraries.
+
+### History
+
+My career started as a Management Assistant apprentice [@ ETe-Datentechnik](http://www.ete-datentechnik.com/) - a small company from my hometown specializing in network technology.
+
+I became the only account manager for the company at the age of just 18. And my responsibility grew not only to be certified in the main technologies that the company offered, including Cisco and IBM but also to drive existing and create new business.
+
+My job included not only selling but to consult the customer in IT Hardware like Server & Storage solutions as well as corporate IT networking & Voice over IP telephony.
+
+I was responsible for generating new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a huge server & storage project with IBM from a cold-call. After this experience, I moved on to university. ETe taught me a lot about becoming a professional. I am very grateful for the experience.
