@@ -48,7 +48,7 @@ I value the learnings of starting a company and taking care of commitments the m
 These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for and leading the whole software development lifecycle (SDLC). Starting with the functional and technical analysis, design, implementation, test, deployment, release, and operations of different solutions areas. Areas like application development, DevOps, security, data engineering, and demonstrating AI services for customer use-cases.
 
 I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.  I am an active maintainer and top contributor to open- and inner-source projects, like the DevOps Dojo.
-The DevOps Dojo started as an internal movement to make software development and implementation projects more efficient, which is now offered as [a public learning experience on the Microsoft docs](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
+The DevOps Dojo started as an internal movement to make internal projects and software development implementation more efficient. The developed material is now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
 
 During Microsoft, I engaged as a speaker and a trainer. Evangelizing and advocating about the latest trends at Meetups, hackathons, and conferences. Frequent topics included: Cloud-Native, Infrastructure as Code, and DevOps. I was fortunate to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG) starting in 2017 right after joining Microsoft.
 
