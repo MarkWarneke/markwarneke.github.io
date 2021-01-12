@@ -106,7 +106,7 @@ The application needed to process and transform image data using the vendor-spec
 
 My career started as a Management Assistant apprentice [@ETe-Datentechnik](http://www.ete-datentechnik.com/) - a small company from my hometown specializing in network technology.
 
-I became the only account manager for the company at the age of just 18. And my responsibility grew not only to be certified in the main technologies that the company offered, including Cisco and IBM but also to drive existing and create new business.
+I became the only account manager for the company at the age of just 18. And my responsibility grew not only to be certified in the main technologies that the company offered, including Cisco and IBM, but also to drive existing and create new business.
 
 My job included not only selling but to consult the customer in IT Hardware like Server & Storage solutions as well as corporate IT networking & Voice over IP telephony.
 
