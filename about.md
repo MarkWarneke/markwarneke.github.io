@@ -82,7 +82,7 @@ The engagement at EVE taught me how to develop a product in a small team. And ho
 
 During university [@the University of Applied Science Münster](https://en.fh-muenster.de), I fell in love with software engineering. I chose to specialize in Web & Software Engineering and I took courses in business intelligence, machine learning,  and artificial intelligence.
 
-At the time I was always looking to apply my theoretical knowledge and since the second semester, I started working as a working student for different companies. [Vectron Systems](https://www.vectron-systems.com/) allowed me to apply my knowledge as a web developer.
+At the time I was always looking to apply my theoretical knowledge and since the second semester, I started working as a working student for different companies. [Vectron Systems](https://www.vectron-systems.com/) allowed me to apply my knowledge as a web developer and get my feet wet as a professional Software Engineer.
 
 During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/). Which allowed me to get some exposure to smaller IT projects. The club offered a variety of seminars including a six sigma certification which I gladly used.
 
