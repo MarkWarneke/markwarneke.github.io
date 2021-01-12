@@ -14,7 +14,7 @@ subtitle: I'm Mark Warneke
 
 My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. And now, I am running my own business while working as a Consultant for Microsoft.
 
-My values are having an open-mindset and treating others with respect. And my approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
+My values are having an open-mindset and treating others with respect. My approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
 
 ### Volunteer
 
@@ -35,8 +35,10 @@ In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
 The name is an acronym of the founders first names. The `int` part is short for intelligence, which is a reference to our data-driven machine-learning solutions. MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
 
 The goal of the company is to enable and create research-based solutions. We focus and leverage an academic approach while using the results to create products.
-We bring data-driven solutions to small- and medium-sized businesses. My vision is to work closely with companies to create domain-specific products based on data that has been previously untapped.
-We are competing in an increasingly global and software-driven market.
+We bring data-driven solutions to small- and medium-sized businesses. 
+
+My vision is to work closely with companies to create domain-specific products based on data that has been previously untapped.
+We are competing in an increasingly global and software-driven market, bringing experience of a global player like Microsoft to smaller companies to build products is truly fascinating.
 
 I value the learnings of starting a company and taking care of commitments the most. Starting from scratch allows me to see things from a different perspective.
 ### Consulting [@Microsoft](https://microsoft.com)
