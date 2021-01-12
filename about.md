@@ -35,20 +35,20 @@ In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
 The name is an acronym of the founders first names. The `int` part is short for intelligence, which is a reference to our data-driven machine-learning solutions. MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
 
 The goal of the company is to enable and create research-based solutions. We focus and leverage an academic approach while using the results to create products.
-We bring data-driven solutions to small- and medium-sized businesses. 
+We bring data-driven solutions to small- and medium-sized businesses.
 
 My vision is to work closely with companies to create domain-specific products based on data that has been previously untapped.
 We are competing in an increasingly global and software-driven market, bringing experience of a global player like Microsoft to smaller companies to build products is truly fascinating.
 
 I value the learnings of starting a company and taking care of commitments the most. Starting from scratch allows me to see things from a different perspective.
-### Consulting [@Microsoft](https://microsoft.com)
+### Consulting 
 
-At Microsoft, I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly developing and releasing scalable distributed applications.
+[@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly developing and releasing scalable distributed applications.
 
 These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for and leading the whole software development lifecycle (SDLC). Starting with the functional and technical analysis, design, implementation, test, deployment, release, and operations of different solutions areas. Areas like application development, DevOps, security, data engineering, and demonstrating AI services for customer use-cases.
 
 I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.  I am an active maintainer and top contributor to open- and inner-source projects, like the DevOps Dojo.
-The DevOps Dojo started as an internal movement to make software development and implementation projects more efficient, which is now offered as [a public learning experience on the Microsoft docs]((https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
+The DevOps Dojo started as an internal movement to make software development and implementation projects more efficient, which is now offered as [a public learning experience on the Microsoft docs](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
 
 During Microsoft, I engaged as a speaker and a trainer. Evangelizing and advocating about the latest trends at Meetups, hackathons, and conferences. Frequent topics included: Cloud-Native, Infrastructure as Code, and DevOps. I was fortunate to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG) starting in 2017 right after joining Microsoft.
 
@@ -104,7 +104,7 @@ The application needed to process and transform image data using the vendor-spec
 
 ### History
 
-My career started as a Management Assistant apprentice [@ ETe-Datentechnik](http://www.ete-datentechnik.com/) - a small company from my hometown specializing in network technology.
+My career started as a Management Assistant apprentice [@ETe-Datentechnik](http://www.ete-datentechnik.com/) - a small company from my hometown specializing in network technology.
 
 I became the only account manager for the company at the age of just 18. And my responsibility grew not only to be certified in the main technologies that the company offered, including Cisco and IBM but also to drive existing and create new business.
 
