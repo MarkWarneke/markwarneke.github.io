@@ -12,7 +12,9 @@ subtitle: I'm Mark Warneke
 
 ## About
 
-My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. And now, I am running my own business while working as a Consultant for Microsoft. My values are having an open-mindset and treating others with respect. And my approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
+My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. And now, I am running my own business while working as a Consultant for Microsoft. 
+
+My values are having an open-mindset and treating others with respect. And my approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
 
 ### Volunteer
 
