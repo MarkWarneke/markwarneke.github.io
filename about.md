@@ -97,9 +97,9 @@ During my studies, I was lastly working as a software engineer for Ratiodata.
 My job included the whole SDLC from requirements engineering, prototyping, automated testing, and even the training of new developers.
 At this time I learned about why version control matters, how to automate the building of artifacts (packaging JAR files with ANT), and releasing packaged software.
 
-Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions. This involved optimizing internal work and information processes within banks by digitizing documents and getting them more easily accessible.
+Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions. This involved optimizing internal work and information processes within banks by digitizing documents and overall making processes more efficient.
 
-Technological challenges have been designing a lightweight yet efficient Java application. The software was designed and written for multiple specific hardware systems, including multiple form factor display sizes and running with low computing power.
+Technological challenges have been designing a lightweight yet efficient Java application. The software was designed and written for multiple specific hardware systems, including multiple form factor, display sizes and running with low computing power.
 The application needed to process and transform image data using the vendor-specific operating systems and some open-source libraries.
 
 ### History
