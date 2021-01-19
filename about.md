@@ -40,9 +40,9 @@ I value the learnings of starting a company and taking care of commitments the m
 
 ### Consulting 
 
-[@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly develop and release scalable distributed applications.
+[@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers  to rapidly develop, release, and scale distributed applications.
 
-These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for and leading the whole software development lifecycle (SDLC). Starting with the functional and technical analysis, design, implementation, test, deployment, release, and operations of different solutions areas. Areas like application development, DevOps, security, data engineering, and demonstrating AI services for customer use-cases.
+These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for the functional and technical analysis, the whole Software Development Lifecycle (SDLC), including but not limited to application development, DevOps, and security.
 
 I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.  I am an active maintainer and top contributor to open- and inner-source projects, like the DevOps Dojo.
 The DevOps Dojo started as an internal movement to make internal projects and software development implementation more efficient. The developed material is now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
@@ -74,6 +74,10 @@ In 2019 I started to moonlight as a self-employed Software Engineer. My idea was
 Eve allowed me to develop further as a software engineer, always pushing for the most innovative and suitable solutions. We adopted many cloud-native technologies. A micro-services architecture on Kubernetes, web-sockets, feature-flags, and a full continuous deployment experience.
 
 The engagement at EVE taught me how to develop a product in a small team. And how to do it truly agile. How to innovate and how to bring features to end-users as quickly as possible - while keeping the services available and resilient.
+
+During the self-employment I engaged on Microsoft 365 Administration work for SMB companies. I managed and operated Microsoft Teams, Exchange Online, as well as Azure Active Directory.
+
+Futhermore I supported and conducted smaller Business Intelligence projects. The goal was to visualize KPI and create and design dashboards using SQL and PowerBI, leveraging the CRISP/DM process.
 
 #### B.Sc. Business Informatics
 
