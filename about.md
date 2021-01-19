@@ -34,13 +34,10 @@ In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
 
 The name is an acronym of the founders first names. The `int` part is short for intelligence, which is a reference to our data-driven machine-learning solutions. MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
 
-The goal of the company is to enable and create research-based solutions. We focus and leverage an academic approach while using the results to create products.
-We bring data-driven solutions to small- and medium-sized businesses.
-
-My vision is to work closely with companies to create domain-specific products based on data that has been previously untapped.
-We are competing in an increasingly global and software-driven market, bringing experience of a global player like Microsoft to smaller companies to build products is truly fascinating.
+The objective of the company is to provide technology solutions based on substantial scientific or engineering challenges. Our goal is to create research and development intensive software and to bring these data-driven solutions to small- and medium-sized businesses. We develop new products based on scientific discovery or meaningful engineering innovation, [see Deep tech](https://en.wikipedia.org/wiki/Deep_tech).
 
 I value the learnings of starting a company and taking care of commitments the most. Starting from scratch allows me to see things from a different perspective.
+
 ### Consulting 
 
 [@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly develop and release scalable distributed applications.
