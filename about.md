@@ -43,7 +43,7 @@ We are competing in an increasingly global and software-driven market, bringing 
 I value the learnings of starting a company and taking care of commitments the most. Starting from scratch allows me to see things from a different perspective.
 ### Consulting 
 
-[@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly developing and releasing scalable distributed applications.
+[@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers to rapidly develop and release scalable distributed applications.
 
 These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for and leading the whole software development lifecycle (SDLC). Starting with the functional and technical analysis, design, implementation, test, deployment, release, and operations of different solutions areas. Areas like application development, DevOps, security, data engineering, and demonstrating AI services for customer use-cases.
 
