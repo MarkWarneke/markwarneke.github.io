@@ -52,9 +52,14 @@ As I am only running demo workloads this is the quickest way to save costs for m
 
 # Validation
 
-To verify that the config map got applied correctly check the `omsagent-*` logs e.g.
+To verify that the config map got applied correctly check the `omsagent-*` pod logs e.g.
 
 ```sh
+kubectl get pod -n kube-system
+
+# NAME                                  READY   STATUS    RESTARTS   AGE
+# omsagent-fdf58                        1/1     Running   1          14h
+
 kubectl logs omsagent-fdf58 -n kube-system
 ```
 
