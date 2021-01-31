@@ -29,23 +29,19 @@ To apply the default configuration save the file as `container-azm-ms-agentconfi
 In order to exclude Namespaces that should be excluded from the log collection configure `log_collection_settings.stdout` and `log_collection_settings.stderr`
 
 ```yaml
-       [log_collection_settings.stdout]
-          # In the absense of this configmap, default value for enabled is true
-          enabled = true
-          # exclude_namespaces setting holds good only if enabled is set to true
-          # kube-system log collection is disabled by default in the absence of 'log_collection_settings.stdout' setting. If you want to enable kube-system, remove it from the following setting.
-          # If you want to continue to disable kube-system log collection keep this namespace in the following setting and add any other namespace you want to disable log collection to the array.
-          # In the absense of this configmap, default value for exclude_namespaces = ["kube-system"]
-          exclude_namespaces = ["kube-system"]
+[log_collection_settings.stdout]
+  # In the absense of this configmap, default value for enabled is true
+  enabled = true
+  
+  # In the absense of this configmap, default value for exclude_namespaces = ["kube-system"]
+  exclude_namespaces = ["kube-system"]
 
-       [log_collection_settings.stderr]
-          # Default value for enabled is true
-          enabled = true
-          # exclude_namespaces setting holds good only if enabled is set to true
-          # kube-system log collection is disabled by default in the absence of 'log_collection_settings.stderr' setting. If you want to enable kube-system, remove it from the following setting.
-          # If you want to continue to disable kube-system log collection keep this namespace in the following setting and add any other namespace you want to disable log collection to the array.
-          # In the absense of this cofigmap, default value for exclude_namespaces = ["kube-system"]
-          exclude_namespaces = ["kube-system", "ingress-basic", "akv2k8s", "flux-system"]
+[log_collection_settings.stderr]
+  # Default value for enabled is true
+  enabled = true
+  # exclude_namespaces setting holds good only if enabled is set to true
+  # In the absense of this cofigmap, default value for exclude_namespaces = ["kube-system"]
+  exclude_namespaces = ["kube-system", "ingress-basic", "akv2k8s", "flux-system"]
 ```
 
 In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](https://akv2k8s.io/) generated a lot of unnecessary and costly logs that are not useful - so I excluded the namespaces.
