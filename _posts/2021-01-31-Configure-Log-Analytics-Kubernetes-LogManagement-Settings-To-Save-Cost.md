@@ -22,11 +22,15 @@ When the major cost driver is LogManagement and the usage charts displays unusua
 
 Following the official documentation on [configure agent data collection for Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config) we find that a `ConfigMap` is provided [container-azm-ms-agentconfig.yaml](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
 
-To apply the default configuration save the file as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`. [The complete `ConfigMap` is displayed below](#gist).
+To apply the default configuration save the file as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`. The complete [`ConfigMap`](#gist) is displayed below, see [#Gist](#gist).
+
+In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](https://akv2k8s.io/) generated a lot of unnecessary and costly logs that are not useful.
+
+![Pie Chart Logs](./img/posts/2021-01-31-Configure-Log-Analytics-Kubernetes-LogManagement-Settings-To-Save-Cost/pie-chart-logs.jpg)
 
 # Exclude Namespaces
 
-In order to exclude Namespaces that should be excluded from the log collection configure `log_collection_settings.stdout` and `log_collection_settings.stderr`
+In order to exclude `namespaces` that generate unnecessary logs configure the log collection settings `log_collection_settings.stdout` and `log_collection_settings.stderr`
 
 ```yaml
 [log_collection_settings.stdout]
@@ -44,9 +48,6 @@ In order to exclude Namespaces that should be excluded from the log collection c
   exclude_namespaces = ["kube-system", "ingress-basic", "akv2k8s", "flux-system"]
 ```
 
-In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](https://akv2k8s.io/) generated a lot of unnecessary and costly logs that are not useful - so I excluded the namespaces.
-
-![Pie Chart Logs](./img/posts/2021-01-31-Configure-Log-Analytics-Kubernetes-LogManagement-Settings-To-Save-Cost/pie-chart-logs.jpg)
 
 {: .box-warning}
 **Warning:** In production use cases this might not be applicable as you want to make sure the errors and outputs are collected for log analysis.
