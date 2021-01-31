@@ -22,7 +22,7 @@ When the major cost driver of your Log Analytics workspace is `LogManagement` an
 
 Following the official documentation on [configure agent data collection for Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config) we find that a `ConfigMap` is provided [container-azm-ms-agentconfig.yaml](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
 
-To apply the default configuration save the file as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`. The complete [`ConfigMap`](#gist) is displayed below, see [#Gist](#gist).
+To apply the default configuration save the file as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`. The complete [`ConfigMap`](#gist) is displayed below, see [Gist](#gist).
 
 In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](https://akv2k8s.io/) generated a lot of unnecessary and costly logs that are not useful.
 
