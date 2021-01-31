@@ -11,7 +11,7 @@ comments: true
 time: 5
 ---
 
-In this post we are going to look into how you can configure your data ingestion in Kubernetes.
+In this post we are going to look into how you can configure your LogManagement data ingestion from Kubernetes.
 We will configure the OMSAgent of Kubernetes LogManagement to only ingest relevant namespaces into the Log Analytics workspace.
 
 When the major cost driver is LogManagement and the usage charts displays unusual high billable data ingestion per solution in the Azure Log Analytics usage and estimated costs blade - check out the blog post [Investigate Azure Kubernetes Log Analytics Cost Drivers](/2020-07-07-K8S-Azure-Log-Analytics-Cost/) to understand the driving namespaces.
