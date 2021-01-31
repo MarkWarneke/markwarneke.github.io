@@ -76,12 +76,11 @@ You can find the configuraiton in the `ReplicaSet` of the `omsagent-rs-*` see:
 ```sh
 kubectl get rs -n kube-system
 
-  NAME                            DESIRED   CURRENT   READY   AGE
-coredns-748cdb7bf4              2         2         2       73d
-coredns-autoscaler-868b684fd4   1         1         1       73d
-metrics-server-58fdc875d5       1         1         1       73d
-omsagent-rs-5cb6b998dc          1         1         1       13h
-
+#   NAME                            DESIRED   CURRENT   READY   AGE
+# coredns-748cdb7bf4              2         2         2       73d
+# coredns-autoscaler-868b684fd4   1         1         1       73d
+# metrics-server-58fdc875d5       1         1         1       73d
+# omsagent-rs-5cb6b998dc          1         1         1       13h
 
 kubectl describe rs omsagent-rs-5cb6b998dc -n kube-system
 ```
