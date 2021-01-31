@@ -22,9 +22,7 @@ When the major cost driver is LogManagement and the usage charts displays unusua
 
 Following the official documentation on [configure agent data collection for Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config) we find that a `ConfigMap` is provided [container-azm-ms-agentconfig.yaml](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml).
 
-{% gist f246afdeb63435feff52846b847868ef %}
-
-To apply this save the gist as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`.
+To apply the default configuration save the file as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`. [The complete `ConfigMap` is displayed below](#gist).
 
 # Exclude Namespaces
 
@@ -106,3 +104,7 @@ Volumes:
     Type:      ConfigMap (a volume populated by a ConfigMap)
     Name:      container-azm-ms-agentconfig
 ```
+
+# Gist
+
+{% gist f246afdeb63435feff52846b847868ef %}
