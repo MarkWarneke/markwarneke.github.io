@@ -34,17 +34,11 @@ In order to exclude the `namespaces` that generate the unnecessary logs we can c
 
 ```yaml
 [log_collection_settings.stdout]
-  # In the absense of this configmap, default value for enabled is true
   enabled = true
-  
-  # In the absense of this configmap, default value for exclude_namespaces = ["kube-system"]
   exclude_namespaces = ["kube-system"]
 
 [log_collection_settings.stderr]
-  # Default value for enabled is true
   enabled = true
-  # exclude_namespaces setting holds good only if enabled is set to true
-  # In the absense of this cofigmap, default value for exclude_namespaces = ["kube-system"]
   exclude_namespaces = ["kube-system", "ingress-basic", "akv2k8s", "flux-system"]
 ```
 
