@@ -30,7 +30,7 @@ In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](ht
 
 # Exclude Namespaces
 
-In order to exclude `namespaces` that generate unnecessary logs configure the log collection settings `log_collection_settings.stdout` and `log_collection_settings.stderr`
+In order to exclude the `namespaces` that generate the unnecessary logs we can configure the log collection settings `log_collection_settings.stdout` and `log_collection_settings.stderr` of the `container-azm-ms-agentconfig.yaml`.
 
 ```yaml
 [log_collection_settings.stdout]
@@ -48,6 +48,7 @@ In order to exclude `namespaces` that generate unnecessary logs configure the lo
   exclude_namespaces = ["kube-system", "ingress-basic", "akv2k8s", "flux-system"]
 ```
 
+Apply the yaml again `kubectl apply -f container-azm-ms-agentconfig.yaml` and [validate](#validation) the deployment.
 
 {: .box-warning}
 **Warning:** In production use cases this might not be applicable as you want to make sure the errors and outputs are collected for log analysis.
@@ -55,7 +56,7 @@ In order to exclude `namespaces` that generate unnecessary logs configure the lo
 A different approach would be to find the root cause of the outputs, fix any issue causing it and configure each service to reduce the log output.
 As I am only running demo workloads this is the quickest way to save costs for me.
 
-# Verification
+# Validation
 
 To verify that the config map got applied correctly check the `omsagent-*` logs e.g.
 
