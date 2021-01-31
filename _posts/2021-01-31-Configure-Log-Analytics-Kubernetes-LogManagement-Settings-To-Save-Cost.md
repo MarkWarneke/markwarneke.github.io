@@ -24,7 +24,7 @@ Following the official documentation on [configure agent data collection for Azu
 
 To apply the default configuration save the file as `container-azm-ms-agentconfig.yaml` and apply it using `kubectl apply -f container-azm-ms-agentconfig.yaml`. The complete [`ConfigMap`](#gist) is displayed below, see [Gist](#gist).
 
-In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](https://akv2k8s.io/) generated a lot of unnecessary and costly logs that are not useful.
+In my case NGINX, [`flux-system`](https://toolkit.fluxcd.io/) and [`akv2k8s`](https://akv2k8s.io/) generated a lot of unnecessary and costly logs that are not useful for me.
 
 ![Pie Chart Logs](/img/posts/2021-01-31-Configure-Log-Analytics-Kubernetes-LogManagement-Settings-To-Save-Cost/pie-chart-logs.jpg)
 
