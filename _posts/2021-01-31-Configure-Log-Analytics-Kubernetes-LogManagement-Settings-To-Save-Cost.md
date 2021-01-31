@@ -44,8 +44,8 @@ In order to exclude the `namespaces` that generate the unnecessary logs we can c
 
 Apply the yaml again `kubectl apply -f container-azm-ms-agentconfig.yaml` and [validate](#validation) the deployment.
 
-{: .box-warning}
-**Warning:** In production use cases this might not be applicable as you want to make sure the errors and outputs are collected and stored in Azure Log Analytics.
+{: .box-info}
+**Info:** In production this might not be applicable for you. Most of the time you want to make sure all errors and outputs are collected and stored in Azure Log Analytics.
 
 A different approach would be to find the root cause of the outputs, fix any issue causing it and configure each service to reduce the log output.
 As I am only running demo workloads this is the quickest way to save costs for me.
