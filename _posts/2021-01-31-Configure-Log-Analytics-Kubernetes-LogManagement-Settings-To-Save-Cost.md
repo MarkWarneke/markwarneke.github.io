@@ -62,13 +62,13 @@ The output should display something like this:
 
 ```sh
 kubectl logs omsagent-fb2lc -n kube-system | grep "Start Config Processing" -A 2 -B 2
-  curl request to oms endpoint succeeded.
-  ****************Start Config Processing********************
-  config::configmap container-azm-ms-agentconfig for settings mounted, parsing values
-  config::Successfully parsed mounted config map
-  --
-  --
-  Both stdout & stderr log collection are turned off for namespaces: '*.csv2,*_kube-system_*.log'
+# curl request to oms endpoint succeeded.
+# ****************Start Config Processing********************
+# config::configmap container-azm-ms-agentconfig for settings mounted, parsing values
+# config::Successfully parsed mounted config map
+# --
+# --
+# Both stdout & stderr log collection are turned off for namespaces: '*.csv2,*_kube-system_*.log'
 ```
 
 You can find the configuraiton in the `ReplicaSet` of the `omsagent-rs-*` see:
