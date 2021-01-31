@@ -76,6 +76,10 @@ kubectl logs omsagent-fb2lc -n kube-system | grep "Start Config Processing" -A 2
 # Both stdout & stderr log collection are turned off for namespaces: '*.csv2,*_kube-system_*.log'
 ```
 
+# Details
+
+I was wondering how everything is stitched together. Here is the configuration of the ReplicaSet that set's up the omsagent in the first place.
+
 You can find the configuraiton in the `ReplicaSet` of the `omsagent-rs-*` see:
 
 ```sh
