@@ -11,3 +11,4 @@ use-site-title: true
 - [psconfeu19_test_iac.pdf](./files/psconfeu19_test_iac.pdf)
 - [Test_Infrastrucutre_As_Code.pdf](./files/Test_Infrastrucutre_As_Code.pdf)
 - [versioncontrol_git.pdf](./files/versioncontrol_git.pdf)
+- [clone_service_principal.pdf](./files/clone_service_principal.pdf)
