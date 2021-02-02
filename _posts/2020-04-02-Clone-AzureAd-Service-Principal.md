@@ -255,15 +255,18 @@ Get-AzureADUserCreatedObject -ObjectId $objectId -All $true | measure
 
 ## Considerations
 
-Make sure these steps are taken deliberately by creating a [thread model](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling).
+Make sure these steps are taken deliberately by creating a [threat model](https://www.microsoft.com/en-us/securityengineering/sdl/threatmodeling).
 
-Allowing a service account to modify Azure AD objects has potential risks, here are some to consider:
+Allowing a service account to modify Azure AD objects has potential risks, some to consider:
 
 - accidental deletion of Azure AD objects like application registrations.
 - deliberate deletion of Azure AD objects by a rogue admin.
-- creation of malicious application associated to the  Azure AD tenant.
+- creation of malicious applications associated with the  Azure AD tenant.
 
-Make sure the secrets for the *Clone Service Principal* are handeled correctly. 
+{: .box-error}
+**Note:** Make sure to review the Threat Model [Threat Model Clone Service Principal](talks/2020_Clone_Service_Principal.pdf).
+
+Make sure the secrets for the *Clone Service Principal* are handled correctly.
 A general guidance is to [store credentials in Azure Key Vault](https://docs.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault).
 Ensure that these secrets are rotated frequently.
 
