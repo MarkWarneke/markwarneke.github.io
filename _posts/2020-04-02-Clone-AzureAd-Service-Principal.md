@@ -264,7 +264,7 @@ Allowing a service account to modify Azure AD objects has potential risks, some 
 - creation of malicious applications associated with the  Azure AD tenant.
 
 {: .box-error}
-**Note:** Make sure to review the Threat Model [Threat Model Clone Service Principal](talks/2020_Clone_Service_Principal.pdf).
+**Note:** Make sure to review the [Threat Model Clone Service Principal](/talks/2020_Clone_Service_Principal.pdf).
 
 Make sure the secrets for the *Clone Service Principal* are handled correctly.
 A general guidance is to [store credentials in Azure Key Vault](https://docs.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault).
@@ -273,6 +273,6 @@ Ensure that these secrets are rotated frequently.
 Monitor the [sign-in activity reports in the Azure Active Directory portal](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-sign-ins) of the *Clone Service Principal* or consider creating alerts similar to [Role security > emergency accounts](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access#monitor-sign-in-and-audit-logs) for unexpected sign-ins.
 
 Create [Azure AD Identity Governance](https://docs.microsoft.com/en-us/azure/active-directory/governance/identity-governance-overview) for the *Clone Service Principal*.
-Make sure the created applications are active and used, recycle unused application periodically.
+Make sure the created applications are active and used, recycle unused appliction periodically.
 
 Consider the *Clone Service Principal* as a high privileged account and secure the secrets and access to it accordingly, see [improving security by protecting elevated-privilege accounts at Microsoft](https://www.microsoft.com/en-us/itshowcase/improving-security-by-protecting-elevated-privilege-accounts-at-microsoft) and [securing privileged access for hybrid and cloud deployments in Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
