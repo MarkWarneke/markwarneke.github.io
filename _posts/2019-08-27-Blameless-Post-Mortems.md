@@ -6,7 +6,7 @@ bigimg:
   - "/img/55QfOLiYqWQ.jpeg": "https://unsplash.com/photos/55QfOLiYqWQ"
 image: "/img/55QfOLiYqWQ.jpeg"
 share-img: "/img/55QfOLiYqWQ.jpeg"
-tags: [Azure DevOps]
+tags: [AzureDevOps]
 comments: true
 time: 5
 ---
