@@ -115,7 +115,7 @@ A static template parameter file `$templateParameterFile` is used to provide def
 The dynamically created unique name is passed as a dynamic parameter to the deployment.
 > Alternatively, you can use the template parameters that are dynamically added to the command when you specify a template. To use dynamic parameters, type them at the command prompt, or type a minus sign (-) to indicate a parameter and use the Tab key to cycle through available parameters. [Source](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-3.7.0)
 
-Leveraging [Acceptance Tests](/2019-08-15-acceptance-test-infrastructure-as-code.md) the test can also ensure that the deployed resource has the correct configurations applied.
+Leveraging [Acceptance Tests](/2019-08-15-acceptance-test-infrastructure-as-code) the test can also ensure that the deployed resource has the correct configurations applied.
 
 ```powershell
 # integration.Tests.ps1  
@@ -163,7 +163,7 @@ After the test is executed. The ResourceGroup gets simply removed leveraging the
 Deploying the solution might take time.
 The integration test can also be flaky, as they depend on the outside world that changes.
 
-Asserting on the deployed resource is very beneficial, as it **proves** the deployability of the template and the correctness of the settings, learn how to do [Acceptance Tests for Infrastructure as Code here.](/2019-08-15-acceptance-test-infrastructure-as-code.md)
+Asserting on the deployed resource is very beneficial, as it **proves** the deployability of the template and the correctness of the settings, learn how to do [Acceptance Tests for Infrastructure as Code here.](/2019-08-15-acceptance-test-infrastructure-as-code)
 
 We can make sure a template **stays valid** throughout the time, by implementing regular executed test runs. API changes, changes in the template as well as changes in the deployment context can be detected early and quickly. The tests can be integrated into nightly builds and other automation scenarios, e.g. web hooks that trigger the tests on new released versions.
 
