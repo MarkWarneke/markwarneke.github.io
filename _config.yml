@@ -129,6 +129,7 @@ paginate: 15
 
 kramdown:
   input: GFM
+  auto_ids: true
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
