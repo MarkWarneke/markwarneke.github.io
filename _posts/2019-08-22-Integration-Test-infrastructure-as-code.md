@@ -163,7 +163,7 @@ After the test is executed. The ResourceGroup gets simply removed leveraging the
 Deploying the solution might take time.
 The integration test can also be flaky, as they depend on the outside world that changes.
 
-Asserting on the deployed resource is very beneficial, as it **proves** the deployability of the template and the correctness of the settings, learn how to do [Acceptance Tests for Infrastructure as Code here.](2019-08-15-acceptance-test-infrastructure-as-code.md)
+Asserting on the deployed resource is very beneficial, as it **proves** the deployability of the template and the correctness of the settings, learn how to do [Acceptance Tests for Infrastructure as Code here.](/2019-08-15-acceptance-test-infrastructure-as-code.md)
 
 We can make sure a template **stays valid** throughout the time, by implementing regular executed test runs. API changes, changes in the template as well as changes in the deployment context can be detected early and quickly. The tests can be integrated into nightly builds and other automation scenarios, e.g. web hooks that trigger the tests on new released versions.
 
