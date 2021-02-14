@@ -106,7 +106,7 @@ Describe "Azure Data Lake Generation 2 Resource Manager Integration" -Tags Integ
 # ...
 ```
 
-The test is being executed like a regular PowerShell Pester test. You can [performe Assertions with Should](https://pester.dev/docs/usage/assertions/) like any other Pester test. For instance, the output of the deployment can be checked and asserted on the expected output.
+The test is being executed like a regular PowerShell Pester test. You can [perform Assertions with Should](https://pester.dev/docs/usage/assertions/) like any other Pester test. For instance, the output of the deployment can be checked and asserted on the expected output.
 
 A `try {} catch {}` block around the `New-AzResourceGroupDeployment` can be implemented to make sure that any deployment error is caught. The exception can be used to gracefully fail the test.
 
@@ -115,7 +115,7 @@ A static template parameter file `$templateParameterFile` is used to provide def
 The dynamically created unique name is passed as a dynamic parameter to the deployment.
 > Alternatively, you can use the template parameters that are dynamically added to the command when you specify a template. To use dynamic parameters, type them at the command prompt, or type a minus sign (-) to indicate a parameter and use the Tab key to cycle through available parameters. [Source](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-3.7.0)
 
-Leveraging [Acceptance Tests](./2019-08-15-acceptance-test-infrastructure-as-code.md) the test can also ensure that the deployed resource has the correct configurations applied.
+Leveraging [Acceptance Tests](/2019-08-15-acceptance-test-infrastructure-as-code.md) the test can also ensure that the deployed resource has the correct configurations applied.
 
 ```powershell
 # integration.Tests.ps1  
