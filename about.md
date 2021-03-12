@@ -14,7 +14,7 @@ subtitle: I'm Mark Warneke
 
 My values are embracing an open-mindset and engage with high motivation and high energy.
 I am an IT enthusiasm with a diverse background.
-I started my career as an account manager and developed into a software engineer.
+I started my career as an account manager and developed into a Software Engineer.
 
 Currently, I am employed as a Software Engineer working for Microsoft.
 
@@ -125,8 +125,8 @@ In 2019 I started to moonlight as a self-employed Software Engineer. My idea was
 The idea is to enable and make conferences more accessible and inclusive by providing live captions and translation.
 Users can read the captions on large external monitors or even on their phones. Everything is configurable to the attendee's needs and preferences - from language settings to text size, and visual representation.
 
-Eve allowed me to develop further as a software engineer, always pushing for the most innovative and suitable solutions.
-We adopted many cloud-native technologies. A micro-services architecture on Kubernetes, web-sockets, feature-flags, and a full continuous deployment experience.
+Eve allowed me to develop further as a Software Engineer, always pushing for the most innovative and suitable solutions.
+We adopted many cloud-native technologies. A micro-services architecture on Kubernetes, web-sockets, feature-flags, and a full continuous deployment pipeline.
 
 The engagement at EVE taught me how to develop a product in a small team. And how to do it truly agile.
 How to innovate and how to bring features to end-users as quickly as possible - while keeping the services available and resilient.
@@ -161,7 +161,7 @@ It allows me to have a educated conversation about modern application lifecycle 
 
 #### Working Student
 
-During my studies, I was lastly working as a software engineer for Ratiodata.
+During my studies, I was lastly working as a Software Engineer for Ratiodata.
 
 [@Ratiodata](https://www.ratiodata.de/) I was developing an application called Scan2bank21.
 Scan2bank21 is an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks.
