@@ -109,7 +109,7 @@ My badges can be found on [acclaim/mark-warneke](https://www.youracclaim.com/use
 ![MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
 ![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
 
-I obtained the CNCF Kubernetes Application Developer (CKAD) and HashiCorps Terraform Associate certifications.
+I also obtained the CNCF Kubernetes Application Developer (CKAD) and HashiCorps Terraform Associate certifications.
 
 At Microsoft I started to value continuous learning, being a team player, havening a high degree of accountability, and achieve a high degree of technical excellence.
 I got challenged every day and grew not only as a professional but also as a person, adopting a lot of the good practices to my personal life.
@@ -118,17 +118,26 @@ I got challenged every day and grew not only as a professional but also as a per
 
 In 2019 I started to moonlight as a self-employed Software Engineer. My idea was to get some hands-on software development experience.
 
- [@Eve](https://starteve.ai) I got the opportunity to work on an accessibility product that recognizes speech to generates automated live captions. Eve augments humans. By proposing the transcript humans can review and correct the AI's suggestions. The idea is to enable and make conferences more accessible and inclusive by providing live captions and translation. Users can read the captions on large external monitors or even on their phones. Everything is configurable to the attendee's needs and preferences - from language settings to text size, and visual representation.
+ [@Eve](https://starteve.ai) I got the opportunity to work on an accessibility product that recognizes speech to generates automated live captions.
+ Eve augments humans.
+ By proposing the transcript humans can review and correct the AI's suggestions.
 
-Eve allowed me to develop further as a software engineer, always pushing for the most innovative and suitable solutions. We adopted many cloud-native technologies. A micro-services architecture on Kubernetes, web-sockets, feature-flags, and a full continuous deployment experience.
+The idea is to enable and make conferences more accessible and inclusive by providing live captions and translation.
+Users can read the captions on large external monitors or even on their phones. Everything is configurable to the attendee's needs and preferences - from language settings to text size, and visual representation.
 
-The engagement at EVE taught me how to develop a product in a small team. And how to do it truly agile. How to innovate and how to bring features to end-users as quickly as possible - while keeping the services available and resilient.
+Eve allowed me to develop further as a software engineer, always pushing for the most innovative and suitable solutions.
+We adopted many cloud-native technologies. A micro-services architecture on Kubernetes, web-sockets, feature-flags, and a full continuous deployment experience.
 
-During the self-employment I engaged on Microsoft 365 Administration work for SMB companies. I managed and operated Microsoft Teams, Exchange Online, as well as Azure Active Directory.
+The engagement at EVE taught me how to develop a product in a small team. And how to do it truly agile.
+How to innovate and how to bring features to end-users as quickly as possible - while keeping the services available and resilient.
+
+During the self-employment I engaged on Microsoft 365 Administration work for SMB companies.
+I managed and operated Microsoft Teams, Exchange Online, as well as Azure Active Directory.
 
 Futhermore I supported and conducted smaller Business Intelligence projects. The goal was to visualize KPI and create and design dashboards using SQL and PowerBI, leveraging the CRISP/DM process.
 
-The self-employment taught me what it means to operate a business, and that not only hard-skills like software-development and operations is needed to start a successful business. It also taught me that some algorithms are easier to understand then tax implications.
+The self-employment taught me what it means to operate a business, and that not only hard-skills like software-development and operations is needed to start a successful business.
+It also taught me that some algorithms are easier to understand then tax implications.
 
 #### B.Sc. Business Informatics
 
