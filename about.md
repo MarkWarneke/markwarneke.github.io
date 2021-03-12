@@ -147,7 +147,7 @@ During university [@the University of Applied Science Münster](https://en.fh-mu
 At the time I was always looking to apply my theoretical knowledge and since the second semester, I started working as a working student for different companies. [Vectron Systems](https://www.vectron-systems.com/) allowed me to apply my knowledge as a web developer and get my feet wet as a professional Software Engineer.
 
 During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/).
-Which allowed me to get some exposure to smaller IT projects.
+Which allowed me to get some exposure to work as a consultant on IT projects.
 The club offered a variety of seminars including a six sigma certification which I gladly took advantage of.
 I was exposed to multiple companies and people with different backgrounds, all of them embracing a high performance mindset.
 
