@@ -149,7 +149,7 @@ At the time I was always looking to apply my theoretical knowledge and since the
 During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/).
 Which allowed me to get some exposure to work as a consultant on IT projects.
 The club offered a variety of seminars including a six sigma certification which I gladly took advantage of.
-I was exposed to multiple companies and people with different backgrounds, all of them embracing a high performance mindset.
+I was exposed to multiple companies and students with different backgrounds, all of them embracing a high performance mindset.
 
 I graduated and conducted my bachelor thesis [@Porsche](https://www.porsche.com/).
 At Porsche, I wrote about the IT service management process of the digital production planning systems.
