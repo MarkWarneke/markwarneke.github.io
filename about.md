@@ -58,7 +58,7 @@ In 2020 two close friends and I founded [mmmint.ai](https://mmmint.ai).
 The name is an acronym of the founders first names.
 And the `int`-part is short for `int`elligence, which is a reference to the data-driven machine-learning solutions that we are developing.
 `MINT` is also the German translation of STEM (Science, Technology, Engineering, and Math).
-The name is fitting our purpose and not only creates the baseline for our mint colored logo but for every decision we take.
+The name is fitting for our purpose and not only creates the baseline color for our logo but for every decision we take.
 
 The objective of the company is to provide technology solutions based on substantial scientific or engineering challenges.
 Our goal is to create research and development intensive software and to bring these data-driven solutions to small- and medium-sized businesses.
