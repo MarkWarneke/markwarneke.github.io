@@ -12,8 +12,9 @@ subtitle: I'm Mark Warneke
 
 ## About
 
-My values are an open-minded, high motivation, high energy, IT enthusiasm with a diverse background.
-I started my career as an account manager and developed into a leading-edge software engineer.
+My values are embracing an open-mindset and engage with high motivation and high energy.
+I am an IT enthusiasm with a diverse background.
+I started my career as an account manager and developed into a software engineer.
 
 Currently, I am employed as a Software Engineer working for Microsoft.
 
