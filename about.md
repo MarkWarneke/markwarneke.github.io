@@ -12,13 +12,13 @@ subtitle: I'm Mark Warneke
 
 ## About
 
-My values are an open-minded, high motivation, high energy, IT enthusiasm with a diverse background. 
+My values are an open-minded, high motivation, high energy, IT enthusiasm with a diverse background.
 I started my career as an account manager and developed into a leading-edge software engineer.
 
 Currently, I am employed as a Software Engineer working for Microsoft.
 
 As a cloud and DevOps consultant, I have been constantly on a steep learning curve in order to continuously improve and achieve multidisciplinary IT expertise.
-Continuous learning, being a team player, a high degree of accountability, and technical excellence is what I am known for.  
+Continuous learning, being a team player, a high degree of accountability, and technical excellence is what I am known for.
 
 I like to share and contribute to the success of others by speaking at internal events, contributing to inner source projects, and engaging on Hackathons.
 I am mentoring and teaching underrepresented minority students and graduates as a volunteer at the ReDI School.
@@ -47,7 +47,7 @@ I enjoy collaborating, sharing, and contributing to the success of others - this
 
 Public speaking is a great way to challenge and push myself.
 My debut as a conference speaker was in 2019.
-I was fortunate enough to talk about a Big Data Platform implementation we have been working on to Microsoft colleagues at Microsofts internal conference Microsoft Ready in Seattle. 
+I was fortunate enough to talk about a Big Data Platform implementation we have been working on to Microsoft colleagues at Microsofts internal conference Microsoft Ready in Seattle.
 Later that year, I was invited to the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s), at which I spoke about a test-driven development approach to Infrastructure as Code.
 
 Some of the stuff I present during the community events can be found on my website [at talks](/talks.html).
@@ -88,8 +88,8 @@ The created material are now offered as [a public learning experience on the Mic
 I lead a few internal software development teams to create software artifacts and tools.
 Those tools have been developed to be reused in customer deliveries or to automate internal delivery processes to improve customer delivery quality, creating value for customers quicker while reducing the cost.
 
-Microsoft allowed me to dig into the latest technologies. 
-I was able to achieve numerous certifications. 
+Microsoft allowed me to dig into the latest technologies.
+I was able to achieve numerous certifications.
 My badges can be found on [acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges).
 
 ![Microsoft Certified: Power Platform Fundamentals](/img/cert/power-platform-fundamentals-600x600.png)
@@ -108,6 +108,9 @@ My badges can be found on [acclaim/mark-warneke](https://www.youracclaim.com/use
 
 I obtained the CNCF Kubernetes Application Developer (CKAD) and HashiCorps Terraform Associate certifications.
 
+At Microsoft I started to value continuous learning, being a team player, havening a high degree of accountability, and achieve a high degree of technical excellence.
+I got challenged every day and grew not only as a professional but also as a person, adopting a lot of the good practices to my personal life.
+
 ### Self-employment
 
 In 2019 I started to moonlight as a self-employed Software Engineer. My idea was to get some hands-on software development experience.
@@ -122,29 +125,49 @@ During the self-employment I engaged on Microsoft 365 Administration work for SM
 
 Futhermore I supported and conducted smaller Business Intelligence projects. The goal was to visualize KPI and create and design dashboards using SQL and PowerBI, leveraging the CRISP/DM process.
 
+The self-employment taught me what it means to operate a business, and that not only hard-skills like software-development and operations is needed to start a successful business. It also taught me that some algorithms are easier to understand then tax implications.
+
 #### B.Sc. Business Informatics
 
 During university [@the University of Applied Science Münster](https://en.fh-muenster.de), I fell in love with software engineering. I chose to specialize in Web & Software Engineering and I took courses in business intelligence, machine learning,  and artificial intelligence.
 
 At the time I was always looking to apply my theoretical knowledge and since the second semester, I started working as a working student for different companies. [Vectron Systems](https://www.vectron-systems.com/) allowed me to apply my knowledge as a web developer and get my feet wet as a professional Software Engineer.
 
-During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/). Which allowed me to get some exposure to smaller IT projects. The club offered a variety of seminars including a six sigma certification which I gladly used.
+During my studies, I engaged as a consultant for the student consultancy [KREAKTIV Münster e.V.](https://kreaktiv-muenster.de/).
+Which allowed me to get some exposure to smaller IT projects.
+The club offered a variety of seminars including a six sigma certification which I gladly took advantage of.
+I was exposed to multiple companies and people with different backgrounds, all of them embracing a high performance mindset.
 
 I graduated and conducted my bachelor thesis [@Porsche](https://www.porsche.com/).
-At Porsche, I wrote about the IT service management process of the digital production planning systems. At this time I focused on the classic change management processes described in ITIL (Information Technology Infrastructure Library). The agile way of working and the DevOps movement was something I have not been exposed to and thus was not aware of. Looking back I value learning about ITIL - it gives me a different perspective on where companies are coming from and what mindset these companies might perceive.
+At Porsche, I wrote about the IT service management process of the digital production planning systems.
+At this time I focused on the classic change management processes described in ITIL (Information Technology Infrastructure Library).
+
+The agile way of working and the DevOps movement was something I have not been exposed to and thus was not aware of.
+Looking back I value learning about ITIL.
+The background of ITIL gives me a different perspective on what companies are used to adopt, and understand established processes as well as what mindset some companies might have.
+It allows me to have a educated conversation about modern application lifecycle management.
 
 #### Working Student
 
 During my studies, I was lastly working as a software engineer for Ratiodata.
 
-[@Ratiodata](https://www.ratiodata.de/) I was developing the Scan2bank21 application - an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks.
-My job included the whole Software Development Lifecycle from requirements engineering, prototyping, automated testing, and even the training of new developers.
-At this time I learned about why version control matters, how to automate the building of artifacts (packaging JAR files with ANT), and releasing packaged software.
+[@Ratiodata](https://www.ratiodata.de/) I was developing an application called Scan2bank21.
+Scan2bank21 is an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks.
+My job included working across the Software Development Lifecycle from requirements engineering, prototyping, automated testing, and even the training of new developers.
+At this time I learned about why version control matters, how to automate the build process and why versioned artifacts are crucial.
+At this time I was packaging JAR files with ANT on my developer machine and release packaged software via a tedious certification process.
 
-Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions. This involved optimizing internal work and information processes within banks by digitizing documents and overall making processes more efficient.
+Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions.
+This involved optimizing internal work and information processes within banks by digitizing documents and overall making processes more efficient.
 
-Technological challenges have been designing a lightweight yet efficient Java application. The software was designed and written for multiple specific hardware systems, including multiple form factor, display sizes and running with low computing power.
-The application needed to process and transform image data using the vendor-specific operating systems and some open-source libraries.
+The challenges have been to designing a lightweight yet efficient Java application.
+So that the software can run on multiple specific hardware systems, including multiple form factor, display sizes and different levels of computing power.
+The application needed to process and transform image data and I implement a rudimental Object Character Recognition (OCR) using the vendor specific and open-source libraries.
+
+At Ratiodata I learned how to develop a software product and iteratively and incrementally improve until you create something magnificent.
+My boss always encouraged my by saying:
+
+> It is called Software Development, not Software Production
 
 ### History
 
@@ -154,7 +177,7 @@ I became the only account manager for the company at the age of just 18. And my 
 
 My job included not only selling but to consult the customer in IT Hardware like Server & Storage solutions as well as corporate IT networking & Voice over IP telephony.
 
-I was responsible for generating new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a huge server & storage project with IBM from a cold-call. 
+I was responsible for generating new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a huge server & storage project with IBM from a cold-call.
 After this experience, I moved on to university.
 ETe taught me a lot about becoming a professional.
 I am very grateful for the experience, as well as the trust that has been put in me - ETe set a solid foundation for my future career.
