@@ -28,6 +28,8 @@ Since 2019 I am additionally moonlighting as a software engineer working on cutt
 The objective is to provide technology solutions based on substantial scientific or engineering challenges.
 The goal is to create research and development intensive software that brings data-driven solutions to small- and medium-sized businesses.
 
+My favorite quote:
+
 > "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination." - The Mythical Man-Month: Essays on Software Engineering
 
 Here are some perspectives of my dear colleagues about me:
@@ -38,11 +40,11 @@ Here are some perspectives of my dear colleagues about me:
 
 > I appreciated your style of thinking before you speak as well as your software engineering background in all our conversations.
 
-### Volunteer
+### Volunteering
 
 In 2020 I started to work as a volunteer teacher for the [ReDI-school](https://www.redi-school.org/). ReDI School teaches technology to break down barriers and connect the digital leaders of tomorrow. Specifically, I taught a Python introduction course to professional newcomers.
 
-### Community
+### Community Work
 
 I enjoy collaborating, sharing, and contributing to the success of others - this is something I picked up working for Microsoft.
 
