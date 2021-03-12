@@ -154,4 +154,7 @@ I became the only account manager for the company at the age of just 18. And my 
 
 My job included not only selling but to consult the customer in IT Hardware like Server & Storage solutions as well as corporate IT networking & Voice over IP telephony.
 
-I was responsible for generating new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a huge server & storage project with IBM from a cold-call. After this experience, I moved on to university. ETe taught me a lot about becoming a professional. I am very grateful for the experience.
+I was responsible for generating new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a huge server & storage project with IBM from a cold-call. 
+After this experience, I moved on to university.
+ETe taught me a lot about becoming a professional.
+I am very grateful for the experience, as well as the trust that has been put in me - ETe set a solid foundation for my future career.
