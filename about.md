@@ -12,9 +12,30 @@ subtitle: I'm Mark Warneke
 
 ## About
 
-My career started as an account manager apprenticeship at the age of just 16. During my university, I developed into a software engineer. And now, I am running my own business while working as a Consultant for Microsoft.
+My values are an open-minded, high motivation, high energy, IT enthusiasm with a diverse background. 
+I started my career as an account manager and developed into a leading-edge software engineer.
 
-My values are having an open-mindset and treating others with respect. My approach is highly engaging, value-driven, and methodical. I enjoy working in a high-paced and autonomous environment that focuses on the outcome instead of doing it for the sake of activity.
+Currently, I am employed as a Software Engineer working for Microsoft.
+
+As a cloud and DevOps consultant, I have been constantly on a steep learning curve in order to continuously improve and achieve multidisciplinary IT expertise.
+Continuous learning, being a team player, a high degree of accountability, and technical excellence is what I am known for.  
+
+I like to share and contribute to the success of others by speaking at internal events, contributing to inner source projects, and engaging on Hackathons.
+I am mentoring and teaching underrepresented minority students and graduates as a volunteer at the ReDI School.
+
+Since 2019 I am additionally moonlighting as a software engineer working on cutting-edge technologies.
+The objective is to provide technology solutions based on substantial scientific or engineering challenges.
+The goal is to create research and development intensive software that brings data-driven solutions to small- and medium-sized businesses.
+
+> "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination." - The Mythical Man-Month: Essays on Software Engineering
+
+Here are some perspectives of my dear colleagues about me:
+
+> You have been leading and guiding the team to ensure that the best practices around code implementation have been adopted and you have been fundamental to unblock some technical challenges during the initial phase. Beyond the leadership and technical contribution, I want to highlight the human aspect of working with you. You have been always kind, gentle and willing to collaborate.
+
+> I think your biggest asset is that all colleagues regard you as a very reliable and accountable person.
+
+> I appreciated your style of thinking before you speak as well as your software engineering background in all our conversations.
 
 ### Volunteer
 
@@ -24,32 +45,52 @@ In 2020 I started to work as a volunteer teacher for the [ReDI-school](https://w
 
 I enjoy collaborating, sharing, and contributing to the success of others - this is something I picked up working for Microsoft.
 
-Public speaking is a way to challenge and humble myself. My debut as a conference speaker was in 2019. I was fortunate enough to talk about a Big Data Platform implementation we have been working on to Microsoft colleagues at the internal Microsoft Ready conference. Later that year, I was invited to speak at the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s) about a test-driven development approach for Infrastructure as Code.
+Public speaking is a great way to challenge and push myself.
+My debut as a conference speaker was in 2019.
+I was fortunate enough to talk about a Big Data Platform implementation we have been working on to Microsoft colleagues at Microsofts internal conference Microsoft Ready in Seattle. 
+Later that year, I was invited to the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s), at which I spoke about a test-driven development approach to Infrastructure as Code.
 
-Some of the stuff I present during community events can be found on my website [here](/talks.html).
+Some of the stuff I present during the community events can be found on my website [at talks](/talks.html).
 
 ### Founding of [MMMint.ai](https://mmmint.ai)
 
 In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
 
-The name is an acronym of the founders first names. The `int` part is short for intelligence, which is a reference to our data-driven machine-learning solutions. MINT also stands for the German translation of STEM (Science, Technology, Engineering, and Math).
+The name is an acronym of the founders first names.
+And the `int`-part is short for `int`elligence, which is a reference to the data-driven machine-learning solutions that we are developing.
+`MINT` is also the German translation of STEM (Science, Technology, Engineering, and Math).
+The name is fitting our purpose and not only creates the baseline for our mint colored logo but for every decision we take.
 
-The objective of the company is to provide technology solutions based on substantial scientific or engineering challenges. Our goal is to create research and development intensive software and to bring these data-driven solutions to small- and medium-sized businesses. We develop new products based on scientific discovery or meaningful engineering innovation, [see Deep tech](https://en.wikipedia.org/wiki/Deep_tech).
+The objective of the company is to provide technology solutions based on substantial scientific or engineering challenges.
+Our goal is to create research and development intensive software and to bring these data-driven solutions to small- and medium-sized businesses.
+We develop new products based on scientific discovery or meaningful engineering innovation, [see Deep tech](https://en.wikipedia.org/wiki/Deep_tech).
 
-I value the learnings of starting a company and taking care of commitments the most. Starting from scratch allows me to see things from a different perspective.
+I tremendously value the learnings of starting my own company.
+Starting from scratch allows me to see things from a different perspective.
+I learn  how to manage scarce resources more efficiently, like time and money.
+And acting as an entrepreneur teaches me to driving product innovation and market adoption, while havening a clear customer-focus.
 
-### Consulting 
+### Consulting
 
-[@Microsoft](https://microsoft.com), I got the opportunity to engage on multiple large scale Big Data and Analytics Platform projects. The goal of these projects was to enable customers to leverage the cloud. We empowered our customers  to rapidly develop, release, and scale distributed applications.
+[@Microsoft](https://microsoft.com), I consulted on multiple large-scale Big Data and Application Platform migration projects.
+We modernized workloads to use cloud-native capabilities and enabled our customers to rapidly develop, release, and scale distributed applications by using cloud-native and open-source solutions on Microsoft's Cloud Azure.
+I have designed platforms by conducting architectural design sessions and implemented the design by methodically following the Cloud Adoption Framework.
+Furthermore, I developed software artifacts together with software engineering teams using the Microsoft system development life cycle.
 
-These projects typically leveraged cloud-native, open-source solutions that run on Microsoft's Cloud Azure. I was responsible for the functional and technical analysis, the whole Software Development Lifecycle (SDLC), including but not limited to application development, DevOps, and security.
+Additionally, I engaged as a public speaker about latest trends and best practices - including Cloud Native, Kubernetes, Infrastructure as Code, and DevOps.
+I facilitated workshops as a Microsoft Certified Trainer and reached hundreds of developers across the broader German area and advocated technology trends.
+Also, I was fortunate enough to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG) starting in 2017 right after joining Microsoft.
 
-I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.  I am an active maintainer and top contributor to open- and inner-source projects, like the DevOps Dojo.
-The DevOps Dojo started as an internal movement to make internal projects and software development implementation more efficient. The developed material is now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
+I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.
+Which is why I founded an Infrastructure as Code Frameworks, and work as an active maintainer and top contributor to open- and inner-source projects.
+For instance, did I contribute to the DevOps Dojo community, to help customers and colleagues to create multidisciplinary DevOps teams.
+The created material are now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
+I lead a few internal software development teams to create software artifacts and tools.
+Those tools have been developed to be reused in customer deliveries or to automate internal delivery processes to improve customer delivery quality, creating value for customers quicker while reducing the cost.
 
-During Microsoft, I engaged as a speaker and a trainer. Evangelizing and advocating about the latest trends at Meetups, hackathons, and conferences. Frequent topics included: Cloud-Native, Infrastructure as Code, and DevOps. I was fortunate to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG) starting in 2017 right after joining Microsoft.
-
-Microsoft allowed me to dig into the latest technologies. I was able to achieve numerous certifications. You can find my badges on [acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges).
+Microsoft allowed me to dig into the latest technologies. 
+I was able to achieve numerous certifications. 
+My badges can be found on [acclaim/mark-warneke](https://www.youracclaim.com/users/mark-warneke/badges).
 
 ![Microsoft Certified: Power Platform Fundamentals](/img/cert/power-platform-fundamentals-600x600.png)
 ![Microsoft Certified: Dynamics 365 Fundamentals](/img/cert/dynamics365-fundamentals-600x600.png)
@@ -64,6 +105,8 @@ Microsoft allowed me to dig into the latest technologies. I was able to achieve 
 ![MCSA: Cloud Platform](/img/cert/MCSA-Cloud-Platform-2018.png)
 ![MTA: Security Fundamentals](/img/cert/MTA-Security-Fundamentals-2018.png)
 ![Microsoft Certified Trainer](/img/cert/Microsoft-Certified-Trainer-2019-2020.png)
+
+I obtained the CNCF Kubernetes Application Developer (CKAD) and HashiCorps Terraform Associate certifications.
 
 ### Self-employment
 
@@ -95,7 +138,7 @@ At Porsche, I wrote about the IT service management process of the digital produ
 During my studies, I was lastly working as a software engineer for Ratiodata.
 
 [@Ratiodata](https://www.ratiodata.de/) I was developing the Scan2bank21 application - an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks.
-My job included the whole SDLC from requirements engineering, prototyping, automated testing, and even the training of new developers.
+My job included the whole Software Development Lifecycle from requirements engineering, prototyping, automated testing, and even the training of new developers.
 At this time I learned about why version control matters, how to automate the building of artifacts (packaging JAR files with ANT), and releasing packaged software.
 
 Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions. This involved optimizing internal work and information processes within banks by digitizing documents and overall making processes more efficient.
