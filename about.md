@@ -156,7 +156,8 @@ At Porsche, I wrote about the IT service management process of the digital produ
 At this time I focused on the classic change management processes described in ITIL (Information Technology Infrastructure Library).
 
 The agile way of working and the DevOps movement was something I have not been exposed to and thus was not aware of.
-Looking back I value learning about ITIL.
+
+Looking back I value studying the ITIL.
 The background of ITIL gives me a different perspective on what companies are used to adopt, and understand established processes as well as what mindset some companies might have.
 It allows me to have a educated conversation about modern application lifecycle management.
 
