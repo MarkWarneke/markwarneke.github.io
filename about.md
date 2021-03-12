@@ -73,6 +73,7 @@ And acting as an entrepreneur teaches me to drive product innovation and market 
 
 [@Microsoft](https://microsoft.com), I consulted on multiple large-scale Big Data and Application Platform migration projects.
 We modernized workloads to use cloud-native capabilities and enabled our customers to rapidly develop, release, and scale distributed applications by using cloud-native and open-source solutions on Microsoft's Cloud Azure.
+
 I have designed platforms by conducting architectural design sessions and implemented the design by methodically following the Cloud Adoption Framework.
 Furthermore, I developed software artifacts together with software engineering teams using the Microsoft system development life cycle.
 
@@ -84,7 +85,8 @@ I value a continuous-improvement mindset, which is why I engage in numerous inne
 Which is why I founded an Infrastructure as Code Frameworks, and work as an active maintainer and top contributor to open- and inner-source projects.
 For instance, did I contribute to the DevOps Dojo community, to help customers and colleagues to create multidisciplinary DevOps teams.
 The created material are now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
-I lead a few internal software development teams to create software artifacts and tools.
+
+Lastly, I lead a few internal software development teams to create software artifacts and tools.
 Those tools have been developed to be reused in customer deliveries or to automate internal delivery processes to improve customer delivery quality, creating value for customers quicker while reducing the cost.
 
 Microsoft allowed me to dig into the latest technologies.
