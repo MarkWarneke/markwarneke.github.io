@@ -18,7 +18,7 @@ I started my career as an account manager and developed into a software engineer
 
 Currently, I am employed as a Software Engineer working for Microsoft.
 
-As a cloud and DevOps consultant, I have been constantly on a steep learning curve in order to continuously improve and achieve multidisciplinary IT expertise.
+As a Cloud and DevOps consultant, I have been constantly on a steep learning curve in order to continuously improve and achieve multidisciplinary IT expertise.
 Continuous learning, being a team player, a high degree of accountability, and technical excellence is what I am known for.
 
 I like to share and contribute to the success of others by speaking at internal events, contributing to inner source projects, and engaging on Hackathons.
