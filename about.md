@@ -158,7 +158,7 @@ At this time I focused on the classic change management processes described in I
 The agile way of working and the DevOps movement was something I have not been exposed to and thus was not aware of.
 
 Looking back I value studying the ITIL.
-The background of ITIL gives me a different perspective on what companies are used to adopt, and understand established processes as well as what mindset some companies might have.
+The background of ITIL gives me a different perspective on what companies are used to adopt, and understand established processes as well as with what mindset some professional still adopt.
 It allows me to have a educated conversation about modern application lifecycle management.
 
 #### Working Student
