@@ -82,7 +82,7 @@ I facilitated workshops as a Microsoft Certified Trainer and reached hundreds of
 Also, I was fortunate enough to facilitate and host the [@PowerShell UserGroup in Munich](https://github.com/GPSUG) starting in 2017 right after joining Microsoft.
 
 I value a continuous-improvement mindset, which is why I engage in numerous inner source projects at Microsoft.
-Which is why I founded an Infrastructure as Code Frameworks, and work as an active maintainer and top contributor to open- and inner-source projects.
+Which is why I founded and maintained an Infrastructure as Code Framework, as well as engaged as an active maintainer and top contributor to open- and inner-source projects.
 For instance, did I contribute to the DevOps Dojo community, to help customers and colleagues to create multidisciplinary DevOps teams.
 The created material are now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
 
