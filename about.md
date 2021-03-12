@@ -28,10 +28,6 @@ Since 2019 I am additionally moonlighting as a software engineer working on cutt
 The objective is to provide technology solutions based on substantial scientific or engineering challenges.
 The goal is to create research and development intensive software that brings data-driven solutions to small- and medium-sized businesses.
 
-**My favorite quote:**
-
-> "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination." - The Mythical Man-Month: Essays on Software Engineering
-
 Here are some perspectives of my dear colleagues about me:
 
 > You have been leading and guiding the team to ensure that the best practices around code implementation have been adopted and you have been fundamental to unblock some technical challenges during the initial phase. Beyond the leadership and technical contribution, I want to highlight the human aspect of working with you. You have been always kind, gentle and willing to collaborate.
