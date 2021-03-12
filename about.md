@@ -51,9 +51,9 @@ Later that year, I was invited to speak at the [PowerShell conference EU](https:
 
 Some of the stuff I present during the community events can be found on my website [at talks](/talks.html).
 
-### Founding of [MMMint.ai](https://mmmint.ai)
+### Founding of [mmmint.ai](https://mmmint.ai)
 
-In 2020 two close friends and I founded [MMMint.ai](https://mmmint.ai).
+In 2020 two close friends and I founded [mmmint.ai](https://mmmint.ai).
 
 The name is an acronym of the founders first names.
 And the `int`-part is short for `int`elligence, which is a reference to the data-driven machine-learning solutions that we are developing.
