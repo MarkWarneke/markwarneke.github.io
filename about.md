@@ -88,7 +88,8 @@ For instance, did I contribute to the DevOps Dojo community, to help customers a
 The created material are now offered as [a public learning experience on the Microsoft docs for free](https://docs.microsoft.com/en-us/learn/paths/devops-dojo-white-belt-foundation/).
 
 Lastly, I lead a few internal software development teams to create software artifacts and tools.
-Those tools have been developed to be reused in customer deliveries or to automate internal delivery processes to improve customer delivery quality, creating value for customers quicker while reducing the cost.
+Those tools have been developed to be reused in customer deliveries or to automate internal delivery processes.
+The tools improved customer delivery quality, created value for customers quicker while also reducing cost by removing toil and speeding up processes.
 
 Microsoft allowed me to dig into the latest technologies.
 I was able to achieve numerous certifications.
