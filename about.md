@@ -132,9 +132,10 @@ The engagement at EVE taught me how to develop a product in a small team. And ho
 How to innovate and how to bring features to end-users as quickly as possible - while keeping the services available and resilient.
 
 During the self-employment I engaged on Microsoft 365 Administration work for SMB companies.
-I managed and operated Microsoft Teams, Exchange Online, as well as Azure Active Directory.
+I managed and operated Microsoft Teams, Microsoft Exchange Online, as well as Azure Active Directories.
 
-Futhermore I supported and conducted smaller Business Intelligence projects. The goal was to visualize KPI and create and design dashboards using SQL and PowerBI, leveraging the CRISP/DM process.
+Futhermore I supported on and conducted Business Intelligence projects. The goal was to visualize KPI, create and design dashboards using PowerBI and SQL.
+I implemented and leveraged the CRISP/DM process for my customers.
 
 The self-employment taught me what it means to operate a business, and that not only hard-skills like software-development and operations is needed to start a successful business.
 It also taught me that some algorithms are easier to understand then tax implications.
