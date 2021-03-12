@@ -62,7 +62,7 @@ The name is fitting for our purpose and not only creates the baseline color for 
 
 The objective of the company is to provide technology solutions based on substantial scientific or engineering challenges.
 Our goal is to create research and development intensive software and to bring these data-driven solutions to small- and medium-sized businesses.
-We develop new products based on scientific discovery or meaningful engineering innovation, [see Deep tech](https://en.wikipedia.org/wiki/Deep_tech).
+We develop new products based on scientific discovery and meaningful engineering innovation, [see Deep tech](https://en.wikipedia.org/wiki/Deep_tech).
 
 I tremendously value the learnings of starting my own company.
 Starting from scratch allows me to see things from a different perspective.
