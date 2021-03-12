@@ -47,7 +47,7 @@ I enjoy collaborating, sharing, and contributing to the success of others - this
 Public speaking is a great way to challenge and push myself.
 My debut as a conference speaker was in 2019.
 I was fortunate enough to talk about a Big Data Platform implementation a team from Microsoft and I have been working on to Microsoft colleagues at Microsofts internal conference Microsoft Ready in Seattle.
-Later that year, I was invited to the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s), at which I spoke about a test-driven development approach to Infrastructure as Code.
+Later that year, I was invited to speak at the [PowerShell conference EU](https://www.youtube.com/watch?v=k33Nini-Dc8&list=PLAFABUrB0mNkbAhsdifsPK5XyBHnj_NSD&index=2&t=16s), at which I presented a test-driven development approach to Infrastructure as Code.
 
 Some of the stuff I present during the community events can be found on my website [at talks](/talks.html).
 
