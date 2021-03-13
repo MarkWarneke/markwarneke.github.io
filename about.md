@@ -173,7 +173,7 @@ At this time I learned about why version control matters, how to automate the bu
 I was packaging JAR files with ANT on my developer machine and released the packaged software via a tedious manual certification process.
 
 Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions.
-This involved optimizing internal work and information processes within banks by digitizing documents and overall making processes more efficient.
+This involved optimizing internal work and information processes within banks by digitizing documents and overall making the processes of document management more efficient.
 
 The challenges have been to designing a lightweight yet efficient Java application.
 So that the software can run on multiple specific hardware systems, including multiple form factor, display sizes and different levels of computing power.
