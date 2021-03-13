@@ -199,4 +199,4 @@ My greatest success at that time was landing a huge server & storage project wit
 After three years of experience, I moved on to university at the age of 20.
 
 ETe taught me a lot about becoming a professional.
-I am very grateful for the experience, as well as the trust that has been put in me - ETe set a solid foundation for my future career.
+I am very grateful for the experience, as well as the trust that has been put into me - The experiences at ETe created a solid foundation for my future career.
