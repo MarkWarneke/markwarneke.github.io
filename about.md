@@ -176,7 +176,7 @@ Ricoh and Ratiodata partnered to develop sector-specific document management ser
 This involved optimizing internal work and information processes within banks by digitizing documents and overall making the processes of document management more efficient.
 
 The challenge has been to designing a lightweight yet efficient Java application.
-So that the software can run on multiple specific hardware systems, including multiple form factor, display sizes and different levels of computing power.
+The program had to run on multiple specific hardware systems, including multiple form factor, display sizes and with different levels of computing power.
 The application needed to process and transform image data and I implement a rudimental Object Character Recognition (OCR) using the vendor specific and open-source libraries.
 
 At Ratiodata I learned how to develop a software product and iteratively and incrementally improve until you create something magnificent.
