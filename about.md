@@ -191,9 +191,12 @@ My career started as a Management Assistant apprentice [@ETe-Datentechnik](http:
 
 I became the only account manager for the company at the age of just 18. And my responsibility grew not only to be certified in the main technologies that the company offered, including Cisco, VMware and IBM, but also to drive existing and create new business.
 
-My job included not only selling but to consult the customer in IT Hardware like Server & Storage solutions as well as corporate IT networking & Voice over IP telephony.
+My job included sales but also project management of customers IT Hardware like Server & Storage solution projects, as well as corporate IT networking & Voice over IP telephony.
 
-I was responsible for generating new businesses by conducting cold-calls and driving marketing initiatives. My greatest success at that time was landing a huge server & storage project with IBM from a cold-call.
-After this experience, I moved on to university.
+I was responsible for generating new businesses. I conducted cold-calls, drove marketing initiatives and kept the books up to date while keeping exiting customers happy.
+My greatest success at that time was landing a huge server & storage project with IBM from a cold-call.
+
+After three years of experience, I moved on to university at the age of 20.
+
 ETe taught me a lot about becoming a professional.
 I am very grateful for the experience, as well as the trust that has been put in me - ETe set a solid foundation for my future career.
