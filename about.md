@@ -177,7 +177,8 @@ This involved optimizing internal work and information processes within banks by
 
 The challenge has been to designing a lightweight yet efficient Java application.
 The program had to run on multiple specific hardware systems, including multiple form factor, display sizes and with different levels of computing power.
-The application needed to process and transform image data and I implement a rudimental Object Character Recognition (OCR) using the vendor specific and open-source libraries.
+The application needed to process and transform image data.
+I implement a rudimental Object Character Recognition (OCR) using the provided vendor specific as well as open-source libraries.
 
 At Ratiodata I learned how to develop a software product and iteratively and incrementally improve until you create something magnificent.
 My boss always encouraged my by saying:
