@@ -167,9 +167,10 @@ During my studies, I was lastly working as a Software Engineer for Ratiodata.
 
 [@Ratiodata](https://www.ratiodata.de/) I was developing an application called Scan2bank21.
 Scan2bank21 is an Android-based multifunction device application, that leads to greater efficiency and cost savings for banks.
+
 My job included working across the Software Development Lifecycle from requirements engineering, prototyping, automated testing, and even the training of new developers.
 At this time I learned about why version control matters, how to automate the build process and why versioned artifacts are crucial.
-At this time I was packaging JAR files with ANT on my developer machine and release packaged software via a tedious certification process.
+I was packaging JAR files with ANT on my developer machine and released the packaged software via a tedious manual certification process.
 
 Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions.
 This involved optimizing internal work and information processes within banks by digitizing documents and overall making processes more efficient.
