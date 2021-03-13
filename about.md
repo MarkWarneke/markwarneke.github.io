@@ -175,7 +175,7 @@ I was packaging JAR files with ANT on my developer machine and released the pack
 Ricoh and Ratiodata partnered to develop sector-specific document management services for financial services institutions.
 This involved optimizing internal work and information processes within banks by digitizing documents and overall making the processes of document management more efficient.
 
-The challenges have been to designing a lightweight yet efficient Java application.
+The challenge has been to designing a lightweight yet efficient Java application.
 So that the software can run on multiple specific hardware systems, including multiple form factor, display sizes and different levels of computing power.
 The application needed to process and transform image data and I implement a rudimental Object Character Recognition (OCR) using the vendor specific and open-source libraries.
 
