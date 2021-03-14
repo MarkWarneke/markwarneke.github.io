@@ -26,7 +26,8 @@ I encountered numerous projects where Azure developers and administrators create
 While bash scripts are great to get things done quickly and the WSL allows Windows users to run and develop shell scripts as well, I always disliked the syntax and unnecessary complication of bash scripting. Including user input, input validation, loops, property access (mostly done using [`jq`](https://stedolan.github.io/jq/)), as well as logging and error handling.
 
 At mature teams, we can find the implementation of [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting like [shellcheck](https://github.com/koalaman/shellcheck), as well as testing to deal with the increasing complexity of the Infrastructure as Code automation over time. 
-I always found those tools in the early stages of the adoption great but leave a lot of maintenance and toil in large-scale environments.
+
+I like adopting those tools in the early stages of the Cloud adoption, but found that they leave a lot legacy and create a highe degree of maintenance and toil in large-scale environments.
 If not worked on constantly the complexity makes it hard to maintain and onboard new users to the codebase.
 
 The `Az.Cli` is a simple solution to this mess as it allows the refactoring of existing shell scripts from the Azure CLI to a Python implementation.
