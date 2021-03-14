@@ -27,12 +27,14 @@ While bash scripts are great to get things done quickly and the WSL allows Windo
 
 At mature teams, we can find the implementation of [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting like [shellcheck](https://github.com/koalaman/shellcheck), as well as testing to deal with the increasing complexity of the Infrastructure as Code automation over time. 
 
-I like adopting those tools in the early stages of the Cloud adoption, but found that they leave a lot legacy and create a highe degree of maintenance and toil in large-scale environments.
+I like to implement these tools in the early stages of Cloud adoption to get things done. 
+However, I found that they leave a lot of legacy behind if the complexity is not fought.
+Poorly written shell scripts create a high degree of maintenance and toil in large-scale environments, in my experience.
 If not worked on constantly the complexity makes it hard to maintain and onboard new users to the codebase.
 
-The `Az.Cli` is a simple solution to this mess as it allows the refactoring of existing shell scripts from the Azure CLI to a Python implementation.
+The `Az.Cli` tries to address this problem by providing a simple solution to this mess, as it allows the refactoring of existing shell scripts from the Azure CLI to an easy-to-read, easy-to-maintain Python implementation.
 
-The move to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that is enabling teams to onboard new team members quickly, as well as increasing the maintainability through native Python capabilities like tracing and debugging.
+Moveing to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that is enabling teams to onboard new team members quicker, as well as increase the maintainability through native Python capabilities like logging, tracing, debugging and unit testing.
 
 As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stays up-to-date.
 
