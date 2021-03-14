@@ -58,7 +58,7 @@ else:
 ## How it works
 
 The package is an easy to use abstraction on top of the Azure CLI implementation.
-The package wraps the [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) interface, and exposes a function execute `az` [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) commands in Python.
+The package wraps the [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) class `AzCLi`, and exposes a function execute `az` [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) commands in Python.
 The package is a Python `azure.cli.core` wrapper to execute Azure CLI commands using Python3
 
 ## Programmatically Setting Azure Config
