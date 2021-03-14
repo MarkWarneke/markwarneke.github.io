@@ -12,12 +12,12 @@ time: 2
 ---
 
 
-`Az.Cli` is an easy-to-use Python interface that lets developers and administrators query Azure resources.
-The Python package is providing a way to interact with Azure using Python while sticking to a well-known concept of the Azure CLI.
+`Az.Cli` is an easy-to-use interface that lets developers and administrators query Azure using Python.
 If you are already familiar with the Azure CLI you should feel right at home using the `Az.Cli` Python package API.
+The interface is providing a way to interact with Azure using the well-known Azure CLI command syntax.
 
 Every command that is available in the Azure CLI can be executed using the function `az("<sub command>")`.
-The function enables Azure developers and administrators to run shell commands like `az group list` inside of Python like `az("group list")`.
+The function enables Azure developers and administrators to run shell like commands like `az group list` inside of Python like `az("group list")`.
 
 ## Why?
 
