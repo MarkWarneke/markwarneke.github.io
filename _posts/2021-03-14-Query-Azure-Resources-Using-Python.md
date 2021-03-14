@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Query Azure Resources using Python
-subtitle: and introduction to the easy to use Az.Cli Python interface
+subtitle: an introduction to the easy to use Az.Cli Python interface
 bigimg:
   - "/img/fPkvU7RDmCo.jpeg": "https://unsplash.com/photos/fPkvU7RDmCo"
 image: "/img/fPkvU7RDmCo.jpeg"
