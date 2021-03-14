@@ -66,7 +66,8 @@ The package is a Python `azure.cli.core` wrapper to execute Azure CLI commands u
 To change the current Azure context, the context in which you are logged in, the CLI relies on stored credentials inside the `~/.azure` folder by default.
 In order to change the execution context you can simply change the environment variable inside of Python.
 
-To try this you can just sign in with different service principals, one way to check it is to perpend `AZURE_CONFIG_DIR` to a bash command.
+To try this you can sign in with different service principals and copy the `~/.azure` folder. 
+One way to validate it is to perpend `AZURE_CONFIG_DIR` in front of an Azure CLI command.
 
 ```bash
 az login
