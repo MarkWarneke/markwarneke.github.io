@@ -14,22 +14,22 @@ time: 2
 
 `Az.Cli` is an easy-to-use Python interface that lets developers and administrators query Azure resources.
 The Python package is providing a way to interact with Azure using Python while sticking to a well-known concept of the Azure CLI.
-If you are already familiar with the Azure CLI you should feel right at home using the `Az.Cli` Python packge API.
+If you are already familiar with the Azure CLI you should feel right at home using the `Az.Cli` Python package API.
 
 Every command that is available in the Azure CLI can be executed using the function `az("<sub command>")`.
 The function enables Azure developers and administrators to run shell commands like `az group list` inside of Python like `az("group list")`.
 
 ## Why?
 
-I encoutered numerous projects where Azure developers and administrators created sophisticated shell scripts that leverages the idempotent functionallity of the Azure CLI to get their work done. While bash scripts are great and WSL allows Windows users to run shell scripts as well, I always disliked the syntax and unnessesariy complication of creating loops, validaiton, and property querying (mostly using [`jq`](https://stedolan.github.io/jq/)) as well as logging and error handling. 
+I encountered numerous projects where Azure developers and administrators created sophisticated shell scripts that leverage the idempotent functionality of the Azure CLI to get their work done. While bash scripts are great and WSL allows Windows users to run shell scripts as well, I always disliked the syntax and unnecessary complication of creating loops, input validation, and property querying (mostly using [`jq`](https://stedolan.github.io/jq/)) as well as logging and error handling.
 
-At mature teams we can find the development of advanced [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting shell scripts like [shellcheck](https://github.com/koalaman/shellcheck), a s well as  testing to deal with the inceasing complexity of the Infrastructre as Code automation. 
-I always found those tools great helpers in early stages of the adoption but leave a lot of maintenance and toil in large scale enviornments.
+At mature teams, we can find the development of advanced [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting shell scripts like [shellcheck](https://github.com/koalaman/shellcheck), as well as testing to deal with the increasing complexity of the Infrastructure as Code automation. 
+I always found those tools great helpers in the early stages of the adoption but leave a lot of maintenance and toil in large-scale environments.
 
-The `Az.Cli` is a simple solution to this mess as it allows the refactoring of exsisting shell scripts from the Azure CLI to a Python implementation.
-The move to Python harnesses the power of a fully fledged object oriented scripting language while sticking to a well-known syntax, that should enable an easy onboarding and maintance.
+The `Az.Cli` is a simple solution to this mess as it allows the refactoring of existing shell scripts from the Azure CLI to a Python implementation.
+The move to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that should enable easy onboarding and maintenance.
 
-As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stayes current.
+As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stays current.
 
 ## How to start
 
