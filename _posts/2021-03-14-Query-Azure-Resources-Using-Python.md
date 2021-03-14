@@ -29,12 +29,13 @@ At mature teams, we can find the implementation of [shell style guides](https://
 
 I like to implement these tools in the early stages of Cloud adoption to get things done. 
 However, I found that they leave a lot of legacy behind if the complexity is not fought.
-Poorly written shell scripts create a high degree of maintenance and toil in large-scale environments, in my experience.
-If not worked on constantly the complexity makes it hard to maintain and onboard new users to the codebase.
+Poorly written shell scripts create a high degree of maintenance work and toil in large-scale environments, in my experience. 
+If not worked on continuously the increasing complexity makes these shell scripts hard to maintain. 
+Onboarding new users to the codebase is often a mess and result in a lot of frustration.
 
 The `Az.Cli` tries to address this problem by providing a simple solution to this mess, as it allows the refactoring of existing shell scripts from the Azure CLI to an easy-to-read, easy-to-maintain Python implementation.
 
-Moveing to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that is enabling teams to onboard new team members quicker, as well as increase the maintainability through native Python capabilities like logging, tracing, debugging and unit testing.
+Moving to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that is enabling teams to onboard new team members quicker, as well as increase the maintainability through native Python capabilities like logging, tracing, debugging and unit testing.
 
 As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stays up-to-date.
 
