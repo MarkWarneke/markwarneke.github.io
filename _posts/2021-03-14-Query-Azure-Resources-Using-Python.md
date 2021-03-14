@@ -12,7 +12,7 @@ time: 2
 ---
 
 
-`Az.Cli` is an easy-to-use #python interface that is intuitive if you are already familiar with the #azure - just run `az("group list")` to query all resource groups after importing the package.
+`Az.Cli` is an easy-to-use Python interface that is intuitive if you are already familiar with the #azure - just run `az("group list")` to query all resource groups after importing the package.
 The interface is providing a way to interact with Azure using Python using a well known standard - the Azure CLI.
 
 Every command that is available in the Azure CLI can be executed using the smaller helper function `az("")`.
