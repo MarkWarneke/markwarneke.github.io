@@ -174,10 +174,13 @@ az("group show -n does-not-exsist")[2]
 
 ## How it works
 
-The package is an easy-to-use abstraction on top of the officiale Microsoft [Azure CLI](https://github.com/Azure/azure-cli).
-The official [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) library is simply wrapped in a funciton to execute Azure CLI commands using Python3.
-The package provides a funciton `az` the is based on the class `AzCLI`.
-It exposes the function to execute `az` commands and returns the results in a structured manner.
+The package is an easy-to-use abstraction on top of the official Microsoft [Azure CLI](https://github.com/Azure/azure-cli).
+The official [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) library is simply wrapped in a function to execute Azure CLI commands using Python3.
+The package provides a function `az`, that is instantiating the library class `AzCLI`.
+It exposes the function to execute `az` which takes the `sub command` of Azure CLI shell command as a string input. 
+
+The invocation of this method returns the results in a structured manner.
+Generating a namedtuple where `namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])`.
 
 It has thus a similar API and usage to the shell version of the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), but commands can be executed within Python, leveraging Pythons full potential. 
 
