@@ -30,10 +30,15 @@ After installing the package you can login using `az login` or [sign in using a 
 Under the hood the package uses the [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to persist and retrieve the current context.
 This is particularly useful if you want to programmatically set the current Azure Configuration, see [programmatically setting the Azure Configuration](#programatically-setting-azure-config).
 
-The method returns a named tuple `AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])`.
- A `result_dict` containing a python dictionary on a successful return.
-The [`error_code`](https://docs.python.org/2/library/sys.html#sys.exit) where `0 == success`.
-On failure (`error_code` > 0) a log message is available in the `log` property as a string.
+The method returns a named tuple that allows you to retrieve the necessary information easily.
+
+```python
+AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])
+```
+
+- The `result_dict` containing a python dictionary on a successful return.
+- The [`error_code`](https://docs.python.org/2/library/sys.html#sys.exit) where `0 == success`.
+- On failure (`error_code` > 0) a log message is available in the `log` property as a string.
 
 ## Example
 
