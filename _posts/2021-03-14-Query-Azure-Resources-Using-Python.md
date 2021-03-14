@@ -13,7 +13,7 @@ time: 2
 
 
 `Az.Cli` is an easy-to-use Python interface that is intuitive if you are already familiar with the Azure CLI - just run `az("group list")` to query all resource groups after importing the installed package.
-The interface is providing a way to interact with Azure using Python while sticking to a well known standard - the Azure CLI.
+The interface is providing a way to interact with Azure using Python while sticking to a well-known standard - the Azure CLI.
 
 Every command that is available in the Azure CLI can be executed using the smaller helper function `az("")`.
 
@@ -26,8 +26,8 @@ python3 -m venv env
 pip install az.cli
 ```
 
-After installing the package you can login using `az login` or [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principalt).
-Under the hood the package uses the [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to persist and retrieve the current context.
+After installing the package just log in using `az login` or [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principalt).
+Under the hood, the package uses the [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to persist and retrieve the current context.
 This is particularly useful if you want to programmatically set the current Azure Configuration, see [programmatically setting the Azure Configuration](#programmatically-setting-the-azure-config).
 
 The method returns a named tuple that allows you to retrieve the necessary information easily.
@@ -57,16 +57,16 @@ else:
 
 ## How it works
 
-The package is an easy to use abstraction on top of the Azure CLI implementation.
+The package is an easy-to-use abstraction on top of the Azure CLI implementation.
 The package wraps the [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) class `AzCLi`, and exposes a function execute `az` [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) commands in Python.
 The package is a Python `azure.cli.core` wrapper to execute Azure CLI commands using Python3
 
 ## Programmatically Setting The Azure Config
 
 To change the current Azure context, the context in which you are logged in, the CLI relies on stored credentials inside the `~/.azure` folder by default.
-In order to change the execution context you can simply change the environment variable inside of Python.
+To change the execution context simply change the environment variable inside of Python.
 
-To try this you can sign in with different service principals and copy the `~/.azure` folder. 
+To try this sign in with different service principals and copy the `~/.azure` folder multiple times.
 One way to validate it is to perpend `AZURE_CONFIG_DIR` in front of an Azure CLI command.
 
 ```bash
