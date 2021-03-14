@@ -30,9 +30,10 @@ I always found those tools in the early stages of the adoption great but leave a
 If not worked on constantly the complexity makes it hard to maintain and onboard new users to the codebase.
 
 The `Az.Cli` is a simple solution to this mess as it allows the refactoring of existing shell scripts from the Azure CLI to a Python implementation.
-The move to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that enables easy onboarding and maintenance and native debugging capabilities.
 
-As the `Az.Cli` relies on the official Python libraries of the Azure CLI, and is thus fully compatible and stays current.
+The move to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that is enabling teams to onboard new team members quickly, as well as increasing the maintainability through native Python capabilities like tracing and debugging.
+
+As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stays up-to-date.
 
 ## How to start
 
