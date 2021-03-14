@@ -12,41 +12,59 @@ time: 2
 ---
 
 
-`Az.Cli` is an easy-to-use Python interface that is intuitive if you are already familiar with the Azure CLI - just run `az("group list")` to query all resource groups after importing the installed package.
-The interface is providing a way to interact with Azure using Python while sticking to a well-known standard - the Azure CLI.
+`Az.Cli` is an easy-to-use Python interface that lets developers and administrators query Azure resources.
+The Python package is providing a way to interact with Azure using Python while sticking to a well-known concept of the Azure CLI.
+If you are already familiar with the Azure CLI you should feel right at home using the `Az.Cli` Python packge API.
 
-Every command that is available in the Azure CLI can be executed using the smaller helper function `az("")`.
+Every command that is available in the Azure CLI can be executed using the function `az("<sub command>")`.
+The function enables Azure developers and administrators to run shell commands like `az group list` inside of Python like `az("group list")`.
+
+## Why?
+
+I encoutered numerous projects where Azure developers and administrators created sophisticated shell scripts that leverages the idempotent functionallity of the Azure CLI to get their work done. While bash scripts are great and WSL allows Windows users to run shell scripts as well, I always disliked the syntax and unnessesariy complication of creating loops, validaiton, and property querying (mostly using [`jq`](https://stedolan.github.io/jq/)) as well as logging and error handling. 
+
+At mature teams we can find the development of advanced [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting shell scripts like [shellcheck](https://github.com/koalaman/shellcheck), a s well as  testing to deal with the inceasing complexity of the Infrastructre as Code automation. 
+I always found those tools great helpers in early stages of the adoption but leave a lot of maintenance and toil in large scale enviornments.
+
+The `Az.Cli` is a simple solution to this mess as it allows the refactoring of exsisting shell scripts from the Azure CLI to a Python implementation.
+The move to Python harnesses the power of a fully fledged object oriented scripting language while sticking to a well-known syntax, that should enable an easy onboarding and maintance.
+
+As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stayes current.
 
 ## How to start
 
-Just visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) and install the package using pip.
+Visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) and install the package using pip.
+A getting started guide is provided in the pypi description or visit [github.com/MarkWarneke/Az.Cli](https://github.com/MarkWarneke/Az.Cli) for more information and help.
 
 ```bash
 python3 -m venv env  
 pip install az.cli
 ```
 
-After installing the package just log in using `az login` or [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principalt).
-Under the hood, the package uses the [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to persist and retrieve the current context.
-This is particularly useful if you want to programmatically set the current Azure Configuration, see [programmatically setting the Azure Configuration](#programmatically-setting-the-azure-config).
+After installing the package log in using `az login` or [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principalt).
+The package uses the stored credentials in [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to retrieve the current context and log-in information.
+This is particularly useful if you want to [programmatically set the current Azure Configuration](#programmatically-setting-the-azure-config), for instance when dealing with multiple Azure tenants.
 
-The method returns a named tuple that allows you to retrieve the necessary information easily.
+The `az` function returns a named tuple that allows you to retrieve the results easily.
 
 ```python
 AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])
 ```
 
-- The `result_dict` containing a python dictionary on a successful return.
 - The [`error_code`](https://docs.python.org/2/library/sys.html#sys.exit) where `0 == success`.
+- The `result_dict` containing a python dictionary on a successful return.
 - On failure (`error_code` > 0) a log message is available in the `log` property as a string.
 
-### ExampleBasally
+
+### Example
+
+The usage of the packe is straight forward, after installing and importing the package.
 
 ```python
 from az.cli import az
 
 # AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])
-exit_code, result_dict, logs = az("group show -n test")
+exit_code, result_dict, logs = az("group list")
 
 # On 0 (SUCCESS) print result_dict, otherwise get info from `logs`
 if exit_code == 0:
@@ -55,39 +73,50 @@ else:
     print(logs)
 ```
 
+... or simply
+
+```python
+az("group list")[0] # error code
+az("group list")[1] # result 
+az("group list")[2] # log messages on failure 
+```
+
 ## How it works
 
-The package is an easy-to-use abstraction on top of the Azure CLI implementation.
-The package wraps the [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) class `AzCLi`, and exposes a function execute `az` [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) commands in Python.
-The package is a Python `azure.cli.core` wrapper to execute Azure CLI commands using Python3
+The package is an easy-to-use abstraction on top of the officiale Microsoft [Azure CLI](https://github.com/Azure/azure-cli).
+The official [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) library is simply wrapped in a funciton to execute Azure CLI commands using Python3.
+The package provides a funciton `az` the is based on the class `AzCLI`.
+It exposes the function to execute `az` commands and returns the results in a structured manner.
+
+It has thus a similar API and usage to the shell version of the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), but commands can be executed within Python, leveraging Pythons full potential. 
 
 ## Programmatically Setting The Azure Config
 
-To change the current Azure context, the context in which you are logged in, the CLI relies on stored credentials inside the `~/.azure` folder by default.
-To change the execution context simply change the environment variable inside of Python.
+To change the Azure context, the "session" in which you are logged in, the package relies on the stored credentials inside the `~/.azure` folder by default.
+In order to change the context a simple change to the environment variable `AZURE_CONFIG_DIR` will point to a new context.
+This can easily be done in Python using the `os.enviorn` interface.
 
-To try this sign in with different service principals and copy the `~/.azure` folder multiple times.
-One way to validate it is to perpend `AZURE_CONFIG_DIR` in front of an Azure CLI command.
+To try this in the shell version of the Azure CLI sign in with different service principals and copy the `~/.azure` folder multiple times.
+One way to validate this functionallity is to perpend `AZURE_CONFIG_DIR` in front of an Azure CLI command.
 
 ```bash
 az login
-
 mv ~/.azure/* ~/.azure-mw
+
 az login --service-principal -u $id -p $p -t $t
 
-# Validate tha it works
+# Validate that it works
 AZURE_CONFIG_DIR=.azure az group list 
 AZURE_CONFIG_DIR=.azure-mw az group list 
 ```
 
-In Python the environment variable can be set using:
+In a Python script the environment variable can be set using:
 
 ```python
-os.environ['AZURE_CONFIG_DIR'] = OTHER_AZURE_CONFIG_DIR
+os.environ['AZURE_CONFIG_DIR'] = "<OTHER AZURE CONFIG DIR>"
 ```
 
-Changing the `AZURE_CONFIG_DIR` environment variables is described in the docs here [CLI environment variables](https://docs.microsoft.com/en-us/cli/azure/use-cli-effectively?view=azure-cli-latest#cli-environment-variables)
-
+Changing the `AZURE_CONFIG_DIR` environment variables is described in the docs to the [Azure CLI environment variables](https://docs.microsoft.com/en-us/cli/azure/use-cli-effectively?view=azure-cli-latest#cli-environment-variables).
 To demonstrate how to change the environment variable programmatically a small example:
 
 ```python
@@ -106,25 +135,37 @@ print (result_dict)
 # [{'id': '/subscriptions/...', 'location': 'westeurope', 'name': 'test2']
 ```
 
-## Interactively querying Azure using Python
+## Interactively Querying Azure Using Python
 
 You can also use the package to interactively query Azure resources using Python.
 
-Just start a new Python prompt `$ python3`
+Just start a new interactive Python prompt `$ python3`
 
 ```python
 from az.cli import az
-# on Success, the `error_code` is 0 and the result_dict contains the output
-az("group list") # list return tuple (exit_code, result_dict, log)
-az("group list")[0] # 0
-az("group list")[1] # print result_dict
-az("group list")[1][0]['id'] # enumerate the id of the first element in dictionary
 
-# On Error, the `error_code` will be != 1 and the log is present
-az("group show -n does-not-exsist") # list return tuple (exit_code, result_dict, log)
-az("group show -n does-not-exsist")[0] # 3
-az("group show -n does-not-exsist")[2] # print the log
+
+ # list return tuple (exit_code, result_dict, log)
+az("group list")
+
+# on Success, the `error_code` is 0 and the result_dict contains the output
+az("group list")[0] 
+
+# print the returned object
+az("group list")[1] 
+
+# enumerate the id of the first element in dictionary
+az("group list")[1][0]['id'] 
+
+
+# On Error, the `error_code` will be != 0 and the log property is returned
+az("group show -n does-not-exsist") 
+
+az("group show -n does-not-exsist")[0] # returns 3
+
+# print the error messagelog
+az("group show -n does-not-exsist")[2] 
 ```
 
 {: .box-warning}
-Visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) and install the package right now to try it yourself!
+Visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) now and install the package to try it yourself!
