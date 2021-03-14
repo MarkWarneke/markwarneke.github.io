@@ -17,7 +17,7 @@ The interface is providing a way to interact with Azure using Python while stick
 
 Every command that is available in the Azure CLI can be executed using the smaller helper function `az("")`.
 
-# How to start
+## How to start
 
 Just visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) and install the package using pip.
 
@@ -40,7 +40,7 @@ AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])
 - The [`error_code`](https://docs.python.org/2/library/sys.html#sys.exit) where `0 == success`.
 - On failure (`error_code` > 0) a log message is available in the `log` property as a string.
 
-## Example
+### ExampleBasally
 
 ```python
 from az.cli import az
@@ -55,9 +55,9 @@ else:
     print(logs)
 ```
 
-# How it works
+## How it works
 
-Basally the package is an easy to use abstraction above the Azure CLI implementation.
+The package is an easy to use abstraction on top of the Azure CLI implementation.
 The package wraps the [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) interface, and exposes a function execute `az` [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) commands in Python.
 The package is a Python `azure.cli.core` wrapper to execute Azure CLI commands using Python3
 
