@@ -21,29 +21,33 @@ The function enables Azure developers and administrators to run shell commands l
 
 ## Why?
 
-I encountered numerous projects where Azure developers and administrators created sophisticated shell scripts that leverage the idempotent functionality of the Azure CLI to get their work done. While bash scripts are great and WSL allows Windows users to run shell scripts as well, I always disliked the syntax and unnecessary complication of creating loops, input validation, and property querying (mostly using [`jq`](https://stedolan.github.io/jq/)) as well as logging and error handling.
+I encountered numerous projects where Azure developers and administrators created sophisticated shell scripts that leverage the idempotent functionality of the Azure CLI to get their work done. 
 
-At mature teams, we can find the development of advanced [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting shell scripts like [shellcheck](https://github.com/koalaman/shellcheck), as well as testing to deal with the increasing complexity of the Infrastructure as Code automation. 
-I always found those tools great helpers in the early stages of the adoption but leave a lot of maintenance and toil in large-scale environments.
+While bash scripts are great to get things done quickly and the WSL allows Windows users to run and develop shell scripts as well, I always disliked the syntax and unnecessary complication of bash scripting. Including user input, input validation, loops, property access (mostly done using [`jq`](https://stedolan.github.io/jq/)), as well as logging and error handling.
+
+At mature teams, we can find the implementation of [shell style guides](https://google.github.io/styleguide/shellguide.html), and the implementation of tools for linting like [shellcheck](https://github.com/koalaman/shellcheck), as well as testing to deal with the increasing complexity of the Infrastructure as Code automation over time. 
+I always found those tools in the early stages of the adoption great but leave a lot of maintenance and toil in large-scale environments.
+If not worked on constantly the complexity makes it hard to maintain and onboard new users to the codebase.
 
 The `Az.Cli` is a simple solution to this mess as it allows the refactoring of existing shell scripts from the Azure CLI to a Python implementation.
-The move to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that should enable easy onboarding and maintenance.
+The move to Python harnesses the power of a fully-fledged object-oriented scripting language with a huge open-source community and wide adoption while sticking to a well-known syntax, that enables easy onboarding and maintenance and native debugging capabilities.
 
-As the `Az.Cli` relies on the official Python libraries of the Azure CLI it is fully compatible and stays current.
+As the `Az.Cli` relies on the official Python libraries of the Azure CLI, and is thus fully compatible and stays current.
 
 ## How to start
 
 Visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) and install the package using pip.
 A getting started guide is provided in the pypi description or visit [github.com/MarkWarneke/Az.Cli](https://github.com/MarkWarneke/Az.Cli) for more information and help.
 
+Install the package
+
 ```bash
-python3 -m venv env  
 pip install az.cli
 ```
 
 After installing the package log in using `az login` or [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principalt).
-The package uses the stored credentials in [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to retrieve the current context and log-in information.
-This is particularly useful if you want to [programmatically set the current Azure Configuration](#programmatically-setting-the-azure-config), for instance when dealing with multiple Azure tenants.
+Under the hood the package uses the [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to persist and retrieve config.
+
 
 The `az` function returns a named tuple that allows you to retrieve the results easily.
 
@@ -54,7 +58,6 @@ AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])
 - The [`error_code`](https://docs.python.org/2/library/sys.html#sys.exit) where `0 == success`.
 - The `result_dict` containing a python dictionary on a successful return.
 - On failure (`error_code` > 0) a log message is available in the `log` property as a string.
-
 
 ### Example
 
@@ -81,23 +84,20 @@ az("group list")[1] # result
 az("group list")[2] # log messages on failure 
 ```
 
-## How it works
-
-The package is an easy-to-use abstraction on top of the officiale Microsoft [Azure CLI](https://github.com/Azure/azure-cli).
-The official [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) library is simply wrapped in a funciton to execute Azure CLI commands using Python3.
-The package provides a funciton `az` the is based on the class `AzCLI`.
-It exposes the function to execute `az` commands and returns the results in a structured manner.
-
-It has thus a similar API and usage to the shell version of the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), but commands can be executed within Python, leveraging Pythons full potential. 
+{: .box-warning}
+Visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) now and install the package to try it yourself!
 
 ## Programmatically Setting The Azure Config
 
 To change the Azure context, the "session" in which you are logged in, the package relies on the stored credentials inside the `~/.azure` folder by default.
-In order to change the context a simple change to the environment variable `AZURE_CONFIG_DIR` will point to a new context.
+This typically limits the context in which an automation script can execute to the saved context. 
+Querying multiple tenants or with different users requires you to sign-in multiple times and switch between the contexts.
+
+To change the credentials a change to the environment variable `AZURE_CONFIG_DIR` will point to a new context.
 This can easily be done in Python using the `os.enviorn` interface.
 
 To try this in the shell version of the Azure CLI sign in with different service principals and copy the `~/.azure` folder multiple times.
-One way to validate this functionallity is to perpend `AZURE_CONFIG_DIR` in front of an Azure CLI command.
+One way to validate this functionality is to perpend `AZURE_CONFIG_DIR` in front of an Azure CLI command.
 
 ```bash
 az login
@@ -166,6 +166,18 @@ az("group show -n does-not-exsist")[0] # returns 3
 # print the error messagelog
 az("group show -n does-not-exsist")[2] 
 ```
+
+## How it works
+
+The package is an easy-to-use abstraction on top of the officiale Microsoft [Azure CLI](https://github.com/Azure/azure-cli).
+The official [azure.cli.core](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/__init__.py) library is simply wrapped in a funciton to execute Azure CLI commands using Python3.
+The package provides a funciton `az` the is based on the class `AzCLI`.
+It exposes the function to execute `az` commands and returns the results in a structured manner.
+
+It has thus a similar API and usage to the shell version of the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), but commands can be executed within Python, leveraging Pythons full potential. 
+
+The package uses the stored credentials in [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to retrieve the current context and log-in information.
+This is particularly useful if you want to [programmatically set the current Azure Configuration](#programmatically-setting-the-azure-config), for instance when dealing with multiple Azure tenants.
 
 {: .box-warning}
 Visit [pypi.org/project/az.cli/](https://pypi.org/project/az.cli/) now and install the package to try it yourself!
