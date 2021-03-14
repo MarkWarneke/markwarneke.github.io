@@ -28,7 +28,7 @@ pip install az.cli
 
 After installing the package you can login using `az login` or [sign in using a service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principalt).
 Under the hood the package uses the [~/.azure](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli-core/azure/cli/core/_environment.py) folder to persist and retrieve the current context.
-This is particularly useful if you happen to programmatically set the Azure Configuration, see [programmatically setting the Azure Configuration](#programatically-setting-azure-config).
+This is particularly useful if you want to programmatically set the current Azure Configuration, see [programmatically setting the Azure Configuration](#programatically-setting-azure-config).
 
 The method returns a named tuple `AzResult = namedtuple('AzResult', ['exit_code', 'result_dict', 'log'])`.
  A `result_dict` containing a python dictionary on a successful return.
