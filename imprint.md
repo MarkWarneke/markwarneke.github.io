@@ -7,10 +7,6 @@ use-site-title: true
 ## Contact
 
 Mark Warneke  
-Unertlstr 24
-80803 Munich
-Germany
-
 warneke.mark@gmail.com
 twitter.com/MarkWarneke
 
