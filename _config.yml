@@ -4,7 +4,7 @@
 title: Mark Warneke
 
 # Short description of your site
-description: " Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
+description: "Personal Blog - Cloud Consulting, DevOps and Software Engineering"
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -20,7 +20,6 @@ url: "https://markwarneke.me"
 
 # List of links in the navigation bar
 navbar-links:
-  About: "about"
   Blog: "blog"
   Talks: "talks"
 
