@@ -6,7 +6,7 @@ bigimg:
   - "/img/fPkvU7RDmCo.jpeg": "https://unsplash.com/photos/fPkvU7RDmCo"
 image: "/img/fPkvU7RDmCo.jpeg"
 share-img: "/img/fPkvU7RDmCo.jpeg"
-tags: [Azure, Draft]
+tags: [Azure]
 comments: true
 time: 2
 ---
