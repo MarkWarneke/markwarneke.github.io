@@ -7,7 +7,7 @@ use-site-title: true
 ## Contact
 
 Mark Warneke  
-warneke.mark@gmail.com
+mark@markwarneke.me
 twitter.com/MarkWarneke
 
 ## Disclaimer
