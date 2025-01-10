@@ -5,5 +5,14 @@ use-site-title: true
 bigimg: /img/contact.jpeg
 ---
 
-<script async src="https://static.mmmint.ai/ib-leimkuehler/dguv-calculator-v1.0.umd.js"></script>
-<dguv-calculator></dguv-calculator>
+<thg-calculator
+  price="100"
+  value="2"
+  input="M1"
+  output="€"
+>
+</thg-calculator>
+<script
+  type="module"
+  src="https://static.mmmint.ai/components/thg-calculator.umd.js">
+</script>
