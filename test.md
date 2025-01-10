@@ -1,6 +1,6 @@
 ---
 layout: page
-title: DGUV Calc
+title: THG calc
 use-site-title: true
 bigimg: /img/contact.jpeg
 ---
