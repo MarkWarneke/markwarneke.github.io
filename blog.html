@@ -30,7 +30,7 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
       {% if post.image %}
       <div class="outer-div card-img-top">
         <a href="{{ post.url | relative_url }}">
-          <img class="inner-div-img" src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" />
+          {% include picture.html src=post.image alt=post.title class="inner-div-img" loading="lazy" %}
         </a>
       </div>
       {% endif %}

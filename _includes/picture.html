@@ -1,0 +1,7 @@
+{% assign img_path = include.src | relative_url %}
+{% assign ext = include.src | split: '.' | last %}
+{% assign webp_path = include.src | replace: ext, 'webp' | relative_url %}
+<picture>
+  <source srcset="{{ webp_path }}" type="image/webp" />
+  <img src="{{ img_path }}" alt="{{ include.alt | default: '' }}" class="{{ include.class | default: '' }}" {% if include.loading %}loading="{{ include.loading }}"{% endif %} />
+</picture>

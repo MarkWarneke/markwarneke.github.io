@@ -47,11 +47,7 @@
     <div class="avatar-container">
       <div class="avatar-img-border">
         <a href="{{ '' | absolute_url }}">
-          <img
-            class="avatar-img"
-            src="{{ site.avatar | relative_url }}"
-            alt="Avatar Picture"
-          />
+{% include picture.html src=site.avatar alt="Avatar Picture" class="avatar-img" %}
         </a>
       </div>
     </div>
