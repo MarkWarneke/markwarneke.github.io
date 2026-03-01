@@ -14,7 +14,7 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
           {% if post.image %}
           <div class="outer-div card-img-top">
             <a href="{{ post.url | relative_url }}">
-              <div class="inner-div" style="background-image: url({{ post.image | relative_url }})" ></div>
+              <img class="inner-div-img" src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" />
             </a>
           </div>
           {% endif %}
@@ -26,7 +26,7 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
               </small>
             </p>
             <a href="{{ post.url | relative_url }}">
-              <h1 class="card-title">{{ post.title }}</h1>
+              <h2 class="card-title">{{ post.title }}</h2>
               {% if post.subtitle %}
                 <h5>{{ post.subtitle }}</h5>
               {% endif %}
