@@ -23,20 +23,12 @@
           </li>
           {%- endfor -%}
         </ul>
-        <p class="copyright text-muted">
-          <a href="{{ '' | absolute_url }}">{{ site.url-pretty }}</a>
-          &copy;
-          {{ site.time | date: '%Y' }}
-
-          <a href="/imprint">- Imprint</a>
-
-          {% if site.matomo %}
-          {% if site.matomo.opt-out %}
-          &nbsp;&bull;&nbsp;
-          <a href="http://{{- site.matomo.uri -}}/index.php?module=CoreAdminHome&action=optOut" target="_blank"
-            class="text_muted">Do-not-Track</a>
-          {% endif %}
-          {% endif%}
+        <p class="copyright text-muted" style="margin-top: 20px;">
+          <a href="{{ '' | absolute_url }}" style="font-weight: 600;">{{ site.title }}</a>
+          &middot;
+          &copy; {{ site.time | date: '%Y' }}
+          &middot;
+          <a href="/imprint">Imprint</a>
         </p>
       </div>
     </div>

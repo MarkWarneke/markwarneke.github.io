@@ -43,8 +43,7 @@ layout: base
           src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{
             gh_repo
           }}&type=star&count=true"
-          frameborder="0"
-          scrolling="0"
+          style="border: 0;"
           width="120px"
           height="20px"
         ></iframe>
@@ -53,8 +52,7 @@ layout: base
           src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{
             gh_repo
           }}&type=watch&v=2&count=true"
-          frameborder="0"
-          scrolling="0"
+          style="border: 0;"
           width="120px"
           height="20px"
         ></iframe>
@@ -63,8 +61,7 @@ layout: base
           src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{
             gh_repo
           }}&type=fork&count=true"
-          frameborder="0"
-          scrolling="0"
+          style="border: 0;"
           width="120px"
           height="20px"
         ></iframe>
@@ -73,8 +70,7 @@ layout: base
           src="https://ghbtns.com/github-btn.html?user={{
             gh_user
           }}&type=follow&count=true"
-          frameborder="0"
-          scrolling="0"
+          style="border: 0;"
           width="220px"
           height="20px"
         ></iframe>
@@ -85,69 +81,42 @@ layout: base
       <article role="main" class="blog-post">{{ content }}</article>
 
       <a
-        href="javascript:void(0);"
+        href="#"
         id="scroll"
         title="Scroll to Top"
         style="display: none"
         >Top<span></span
       ></a>
 
-      <script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script>
-      <!-- SquareAd -->
-      <ins
-        class="adsbygoogle"
-        style="display: block"
-        data-ad-client="ca-pub-1202813824807024"
-        data-ad-slot="3447176874"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      {% if page.tags.size > 0 %}
+      <div class="blog-tags" style="margin: 2em 0; padding-top: 1.5em; border-top: 2px solid var(--color-border-light);">
+        <span style="font-weight: 600; color: var(--color-text-light); margin-right: 4px;">Tags:</span>
+        {% for tag in page.tags %}
+        <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
 
       <ul class="pager blog-pager">
         {% if page.previous.url %}
         <li class="previous">
-          <a
-            href="{{ page.previous.url | relative_url }}"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="{{ page.previous.title }}"
-            >&larr; Previous Post</a
-          >
+          <a href="{{ page.previous.url | relative_url }}" title="{{ page.previous.title }}">
+            &larr; Previous Post
+          </a>
         </li>
-        {% endif %} {% if page.next.url %}
+        {% endif %}
+        {% if page.next.url %}
         <li class="next">
-          <a
-            href="{{ page.next.url | relative_url }}"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="{{ page.next.title }}"
-            >Next Post &rarr;</a
-          >
+          <a href="{{ page.next.url | relative_url }}" title="{{ page.next.title }}">
+            Next Post &rarr;
+          </a>
         </li>
         {% endif %}
       </ul>
 
       {% if page.comments %}
       <div class="disqus-comments">{% include disqus.html %}</div>
-      {% include fb-comment.html %}
-      <div class="staticman-comments">
-        {% include staticman-comments.html %}
-      </div>
-      <div class="justcomments-comments">{% include just_comments.html %}</div>
       {% endif %}
-    </div>
-    <div class="addthis">
-      <!-- Go to www.addthis.com/dashboard to customize your tools -->
-      <script
-        type="text/javascript"
-        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3c6a4a66026c96"
-      ></script>
     </div>
   </div>
 </div>

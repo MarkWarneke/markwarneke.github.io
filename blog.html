@@ -6,26 +6,28 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
 ---
 
 <style>
-  .card-columns {
+  .blog-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 0 15px;
   }
   @media only screen and (min-width: 768px) {
-    .card-columns {
+    .blog-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   @media only screen and (min-width: 1200px) {
-    .card-columns {
+    .blog-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>
-<div class="card-columns">
+
+<div class="blog-grid">
   {% for post in site.posts %}
-    {% if post.tags contains 'draft' %} 
-    {% else %} 
+    {% if post.tags contains 'draft' %}
+    {% else %}
     <div class="card rounded">
       {% if post.image %}
       <div class="outer-div card-img-top">
@@ -34,7 +36,7 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
         </a>
       </div>
       {% endif %}
-      
+
       <div class="card-body">
         <a href="{{ post.url | relative_url }}">
           <h2 class="card-title">{{ post.title }}</h2>
@@ -42,30 +44,21 @@ meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
             <h5>{{ post.subtitle }}</h5>
           {% endif %}
         </a>
-        
-        <p class="card-text" style="text-align: justify;">
-          {{
-            post.excerpt
-              | strip_html
-              | xml_escape
-          }}
-          {% assign excerpt_word_count = post.excerpt | number_of_words %} 
-          {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
-          {% endif %}
+
+        <p class="card-text" style="margin-top: 10px;">
+          {{ post.excerpt | strip_html | xml_escape | truncatewords: 25 }}
         </p>
-        <p class="card-text text-center">
-          <small class="text-muted">
-            <a href="{{ post.url | relative_url }}" class="post-read-more">
-              Read&nbsp;More
-            </a>
-            <span>  
-              &bull; {{ post.date | date: "%-d %B %Y" }}
-            </span>
-            <span> &bull; {{ post.time }} MIN READ </span>
+
+        <div style="margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between;">
+          <a href="{{ post.url | relative_url }}" class="post-read-more">
+            Read&nbsp;More &rarr;
+          </a>
+          <small class="text-muted" style="white-space: nowrap;">
+            {{ post.date | date: "%b %-d, %Y" }}
           </small>
-        </p>
+        </div>
       </div>
     </div>
-    {% endif %} 
+    {% endif %}
   {% endfor %}
 </div>

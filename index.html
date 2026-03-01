@@ -5,73 +5,111 @@ meta-title: "Azure, Automation, Cloud Consulting, DevOps"
 meta-description: "- Personal Blog, Azure, Automation, Cloud Consulting, DevOps"
 ---
 
-<div class="posts-list">
+<style>
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media only screen and (min-width: 768px) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Featured first post spans full width */
+  .posts-grid .card-featured {
+    grid-column: 1 / -1;
+  }
+  @media only screen and (min-width: 768px) {
+    .card-featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+    .card-featured .outer-div {
+      height: 100%;
+      min-height: 300px;
+      border-radius: var(--radius-lg, 16px) 0 0 var(--radius-lg, 16px);
+    }
+    .card-featured .card-img-top {
+      border-radius: var(--radius-lg, 16px) 0 0 var(--radius-lg, 16px);
+    }
+    .card-featured .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px 36px;
+    }
+    .card-featured .card-title {
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    }
+  }
+</style>
+
+<div class="posts-grid">
+  {% assign post_index = 0 %}
   {% for post in paginator.posts %}
     {% if post.tags contains 'draft' %}
     {% else %}
-      <article>
-        <div class="card rounded">
-          {% if post.image %}
-          <div class="outer-div card-img-top">
-            <a href="{{ post.url | relative_url }}">
-              {% include picture.html src=post.image alt=post.title class="inner-div-img" loading="lazy" %}
+      <article class="card rounded {% if post_index == 0 %}card-featured{% endif %}">
+        {% if post.image %}
+        <div class="outer-div card-img-top">
+          <a href="{{ post.url | relative_url }}">
+            {% include picture.html src=post.image alt=post.title class="inner-div-img" loading="lazy" %}
+          </a>
+        </div>
+        {% endif %}
+        <div class="card-body">
+          <p class="card-text" style="margin-bottom: 8px;">
+            <small class="text-muted">
+              {{ post.date | date: "%-d %B %Y" }}
+              <span> &middot; {{ post.time }} min read</span>
+            </small>
+          </p>
+          <a href="{{ post.url | relative_url }}">
+            <h2 class="card-title">{{ post.title }}</h2>
+            {% if post.subtitle %}
+              <p class="card-text" style="color: var(--color-text-light); margin-top: 4px; font-size: 0.95rem;">{{ post.subtitle }}</p>
+            {% endif %}
+          </a>
+          <p class="card-text" style="margin-top: 12px;">
+            {{
+              post.excerpt
+                | strip_html
+                | xml_escape
+                | truncatewords: 30
+            }}
+          </p>
+          {% assign excerpt_word_count = post.excerpt | number_of_words %}
+          {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
+            <a href="{{ post.url | relative_url }}" class="post-read-more" style="margin-top: auto; display: inline-block; padding-top: 8px;">
+              Read&nbsp;More &rarr;
             </a>
+          {% endif %}
+          {% if post.tags.size > 0 and site.link-tags %}
+          <div class="blog-tags" style="margin-top: 12px;">
+            {% for tag in post.tags %}
+            <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{ tag }}</a>
+            {% endfor %}
           </div>
           {% endif %}
-          <div class="card-body">
-            <p class="card-text">
-              <small class="text-muted">
-                {{ post.date | date: "%-d %B %Y" }}
-                <span> - {{ post.time }} MIN READ </span>
-              </small>
-            </p>
-            <a href="{{ post.url | relative_url }}">
-              <h2 class="card-title">{{ post.title }}</h2>
-              {% if post.subtitle %}
-                <h5>{{ post.subtitle }}</h5>
-              {% endif %}
-            </a>
-            <p class="card-text">
-              {{
-                post.excerpt
-                  | strip_html
-                  | xml_escape
-              }}
-              {% assign excerpt_word_count = post.excerpt | number_of_words %} 
-              {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
-                <a href="{{ post.url | relative_url }}" class="post-read-more">
-                  Read&nbsp;More
-                </a>
-              {% endif %}
-            </p>
-          </div>
         </div>
       </article>
+      {% assign post_index = post_index | plus: 1 %}
     {% endif %}
   {% endfor %}
 </div>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Anzeige Small -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1202813824807024" data-ad-slot="5262624338"
-  data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 {% if paginator.total_pages > 1 %}
 <ul class="pager main-pager">
   {% if paginator.previous_page %}
   <li class="previous">
-    <a href="{{ paginator.previous_page_path | relative_url }}"
-      >&larr; Newer Posts</a
-    >
+    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
   </li>
-  {% endif %} {% if paginator.next_page %}
+  {% endif %}
+  {% if paginator.next_page %}
   <li class="next">
-    <a href="{{ paginator.next_page_path | relative_url }}"
-      >Older Posts &rarr;</a
-    >
+    <a href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
   </li>
   {% endif %}
 </ul>
