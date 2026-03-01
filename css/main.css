@@ -1585,3 +1585,238 @@ img::-moz-selection {
 .floating-header-share-fb {
   background: var(--color-dark);
 }
+
+
+/* ========================================
+   HEADER META ROW — tags + share inline
+   ======================================== */
+
+.header-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 16px;
+}
+
+.header-share-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  line-height: 1;
+}
+
+.header-share-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure header text contrast on dark backgrounds */
+.intro-header.big-img .post-heading,
+.intro-header.no-img .post-heading {
+  color: #fff;
+}
+
+.intro-header.big-img .header-share-btn,
+.intro-header.no-img .header-share-btn {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.intro-header.big-img .header-share-btn:hover,
+.intro-header.no-img .header-share-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.intro-header.big-img .blog-tags .post-meta,
+.intro-header.no-img .blog-tags .post-meta {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.intro-header.big-img .blog-tags a,
+.intro-header.no-img .blog-tags a {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.intro-header.big-img .blog-tags a:hover,
+.intro-header.no-img .blog-tags a:hover {
+  background: var(--color-primary-light);
+  color: #fff;
+}
+
+
+/* ========================================
+   POST BODY — Sidebar + Content Grid
+   ======================================== */
+
+.post-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.post-body-inner {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0 24px;
+  align-items: start;
+}
+
+@media only screen and (max-width: 991px) {
+  .post-body-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.post-content-col {
+  min-width: 0;
+}
+
+
+/* ========================================
+   STICKY SHARE SIDEBAR (desktop)
+   ======================================== */
+
+.post-share {
+  position: relative;
+}
+
+.post-share-sticky {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.post-share-label {
+  writing-mode: vertical-lr;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.post-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg-card);
+  color: var(--color-text-light);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none !important;
+  box-shadow: none !important;
+  padding: 0;
+  line-height: 1;
+}
+
+.post-share-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .post-share {
+    display: none;
+  }
+}
+
+
+/* ========================================
+   MOBILE SHARE BAR
+   ======================================== */
+
+.post-share-mobile {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  margin-top: 24px;
+  border-top: 2px solid var(--color-border-light);
+}
+
+.post-share-mobile .post-share-label {
+  writing-mode: horizontal-tb;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.post-share-mobile-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media only screen and (max-width: 991px) {
+  .post-share-mobile {
+    display: flex;
+  }
+}
+
+
+/* ========================================
+   COPY LINK TOAST NOTIFICATION
+   ======================================== */
+
+.copy-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-dark);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
