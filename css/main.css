@@ -428,8 +428,17 @@ footer .footer-links .fa-stack .fa-circle {
   transition: color var(--transition-fast);
 }
 
+footer .footer-links .fa-stack .fa-inverse {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
 footer .footer-links a:hover .fa-stack .fa-circle {
   color: var(--color-primary);
+}
+
+footer .footer-links a:hover .fa-stack .fa-inverse {
+  color: #fff;
 }
 
 
@@ -500,6 +509,16 @@ footer .footer-links a:hover .fa-stack .fa-circle {
   color: #FFF;
   text-shadow: none;
   text-align: center;
+}
+
+.intro-header.big-img .post-heading h1,
+.intro-header.big-img .page-heading h1 {
+  color: #fff;
+}
+
+.intro-header.big-img .post-heading h2,
+.intro-header.big-img .page-heading h2 {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .intro-header .page-heading h1 {
