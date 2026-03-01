@@ -30,63 +30,48 @@ layout: base
 
 {% include header.html type="post" %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="post-body">
+  <div class="post-body-inner">
+    <!-- Sticky share sidebar (desktop) -->
+    <aside class="post-share" id="post-share">
+      <div class="post-share-sticky">
+        <span class="post-share-label">Share</span>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="post-share-btn" title="Share on LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="post-share-btn" title="Share on Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="post-share-btn" title="Share on X">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <button class="post-share-btn" id="copy-link-sidebar" title="Copy link" onclick="copyPostLink()">
+          <i class="fa-solid fa-link"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main content column -->
+    <div class="post-content-col">
       {% if page.gh-repo %} {% assign gh_split = page.gh-repo | split:'/' %} {%
       assign gh_user = gh_split[0] %} {% assign gh_repo = gh_split[1] %}
-
       <div id="header-gh-btns">
         {% if page.gh-badge.size > 0 %} {% for badge in page.gh-badge %} {% case
         badge %} {% when 'star'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{
-            gh_repo
-          }}&type=star&count=true"
-          style="border: 0;"
-          width="120px"
-          height="20px"
-        ></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=star&count=true" style="border: 0;" width="120px" height="20px"></iframe>
         {% when 'watch'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{
-            gh_repo
-          }}&type=watch&v=2&count=true"
-          style="border: 0;"
-          width="120px"
-          height="20px"
-        ></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=watch&v=2&count=true" style="border: 0;" width="120px" height="20px"></iframe>
         {% when 'fork'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{
-            gh_repo
-          }}&type=fork&count=true"
-          style="border: 0;"
-          width="120px"
-          height="20px"
-        ></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&repo={{ gh_repo }}&type=fork&count=true" style="border: 0;" width="120px" height="20px"></iframe>
         {% when 'follow'%}
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user={{
-            gh_user
-          }}&type=follow&count=true"
-          style="border: 0;"
-          width="220px"
-          height="20px"
-        ></iframe>
+        <iframe src="https://ghbtns.com/github-btn.html?user={{ gh_user }}&type=follow&count=true" style="border: 0;" width="220px" height="20px"></iframe>
         {% endcase %} {% endfor %} {% endif %}
       </div>
       {% endif %}
 
       <article role="main" class="blog-post">{{ content }}</article>
 
-      <a
-        href="#"
-        id="scroll"
-        title="Scroll to Top"
-        style="display: none"
-        >Top<span></span
-      ></a>
+      <a href="#" id="scroll" title="Scroll to Top" style="display: none">Top<span></span></a>
 
       {% if page.tags.size > 0 %}
       <div class="blog-tags" style="margin: 2em 0; padding-top: 1.5em; border-top: 2px solid var(--color-border-light);">
@@ -96,6 +81,25 @@ layout: base
         {% endfor %}
       </div>
       {% endif %}
+
+      <!-- Mobile share bar -->
+      <div class="post-share-mobile">
+        <span class="post-share-label">Share:</span>
+        <div class="post-share-mobile-btns">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="post-share-btn" title="Share on LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="post-share-btn" title="Share on Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" class="post-share-btn" title="Share on X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <button class="post-share-btn" title="Copy link" onclick="copyPostLink()">
+            <i class="fa-solid fa-link"></i>
+          </button>
+        </div>
+      </div>
 
       <ul class="pager blog-pager">
         {% if page.previous.url %}
@@ -120,3 +124,31 @@ layout: base
     </div>
   </div>
 </div>
+
+<script>
+function copyPostLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() { showCopyToast(); });
+  } else {
+    var input = document.createElement('input');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    showCopyToast();
+  }
+}
+function showCopyToast() {
+  var toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  toast.textContent = 'Link copied!';
+  document.body.appendChild(toast);
+  requestAnimationFrame(function() { toast.classList.add('show'); });
+  setTimeout(function() {
+    toast.classList.remove('show');
+    setTimeout(function() { toast.remove(); }, 300);
+  }, 2000);
+}
+</script>
