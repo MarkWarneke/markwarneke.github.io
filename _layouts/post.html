@@ -7,9 +7,24 @@ layout: base
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": {{ page.title | jsonify }},
-    "datePublished": {{ page.date  | date_to_xmlschema | jsonify }},
-    "dateModified": {{ page.last_modified_at | default: page.date  | date_to_xmlschema | jsonify}},
-    "image": ["{{ site.url }}{{ page.image | relative_url }}"]
+    "description": {{ page.subtitle | default: page.excerpt | strip_html | truncatewords: 50 | jsonify }},
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+    "image": ["{{ site.url }}{{ page.image | relative_url }}"],
+    "wordCount": {{ page.content | number_of_words | jsonify }},
+    "author": {
+      "@type": "Person",
+      "name": {{ site.author.name | jsonify }},
+      "url": {{ site.url | jsonify }}
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": {{ site.author.name | jsonify }}
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    }
   }
 </script>
 

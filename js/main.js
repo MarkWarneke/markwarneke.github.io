@@ -1,78 +1,79 @@
-// Dean Attali / Beautiful Jekyll 2016
+// Main site JavaScript - vanilla JS (no jQuery dependency)
 
 var main = {
   bigImgEl: null,
   numImgs: null,
 
   init: function () {
+    var navbar = document.querySelector(".navbar");
+    var avatarContainer = document.querySelector(".navbar-custom .avatar-container");
+
     // Shorten the navbar after scrolling a little bit down
-    $(window).scroll(function () {
-      if ($(".navbar").offset().top > 50) {
-        $(".navbar").addClass("top-nav-short");
-        $(".navbar-custom .avatar-container").fadeOut(500);
+    window.addEventListener("scroll", function () {
+      if (navbar && navbar.getBoundingClientRect().top + window.scrollY > 50) {
+        navbar.classList.add("top-nav-short");
+        if (avatarContainer) avatarContainer.style.opacity = "0";
       } else {
-        $(".navbar").removeClass("top-nav-short");
-        $(".navbar-custom .avatar-container").fadeIn(500);
+        navbar.classList.remove("top-nav-short");
+        if (avatarContainer) avatarContainer.style.opacity = "1";
       }
     });
 
     // On mobile, hide the avatar when expanding the navbar menu
-    $("#main-navbar").on("show.bs.collapse", function () {
-      $(".navbar").addClass("top-nav-expanded");
-    });
-    $("#main-navbar").on("hidden.bs.collapse", function () {
-      $(".navbar").removeClass("top-nav-expanded");
-    });
+    var mainNavbar = document.getElementById("main-navbar");
+    if (mainNavbar) {
+      mainNavbar.addEventListener("show.bs.collapse", function () {
+        navbar.classList.add("top-nav-expanded");
+      });
+      mainNavbar.addEventListener("hidden.bs.collapse", function () {
+        navbar.classList.remove("top-nav-expanded");
+      });
 
-    // On mobile, when clicking on a multi-level navbar menu, show the child links
-    $("#main-navbar").on("click", ".navlinks-parent", function (e) {
-      var target = e.target;
-      $.each($(".navlinks-parent"), function (key, value) {
-        if (value == target) {
-          $(value)
-            .parent()
-            .toggleClass("show-children");
-        } else {
-          $(value)
-            .parent()
-            .removeClass("show-children");
+      // On mobile, when clicking on a multi-level navbar menu, show the child links
+      mainNavbar.addEventListener("click", function (e) {
+        if (e.target.classList.contains("navlinks-parent")) {
+          var allParents = document.querySelectorAll(".navlinks-parent");
+          allParents.forEach(function (el) {
+            if (el === e.target) {
+              el.parentElement.classList.toggle("show-children");
+            } else {
+              el.parentElement.classList.remove("show-children");
+            }
+          });
         }
       });
-    });
+    }
 
     // Ensure nested navbar menus are not longer than the menu header
-    var menus = $(".navlinks-container");
+    var menus = document.querySelectorAll(".navlinks-container");
     if (menus.length > 0) {
-      var navbar = $("#main-navbar ul");
-      var fakeMenuHtml =
-        "<li class='fake-menu' style='display:none;'><a></a></li>";
-      navbar.append(fakeMenuHtml);
-      var fakeMenu = $(".fake-menu");
+      var navbarUl = document.querySelector("#main-navbar ul");
+      if (navbarUl) {
+        var fakeMenu = document.createElement("li");
+        fakeMenu.className = "fake-menu";
+        fakeMenu.style.display = "none";
+        fakeMenu.innerHTML = "<a></a>";
+        navbarUl.appendChild(fakeMenu);
 
-      $.each(menus, function (i) {
-        var parent = $(menus[i]).find(".navlinks-parent");
-        var children = $(menus[i]).find(".navlinks-children a");
-        var words = [];
-        $.each(children, function (idx, el) {
-          words = words.concat(
-            $(el)
-            .text()
-            .trim()
-            .split(/\s+/)
-          );
+        menus.forEach(function (menu) {
+          var children = menu.querySelectorAll(".navlinks-children a");
+          var words = [];
+          children.forEach(function (el) {
+            words = words.concat(el.textContent.trim().split(/\s+/));
+          });
+          var maxwidth = 0;
+          words.forEach(function (word) {
+            fakeMenu.innerHTML = "<a>" + word + "</a>";
+            fakeMenu.style.display = "";
+            var width = fakeMenu.offsetWidth;
+            fakeMenu.style.display = "none";
+            if (width > maxwidth) maxwidth = width;
+          });
+          menu.style.minWidth = maxwidth + "px";
         });
-        var maxwidth = 0;
-        $.each(words, function (id, word) {
-          fakeMenu.html("<a>" + word + "</a>");
-          var width = fakeMenu.width();
-          if (width > maxwidth) {
-            maxwidth = width;
-          }
-        });
-        $(menus[i]).css("min-width", maxwidth + "px");
-      });
 
-      fakeMenu.remove();
+        fakeMenu.remove();
+      }
     }
 
     // show the big header image
@@ -80,109 +81,102 @@ var main = {
   },
 
   initImgs: function () {
-    // If the page was large images to randomly select from, choose an image
-    if ($("#header-big-imgs").length > 0) {
-      main.bigImgEl = $("#header-big-imgs");
-      main.numImgs = main.bigImgEl.attr("data-num-img");
+    var el = document.getElementById("header-big-imgs");
+    if (!el) return;
 
-      // 2fc73a3a967e97599c9763d05e564189
-      // set an initial image
+    main.bigImgEl = el;
+    main.numImgs = parseInt(el.getAttribute("data-num-img"), 10);
+
+    var imgInfo = main.getImgInfo();
+    main.setImg(imgInfo.src, imgInfo.desc);
+
+    // For better UX, prefetch the next image
+    var getNextImg = function () {
       var imgInfo = main.getImgInfo();
       var src = imgInfo.src;
       var desc = imgInfo.desc;
-      main.setImg(src, desc);
 
-      // For better UX, prefetch the next image so that it will already be loaded when we want to show it
-      var getNextImg = function () {
-        var imgInfo = main.getImgInfo();
-        var src = imgInfo.src;
-        var desc = imgInfo.desc;
+      var prefetchImg = new Image();
+      prefetchImg.src = src;
 
-        var prefetchImg = new Image();
-        prefetchImg.src = src;
-        // if I want to do something once the image is ready: `prefetchImg.onload = function(){}`
+      setTimeout(function () {
+        var img = document.createElement("div");
+        img.className = "big-img-transition";
+        img.style.backgroundImage = "url(" + src + ")";
+
+        var header = document.querySelector(".intro-header.big-img");
+        if (header) header.prepend(img);
 
         setTimeout(function () {
-          var img = $("<div></div>")
-            .addClass("big-img-transition")
-            .css("background-image", "url(" + src + ")");
-          $(".intro-header.big-img").prepend(img);
-          setTimeout(function () {
-            img.css("opacity", "1");
-          }, 50);
+          img.style.opacity = "1";
+        }, 50);
 
-          // after the animation of fading in the new image is done, prefetch the next one
-          //img.one("transitioned webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-          setTimeout(function () {
-            main.setImg(src, desc);
-            img.remove();
-            getNextImg();
-          }, 1000);
-          //});
-        }, 6000);
-      };
+        setTimeout(function () {
+          main.setImg(src, desc);
+          img.remove();
+          getNextImg();
+        }, 1000);
+      }, 6000);
+    };
 
-      // If there are multiple images, cycle through them
-      if (main.numImgs > 1) {
-        getNextImg();
-      }
+    if (main.numImgs > 1) {
+      getNextImg();
     }
   },
 
   getImgInfo: function () {
     var randNum = Math.floor(Math.random() * main.numImgs + 1);
-    var src = main.bigImgEl.attr("data-img-src-" + randNum);
-    var desc = main.bigImgEl.attr("data-img-desc-" + randNum);
-
-    return {
-      src: src,
-      desc: desc
-    };
+    var src = main.bigImgEl.getAttribute("data-img-src-" + randNum);
+    var desc = main.bigImgEl.getAttribute("data-img-desc-" + randNum);
+    return { src: src, desc: desc };
   },
 
   setImg: function (src, desc) {
-    $(".intro-header.big-img").css("background-image", "url(" + src + ")");
-    if (typeof desc !== typeof undefined && desc !== false) {
-      $(".img-desc")
-        .text(desc)
-        .show();
-    } else {
-      $(".img-desc").hide();
+    var header = document.querySelector(".intro-header.big-img");
+    if (header) header.style.backgroundImage = "url(" + src + ")";
+
+    var imgDesc = document.querySelector(".img-desc");
+    if (imgDesc) {
+      if (desc) {
+        imgDesc.textContent = desc;
+        imgDesc.style.display = "";
+      } else {
+        imgDesc.style.display = "none";
+      }
     }
   }
 };
 
-// 2fc73a3a967e97599c9763d05e564189
-
 document.addEventListener("DOMContentLoaded", main.init);
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function () {
-  myFunction();
-};
-
-function myFunction() {
+// Reading progress bar
+window.addEventListener("scroll", function () {
+  var bar = document.getElementById("myBar");
+  if (!bar) return;
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  bar.style.width = (winScroll / height) * 100 + "%";
+});
 
+// Scroll to top button
+document.addEventListener("DOMContentLoaded", function () {
+  var scrollBtn = document.getElementById("scroll");
+  if (!scrollBtn) return;
 
-$(document).ready(function () {
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $('#scroll').fadeIn();
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      scrollBtn.style.display = "block";
+      scrollBtn.style.opacity = "1";
     } else {
-      $('#scroll').fadeOut();
+      scrollBtn.style.opacity = "0";
+      setTimeout(function () {
+        if (window.scrollY <= 100) scrollBtn.style.display = "none";
+      }, 300);
     }
   });
-  $('#scroll').click(function () {
-    $("html, body").animate({
-      scrollTop: 0
-    }, 600);
-    return false;
+
+  scrollBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });

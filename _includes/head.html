@@ -1,9 +1,17 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#008AFF" />
+  <meta name="color-scheme" content="light" />
 
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{ site.avatar | relative_url }}" />
   <link rel="manifest" href="/manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <title>
     {% if page.use-site-title %}
@@ -32,23 +40,15 @@
   <link rel="stylesheet" href="{{ css | relative_url }}" />
   {% endfor %} {% endif %} {% if layout.common-googlefonts %} {% for font in
   layout.common-googlefonts %}
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ font }}&display=swap" />
   {% endfor %} {% endif %} {% if page.ext-css %} {% for css in page.ext-css %}
   {% include ext-css.html css=css %} {% endfor %} {% endif %} {% if page.css %}
   {% for css in page.css %}
   <link rel="stylesheet" href="{{ css | relative_url }}" />
   {% endfor %} {% endif %} {% if page.googlefonts %} {% for font in
   page.googlefonts %}
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ font }}&display=swap" />
   {% endfor %} {% endif %}
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-1202813824807024",
-      enable_page_level_ads: true
-    });
-  </script>
 
   <!-- Facebook OpenGraph tags -->
   {% if site.fb_app_id %}
