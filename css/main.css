@@ -1675,12 +1675,6 @@ img::-moz-selection {
    POST BODY — Sidebar + Content Grid
    ======================================== */
 
-.post-body {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
 .post-body-inner {
   display: grid;
   grid-template-columns: 60px 1fr;
