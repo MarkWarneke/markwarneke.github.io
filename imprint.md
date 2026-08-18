@@ -8,7 +8,6 @@ use-site-title: true
 
 Mark Warneke  
 mark@markwarneke.me  
-twitter.com/MarkWarneke  
 
 ## Disclaimer
 
